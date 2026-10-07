@@ -28,28 +28,22 @@ export const MAIN_NAV: NavSection[] = [
     },
     items: [
       {
-        title: "Ashmyra AI",
-        href: "/products/ai",
-        description: "Specialized autonomous agents, social intelligence & content workflows.",
-        badge: "Core",
-      },
-      {
         title: "Ashmyra SEO",
         href: "/products/seo",
         description: "Continuous crawler, PageRank rebalancer & GEO answer engine readiness.",
         badge: "GEO",
       },
       {
-        title: "Ashmyra CRM",
-        href: "/products/crm",
-        description: "Contextual task breakdown, dependency routing & predictive pipeline velocity.",
-        badge: "CRM",
-      },
-      {
         title: "Ashmyra HRMS",
         href: "/products/hrms",
         description: "Complete 7-stage employee lifecycle: recruit, onboard, manage, pay, grow.",
         badge: "HRMS",
+      },
+      {
+        title: "Ashmyra CRM",
+        href: "/products/crm",
+        description: "Contextual task breakdown, dependency routing & predictive pipeline velocity.",
+        badge: "CRM",
       },
       {
         title: "Ashmyra Analytics",
@@ -62,6 +56,12 @@ export const MAIN_NAV: NavSection[] = [
         href: "/products/automation",
         description: "Intelligent workflows, event pipelines & enterprise tool orchestration.",
         badge: "Auto",
+      },
+      {
+        title: "Ashmyra Web",
+        href: "/products/web",
+        description: "High-performance edge platforms, interactive design & conversion architecture.",
+        badge: "Web",
       },
     ],
   },

@@ -85,40 +85,26 @@ export default function AshmyraAiPage() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        {/* ── 01. Hero Header with Flanking Chips ─────────────────────── */}
+        {/* ── 01. Hero Header ────────────────────────────────────────── */}
         <div className="relative text-center max-w-4xl mx-auto mb-10">
 
-          {/* Floating Live Telemetry Chip (Left - Desktop) */}
-          <div className="hidden xl:flex absolute -left-36 top-16 items-center gap-3 p-3 rounded-2xl bg-[#080b14]/85 border border-white/10 backdrop-blur-xl shadow-2xl animate-float">
-            <div className="w-9 h-9 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
-              <Cpu className="w-4 h-4" />
+          {/* Unified System Telemetry & Status Badges (Zero Collision on any screen) */}
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono backdrop-blur-sm">
+              <Cpu className="w-3.5 h-3.5 text-indigo-400" />
+              <span>Agentic AI Core OS</span>
             </div>
-            <div className="text-left">
-              <div className="flex items-center gap-1.5">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
-                <span className="text-[11px] font-mono font-bold text-white uppercase">Agent Swarm Active</span>
-              </div>
-              <p className="text-[10px] text-neutral-400 font-mono">14 Specialized Autonomous Workers</p>
-            </div>
-          </div>
 
-          {/* Floating Live Telemetry Chip (Right - Desktop) */}
-          <div className="hidden xl:flex absolute -right-36 top-24 items-center gap-3 p-3 rounded-2xl bg-[#080b14]/85 border border-white/10 backdrop-blur-xl shadow-2xl animate-float [animation-delay:2s]">
-            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-              <ShieldCheck className="w-4 h-4" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300 font-mono backdrop-blur-sm shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
+              <span className="text-white font-semibold">Swarm:</span>
+              <span>14 Active Workers</span>
             </div>
-            <div className="text-left">
-              <div className="flex items-center gap-1.5">
-                <span className="text-[11px] font-mono font-bold text-white uppercase">Deterministic Guard</span>
-              </div>
-              <p className="text-[10px] text-emerald-400 font-mono">100% Policy Clearance Rate</p>
-            </div>
-          </div>
 
-          {/* Top System Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-6 backdrop-blur-sm">
-            <Cpu className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Agentic AI Core Operating System · Enterprise Production Ready</span>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-neutral-300 font-mono backdrop-blur-sm">
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+              <span>Deterministic Guard Enforced</span>
+            </div>
           </div>
 
           {/* Kinetic Headline with Shimmer */}

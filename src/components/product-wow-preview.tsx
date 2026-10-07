@@ -107,6 +107,7 @@ export function ProductWowPreview({
         </div>
 
         {/* Cinematic Canvas Container */}
+        {/* Cinematic Canvas Container — 100% Unobstructed Edge-to-Edge */}
         <div className="relative w-full aspect-[16/9] bg-[#030408] overflow-hidden group">
           <Image
             src={imageSrc}
@@ -114,38 +115,33 @@ export function ProductWowPreview({
             fill
             priority
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.015]"
+            className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.01]"
           />
+        </div>
 
-          {/* Vignette & Contrast Gradients */}
-          <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-[#06080e] via-transparent to-transparent opacity-60" />
-          <div className="absolute inset-0 pointer-events-none border border-white/[0.08] rounded-none" />
-
-          {/* Hover Floating HUD Badge */}
-          <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#080b14]/90 backdrop-blur-xl border border-white/10">
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-neutral-400">
-                  Live System Canvas
-                </span>
-                <span className="text-neutral-600">·</span>
-                <span className="text-xs font-semibold text-white">{productName}</span>
-              </div>
-              <p className="text-xs sm:text-sm text-neutral-300 mt-0.5 line-clamp-1">{productTagline}</p>
-            </div>
-
-            <Link
-              href="/contact?intent=product-demo"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white transition-all hover:scale-105 flex-shrink-0"
-              style={{
-                background: `linear-gradient(135deg, ${accentColor}, #818cf8)`,
-                boxShadow: `0 0 20px -3px ${accentColor}80`,
-              }}
-            >
-              Request Live Demo
-              <ArrowRight className="w-3.5 h-3.5" />
-            </Link>
+        {/* Clean System Sub-Bar (Directly Below Image — Zero Visual Overlap) */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 px-5 sm:px-8 py-3.5 bg-black/60 border-t border-white/[0.08]">
+          <div className="flex items-center gap-2.5 min-w-0">
+            <span className="w-2 h-2 rounded-full animate-pulse flex-shrink-0" style={{ backgroundColor: accentColor }} />
+            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 flex-shrink-0">
+              Live System Canvas:
+            </span>
+            <span className="text-xs text-neutral-200 font-medium truncate">
+              {productTagline}
+            </span>
           </div>
+
+          <Link
+            href="/contact?intent=product-demo"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold text-white transition-all hover:scale-105 flex-shrink-0 self-start sm:self-auto"
+            style={{
+              background: `linear-gradient(135deg, ${accentColor}, #818cf8)`,
+              boxShadow: `0 0 16px -4px ${accentColor}80`,
+            }}
+          >
+            Request Live Demo
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
         {/* Live Telemetry Metric Strip */}

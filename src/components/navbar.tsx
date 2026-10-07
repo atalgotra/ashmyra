@@ -316,7 +316,7 @@ export function Navbar() {
                 const isItemActive =
                   nav.href === "/"
                     ? pathname === "/"
-                    : pathname.startsWith(nav.href.split("#")[0]) && nav.href !== "/";
+                    : !nav.href.includes("#") && pathname === nav.href;
 
                 return (
                   <Link

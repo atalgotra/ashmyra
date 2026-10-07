@@ -24,6 +24,15 @@ export const MAIN_NAV: NavSection[] = [
     href: "/",
   },
   {
+    title: "About Us",
+    href: "/about",
+  },
+  {
+    title: "Our Team",
+    href: "/about#founders",
+    badge: "Leadership",
+  },
+  {
     title: "Products & Services",
     href: "/products",
     featured: {
@@ -110,15 +119,6 @@ export const MAIN_NAV: NavSection[] = [
   {
     title: "Our Work",
     href: "/#capability",
-  },
-  {
-    title: "About Us",
-    href: "/about",
-  },
-  {
-    title: "Our Team",
-    href: "/about#founders",
-    badge: "Leadership",
   },
 ];
 

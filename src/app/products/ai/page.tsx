@@ -51,20 +51,81 @@ export default function AshmyraAiPage() {
   const product = PRODUCTS.find((p) => p.id === "ai")!;
 
   return (
-    <div className="pt-32 pb-24 min-h-screen bg-[#050608]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="relative pt-32 pb-24 min-h-screen bg-[#050608] overflow-hidden">
 
-        {/* ── 01. Hero Header ────────────────────────────────────────── */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-6">
+      {/* ── 00. Atmospheric Ambient Glow & Perspective Radial Grid ───── */}
+      <div className="absolute top-0 left-0 right-0 h-[720px] pointer-events-none overflow-hidden z-0">
+        {/* Subtle dot matrix grid with soft radial mask */}
+        <div 
+          className="absolute inset-0 dot-bg opacity-35" 
+          style={{
+            maskImage: "radial-gradient(ellipse 70% 60% at 50% 25%, #000 30%, transparent 80%)",
+            WebkitMaskImage: "radial-gradient(ellipse 70% 60% at 50% 25%, #000 30%, transparent 80%)",
+          }}
+        />
+        
+        {/* Animated ambient light bloom 1 */}
+        <div
+          className="absolute top-10 left-1/2 -translate-x-1/2 w-[720px] h-[380px] rounded-full animate-pulse-glow"
+          style={{
+            background: "radial-gradient(ellipse at center, rgba(99, 102, 241, 0.22) 0%, rgba(34, 211, 238, 0.12) 40%, transparent 70%)",
+            filter: "blur(80px)",
+          }}
+        />
+
+        {/* Subtle secondary ambient glow */}
+        <div
+          className="absolute top-28 left-1/2 -translate-x-1/2 w-[480px] h-[260px] rounded-full opacity-60"
+          style={{
+            background: "radial-gradient(ellipse at center, rgba(167, 139, 250, 0.18) 0%, transparent 70%)",
+            filter: "blur(60px)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── 01. Hero Header with Flanking Chips ─────────────────────── */}
+        <div className="relative text-center max-w-4xl mx-auto mb-10">
+
+          {/* Floating Live Telemetry Chip (Left - Desktop) */}
+          <div className="hidden xl:flex absolute -left-36 top-16 items-center gap-3 p-3 rounded-2xl bg-[#080b14]/85 border border-white/10 backdrop-blur-xl shadow-2xl animate-float">
+            <div className="w-9 h-9 rounded-xl bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center text-indigo-400">
+              <Cpu className="w-4 h-4" />
+            </div>
+            <div className="text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                <span className="text-[11px] font-mono font-bold text-white uppercase">Agent Swarm Active</span>
+              </div>
+              <p className="text-[10px] text-neutral-400 font-mono">14 Specialized Autonomous Workers</p>
+            </div>
+          </div>
+
+          {/* Floating Live Telemetry Chip (Right - Desktop) */}
+          <div className="hidden xl:flex absolute -right-36 top-24 items-center gap-3 p-3 rounded-2xl bg-[#080b14]/85 border border-white/10 backdrop-blur-xl shadow-2xl animate-float [animation-delay:2s]">
+            <div className="w-9 h-9 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+              <ShieldCheck className="w-4 h-4" />
+            </div>
+            <div className="text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="text-[11px] font-mono font-bold text-white uppercase">Deterministic Guard</span>
+              </div>
+              <p className="text-[10px] text-emerald-400 font-mono">100% Policy Clearance Rate</p>
+            </div>
+          </div>
+
+          {/* Top System Pill */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-6 backdrop-blur-sm">
             <Cpu className="w-3.5 h-3.5 text-indigo-400" />
             <span>Agentic AI Core Operating System · Enterprise Production Ready</span>
           </div>
 
+          {/* Kinetic Headline with Shimmer */}
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] font-sans">
             Software That Doesn&apos;t Just Execute.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-sky-300 to-indigo-200">
+            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-200 to-indigo-400 animate-[shimmer_6s_linear_infinite] bg-[length:200%_auto]">
               It Thinks, Acts and Learns.
             </span>
           </h1>
@@ -73,6 +134,7 @@ export default function AshmyraAiPage() {
             Ashmyra AI transforms static software into proactive, reasoning systems. Using state-of-the-art multi-agent orchestration, it coordinates specialized autonomous workers equipped with deterministic safety guardrails.
           </p>
 
+          {/* Primary Action Buttons */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact?intent=ai-demo"
@@ -88,6 +150,22 @@ export default function AshmyraAiPage() {
               Read Agentic AI Whitepaper
               <ArrowUpRight className="w-4 h-4 text-neutral-400" />
             </Link>
+          </div>
+
+          {/* Micro-Proof Spec Strip Below Buttons */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs text-neutral-400 font-mono">
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+              <Zap className="w-3.5 h-3.5 text-amber-400" />
+              <span>14ms Sandboxed Dispatch</span>
+            </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+              <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+              <span>Zero Hallucination Loops</span>
+            </div>
+            <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
+              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+              <span>Enforced Human-in-the-Loop</span>
+            </div>
           </div>
         </div>
 

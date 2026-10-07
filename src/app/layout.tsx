@@ -76,7 +76,6 @@ export const metadata: Metadata = {
     "Data Intelligence Platform",
     "Real-Time Data Pipelines",
     "HRMS Software India",
-    "Ashish Talgotra",
     "AI Company India",
     "AI Company Delhi NCR",
     "ChatGPT Visible Companies",

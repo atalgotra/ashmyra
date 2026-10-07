@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { 
   Mail, 
@@ -100,7 +101,10 @@ export default function ContactPage() {
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1">Leadership:</span>
-                <span className="text-neutral-300">Ashish Talgotra (MD) &bull; Swati</span>
+                <Link href="/team" className="text-indigo-400 hover:text-indigo-300 transition-colors flex items-center gap-1">
+                  <span>Executive Technical Leadership</span>
+                  <span>&rarr;</span>
+                </Link>
               </div>
             </div>
           </div>

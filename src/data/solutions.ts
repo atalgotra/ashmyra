@@ -109,6 +109,22 @@ export const SOLUTIONS: SolutionItem[] = [
     technology: ["Ashmyra Automation", "Agentic Orchestrator", "Document OCR", "ERP Connectors"],
     operationalBenefit: "Process orders and operational events in milliseconds with zero manual data entry errors.",
   },
+  {
+    id: "sales",
+    category: "role",
+    title: "Sales & Revenue Operations",
+    targetAudience: "CROs, Sales Directors & RevOps Leads",
+    badge: "Revenue Intelligence",
+    problem: "Sales reps spend hours updating CRMs, chasing unqualified leads, and manually compiling proposal documents.",
+    ashmyraSolution: "Ashmyra CRM and sales AI agents automate pipeline enrichment, meeting prep briefs, and proposal drafts directly from real-time customer data.",
+    workflow: [
+      "Real-time prospect intent scoring and CRM auto-population",
+      "Automated proposal drafting and contract review checklists",
+      "AI workload distribution across account executives",
+    ],
+    technology: ["Ashmyra CRM", "Agentic Copilot", "Sales Telemetry", "Proposal Generator"],
+    operationalBenefit: "Cut CRM administration time by 75% and boost lead response velocity to under 5 minutes.",
+  },
 ];
 
 export const INDUSTRIES = [

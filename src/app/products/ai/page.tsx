@@ -130,7 +130,7 @@ export default function AshmyraAiPage() {
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* ── 01. Hero Header ────────────────────────────────────────── */}
-        <div className="relative text-center max-w-4xl mx-auto mb-10">
+        <div className="relative text-center max-w-6xl mx-auto mb-12">
 
           {/* Unified System Telemetry & Status Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">
@@ -161,16 +161,15 @@ export default function AshmyraAiPage() {
             </div>
           </div>
 
-          {/* Kinetic Headline with Shimmer */}
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08] font-sans">
-            Software That Doesn&apos;t Just Execute.
-            <br />
-            <span className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-200 to-indigo-400 animate-[shimmer_6s_linear_infinite] bg-[length:200%_auto]">
-              It Thinks, Creates & Orchestrates.
+          {/* Kinetic Headline with Shimmer - Exactly 2 Balanced Lines */}
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-[66px] xl:text-[72px] font-bold tracking-tight text-white leading-[1.12] font-sans">
+            <span className="block">Software That Doesn&apos;t Just Execute.</span>
+            <span className="block mt-1 sm:mt-2 text-transparent bg-clip-text bg-gradient-to-r from-indigo-300 via-sky-200 to-indigo-400 animate-[shimmer_6s_linear_infinite] bg-[length:200%_auto]">
+              It Thinks, Creates &amp; Orchestrates.
             </span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg lg:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
             Ashmyra AI functions like an elite <strong className="text-white font-semibold">7–8 person human creative agency</strong> operating in an autonomous swarm. From real-time competitor radar and market trend scanning to complete reel scripts, carousels, Midjourney prompts, and 1-click publishing across <strong className="text-white font-semibold">YouTube, Instagram, LinkedIn, and Facebook</strong>.
           </p>
 

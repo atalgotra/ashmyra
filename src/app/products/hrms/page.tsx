@@ -2,6 +2,8 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { PRODUCTS } from "@/data/products";
+import { ProductWowPreview } from "@/components/product-wow-preview";
+import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
 import { DashboardPreviews } from "@/components/dashboard-previews";
 import { 
   Users, 
@@ -17,13 +19,32 @@ import {
   HelpCircle, 
   Laptop, 
   Receipt,
-  UserCheck
+  UserCheck,
+  TrendingUp,
+  ArrowUpRight
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra HRMS | Intelligent Workforce & Payroll Platform",
+  title: "Ashmyra HRMS | Intelligent Workforce & Automated Payroll Platform",
   description:
-    "Complete enterprise workforce suite: Modern ATS, automated onboarding, biometric attendance, statutory payroll, KRA/KPI tracking, and AI HR assistant.",
+    "Complete enterprise workforce operating system: Modern ATS, automated onboarding, biometric attendance, statutory payroll, KRA/KPI tracking, and 24/7 AI HR assistant.",
+  keywords: [
+    "Ashmyra HRMS",
+    "Workforce Intelligence",
+    "Statutory Payroll India",
+    "Biometric Attendance System",
+    "AI HR Platform",
+    "Modern ATS India",
+    "Employee Self Service Portal",
+    "Performance Management KRA",
+  ],
+  openGraph: {
+    title: "Ashmyra HRMS | Complete Workforce Operating System",
+    description:
+      "Unify recruiting, attendance, statutory payroll, appraisals, and employee support in one modern, AI-native workforce interface.",
+    url: "https://ashmyra.com/products/hrms",
+    images: [{ url: "/wow/wow4-intelligent-workforce.png", width: 1200, height: 675, alt: "Ashmyra HRMS Platform Preview" }],
+  },
   alternates: {
     canonical: "https://ashmyra.com/products/hrms",
   },
@@ -46,16 +67,17 @@ export default function AshmyraHrmsPage() {
   ];
 
   return (
-    <div className="pt-32 pb-24 min-h-screen">
+    <div className="pt-32 pb-24 min-h-screen bg-[#050608]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Hero */}
-        <div className="text-center max-w-4xl mx-auto mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300 font-mono mb-6">
+
+        {/* ── 01. Hero Header ────────────────────────────────────────── */}
+        <div className="text-center max-w-4xl mx-auto mb-10">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300 font-mono mb-6">
             <Users className="w-3.5 h-3.5 text-emerald-400" />
-            <span>Complete Workforce Operating System</span>
+            <span>Complete Workforce Operating System · Hire to Retire</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white leading-tight">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
             Your Entire Workforce.
             <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-sky-300 to-emerald-200">
@@ -63,69 +85,100 @@ export default function AshmyraHrmsPage() {
             </span>
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-neutral-300 max-w-3xl mx-auto leading-relaxed">
-            Eliminate disconnected spreadsheets and frustrating legacy HR portals. Ashmyra HRMS unifies recruiting, attendance, payroll, appraisals, and employee support in one modern interface.
+          <p className="mt-6 text-base sm:text-xl text-neutral-300 max-w-3xl mx-auto leading-relaxed">
+            Eliminate disconnected spreadsheets and frustrating legacy HR portals. Ashmyra HRMS unifies recruiting, biometric attendance, statutory payroll, appraisals, and employee self-service in one modern interface.
           </p>
 
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact?intent=hrms-demo"
-              className="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-lg shadow-emerald-600/30 transition-all"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-xl shadow-emerald-600/30 transition-all hover:scale-105 active:scale-95"
             >
               Schedule Live HRMS Walkthrough
+              <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href="/resources/modernizing-workforce-tech-from-spreadsheets-to-ai"
-              className="px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.08] text-neutral-200 text-xs border border-white/[0.08] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] text-neutral-200 text-sm border border-white/[0.1] transition-all"
             >
-              Read Modern HR Blueprint
+              HR Modernization Guide
+              <ArrowUpRight className="w-4 h-4 text-neutral-400" />
             </Link>
           </div>
         </div>
 
-        {/* Complete Employee Lifecycle Banner */}
-        <div className="bg-[#090d16] border border-white/[0.08] rounded-3xl p-6 sm:p-8 mb-20 text-center">
-          <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-4">
-            Unified Employee Lifecycle Coverage
-          </span>
-          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-            {["01 Hire", "02 Onboard", "03 Manage", "04 Develop", "05 Engage", "06 Pay", "07 Offboard"].map((step, idx) => (
-              <div key={idx} className="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] text-xs font-medium text-white">
-                <span className="text-[10px] text-emerald-400 font-mono block mb-1">Stage {idx + 1}</span>
-                {step.substring(3)}
-              </div>
-            ))}
-          </div>
+        {/* ── 02. WOW Visual Showcase ─────────────────────────────────── */}
+        <ProductWowPreview
+          imageSrc="/wow/wow4-intelligent-workforce.png"
+          imageAlt="Ashmyra HRMS Intelligent Workforce Platform"
+          productName="Ashmyra HRMS Workforce Intelligence"
+          productTagline="Complete 7-stage employee lifecycle: recruit, onboard, manage, pay, and grow high-performing teams."
+          accentColor="#10b981"
+          badgeText="Statutory Payroll & Workforce Engine Live"
+          telemetry={[
+            { label: "Payroll Processing", value: "<15 Mins", detail: "Automated tax deductions & one-click direct bank dispatch" },
+            { label: "Attendance Precision", value: "99.9%", detail: "Biometric & geofenced check-in reconciliation" },
+            { label: "Onboarding Cycle", value: "3x Faster", detail: "Self-serve e-KYC, asset routing, and handbook acceptance" },
+            { label: "Deliveries via Freelancer", value: "100+", detail: "Enterprise systems proven in production globally" },
+          ]}
+          capabilities={[
+            {
+              title: "7-Stage Lifecycle Automation",
+              description: "Unified flow from candidate sourcing and digital offer letters to biometric clock-ins, statutory payroll, and annual appraisals.",
+            },
+            {
+              title: "Autonomous Statutory Payroll Engine",
+              description: "Handles PF, ESI, TDS, PT, and gratuity calculations with auto-generated Form 16s and encrypted salary slips.",
+            },
+            {
+              title: "AI HR Copilot & Assistant",
+              description: "24/7 self-service bot answers employee policy questions, handles leave requests, and flags attrition risk patterns.",
+            },
+          ]}
+        />
+
+        {/* ── 03. Freelancer.com 100+ Delivery Proof Banner ─────────────── */}
+        <div className="my-16">
+          <FreelancerTrustBanner category="Enterprise HRMS & Workforce Platforms" />
         </div>
 
-        {/* 12 Detailed Modules Grid */}
+        {/* ── 04. Live Interactive Previews Component ──────────────────── */}
         <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-12">
-            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 block mb-2">
-              Comprehensive Platform
+          <DashboardPreviews />
+        </div>
+
+        {/* ── 05. 12 Comprehensive HR Modules ──────────────────────────── */}
+        <div className="mb-24">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="text-xs font-mono uppercase tracking-wider text-emerald-400 block mb-2 font-semibold">
+              Platform Architecture
             </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              12 Enterprise Workforce Modules
+            <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+              12 Integrated Modules Built for Modern Operations
             </h2>
+            <p className="text-sm text-neutral-400 mt-2">
+              Everything your People Operations and Finance teams need under a single login.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {hrmsModules.map((mod, idx) => {
+            {hrmsModules.map((mod, i) => {
               const Icon = mod.icon;
               return (
                 <div
-                  key={idx}
-                  className="glass-panel rounded-3xl p-6 flex flex-col justify-between space-y-4"
+                  key={i}
+                  className="p-7 rounded-3xl bg-white/[0.02] border border-white/[0.07] hover:border-emerald-500/35 transition-all flex flex-col justify-between hover:bg-white/[0.04]"
                 >
                   <div>
                     <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400 mb-4">
                       <Icon className="w-5 h-5" />
                     </div>
-                    <h3 className="text-base font-bold text-white mb-1.5">{mod.title}</h3>
+                    <h3 className="text-lg font-bold text-white mb-2">{mod.title}</h3>
                     <p className="text-xs text-neutral-400 leading-relaxed">{mod.desc}</p>
                   </div>
-                  <div className="pt-3 border-t border-white/[0.05] text-[10px] font-mono text-emerald-300">
-                    Production Ready &bull; Fully Configurable
+                  <div className="mt-4 pt-3 border-t border-white/[0.05] flex items-center gap-1.5 text-[10px] font-mono text-emerald-300">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    Enterprise Production Ready
                   </div>
                 </div>
               );
@@ -133,35 +186,23 @@ export default function AshmyraHrmsPage() {
           </div>
         </div>
 
-        {/* Interactive Dashboards Showcase */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-10">
-            <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-2">
-              Live Interface Previews
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-bold text-white">
-              Intuitive Dashboards for HR &amp; Employees
-            </h2>
-          </div>
-          <DashboardPreviews />
-        </div>
-
-        {/* Bottom CTA */}
-        <div className="text-center p-10 rounded-3xl bg-emerald-950/20 border border-emerald-500/30">
-          <h3 className="text-2xl font-bold text-white mb-2">
-            Ready to streamline your workforce operations?
+        {/* ── 06. Bottom CTA ──────────────────────────────────────────── */}
+        <div className="text-center p-10 sm:p-14 rounded-3xl bg-emerald-950/20 border border-emerald-500/30">
+          <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
+            Modernize your workforce operations with Ashmyra HRMS
           </h3>
           <p className="text-sm text-neutral-300 max-w-xl mx-auto mb-6">
-            Migrate from disjointed tools to Ashmyra HRMS with automated data import and zero operational downtime.
+            Say goodbye to payroll errors and manual attendance logs. See how Ashmyra HRMS simplifies your daily workflows.
           </p>
           <Link
             href="/contact?intent=hrms"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs shadow-lg shadow-emerald-600/30 transition-all"
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm shadow-xl shadow-emerald-600/30 transition-all hover:scale-105"
           >
-            <span>Request Custom HRMS Demonstration</span>
+            <span>Book Live HRMS Demo</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
+
       </div>
     </div>
   );

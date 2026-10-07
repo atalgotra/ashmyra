@@ -33,9 +33,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra SEO | Real-Time GSC/GA4 Sync, Code-Level Audits & GEO at $0.25/Page USD",
+  title: "Ashmyra SEO | Real-Time GSC/GA4 Sync, Code-Level Audits & GEO at ₹0.25 ($0.0025)/Page",
   description:
-    "First-in-market SEO intelligence connecting directly to GSC & GA4 APIs. Real-time streaming crawler, code-level fixes, keyword cannibalization detection, auto-generated Schema.org JSON-LD, and GEO at just $0.25 USD per page.",
+    "First-in-market SEO intelligence connecting directly to GSC & GA4 APIs. Real-time streaming crawler, code-level fixes, keyword cannibalization detection, auto-generated Schema.org JSON-LD, and GEO at ₹0.25 INR ($0.0025 USD) per page.",
   keywords: [
     "Ashmyra SEO",
     "GSC Direct API SEO",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Ashmyra SEO | Real-Time GSC/GA4 API Sync & GEO Intelligence Platform",
     description:
-      "Full website technical audits with code-level fixes, keyword cannibalization detection, and GEO citation tracking at just $0.25 USD per page. Better than Semrush and Ahrefs.",
+      "Full website technical audits with code-level fixes, keyword cannibalization detection, and GEO citation tracking at just ₹0.25 INR ($0.0025 USD) per page. Better than Semrush and Ahrefs.",
     url: "https://ashmyra.com/products/seo",
     images: [{ url: "/products/seo/seo-geo-studio.jpg", width: 1200, height: 675, alt: "Ashmyra SEO & GEO Intelligence Suite" }],
   },
@@ -113,7 +113,7 @@ export default function AshmyraSeoPage() {
 
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-xs text-amber-300 font-mono backdrop-blur-sm">
               <DollarSign className="w-3.5 h-3.5 text-amber-400" />
-              <span>Just $0.25 USD / Page — Pay As You Go</span>
+              <span>Just ₹0.25 INR ($0.0025 USD) / Page</span>
             </div>
 
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] border border-white/10 text-xs text-neutral-300 font-mono backdrop-blur-sm">
@@ -132,7 +132,7 @@ export default function AshmyraSeoPage() {
 
           {/* Adjusted Paragraph Text */}
           <p className="mt-6 text-base sm:text-lg lg:text-xl text-neutral-300 max-w-4xl mx-auto leading-relaxed">
-            The first unified platform combining <strong className="text-white font-semibold">direct GSC &amp; GA4 API telemetry</strong>, real-time streaming page crawls, automated code-level fixes, keyword cannibalization detection, and Generative Engine Optimization (GEO)—delivered at an industry-disrupting <strong className="text-white font-semibold">$0.25 USD per page</strong>.
+            The first unified platform combining <strong className="text-white font-semibold">direct GSC &amp; GA4 API telemetry</strong>, real-time streaming page crawls, automated code-level fixes, keyword cannibalization detection, and Generative Engine Optimization (GEO)—delivered at an industry-disrupting <strong className="text-white font-semibold">₹0.25 INR ($0.0025 USD) per page</strong>.
           </p>
 
           {/* Action Buttons */}
@@ -141,7 +141,7 @@ export default function AshmyraSeoPage() {
               href="/contact?intent=seo-audit"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-sm shadow-xl shadow-sky-600/30 transition-all hover:scale-[1.03] active:scale-[0.98]"
             >
-              Request Full Audit at $0.25 USD/Page
+              Request Full Audit at ₹0.25 ($0.0025)/Page
               <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
@@ -165,7 +165,7 @@ export default function AshmyraSeoPage() {
             </div>
             <div className="flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.08] backdrop-blur-sm">
               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
-              <span>95% Cheaper than Semrush &amp; Ahrefs</span>
+              <span>₹0.25 / Page ($0.0025) vs $139+/Mo Legacy Tools</span>
             </div>
           </div>
         </div>
@@ -175,11 +175,11 @@ export default function AshmyraSeoPage() {
           imageSrc="/products/seo/seo-geo-studio.jpg"
           imageAlt="Ashmyra SEO & GEO Intelligence Suite"
           productName="Ashmyra SEO & GEO Intelligence Suite"
-          productTagline="Direct GSC/GA4 API sync, live streaming crawler with code-level fixes, cannibalization resolver, and GEO citation radar at $0.25 USD/page."
+          productTagline="Direct GSC/GA4 API sync, live streaming crawler with code-level fixes, cannibalization resolver, and GEO citation radar at ₹0.25 ($0.0025)/page."
           accentColor="#38bdf8"
           badgeText="GSC & GA4 Direct API Connected • 24/7 Live Stream"
           telemetry={[
-            { label: "Cost Advantage", value: "$0.25 / Pg", detail: "Pay-as-you-go flat rate — zero recurring monthly lock-in" },
+            { label: "Cost Advantage", value: "₹0.25 ($0.0025)", detail: "Pay-as-you-go flat rate ($0.0025 USD at 100 INR/USD)" },
             { label: "API Sync Latency", value: "Real-Time", detail: "Direct 2-way Google Search Console and GA4 pipe" },
             { label: "Code Fix Accuracy", value: "100%", detail: "Production-ready HTML, Next.js & Schema.org JSON-LD diffs" },
             { label: "GEO AI Citations", value: "96.4%", detail: "Live citation tracking across ChatGPT, Perplexity & Gemini" },
@@ -516,7 +516,7 @@ export default function AshmyraSeoPage() {
               Ashmyra SEO vs. Semrush, Ahrefs &amp; Screaming Frog
             </h2>
             <p className="text-sm sm:text-base text-neutral-300 mt-2">
-              Why pay $1,500 – $6,000 every year for outdated legacy software when you can get direct Google API accuracy and code-level fixes at just <strong className="text-white">$0.25 per page?</strong>
+              Why pay $1,500 – $6,000 every year for outdated legacy software when you can get direct Google API accuracy and code-level fixes at ₹0.25 INR ($0.0025 USD) per page?
             </p>
           </div>
 
@@ -544,12 +544,12 @@ export default function AshmyraSeoPage() {
                     Pricing &amp; Contract Model
                   </td>
                   <td className="py-4 px-4 bg-sky-950/30 border-x border-sky-500/30 text-emerald-300 font-mono font-bold text-sm">
-                    $0.25 USD / page
-                    <span className="block text-[10px] text-neutral-400 font-normal">Pay-per-crawl &bull; $0 monthly lock-in</span>
+                    ₹0.25 INR ($0.0025 USD) / page
+                    <span className="block text-[10px] text-neutral-400 font-normal">Pay-per-crawl • ₹0 monthly lock-in • 100 INR/USD</span>
                   </td>
                   <td className="py-4 px-4 text-neutral-400 font-mono">
                     $139.95 – $499.95/mo
-                    <span className="block text-[10px] text-neutral-500">(~₹11,600 – ₹41,500/mo)</span>
+                    <span className="block text-[10px] text-neutral-500">(~₹14,000 – ₹50,000/mo)</span>
                   </td>
                   <td className="py-4 px-4 text-neutral-400 font-mono">
                     $129 – $999/mo
@@ -781,7 +781,7 @@ export default function AshmyraSeoPage() {
                   </td>
                   <td className="py-4 px-4 bg-sky-950/30 border-x border-b border-sky-500/30 rounded-b-xl text-sky-300 font-semibold">
                     <span className="flex items-center gap-1.5 text-emerald-400 font-mono">
-                      <Check className="w-4 h-4" /> Included at $0.25 USD/Page
+                      <Check className="w-4 h-4" /> Included at ₹0.25 ($0.0025)/Page
                     </span>
                   </td>
                   <td className="py-4 px-4 text-neutral-400">
@@ -805,17 +805,17 @@ export default function AshmyraSeoPage() {
           <div className="mt-8 p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
               <span className="text-xs font-mono uppercase text-sky-400 block mb-1 font-semibold">
-                Transparent Pay-Per-Page Math:
+                Transparent Pay-Per-Page Math (100 INR = 1 USD):
               </span>
               <p className="text-sm text-neutral-200">
-                A 100-page website audit costs just <strong className="text-white">$25 USD (100 pages × $0.25)</strong> on Ashmyra SEO, compared to paying <strong className="text-red-400">$139.95 USD every single month</strong> on Semrush.
+                A 100-page website audit costs just <strong className="text-white font-semibold">₹25 INR ($0.25 USD)</strong> and a 1,000-page crawl is only <strong className="text-white font-semibold">₹250 INR ($2.50 USD)</strong> on Ashmyra SEO, compared to paying <strong className="text-red-400">$139.95 USD (~₹14,000 INR)</strong> every month on Semrush.
               </p>
             </div>
             <Link
               href="/contact?intent=seo-pricing"
               className="px-6 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs whitespace-nowrap shadow-lg shadow-sky-600/30 transition-all hover:scale-105"
             >
-              Start Auditing at $0.25/Page
+              Start Auditing at ₹0.25 ($0.0025)/Page
             </Link>
           </div>
 
@@ -873,7 +873,7 @@ export default function AshmyraSeoPage() {
               Ready to replace expensive legacy suites with real-time accuracy?
             </h3>
             <p className="text-sm sm:text-base text-neutral-300 max-w-xl mx-auto mb-8 leading-relaxed">
-              Get an instant real-time audit of your domain with direct GSC/GA4 API sync, keyword cannibalization detection, and code-level fixes at just <strong className="text-white">$0.25 USD per page</strong>.
+              Get an instant real-time audit of your domain with direct GSC/GA4 API sync, keyword cannibalization detection, and code-level fixes at just ₹0.25 INR ($0.0025 USD) per page.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-4">
               <Link

@@ -168,7 +168,21 @@ export function WowShowcasePhase6() {
     return () => window.removeEventListener("keydown", onKey);
   }, [current, goTo]);
 
-
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      const match = hash.match(/#wow-(\d+)/);
+      if (match) {
+        const slideIdx = parseInt(match[1], 10) - 1;
+        if (slideIdx >= 0 && slideIdx < SLIDES.length) {
+          goTo(slideIdx);
+        }
+      }
+    };
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, [goTo]);
 
   return (
     <section
@@ -190,6 +204,16 @@ export function WowShowcasePhase6() {
         setTouchStart(null);
       }}
     >
+      {/* Anchor targets for direct deep-linking and browser navigation */}
+      <div id="systems" className="sr-only" aria-hidden="true" />
+      <div id="agentic-brain" className="sr-only" aria-hidden="true" />
+      <div id="wow-1" className="sr-only" aria-hidden="true" />
+      <div id="wow-2" className="sr-only" aria-hidden="true" />
+      <div id="wow-3" className="sr-only" aria-hidden="true" />
+      <div id="wow-4" className="sr-only" aria-hidden="true" />
+      <div id="wow-5" className="sr-only" aria-hidden="true" />
+      <div id="wow-6" className="sr-only" aria-hidden="true" />
+
       {/* ── Section Header with Active Slide Info ─────────────────────────── */}
       <div className="relative z-20 px-6 sm:px-10 lg:px-16 pb-6 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">

@@ -45,6 +45,7 @@ export function PeopleSection() {
       className="relative bg-[#030406] overflow-hidden"
       style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
     >
+      <div id="founders" className="sr-only" aria-hidden="true" />
       {/* ── Background Atmosphere & Ambient Light Blooms ─────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute inset-0 dot-bg opacity-30" />

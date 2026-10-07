@@ -35,16 +35,15 @@ export function Navbar() {
 
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
-    switch (title) {
-      case "Ashmyra AI":         return <Cpu       className={cls} style={{ color: "#818cf8" }} />;
-      case "Ashmyra SEO":        return <Search    className={cls} style={{ color: "#22d3ee" }} />;
-      case "Ashmyra HRMS":       return <Users     className={cls} style={{ color: "#10b981" }} />;
-      case "Ashmyra Automation": return <Zap       className={cls} style={{ color: "#fbbf24" }} />;
-      case "Ashmyra Analytics":  return <BarChart3 className={cls} style={{ color: "#a78bfa" }} />;
-      case "Ashmyra CRM":        return <Target    className={cls} style={{ color: "#f43f5e" }} />;
-      case "Ashmyra Web":        return <Globe     className={cls} style={{ color: "#38bdf8" }} />;
-      default:                   return <Sparkles  className={cls} style={{ color: "#818cf8" }} />;
-    }
+    const t = title.toLowerCase();
+    if (t.includes("ai") && !t.includes("seo") && !t.includes("hrms")) return <Cpu className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("seo") || t.includes("search") || t.includes("geo")) return <Search className={cls} style={{ color: "#22d3ee" }} />;
+    if (t.includes("hrms") || t.includes("workforce") || t.includes("human")) return <Users className={cls} style={{ color: "#10b981" }} />;
+    if (t.includes("crm") || t.includes("project") || t.includes("target")) return <Target className={cls} style={{ color: "#f43f5e" }} />;
+    if (t.includes("analytics") || t.includes("data")) return <BarChart3 className={cls} style={{ color: "#a78bfa" }} />;
+    if (t.includes("automation") || t.includes("communication")) return <Zap className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("web") || t.includes("platform")) return <Globe className={cls} style={{ color: "#38bdf8" }} />;
+    return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
   };
 
   return (
@@ -134,10 +133,11 @@ export function Navbar() {
                             {nav.featured && (
                               <Link
                                 href={nav.featured.href}
+                                onClick={() => setActiveDD(null)}
                                 className="block p-3 rounded-xl mb-3 group/feat transition-all duration-200 hover:scale-[1.01]"
                                 style={{
-                                  background: "linear-gradient(135deg, rgba(99,102,241,0.18), rgba(139,92,246,0.1))",
-                                  border: "1px solid rgba(99,102,241,0.3)",
+                                   background: "linear-gradient(135deg, rgba(99,102,241,0.18), rgba(139,92,246,0.1))",
+                                   border: "1px solid rgba(99,102,241,0.3)",
                                 }}
                               >
                                 <div className="flex items-center gap-2 mb-0.5">
@@ -153,6 +153,7 @@ export function Navbar() {
                                 <Link
                                   key={item.title}
                                   href={item.href}
+                                  onClick={() => setActiveDD(null)}
                                   className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.07] transition-all group/item"
                                 >
                                   <div
@@ -191,6 +192,7 @@ export function Navbar() {
                   <Link
                     key={nav.title}
                     href={nav.href}
+                    onClick={() => setActiveDD(null)}
                     className={`px-4 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
                       isActive ? "text-white bg-white/[0.1]" : "text-neutral-200 hover:text-white hover:bg-white/[0.06]"
                     }`}
@@ -247,6 +249,7 @@ export function Navbar() {
               <div key={nav.title}>
                 <Link
                   href={nav.href}
+                  onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-medium text-white hover:bg-white/[0.05] transition-colors"
                 >
                   {nav.title}
@@ -262,7 +265,8 @@ export function Navbar() {
                       <Link
                         key={sub.title}
                         href={sub.href}
-                        className="block px-4 py-2 text-sm text-neutral-500 hover:text-indigo-300 transition-colors rounded-lg"
+                        onClick={() => setMobileOpen(false)}
+                        className="block px-4 py-2 text-sm text-neutral-400 hover:text-indigo-300 transition-colors rounded-lg"
                       >
                         {sub.title}
                       </Link>
@@ -275,6 +279,7 @@ export function Navbar() {
           <div className="px-6 pb-10">
             <Link
               href="/contact"
+              onClick={() => setMobileOpen(false)}
               className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-2xl text-base font-semibold text-white"
               style={{ background: "linear-gradient(135deg, #6366f1, #818cf8)", boxShadow: "0 8px 32px -8px rgba(99,102,241,0.6)" }}
             >

@@ -20,48 +20,48 @@ export interface NavSection {
 export const MAIN_NAV: NavSection[] = [
   {
     title: "Products",
-    href: "/#systems",
+    href: "/products",
     featured: {
       title: "Ashmyra Agentic Brain",
       desc: "Unified AI-native operating system for modern business operations.",
-      href: "/#agentic-brain",
+      href: "/products/ai",
     },
     items: [
       {
-        title: "Agentic AI",
-        href: "/#wow-1",
+        title: "Ashmyra AI",
+        href: "/products/ai",
         description: "Specialized autonomous agents, social intelligence & content workflows.",
-        badge: "WOW 1",
+        badge: "Core",
       },
       {
-        title: "SEO Intelligence",
-        href: "/#wow-2",
-        description: "Continuous crawler, PageRank rebalancer & code patch generation.",
-        badge: "WOW 2",
+        title: "Ashmyra SEO",
+        href: "/products/seo",
+        description: "Continuous crawler, PageRank rebalancer & GEO answer engine readiness.",
+        badge: "GEO",
       },
       {
-        title: "AI Project Management",
-        href: "/#wow-3",
-        description: "Contextual task breakdown, dependency routing & predictive velocity.",
-        badge: "WOW 3",
+        title: "Ashmyra CRM",
+        href: "/products/crm",
+        description: "Contextual task breakdown, dependency routing & predictive pipeline velocity.",
+        badge: "CRM",
       },
       {
-        title: "Intelligent Workforce",
-        href: "/#wow-4",
+        title: "Ashmyra HRMS",
+        href: "/products/hrms",
         description: "Complete 7-stage employee lifecycle: recruit, onboard, manage, pay, grow.",
-        badge: "WOW 4",
+        badge: "HRMS",
       },
       {
-        title: "Data Intelligence",
-        href: "/#wow-5",
-        description: "Multi-source scraping, cleaning, enrichment & lead scoring.",
-        badge: "WOW 5",
+        title: "Ashmyra Analytics",
+        href: "/products/analytics",
+        description: "Multi-source scraping, cleaning, enrichment & real-time telemetry.",
+        badge: "Data",
       },
       {
-        title: "Workplace Communication",
-        href: "/#wow-6",
-        description: "Intelligent chat, calling, screen sharing & in-stream task creation.",
-        badge: "WOW 6",
+        title: "Ashmyra Automation",
+        href: "/products/automation",
+        description: "Intelligent workflows, event pipelines & enterprise tool orchestration.",
+        badge: "Auto",
       },
     ],
   },
@@ -88,7 +88,7 @@ export const MAIN_NAV: NavSection[] = [
   },
   {
     title: "AI",
-    href: "/#agentic-brain",
+    href: "/products/ai",
     badge: "Core",
   },
   {
@@ -114,12 +114,12 @@ export const MAIN_NAV: NavSection[] = [
   },
   {
     title: "Work",
-    href: "/#wow-7",
-    badge: "Playground",
+    href: "/#capability",
+    badge: "Selected",
   },
   {
     title: "Company",
-    href: "/#founders",
+    href: "/about",
   },
 ];
 
@@ -168,6 +168,6 @@ export const FOOTER_LINKS = {
     { name: "Privacy Policy", href: "/legal/privacy" },
     { name: "Terms of Service", href: "/legal/terms" },
     { name: "Cookie Preferences", href: "/legal/privacy#cookies" },
-    { name: "Security Architecture", href: "/about#security" },
+    { name: "Security Architecture", href: "/legal/security" },
   ],
 };

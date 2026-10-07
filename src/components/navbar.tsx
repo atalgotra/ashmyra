@@ -22,12 +22,14 @@ import {
   Bot,
   ExternalLink,
   ShieldCheck,
+  Layers,
 } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -42,7 +44,19 @@ export function Navbar() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setActiveDD(null);
+    setMobileProductsOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
 
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
@@ -372,99 +386,193 @@ export function Navbar() {
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-40 flex flex-col pt-[70px]"
+          className="lg:hidden fixed inset-0 z-40 flex flex-col pt-[72px]"
           style={{
             background: "rgba(5, 6, 8, 0.98)",
             backdropFilter: "blur(24px)",
+            WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          <nav className="flex-1 overflow-y-auto px-6 py-6 space-y-2">
-            {MAIN_NAV.map((nav) => {
-              if (nav.items) {
-                return (
-                  <div key={nav.title} className="pb-3 border-b border-white/[0.06]">
-                    <div className="px-3 py-2 text-xs font-mono uppercase text-amber-400 font-bold tracking-wider">
-                      {nav.title}
+          {/* Ambient Lighting Blooms */}
+          <div className="absolute top-0 right-0 w-[75vw] h-[260px] pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.18),transparent_70%)]" />
+          <div className="absolute bottom-10 left-0 w-[60vw] h-[220px] pointer-events-none bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.1),transparent_70%)]" />
+
+          <nav className="relative z-10 flex-1 overflow-y-auto px-5 py-5 space-y-2.5">
+            {/* 01: Home */}
+            <Link
+              href="/"
+              onClick={() => setMobileOpen(false)}
+              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
+                pathname === "/"
+                  ? "text-white bg-indigo-500/15 border border-indigo-500/35 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+                  <Sparkles className="w-4 h-4" />
+                </div>
+                <span>Home</span>
+              </div>
+              <span className="text-[11px] text-neutral-500 font-mono">01</span>
+            </Link>
+
+            {/* 02: Our Team */}
+            <Link
+              href="/team"
+              onClick={() => setMobileOpen(false)}
+              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
+                pathname === "/team"
+                  ? "text-white bg-indigo-500/15 border border-indigo-500/35 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
+                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
+                  <Users className="w-4 h-4" />
+                </div>
+                <span>Our Team</span>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                Leadership
+              </span>
+            </Link>
+
+            {/* 03: Our Work */}
+            <Link
+              href="/our-work"
+              onClick={() => setMobileOpen(false)}
+              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
+                pathname === "/our-work"
+                  ? "text-white bg-cyan-500/15 border border-cyan-500/35 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <span>Our Work</span>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                Proof
+              </span>
+            </Link>
+
+            {/* 04: Products & Services Accordion */}
+            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden transition-all">
+              <button
+                type="button"
+                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white hover:bg-white/[0.03] transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
+                    <Bot className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-white">Products &amp; Services</div>
+                    <div className="text-[11px] text-neutral-400 font-mono">10 AI &amp; Enterprise Solutions</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/25">
+                    {mobileProductsOpen ? "Hide" : "Explore"}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-neutral-400 transition-transform duration-300 ${
+                      mobileProductsOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+              </button>
+
+              {mobileProductsOpen && (
+                <div className="px-3 pb-3 pt-1 space-y-3 border-t border-white/[0.06] bg-black/40">
+                  {/* Flagship Products */}
+                  <div>
+                    <div className="text-[10px] font-mono tracking-wider uppercase text-indigo-400 font-semibold px-2 py-1.5 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                      Flagship Products
                     </div>
-
-                    <div className="mt-1 space-y-1 pl-2">
-                      <div className="text-[10px] font-mono text-neutral-500 uppercase px-3 pt-1">
-                        Flagship Products
-                      </div>
-                      {nav.items
-                        .filter((i) => i.category === "product")
-                        .map((sub) => (
+                    <div className="space-y-1">
+                      {MAIN_NAV.find((n) => n.items)?.items
+                        ?.filter((i) => i.category === "product")
+                        .map((prod) => (
                           <Link
-                            key={sub.title}
-                            href={sub.href}
+                            key={prod.title}
+                            href={prod.href}
                             onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between px-3 py-2 text-sm text-neutral-300 hover:text-white hover:bg-white/[0.04] rounded-lg transition-colors"
+                            className="flex items-center justify-between p-2 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.05] transition-all"
                           >
-                            <span>{sub.title}</span>
-                            {sub.badge && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.05] text-neutral-400">
-                                {sub.badge}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-
-                      <div className="text-[10px] font-mono text-neutral-500 uppercase px-3 pt-2">
-                        Engineering Services
-                      </div>
-                      {nav.items
-                        .filter((i) => i.category === "service")
-                        .map((sub) => (
-                          <Link
-                            key={sub.title}
-                            href={sub.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between px-3 py-2 text-sm text-neutral-300 hover:text-white hover:bg-white/[0.04] rounded-lg transition-colors"
-                          >
-                            <span>{sub.title}</span>
-                            {sub.badge && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.05] text-neutral-400">
-                                {sub.badge}
+                            <div className="flex items-center gap-2.5">
+                              {getIcon(prod.title)}
+                              <span className="font-medium text-neutral-200">{prod.title}</span>
+                            </div>
+                            {prod.badge && (
+                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.05] text-neutral-400 border border-white/[0.06]">
+                                {prod.badge}
                               </span>
                             )}
                           </Link>
                         ))}
                     </div>
                   </div>
-                );
-              }
 
-              return (
-                <Link
-                  key={nav.title}
-                  href={nav.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between px-4 py-3 rounded-xl text-base font-semibold text-white hover:bg-white/[0.05] transition-colors"
-                >
-                  <span>{nav.title}</span>
-                  {nav.badge && (
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300">
-                      {nav.badge}
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
+                  {/* Engineering Services */}
+                  <div className="pt-2 border-t border-white/[0.06]">
+                    <div className="text-[10px] font-mono tracking-wider uppercase text-cyan-400 font-semibold px-2 py-1.5 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                      Engineering Services
+                    </div>
+                    <div className="space-y-1">
+                      {MAIN_NAV.find((n) => n.items)?.items
+                        ?.filter((i) => i.category === "service")
+                        .map((svc) => (
+                          <Link
+                            key={svc.title}
+                            href={svc.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between p-2 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.05] transition-all"
+                          >
+                            <div className="flex items-center gap-2.5">
+                              {getIcon(svc.title)}
+                              <span className="font-medium text-neutral-200">{svc.title}</span>
+                            </div>
+                            {svc.badge && (
+                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
+                                {svc.badge}
+                              </span>
+                            )}
+                          </Link>
+                        ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
           </nav>
 
-          <div className="p-6 border-t border-white/[0.08]">
+          {/* Bottom Action Drawer with Safe-Area Padding */}
+          <div className="relative z-10 p-5 border-t border-white/[0.08] bg-[#050608]/95 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-3">
             <Link
               href="/contact"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-2xl text-sm font-semibold text-white"
+              className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-2xl text-sm font-semibold text-white transition-all shadow-[0_8px_32px_-8px_rgba(99,102,241,0.6)]"
               style={{
                 background: "linear-gradient(135deg, #6366f1, #818cf8)",
-                boxShadow: "0 8px 32px -8px rgba(99,102,241,0.6)",
               }}
             >
               <span>Start a Conversation</span>
               <ArrowRight className="w-4 h-4" />
             </Link>
+
+            <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 px-2">
+              <span>Delhi NCR, India</span>
+              <a href="mailto:info@ashmyra.com" className="hover:text-indigo-400 transition-colors">
+                info@ashmyra.com
+              </a>
+            </div>
           </div>
         </div>
       )}

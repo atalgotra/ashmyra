@@ -73,7 +73,7 @@ export function HeroPhase6() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#050608] text-white overflow-hidden flex flex-col justify-center pt-20 sm:pt-24 pb-10"
+      className="relative w-full min-h-[100dvh] bg-[#050608] text-white overflow-hidden flex flex-col justify-center pt-20 sm:pt-24 pb-10"
       style={{ isolation: "isolate" }}
     >
       {/* ── Background atmosphere ──────────────────────────────────────────── */}
@@ -114,12 +114,12 @@ export function HeroPhase6() {
           <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
 
             {/* Headline */}
-            <div ref={headRef} className="mb-5">
-              <div className="text-[10px] font-mono font-semibold tracking-[0.28em] text-indigo-400 uppercase mb-3">
+            <div ref={headRef} className="mb-4 sm:mb-5">
+              <div className="text-[10px] font-mono font-semibold tracking-[0.28em] text-indigo-400 uppercase mb-2 sm:mb-3">
                 WE BUILD
               </div>
               <h1
-                className="text-[2.6rem] sm:text-5xl xl:text-[3.2rem] font-bold tracking-tight leading-[1.06]"
+                className="text-3xl xs:text-4xl sm:text-5xl xl:text-[3.2rem] font-bold tracking-tight leading-[1.08]"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
                 <span className="gradient-text-warm">Intelligent</span>{" "}
@@ -139,13 +139,13 @@ export function HeroPhase6() {
             </div>
 
             {/* Sub-copy */}
-            <p ref={subRef} className="text-sm sm:text-[0.95rem] text-slate-400 leading-relaxed mb-5 font-normal" style={{ maxWidth: "340px" }}>
+            <p ref={subRef} className="text-sm sm:text-[0.95rem] text-slate-400 leading-relaxed mb-5 font-normal max-w-sm sm:max-w-md">
               Autonomous AI agents, intelligent software and data systems
               engineered for real-world execution.
             </p>
 
-            {/* Capability pills — all 3 on one row */}
-            <div ref={pillsRef} className="flex items-center gap-2 mb-6 flex-nowrap">
+            {/* Capability pills — responsive wrap */}
+            <div ref={pillsRef} className="flex flex-wrap sm:flex-nowrap items-center gap-2 mb-6">
               {PILLS.map(({ icon: Icon, label, color }) => (
                 <div
                   key={label}
@@ -157,11 +157,11 @@ export function HeroPhase6() {
               ))}
             </div>
 
-            {/* CTAs — inline, compact */}
-            <div ref={ctaRef} className="flex items-center gap-3 mb-6 flex-nowrap">
+            {/* CTAs — mobile friendly buttons */}
+            <div ref={ctaRef} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6 w-full sm:w-auto">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-3 sm:py-2.5 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap text-center"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                   boxShadow: "0 0 0 1px rgba(99,102,241,0.5), 0 6px 20px -4px rgba(99,102,241,0.5)",
@@ -172,22 +172,19 @@ export function HeroPhase6() {
               </Link>
               <a
                 href="/our-work"
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl font-medium text-sm text-neutral-400 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02] whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3 sm:py-2.5 rounded-xl font-medium text-sm text-neutral-400 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02] whitespace-nowrap text-center"
               >
                 Our Work
               </a>
             </div>
 
-            {/* Stats strip */}
-            <div ref={statsRef} className="flex items-center gap-5 pt-4 border-t border-white/[0.07]">
-              {STATS.map((s, i) => (
-                <React.Fragment key={s.label}>
-                  {i > 0 && <div className="w-px h-6 bg-white/[0.07]" />}
-                  <div>
-                    <div className="text-xl font-bold font-display text-white">{s.value}</div>
-                    <div className="text-[9px] font-mono text-neutral-500 uppercase tracking-wider mt-0.5">{s.label}</div>
-                  </div>
-                </React.Fragment>
+            {/* Stats strip — responsive grid on mobile, flex on desktop */}
+            <div ref={statsRef} className="grid grid-cols-3 gap-2 sm:flex sm:items-center sm:gap-6 pt-4 border-t border-white/[0.07]">
+              {STATS.map((s) => (
+                <div key={s.label} className="text-left">
+                  <div className="text-lg sm:text-xl font-bold font-display text-white">{s.value}</div>
+                  <div className="text-[9px] font-mono text-neutral-500 uppercase tracking-wider mt-0.5 leading-tight">{s.label}</div>
+                </div>
               ))}
             </div>
           </div>

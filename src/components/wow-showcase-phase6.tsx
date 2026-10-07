@@ -310,14 +310,14 @@ export function WowShowcasePhase6() {
         </div>
 
         {/* ── Step dots & Category ──────────────────────────────────────────── */}
-        <div className="flex items-center justify-between pt-4">
-          <div className="flex items-center gap-2">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pt-4">
+          <div className="flex items-center gap-2 overflow-x-auto pb-1 sm:pb-0 scrollbar-none">
             {SLIDES.map((s, i) => (
               <button
                 key={s.id}
                 onClick={() => goTo(i, i > current ? "forward" : "backward")}
                 aria-label={`Slide ${i + 1}`}
-                className="flex items-center gap-1.5 py-1.5 group"
+                className="flex items-center gap-1.5 py-1.5 group shrink-0"
               >
                 <span
                   className="text-[10px] font-mono font-bold transition-colors duration-300"
@@ -338,7 +338,7 @@ export function WowShowcasePhase6() {
 
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: slide.accent }} />
-            <span className="text-xs font-mono text-neutral-400 font-medium tracking-wider uppercase">
+            <span className="text-[11px] sm:text-xs font-mono text-neutral-400 font-medium tracking-wider uppercase truncate">
               {slide.category}
             </span>
           </div>

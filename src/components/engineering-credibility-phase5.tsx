@@ -67,7 +67,7 @@ export function EngineeringCredibilityPhase5() {
   const headlineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(headlineRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

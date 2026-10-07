@@ -24,12 +24,8 @@ export const MAIN_NAV: NavSection[] = [
     href: "/",
   },
   {
-    title: "About Us",
-    href: "/about",
-  },
-  {
     title: "Our Team",
-    href: "/about#founders",
+    href: "/team",
     badge: "Leadership",
   },
   {
@@ -118,7 +114,7 @@ export const MAIN_NAV: NavSection[] = [
   },
   {
     title: "Our Work",
-    href: "/#capability",
+    href: "/our-work",
   },
 ];
 
@@ -149,10 +145,8 @@ export const FOOTER_LINKS = {
     { name: "API & Data Engineering", href: "/services" },
   ],
   company: [
-    { name: "About Ashmyra", href: "/about" },
-    { name: "Our Founders & Leadership", href: "/about#founders" },
-    { name: "Why Ashmyra", href: "/about#why-us" },
-    { name: "Selected Client Work", href: "/#capability" },
+    { name: "Our Team & Leadership", href: "/team" },
+    { name: "Selected Client Work", href: "/our-work" },
     { name: "Contact & Live Demo", href: "/contact" },
   ],
   resources: [

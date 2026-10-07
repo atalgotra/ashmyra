@@ -43,34 +43,10 @@ export function SeoSchema() {
       "Data Pipeline Engineering",
       "SaaS Product Development"
     ],
-    "founders": [
-      {
-        "@type": "Person",
-        "@id": "https://ashmyra.com/#ashish-talgotra",
-        "name": "Ashish Talgotra",
-        "jobTitle": "Founder & Lead AI Architect",
-        "description": "Ashish Talgotra is the Founder and Lead AI Architect of Ashmyra Technologies with 14+ years of experience in applied AI, distributed data systems, and agentic software engineering.",
-        "knowsAbout": [
-          "Agentic AI",
-          "Multi-Agent Systems",
-          "Distributed Data Systems",
-          "LLM Engineering",
-          "Real-Time Data Pipelines",
-          "Enterprise Software Architecture"
-        ],
-        "sameAs": [
-          "https://www.linkedin.com/in/atalgotra/",
-          "https://github.com/atalgotra"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://ashmyra.com/#swati",
-        "name": "Swati",
-        "jobTitle": "Co-Founder & Business Strategy",
-        "description": "Co-Founder of Ashmyra Technologies leading enterprise business development, commercial alliances, and go-to-market strategy."
-      }
-    ],
+    "numberOfEmployees": {
+      "@type": "QuantitativeValue",
+      "value": "11-50"
+    },
     "contactPoint": [
       {
         "@type": "ContactPoint",
@@ -89,8 +65,7 @@ export function SeoSchema() {
       }
     ],
     "sameAs": [
-      "https://www.linkedin.com/in/atalgotra/",
-      "https://github.com/atalgotra"
+      "https://www.linkedin.com/company/ashmyra"
     ],
     "knowsAbout": [
       "Agentic AI Development",
@@ -220,7 +195,7 @@ export function SeoSchema() {
       "@type": "SpeakableSpecification",
       "cssSelector": ["h1", "h2", ".speakable-content"]
     },
-    "description": "Ashmyra Technologies engineers AI agents, agentic automation, enterprise SaaS, HRMS, CRM, and data intelligence platforms. Founded by Ashish Talgotra. Based in Delhi NCR, India.",
+    "description": "Ashmyra Technologies engineers AI agents, agentic automation, enterprise SaaS, HRMS, CRM, and data intelligence platforms. Based in Delhi NCR, India.",
     "inLanguage": "en-US"
   };
 
@@ -233,7 +208,7 @@ export function SeoSchema() {
         "name": "What is Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agentic systems, enterprise software platforms, HRMS solutions, GEO intelligence tools, and real-time data pipelines for enterprises globally. It was founded by Ashish Talgotra and Co-Founder Swati."
+          "text": "Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agentic systems, enterprise software platforms, HRMS solutions, GEO intelligence tools, and real-time data pipelines for enterprises globally."
         }
       },
       {
@@ -241,7 +216,7 @@ export function SeoSchema() {
         "name": "Who founded Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect with 14+ years in applied AI and distributed data systems) and Swati (Co-Founder leading enterprise business strategy and commercial alliances)."
+          "text": "Ashmyra Technologies was founded by engineering practitioners with over a decade of experience building AI architectures, data platforms, and enterprise systems for real-world production environments."
         }
       },
       {
@@ -320,8 +295,8 @@ export function SeoSchema() {
       {
         "@type": "ListItem",
         "position": 4,
-        "name": "About",
-        "item": "https://ashmyra.com/about"
+        "name": "Team",
+        "item": "https://ashmyra.com/team"
       },
       {
         "@type": "ListItem",

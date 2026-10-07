@@ -58,7 +58,7 @@ export function HeroIntelligence() {
   const [activeNode, setActiveNode] = useState<IntelligenceNode | null>(NODES[0]);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Timeline for Intro sequence:
       // 0-1s: mark appears
       // 1-2s: energy data signal begins

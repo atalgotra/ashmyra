@@ -14,7 +14,7 @@ export function PhilosophyBridge() {
   const textRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(textRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,

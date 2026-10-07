@@ -30,7 +30,7 @@ export function Wow2SeoIntelligence() {
   const [activeStage, setActiveStage] = useState(3); // Default to Recommend
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(visualRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

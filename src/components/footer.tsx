@@ -225,20 +225,20 @@ export function Footer() {
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
-                <Link href="#capability" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                <Link href="/our-work" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Selected Work (Proof)</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>
               <li>
-                <Link href="#people" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                <Link href="/team" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Founding Team</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>
               <li>
-                <Link href="https://www.linkedin.com/in/atalgotra/" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>LinkedIn Profile</span>
+                <Link href="https://www.linkedin.com/company/ashmyra" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Company LinkedIn</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>

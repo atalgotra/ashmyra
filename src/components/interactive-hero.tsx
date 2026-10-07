@@ -106,7 +106,7 @@ export function InteractiveHero() {
     const container = containerRef.current;
     if (!container) return;
 
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // 1. Mouse Move Subtle 3D Perspective Tilt
       const handleMouseMove = (e: MouseEvent) => {
         const { clientX, clientY } = e;

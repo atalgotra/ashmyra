@@ -83,7 +83,7 @@ export function Wow1SocialIntelligence() {
   const [activeHotspot, setActiveHotspot] = useState<string>("trend");
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(visualRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

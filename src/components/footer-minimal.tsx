@@ -26,7 +26,7 @@ const NAV = [
   {
     label: "Company",
     links: [
-      { text: "Our Work",  href: "#capability" },
+      { text: "Our Work",  href: "/our-work" },
       { text: "People",   href: "#people" },
       { text: "Contact",  href: "/contact" },
     ],

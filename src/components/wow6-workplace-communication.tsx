@@ -36,7 +36,7 @@ export function Wow6WorkplaceCommunication() {
   const [activeStep, setActiveStep] = useState(2);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(visualRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

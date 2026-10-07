@@ -39,7 +39,7 @@ const WORKFLOW_STEPS = [
     pages: [
       { url: "/home", status: 200, time: "42ms", domSize: "28KB" },
       { url: "/services", status: 200, time: "64ms", domSize: "36KB" },
-      { url: "/about", status: 200, time: "38ms", domSize: "22KB" },
+      { url: "/team", status: 200, time: "38ms", domSize: "22KB" },
       { url: "/blog/seo-audit", status: 200, time: "85ms", domSize: "54KB" },
       { url: "/products/agentic-ai", status: 200, time: "52ms", domSize: "44KB" },
       { url: "/solutions/enterprise", status: 200, time: "60ms", domSize: "39KB" }

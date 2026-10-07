@@ -16,7 +16,7 @@ export function FinalCtaPhase5() {
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(headlineRef.current, {
         scrollTrigger: {
           trigger: containerRef.current,

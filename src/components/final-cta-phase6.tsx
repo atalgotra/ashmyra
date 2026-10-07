@@ -38,42 +38,41 @@ export function FinalCtaPhase6() {
         </svg>
       </div>
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-10 text-center py-20 sm:py-28">
+      <div className="relative z-10 max-w-4xl mx-auto px-6 sm:px-10 text-center py-14 sm:py-20">
 
-        {/* Icon */}
+        {/* Icon — compact */}
         <div
-          className="w-18 h-18 sm:w-20 sm:h-20 mx-auto mb-8 rounded-2xl overflow-hidden p-2 shadow-2xl transition-transform duration-500 hover:scale-105"
+          className="w-12 h-12 mx-auto mb-5 rounded-xl overflow-hidden p-1.5 transition-transform duration-500 hover:scale-105"
           style={{
-            background: "linear-gradient(135deg, rgba(99,102,241,0.25) 0%, rgba(34,211,238,0.15) 100%)",
-            border: "1px solid rgba(99,102,241,0.45)",
-            boxShadow: "0 0 70px -10px rgba(99,102,241,0.5)",
+            background: "linear-gradient(135deg, rgba(99,102,241,0.2) 0%, rgba(34,211,238,0.1) 100%)",
+            border: "1px solid rgba(99,102,241,0.35)",
+            boxShadow: "0 0 40px -8px rgba(99,102,241,0.45)",
           }}
         >
           <Image
             src="/brand/ashmyra-icon.png"
             alt="Ashmyra"
-            width={72}
-            height={72}
-            className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(99,102,241,0.6)]"
+            width={40}
+            height={40}
+            className="w-full h-full object-contain"
           />
         </div>
 
         {/* Label */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs sm:text-sm font-mono font-semibold tracking-wider text-indigo-300 uppercase mb-5">
-          <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono font-semibold tracking-widest text-indigo-300 uppercase mb-4">
+          <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
           <span>Let&apos;s Build Something</span>
         </div>
 
-        {/* Headline — Larger & More Dramatic */}
+        {/* Headline */}
         <h2
-          className="text-5xl sm:text-7xl md:text-8xl font-black text-white tracking-tight leading-[1.02] mb-6"
+          className="text-4xl sm:text-5xl md:text-6xl font-bold text-white tracking-tight leading-[1.05] mb-4"
           style={{ fontFamily: "'Space Grotesk', sans-serif" }}
         >
-          What should we
-          <br />
+          What should we{" "}
           <span
             style={{
-              backgroundImage: "linear-gradient(135deg, #ffffff 0%, #c7d2fe 40%, #818cf8 80%, #22d3ee 100%)",
+              backgroundImage: "linear-gradient(135deg, #c7d2fe 0%, #818cf8 60%, #22d3ee 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -83,56 +82,56 @@ export function FinalCtaPhase6() {
           </span>
         </h2>
 
-        {/* Sub copy — Increased size */}
-        <p className="text-lg sm:text-xl md:text-2xl text-neutral-300 font-sans font-light leading-relaxed max-w-2xl mx-auto mb-10">
+        {/* Sub copy */}
+        <p className="text-sm sm:text-base text-neutral-400 font-sans font-normal leading-relaxed max-w-xl mx-auto mb-8">
           Bring us the problem. We&apos;ll engineer the system that solves it — with intelligence, speed and precision.
         </p>
 
-        {/* CTA action buttons — High visibility, larger text */}
-        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 mb-16">
+        {/* CTA buttons */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
           <Link
             href="/contact"
-            className="group inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-4.5 rounded-2xl font-bold text-base sm:text-lg text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+            className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             style={{
               background: "linear-gradient(135deg, #6366f1, #818cf8)",
-              boxShadow: "0 0 0 1px rgba(99,102,241,0.5), 0 12px 40px -8px rgba(99,102,241,0.6)",
+              boxShadow: "0 0 0 1px rgba(99,102,241,0.45), 0 8px 28px -6px rgba(99,102,241,0.5)",
             }}
           >
-            <MessageSquare className="w-5 h-5" />
+            <MessageSquare className="w-4 h-4" />
             <span>Start a Conversation</span>
-            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
 
           <Link
             href="mailto:info@ashmyra.com"
-            className="inline-flex items-center gap-3 px-7 sm:px-8 py-4 sm:py-4.5 rounded-2xl font-medium text-base sm:text-lg text-neutral-200 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
-            style={{ border: "1px solid rgba(255, 255, 255, 0.15)" }}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-medium text-sm text-neutral-300 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.12)" }}
           >
-            <Mail className="w-5 h-5 text-indigo-400" />
+            <Mail className="w-4 h-4 text-indigo-400" />
             <span>info@ashmyra.com</span>
           </Link>
 
           <a
             href="tel:+919873746467"
-            className="inline-flex items-center gap-3 px-7 sm:px-8 py-4 sm:py-4.5 rounded-2xl font-mono font-medium text-base sm:text-lg text-neutral-200 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
-            style={{ border: "1px solid rgba(255, 255, 255, 0.15)" }}
+            className="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-mono font-medium text-sm text-neutral-300 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
+            style={{ border: "1px solid rgba(255, 255, 255, 0.12)" }}
           >
-            <Phone className="w-5 h-5 text-cyan-400" />
+            <Phone className="w-4 h-4 text-cyan-400" />
             <span>+91-9873746467</span>
           </a>
         </div>
 
-        {/* ── World-Class Large Stats Strip (Significantly Increased Size) ──── */}
-        <div className="pt-12 border-t border-white/[0.08]">
-          <div className="grid grid-cols-3 gap-6 sm:gap-12 max-w-3xl mx-auto divide-x divide-white/[0.08]">
+        {/* Stats strip */}
+        <div className="pt-8 border-t border-white/[0.07]">
+          <div className="grid grid-cols-3 gap-4 sm:gap-8 max-w-2xl mx-auto divide-x divide-white/[0.07]">
             {[
               { val: "100+", label: "Projects Delivered", accent: "#818cf8" },
               { val: "14+",  label: "Years Experience",   accent: "#22d3ee" },
               { val: "∞",    label: "Endless Ambition",   accent: "#c084fc" },
             ].map((item, idx) => (
-              <div key={item.label} className={`text-center ${idx !== 0 ? "pl-4 sm:pl-8" : ""}`}>
+              <div key={item.label} className={`text-center ${idx !== 0 ? "pl-3 sm:pl-6" : ""}`}>
                 <div
-                  className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight mb-2 leading-none"
+                  className="text-2xl sm:text-4xl font-bold tracking-tight mb-1 leading-none"
                   style={{
                     fontFamily: "'Space Grotesk', sans-serif",
                     backgroundImage: `linear-gradient(135deg, #ffffff 0%, #e0e7ff 50%, ${item.accent} 100%)`,
@@ -143,7 +142,7 @@ export function FinalCtaPhase6() {
                 >
                   {item.val}
                 </div>
-                <div className="text-xs sm:text-sm font-mono font-semibold text-neutral-400 uppercase tracking-widest mt-1">
+                <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-0.5">
                   {item.label}
                 </div>
               </div>

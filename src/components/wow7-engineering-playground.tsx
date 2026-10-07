@@ -67,7 +67,7 @@ export function Wow7EngineeringPlayground() {
   const visualRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(visualRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

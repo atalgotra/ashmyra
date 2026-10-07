@@ -40,7 +40,7 @@ export function Wow3ProjectManagement() {
   const [activeTaskCreated, setActiveTaskCreated] = useState(false);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       gsap.from(visualRef.current, {
         scrollTrigger: {
           trigger: sectionRef.current,

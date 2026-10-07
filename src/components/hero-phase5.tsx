@@ -46,7 +46,7 @@ export function HeroPhase5() {
   }, []);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       // Entrance sequence
       gsap.from(headlineRef.current, {
         opacity: 0,

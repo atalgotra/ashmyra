@@ -182,7 +182,7 @@ export function AgenticOrchestrator() {
   }, [selectedAgent]);
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
+    const ctx = gsap.context(() => {
       if (sectionRef.current) {
         gsap.from(".agent-card-item", {
           scrollTrigger: {

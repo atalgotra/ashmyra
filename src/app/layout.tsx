@@ -86,9 +86,7 @@ export const metadata: Metadata = {
     "AI SaaS Platform India",
   ],
   authors: [
-    { name: "Ashmyra Technologies" },
-    { name: "Ashish Talgotra", url: "https://www.linkedin.com/in/atalgotra/" },
-    { name: "Swati" },
+    { name: "Ashmyra Technologies", url: "https://ashmyra.com" },
   ],
   creator: "Ashmyra",
   publisher: "Ashmyra",

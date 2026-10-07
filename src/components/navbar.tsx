@@ -30,12 +30,8 @@ export function Navbar() {
     setActiveDD(null);
   }, [pathname]);
 
-  // Entrance animation
-  useEffect(() => {
-    gsap.from(headerRef.current, {
-      y: -20, opacity: 0, duration: 0.8, ease: "power3.out", delay: 0.1,
-    });
-  }, []);
+  // Navbar stays permanently visible with full opacity at all times
+  // No GSAP opacity animation to prevent React/HMR disappearing header bug
 
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
@@ -58,12 +54,12 @@ export function Navbar() {
         className="fixed top-0 inset-x-0 z-50 transition-all duration-500"
         style={{
           background: scrolled
-            ? "rgba(5, 6, 8, 0.85)"
-            : "transparent",
-          backdropFilter: scrolled ? "blur(24px) saturate(180%)" : "none",
-          WebkitBackdropFilter: scrolled ? "blur(24px) saturate(180%)" : "none",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.07)" : "1px solid transparent",
-          boxShadow: scrolled ? "0 8px 32px -8px rgba(0,0,0,0.6)" : "none",
+            ? "rgba(5, 6, 8, 0.95)"
+            : "rgba(5, 6, 8, 0.88)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.06)",
+          boxShadow: scrolled ? "0 8px 32px -8px rgba(0,0,0,0.7)" : "0 4px 20px -4px rgba(0,0,0,0.4)",
         }}
       >
         <div className="max-w-screen-xl mx-auto px-5 sm:px-8 lg:px-10">
@@ -77,9 +73,9 @@ export function Navbar() {
               <div
                 className="relative w-10 h-10 sm:w-11 sm:h-11 rounded-xl overflow-hidden p-1 transition-all duration-300 group-hover:scale-105"
                 style={{
-                  background: "rgba(99,102,241,0.12)",
-                  border: "1px solid rgba(99,102,241,0.35)",
-                  boxShadow: "0 0 20px rgba(99,102,241,0.2)",
+                  background: "rgba(99,102,241,0.15)",
+                  border: "1px solid rgba(99,102,241,0.4)",
+                  boxShadow: "0 0 20px rgba(99,102,241,0.25)",
                 }}
               >
                 <Image
@@ -95,14 +91,14 @@ export function Navbar() {
                 <span className="text-[18px] sm:text-[20px] font-bold tracking-tight text-white group-hover:text-indigo-200 transition-colors" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
                   ASHMYRA
                 </span>
-                <span className="text-[9px] tracking-[0.22em] text-indigo-400/80 uppercase font-mono mt-0.5">
+                <span className="text-[9px] tracking-[0.22em] text-indigo-400 uppercase font-mono mt-0.5">
                   Technologies
                 </span>
               </div>
             </Link>
 
             {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-0.5">
+            <nav className="hidden lg:flex items-center gap-1">
               {MAIN_NAV.map((nav) => {
                 if (nav.items) {
                   const open = activeDD === nav.title;
@@ -115,24 +111,24 @@ export function Navbar() {
                     >
                       <button
                         onClick={() => setActiveDD(open ? null : nav.title)}
-                        className={`flex items-center gap-1.5 px-4 py-2.5 text-[13px] font-medium rounded-xl transition-all duration-200 ${
-                          open ? "text-white bg-white/[0.07]" : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
+                        className={`flex items-center gap-1.5 px-4 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
+                          open ? "text-white bg-white/[0.1]" : "text-neutral-200 hover:text-white hover:bg-white/[0.06]"
                         }`}
                         aria-expanded={open}
                       >
                         {nav.title}
-                        <ChevronDown className={`w-3.5 h-3.5 text-neutral-500 transition-transform duration-200 ${open ? "rotate-180 text-indigo-400" : ""}`} />
+                        <ChevronDown className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${open ? "rotate-180 text-indigo-400" : ""}`} />
                       </button>
 
                       {open && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[540px] z-50">
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[560px] z-50">
                           <div
                             className="rounded-2xl p-4 shadow-2xl"
                             style={{
-                              background: "rgba(7, 9, 15, 0.96)",
-                              border: "1px solid rgba(255,255,255,0.1)",
-                              backdropFilter: "blur(24px)",
-                              boxShadow: "0 24px 64px -12px rgba(0,0,0,0.8), 0 0 0 1px rgba(99,102,241,0.15)",
+                              background: "#080a12",
+                              border: "1px solid rgba(255,255,255,0.12)",
+                              backdropFilter: "blur(30px)",
+                              boxShadow: "0 24px 64px -12px rgba(0,0,0,0.95), 0 0 0 1px rgba(99,102,241,0.25)",
                             }}
                           >
                             {nav.featured && (
@@ -140,14 +136,14 @@ export function Navbar() {
                                 href={nav.featured.href}
                                 className="block p-3 rounded-xl mb-3 group/feat transition-all duration-200 hover:scale-[1.01]"
                                 style={{
-                                  background: "linear-gradient(135deg, rgba(99,102,241,0.15), rgba(139,92,246,0.08))",
-                                  border: "1px solid rgba(99,102,241,0.25)",
+                                  background: "linear-gradient(135deg, rgba(99,102,241,0.18), rgba(139,92,246,0.1))",
+                                  border: "1px solid rgba(99,102,241,0.3)",
                                 }}
                               >
                                 <div className="flex items-center gap-2 mb-0.5">
                                   <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
                                   <span className="text-xs font-semibold text-white">{nav.featured.title}</span>
-                                  <span className="ml-auto text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 uppercase tracking-wider">Flagship</span>
+                                  <span className="ml-auto text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/25 text-indigo-300 uppercase tracking-wider">Flagship</span>
                                 </div>
                                 <p className="text-[11px] text-neutral-400">{nav.featured.desc}</p>
                               </Link>
@@ -157,11 +153,11 @@ export function Navbar() {
                                 <Link
                                   key={item.title}
                                   href={item.href}
-                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.05] transition-all group/item"
+                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.07] transition-all group/item"
                                 >
                                   <div
                                     className="p-2 rounded-lg mt-0.5 transition-all group-hover/item:scale-110"
-                                    style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)" }}
+                                    style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)" }}
                                   >
                                     {getIcon(item.title)}
                                   </div>
@@ -177,7 +173,7 @@ export function Navbar() {
                                       )}
                                     </div>
                                     {item.description && (
-                                      <p className="text-[11px] text-neutral-500 mt-0.5 line-clamp-1">{item.description}</p>
+                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">{item.description}</p>
                                     )}
                                   </div>
                                 </Link>
@@ -195,8 +191,8 @@ export function Navbar() {
                   <Link
                     key={nav.title}
                     href={nav.href}
-                    className={`px-4 py-2.5 text-[13px] font-medium rounded-xl transition-all duration-200 ${
-                      isActive ? "text-white bg-white/[0.07]" : "text-neutral-400 hover:text-white hover:bg-white/[0.04]"
+                    className={`px-4 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
+                      isActive ? "text-white bg-white/[0.1]" : "text-neutral-200 hover:text-white hover:bg-white/[0.06]"
                     }`}
                   >
                     {nav.title}

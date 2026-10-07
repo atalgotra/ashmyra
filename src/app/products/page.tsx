@@ -18,9 +18,37 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Products & Intelligent Systems",
+  title: "Ashmyra Products | AI, SEO, HRMS, Analytics, CRM & Automation Systems",
   description:
-    "Explore the Ashmyra software ecosystem: Ashmyra AI, Ashmyra SEO, Ashmyra HRMS, Ashmyra Automation, Ashmyra Analytics, Ashmyra CRM, and Ashmyra Web.",
+    "Explore the full Ashmyra intelligent software ecosystem: Ashmyra AI (agentic systems), Ashmyra SEO (GEO intelligence), Ashmyra HRMS (workforce management), Ashmyra Analytics (data intelligence), Ashmyra CRM, and Ashmyra Automation. Purpose-built for enterprise scale.",
+  keywords: [
+    "Ashmyra Products",
+    "Ashmyra AI Platform",
+    "Ashmyra SEO Tool",
+    "Ashmyra HRMS",
+    "Ashmyra Analytics",
+    "Ashmyra CRM",
+    "Ashmyra Automation",
+    "Ashmyra Web Platform",
+    "Agentic AI Products",
+    "Enterprise SaaS India",
+    "GEO Intelligence Platform",
+    "HRMS Software India",
+  ],
+  openGraph: {
+    title: "Ashmyra Products | AI-Native Software Ecosystem",
+    description:
+      "Seven flagship intelligent systems: Ashmyra AI, Ashmyra SEO, Ashmyra HRMS, Ashmyra Analytics, Ashmyra CRM, Ashmyra Automation, and Ashmyra Web—all engineered for enterprise performance.",
+    url: "https://ashmyra.com/products",
+    images: [
+      {
+        url: "/brand/ashmyra-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ashmyra Intelligent Software Products",
+      },
+    ],
+  },
   alternates: {
     canonical: "https://ashmyra.com/products",
   },

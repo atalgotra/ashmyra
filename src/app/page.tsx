@@ -7,11 +7,39 @@ import { PeopleSection } from "@/components/people-section";
 import { FinalCtaPhase6 } from "@/components/final-cta-phase6";
 
 export const metadata: Metadata = {
-  title: "Ashmyra | We Build Intelligent Systems That Act",
+  title: "Ashmyra | We Build Intelligent Systems That Act | AI-Native Technology",
   description:
-    "AI agents. Data intelligence. Enterprise software. Automation. Ashmyra engineers AI agents, software platforms and data systems that turn complex business problems into executable workflows.",
+    "Ashmyra Technologies engineers AI agents, agentic automation, enterprise SaaS, HRMS, CRM, and data intelligence platforms. Founded by Ashish Talgotra. Based in Delhi NCR, India. Serving enterprises globally. AI agents that act. Data systems that decide. Software that evolves.",
+  keywords: [
+    "Ashmyra",
+    "Ashmyra Technologies",
+    "AI Technology Company India",
+    "Agentic AI Systems",
+    "Enterprise Software Delhi NCR",
+    "Ashish Talgotra AI",
+    "GEO Optimization India",
+    "Generative Engine Optimization",
+    "Ashmyra HRMS",
+    "Ashmyra AI Platform",
+    "AI Automation India",
+    "Intelligent Business Software",
+  ],
   alternates: {
     canonical: "https://ashmyra.com",
+  },
+  openGraph: {
+    title: "Ashmyra | We Build Intelligent Systems That Act",
+    description:
+      "AI-native technology company engineering autonomous agent swarms, GEO intelligence, enterprise HRMS, CRM, and data pipelines. Founded by Ashish Talgotra. Delhi NCR, India.",
+    url: "https://ashmyra.com",
+    images: [
+      {
+        url: "/brand/ashmyra-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Ashmyra Technologies - AI-Native Technology Company",
+      },
+    ],
   },
 };
 

@@ -99,8 +99,7 @@ export function WowShowcasePhase6() {
     const el = imageRefs.current[idx];
     if (!el) return;
     if (kbTween.current) kbTween.current.kill();
-    gsap.set(el, { scale: 1.06, x: "-0.5%" });
-    kbTween.current = gsap.to(el, { scale: 1.0, x: "0.5%", duration: AUTO_MS / 1000, ease: "none" });
+    gsap.set(el, { scale: 1, x: 0 });
   }, []);
 
   const startProgress = useCallback(() => {
@@ -127,57 +126,32 @@ export function WowShowcasePhase6() {
         setCurrent(nextIdx);
         setAnimating(false);
         startProgress();
-        startKenBurns(nextIdx);
         setTimeout(() => setPaused(false), 4000);
       },
     });
 
-    // Text exit
-    if (textRef.current) {
-      tl.to(
-        Array.from(textRef.current.querySelectorAll(".stxt")),
-        { opacity: 0, y: dir === "forward" ? -22 : 22, stagger: 0.05, duration: 0.35, ease: "power2.in" },
-        0
-      );
-    }
-
     // Image out
     if (outEl) {
-      tl.to(outEl, { opacity: 0, x: dir === "forward" ? "-3%" : "3%", scale: 1.04, duration: 1.0, ease: "power2.inOut" }, 0);
+      tl.to(outEl, { opacity: 0, duration: 0.5, ease: "power2.inOut" }, 0);
     }
 
     // Image in
     if (inEl) {
-      gsap.set(inEl, {
-        opacity: 1, scale: 1.08, x: dir === "forward" ? "4%" : "-4%",
-        clipPath: dir === "forward" ? "inset(0 100% 0 0)" : "inset(0 0 0 100%)",
-        zIndex: 10,
-      });
-      tl.to(inEl, { scale: 1.06, x: "-0.5%", clipPath: "inset(0 0% 0 0)", duration: 1.2, ease: "power2.out" }, 0.06);
+      gsap.set(inEl, { opacity: 0, scale: 1, x: 0, zIndex: 10 });
+      tl.to(inEl, { opacity: 1, duration: 0.5, ease: "power2.out" }, 0.05);
     }
-
-    // Text in
-    if (textRef.current) {
-      tl.fromTo(
-        Array.from(textRef.current.querySelectorAll(".stxt")),
-        { opacity: 0, y: dir === "forward" ? 30 : -30 },
-        { opacity: 1, y: 0, stagger: 0.09, duration: 0.7, ease: "power3.out" },
-        0.5
-      );
-    }
-  }, [current, animating, startProgress, startKenBurns]);
+  }, [current, animating, startProgress]);
 
   useEffect(() => {
     imageRefs.current.forEach((el, i) => {
       if (!el) return;
-      gsap.set(el, { zIndex: i === current ? 5 : 0 });
+      gsap.set(el, { zIndex: i === current ? 5 : 0, opacity: i === current ? 1 : 0 });
     });
   }, [current]);
 
   useEffect(() => {
     if (paused) return;
     startProgress();
-    startKenBurns(current);
     autoTimer.current = setTimeout(() => {
       goTo((current + 1) % SLIDES.length, "forward");
     }, AUTO_MS);
@@ -194,24 +168,16 @@ export function WowShowcasePhase6() {
     return () => window.removeEventListener("keydown", onKey);
   }, [current, goTo]);
 
-  // Section entrance
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      gsap.from(sectionRef.current, {
-        opacity: 0, duration: 1, ease: "power2.out",
-        scrollTrigger: { trigger: sectionRef.current, start: "top 92%" },
-      });
-    }, sectionRef);
-    return () => ctx.revert();
-  }, []);
+
 
   return (
     <section
       id="what-we-build"
       ref={sectionRef}
-      className="relative w-full bg-[#040508] select-none"
-      onMouseEnter={() => { setPaused(true); progressTween.current?.pause(); kbTween.current?.pause(); }}
-      onMouseLeave={() => { setPaused(false); progressTween.current?.resume(); kbTween.current?.resume(); }}
+      className="relative w-full bg-[#040508] select-none pt-6 sm:pt-8 pb-3 sm:pb-4"
+      style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
+      onMouseEnter={() => { setPaused(true); progressTween.current?.pause(); }}
+      onMouseLeave={() => { setPaused(false); progressTween.current?.resume(); }}
       onTouchStart={(e) => setTouchStart(e.touches[0].clientX)}
       onTouchEnd={(e) => {
         if (touchStart === null) return;
@@ -224,174 +190,135 @@ export function WowShowcasePhase6() {
         setTouchStart(null);
       }}
     >
-      {/* ── Section header ────────────────────────────────────────────────── */}
-      <div className="relative z-20 px-6 sm:px-10 lg:px-16 pt-20 pb-6 max-w-screen-2xl mx-auto">
-        <div className="flex items-end justify-between">
+      {/* ── Section Header with Active Slide Info ─────────────────────────── */}
+      <div className="relative z-20 px-6 sm:px-10 lg:px-16 pb-6 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
           <div>
-            <div className="section-label text-neutral-600 mb-2">ASHMYRA TECHNOLOGY</div>
-            <h2
-              className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              What We Build
-            </h2>
-            <p className="text-sm text-neutral-500 mt-2 font-sans max-w-sm">
-              Intelligent systems across AI, data, software and automation.
-            </p>
-          </div>
-          {/* Slide counter */}
-          <div
-            className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-          >
-            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: slide.accent }} />
-            <span className="text-neutral-500">{slide.num} / 07</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ── Full-bleed slide area ──────────────────────────────────────────── */}
-      <div
-        className="relative w-full overflow-hidden"
-        style={{ height: "clamp(480px, 86vh, 900px)" }}
-      >
-        {/* Image stack */}
-        {SLIDES.map((s, i) => (
-          <div
-            key={s.id}
-            ref={(el) => { imageRefs.current[i] = el; }}
-            className="absolute inset-0"
-            style={{ opacity: i === 0 ? 1 : 0, zIndex: i === 0 ? 5 : 0, willChange: "transform, opacity, clip-path" }}
-          >
-            <Image
-              src={s.image}
-              alt={s.category}
-              fill
-              sizes="100vw"
-              priority={i <= 1}
-              loading={i <= 1 ? "eager" : "lazy"}
-              className="object-cover object-center"
-            />
-            {/* Cinematic overlay gradient */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#040508] via-[#040508]/30 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-r from-[#040508]/70 via-[#040508]/15 to-transparent" />
-            {/* Accent color wash */}
-            <div
-              className="absolute bottom-0 left-0 w-[55%] h-[45%] blur-[120px] pointer-events-none"
-              style={{ background: s.bg, opacity: 0.8 }}
-            />
-          </div>
-        ))}
-
-        {/* Text overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end px-6 sm:px-10 lg:px-16 pb-14 pointer-events-none max-w-screen-2xl mx-auto">
-          <div ref={textRef} className="max-w-2xl space-y-4">
-            {/* Number + category */}
-            <div className="stxt flex items-center gap-4">
+            <div className="flex items-center gap-3 mb-2">
+              <span className="section-label text-neutral-500">WHAT WE BUILD</span>
+              <span className="text-neutral-600">·</span>
               <span
-                className="text-6xl sm:text-7xl font-black font-mono leading-none"
-                style={{ color: slide.accent, opacity: 0.18 }}
-              >
-                {slide.num}
-              </span>
-              <div
-                className="px-3.5 py-1.5 rounded-full text-[10px] sm:text-xs font-mono font-bold tracking-[0.18em] uppercase"
-                style={{
-                  border: `1px solid ${slide.accent}50`,
-                  color: slide.accent,
-                  background: slide.bg,
-                }}
+                className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase"
+                style={{ border: `1px solid ${slide.accent}50`, color: slide.accent, background: slide.bg }}
               >
                 {slide.category}
-              </div>
+              </span>
             </div>
-
-            {/* Headline */}
-            <h3
-              className="stxt text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.08]"
+            <h2
+              className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white tracking-tight"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               {slide.headline}
-            </h3>
-
-            {/* Sub copy */}
-            <p className="stxt text-sm sm:text-base text-neutral-400 font-sans font-light leading-relaxed max-w-lg">
+            </h2>
+            <p className="text-sm sm:text-base text-neutral-400 mt-2 font-sans max-w-2xl">
               {slide.sub}
             </p>
+          </div>
 
-            {/* CTA */}
-            <div className="stxt pointer-events-auto pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-xs font-bold font-mono uppercase tracking-wider text-black transition-all hover:scale-[1.04] active:scale-[0.96]"
-                style={{ backgroundColor: slide.accent, boxShadow: `0 0 32px -4px ${slide.accent}80` }}
-              >
-                Explore This
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
+          <div className="flex items-center gap-4 self-start lg:self-end">
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold font-mono uppercase tracking-wider text-black transition-all hover:scale-[1.03] active:scale-[0.97]"
+              style={{ backgroundColor: slide.accent, boxShadow: `0 0 24px -4px ${slide.accent}70` }}
+            >
+              Explore This
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
         </div>
-
-        {/* Prev / Next */}
-        <button
-          onClick={() => goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward")}
-          aria-label="Previous slide"
-          className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
-          style={{ background: "rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}
-        >
-          <ChevronLeft className="w-4 h-4" />
-        </button>
-        <button
-          onClick={() => goTo((current + 1) % SLIDES.length, "forward")}
-          aria-label="Next slide"
-          className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
-          style={{ background: "rgba(0,0,0,0.5)", border: "1px solid rgba(255,255,255,0.12)", backdropFilter: "blur(12px)" }}
-        >
-          <ChevronRight className="w-4 h-4" />
-        </button>
       </div>
 
-      {/* ── Progress bar ──────────────────────────────────────────────────── */}
-      <div className="h-[2px] w-full bg-white/[0.04]">
+      {/* ── Slide Canvas — Exact 16:9 Aspect Ratio (Zero Text Slicing) ──────── */}
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <div
-          ref={progressRef}
-          className="h-full origin-left transition-colors duration-700"
-          style={{ backgroundColor: slide.accent, transform: "scaleX(0)" }}
-        />
-      </div>
-
-      {/* ── Step dots ─────────────────────────────────────────────────────── */}
-      <div className="relative z-10 flex items-center justify-between px-6 sm:px-10 lg:px-16 py-6 max-w-screen-2xl mx-auto">
-        <div className="flex items-center gap-2">
+          className="relative w-full aspect-[16/9] rounded-2xl overflow-hidden glass-bright bg-[#07090f]"
+          style={{
+            border: "1px solid rgba(255, 255, 255, 0.12)",
+            boxShadow: `0 25px 80px -15px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${slide.accent}20`,
+          }}
+        >
+          {/* Images */}
           {SLIDES.map((s, i) => (
-            <button
+            <div
               key={s.id}
-              onClick={() => goTo(i, i > current ? "forward" : "backward")}
-              aria-label={`Slide ${i + 1}`}
-              className="flex items-center gap-1.5 group"
+              ref={(el) => { imageRefs.current[i] = el; }}
+              className="absolute inset-0"
+              style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 5 : 0 }}
             >
-              <span
-                className="text-[9px] font-mono font-bold transition-colors duration-300"
-                style={{ color: i === current ? s.accent : "rgba(255,255,255,0.18)" }}
-              >
-                {s.num}
-              </span>
-              <div
-                className="h-[3px] rounded-full transition-all duration-500"
-                style={{
-                  width: i === current ? "40px" : "10px",
-                  backgroundColor: i < current
-                    ? "rgba(255,255,255,0.2)"
-                    : i === current
-                    ? s.accent
-                    : "rgba(255,255,255,0.08)",
-                }}
+              <Image
+                src={s.image}
+                alt={s.category}
+                fill
+                sizes="(min-width: 1280px) 1200px, 95vw"
+                priority={i <= 1}
+                loading={i <= 1 ? "eager" : "lazy"}
+                className="object-contain"
               />
-            </button>
+            </div>
           ))}
+
+          {/* Prev / Next controls */}
+          <button
+            onClick={() => goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward")}
+            aria-label="Previous slide"
+            className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+            style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(12px)" }}
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={() => goTo((current + 1) % SLIDES.length, "forward")}
+            aria-label="Next slide"
+            className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-white transition-all hover:scale-110 active:scale-95"
+            style={{ background: "rgba(0,0,0,0.6)", border: "1px solid rgba(255,255,255,0.15)", backdropFilter: "blur(12px)" }}
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
-        <div className="hidden sm:block section-label text-neutral-600">{slide.category}</div>
+
+        {/* ── Progress bar ──────────────────────────────────────────────────── */}
+        <div className="h-[2px] w-full bg-white/[0.04] mt-5 rounded-full overflow-hidden">
+          <div
+            ref={progressRef}
+            className="h-full origin-left transition-colors duration-700"
+            style={{ backgroundColor: slide.accent, transform: "scaleX(0)" }}
+          />
+        </div>
+
+        {/* ── Step dots & Category ──────────────────────────────────────────── */}
+        <div className="flex items-center justify-between pt-4">
+          <div className="flex items-center gap-2">
+            {SLIDES.map((s, i) => (
+              <button
+                key={s.id}
+                onClick={() => goTo(i, i > current ? "forward" : "backward")}
+                aria-label={`Slide ${i + 1}`}
+                className="flex items-center gap-1.5 py-1.5 group"
+              >
+                <span
+                  className="text-[10px] font-mono font-bold transition-colors duration-300"
+                  style={{ color: i === current ? s.accent : "rgba(255,255,255,0.25)" }}
+                >
+                  {s.num}
+                </span>
+                <div
+                  className="h-[3px] rounded-full transition-all duration-300"
+                  style={{
+                    width: i === current ? "36px" : "10px",
+                    backgroundColor: i === current ? s.accent : "rgba(255,255,255,0.1)",
+                  }}
+                />
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: slide.accent }} />
+            <span className="text-xs font-mono text-neutral-400 font-medium tracking-wider uppercase">
+              {slide.category}
+            </span>
+          </div>
+        </div>
       </div>
     </section>
   );

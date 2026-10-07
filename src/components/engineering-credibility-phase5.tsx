@@ -4,18 +4,18 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { 
-  Cpu, 
-  Database, 
-  Globe, 
-  Smartphone, 
-  Box, 
-  Zap, 
-  Layers, 
-  Cloud, 
-  ArrowRight, 
+import {
+  Cpu,
+  Database,
+  Globe,
+  Smartphone,
+  Box,
+  Zap,
+  Layers,
+  Cloud,
+  ArrowRight,
   ArrowUpRight,
-  ShieldCheck 
+  ShieldCheck
 } from "lucide-react";
 
 if (typeof window !== "undefined") {
@@ -49,7 +49,7 @@ const GALLERY_PROJECTS = [
     accent: "#34d399",
   },
   {
-    name: "ramaroma herbs",
+    name: "Ramaroma Herbs",
     category: "Natural Products & Distribution",
     desc: "B2B distributor platform with synchronized inventory pipelines and automated SEO content distribution.",
     accent: "#38bdf8",
@@ -90,7 +90,7 @@ export function EngineeringCredibilityPhase5() {
       className="relative py-32 px-4 sm:px-6 lg:px-8 bg-[#05070a] border-b border-white/[0.06] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative z-10 space-y-20">
-        
+
         {/* Section 19: Headline & 3 Powerful Statements */}
         <div ref={headlineRef} className="text-center max-w-4xl mx-auto space-y-6">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono">
@@ -183,7 +183,7 @@ export function EngineeringCredibilityPhase5() {
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
-                    <span 
+                    <span
                       className="text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded-full bg-white/[0.04] border border-white/[0.06]"
                       style={{ color: proj.accent }}
                     >

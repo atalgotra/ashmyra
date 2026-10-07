@@ -12,9 +12,33 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact & Book a Demo | Ashmyra",
+  title: "Contact Ashmyra | Book a Demo | info@ashmyra.com | +91-9873746467",
   description:
-    "Connect with Ashmyra solutions architects. Request a tailored demo of Ashmyra AI, Ashmyra SEO, Ashmyra HRMS, or discuss bespoke software engineering.",
+    "Connect with Ashmyra Technologies. Email info@ashmyra.com or call +91-9873746467. Request a tailored demo of Ashmyra AI, Ashmyra SEO, Ashmyra HRMS, or discuss bespoke enterprise software engineering. Based in Delhi NCR, India.",
+  keywords: [
+    "Contact Ashmyra",
+    "Ashmyra Demo",
+    "info@ashmyra.com",
+    "Ashmyra Phone Number",
+    "Book AI Demo India",
+    "Enterprise Software Consultation",
+    "Ashmyra Delhi NCR",
+    "AI Company Contact India",
+  ],
+  openGraph: {
+    title: "Contact Ashmyra Technologies | Book a Demo",
+    description:
+      "Reach Ashmyra's engineering team. Email info@ashmyra.com or call +91-9873746467 to discuss AI systems, automation, and enterprise software built for scale.",
+    url: "https://ashmyra.com/contact",
+    images: [
+      {
+        url: "/brand/ashmyra-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Contact Ashmyra Technologies",
+      },
+    ],
+  },
   alternates: {
     canonical: "https://ashmyra.com/contact",
   },

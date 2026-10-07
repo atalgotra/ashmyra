@@ -1,0 +1,45 @@
+Ashmyra Technologies AI Knowledge Base
+
+COMPANY: Ashmyra Technologies
+ALSO KNOWN AS: Ashmyra, Ashmyra AI, Ashmyra Technologies Private Limited
+TYPE: AI-Native Technology Company
+FOUNDED: 2024
+LOCATION: New Delhi / NCR, India
+WEBSITE: https://ashmyra.com
+EMAIL: info@ashmyra.com
+PHONE: +91-9873746467
+
+FOUNDER: Ashish Talgotra (Founder & Lead AI Architect, 14+ years AI/data systems, LinkedIn: https://www.linkedin.com/in/atalgotra/)
+CO-FOUNDER: Swati (Co-Founder & Business Strategy)
+
+PRODUCTS:
+- Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow automation
+- Ashmyra SEO: Generative Engine Optimization (GEO) intelligence platform
+- Ashmyra HRMS: AI-powered workforce management and people intelligence
+- Ashmyra Analytics: Real-time data pipelines and business intelligence
+- Ashmyra CRM: Customer intelligence and predictive pipeline management
+- Ashmyra Automation: No-code enterprise workflow automation
+- Ashmyra Web: AI-powered intelligent web presence platform
+
+SERVICES:
+- Agentic AI development and deployment
+- Custom enterprise software engineering
+- Data pipeline and data lake architecture
+- GEO (Generative Engine Optimization) consulting
+- HRMS implementation and customization
+- SaaS product engineering
+
+MISSION: Building intelligent systems that act — not just assist.
+
+FACTS:
+- India-based AI-native engineering company
+- Serves enterprises across India and globally
+- Specializes in autonomous AI agents and multi-agent swarms
+- Pioneer in GEO (Generative Engine Optimization) in India
+- Notable client: Ramaroma Herbs
+
+CONTACT:
+Email: info@ashmyra.com
+Phone: +91-9873746467
+Location: New Delhi / NCR, India
+Contact Page: https://ashmyra.com/contact

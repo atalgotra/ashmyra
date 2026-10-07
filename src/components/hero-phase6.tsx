@@ -39,16 +39,15 @@ export function HeroPhase6() {
   useEffect(() => {
     if (!mounted) return;
     const ctx = gsap.context(() => {
-      // Entrance timeline
+      // Entrance timeline using fromTo so opacity always resolves cleanly
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      tl.from(".hero-label",    { opacity: 0, y: 16, duration: 0.6 }, 0.1)
-        .from(".hero-line",     { opacity: 0, y: 50, stagger: 0.12, duration: 0.9, ease: "power4.out" }, 0.25)
-        .from(subRef.current,   { opacity: 0, y: 20, duration: 0.7 }, 0.75)
-        .from(pillsRef.current, { opacity: 0, y: 16, duration: 0.6 }, 0.9)
-        .from(ctaRef.current,   { opacity: 0, y: 18, duration: 0.6 }, 1.0)
-        .from(statsRef.current, { opacity: 0, y: 14, duration: 0.6 }, 1.1)
-        .from(imageRef.current, { opacity: 0, x: 80, scale: 0.94, duration: 1.4, ease: "power2.out" }, 0.3);
+      tl.fromTo(headRef.current,  { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.8, ease: "power4.out" }, 0.1)
+        .fromTo(subRef.current,   { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7 }, 0.25)
+        .fromTo(pillsRef.current, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6 }, 0.4)
+        .fromTo(ctaRef.current,   { opacity: 0, y: 18 }, { opacity: 1, y: 0, duration: 0.6 }, 0.55)
+        .fromTo(statsRef.current, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.6 }, 0.7)
+        .fromTo(imageRef.current, { opacity: 0, x: 40, scale: 0.96 }, { opacity: 1, x: 0, scale: 1, duration: 1.0, ease: "power2.out" }, 0.2);
 
       // Ambient glow pulse
       gsap.to(glowRef.current, {
@@ -56,7 +55,7 @@ export function HeroPhase6() {
         repeat: -1, yoyo: true, ease: "sine.inOut",
       });
 
-      // Scroll parallax
+      // Scroll parallax - smooth fade out on scroll
       ScrollTrigger.create({
         trigger: sectionRef.current,
         start: "top top",
@@ -65,9 +64,9 @@ export function HeroPhase6() {
         onUpdate(self) {
           const p = self.progress;
           if (headRef.current)
-            gsap.set(headRef.current, { y: -p * 70, opacity: 1 - p * 1.8 });
+            gsap.set(headRef.current, { opacity: Math.max(0, 1 - p * 1.6) });
           if (imageRef.current)
-            gsap.set(imageRef.current, { y: p * 40, scale: 1 + p * 0.03 });
+            gsap.set(imageRef.current, { y: p * 30, scale: 1 + p * 0.02, opacity: Math.max(0, 1 - p * 1.6) });
         },
       });
     }, sectionRef);
@@ -78,7 +77,7 @@ export function HeroPhase6() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen bg-[#050608] text-white overflow-hidden flex flex-col"
+      className="relative w-full bg-[#050608] text-white overflow-hidden flex flex-col pt-24 sm:pt-28 pb-8 sm:pb-12"
       style={{ isolation: "isolate" }}
     >
       {/* ── Background atmosphere ──────────────────────────────────────────── */}
@@ -92,7 +91,7 @@ export function HeroPhase6() {
         {/* Left accent */}
         <div className="absolute bottom-0 left-0 w-[50%] h-[60%] bg-[radial-gradient(ellipse_70%_60%_at_0%_100%,rgba(34,211,238,0.05)_0%,transparent_70%)]" />
         {/* Bottom fade */}
-        <div className="absolute bottom-0 inset-x-0 h-48 bg-gradient-to-t from-[#050608] to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-t from-[#050608] to-transparent" />
       </div>
 
       {/* ── Ambient glow ──────────────────────────────────────────────────── */}
@@ -111,150 +110,118 @@ export function HeroPhase6() {
         }}
       />
 
-      {/* ── Main layout ───────────────────────────────────────────────────── */}
-      <div className="relative z-10 flex flex-col lg:flex-row flex-1 min-h-screen">
+      {/* ── Main layout — Compact, zero dead space, 100% visible above fold ── */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
 
-        {/* ─ LEFT ─────────────────────────────────────────────────────────── */}
-        <div className="flex flex-col justify-center px-6 sm:px-10 lg:px-16 xl:px-24 pt-32 pb-20 lg:pt-0 lg:w-[52%] xl:w-[50%]">
+          {/* ─ LEFT: Headline, copy, CTAs, Stats ────────────────────────────── */}
+          <div className="lg:col-span-5 xl:col-span-5 flex flex-col justify-center">
 
-          {/* Section label */}
-          <div className="hero-label flex items-center gap-3 mb-10">
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full glass-bright">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="section-label text-emerald-300">Systems Online</span>
+            {/* Headline */}
+            <div ref={headRef} className="mb-4 sm:mb-5">
+              <div className="text-[11px] font-mono font-semibold tracking-[0.25em] text-indigo-400 uppercase mb-2">
+                WE BUILD
+              </div>
+              <h1
+                className="text-4xl sm:text-5xl xl:text-[3.4rem] font-bold tracking-tight leading-[1.06]"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                <span className="gradient-text-warm">Intelligent</span>{" "}
+                <span className="text-white">Systems</span><br />
+                <span
+                  style={{
+                    background: "linear-gradient(135deg, #818cf8 0%, #22d3ee 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  That Act.
+                </span>
+              </h1>
             </div>
-            <div className="h-px flex-1 max-w-12 bg-gradient-to-r from-white/20 to-transparent" />
-            <span className="section-label text-neutral-500">AI · DATA · SOFTWARE</span>
-          </div>
 
-          {/* Headline */}
-          <div ref={headRef} className="mb-8 space-y-2">
-            <div className="hero-line text-[0.7rem] font-mono font-semibold tracking-[0.3em] text-neutral-500 uppercase">
-              WE BUILD
+            {/* Sub-copy */}
+            <p ref={subRef} className="text-sm sm:text-base text-slate-300/90 leading-relaxed max-w-md mb-5 font-normal">
+              Autonomous AI agents, intelligent software and data systems
+              engineered for real-world execution.
+            </p>
+
+            {/* Capability pills */}
+            <div ref={pillsRef} className="flex flex-wrap gap-2 mb-6">
+              {PILLS.map(({ icon: Icon, label, color }) => (
+                <div
+                  key={label}
+                  className="flex items-center gap-2 px-3 py-1.5 rounded-xl glass-bright text-xs font-medium"
+                >
+                  <Icon className="w-3.5 h-3.5" style={{ color }} />
+                  <span className="text-neutral-200">{label}</span>
+                </div>
+              ))}
             </div>
-            <h1 className="hero-headline">
-              <div className="hero-line gradient-text-warm">Intelligent</div>
-              <div className="hero-line text-white">Systems</div>
-              <div
-                className="hero-line"
+
+            {/* CTAs */}
+            <div ref={ctaRef} className="flex flex-wrap items-center gap-3.5 mb-6 sm:mb-8">
+              <Link
+                href="/contact"
+                className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background: "linear-gradient(135deg, #818cf8 0%, #22d3ee 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  background: "linear-gradient(135deg, #6366f1, #818cf8)",
+                  boxShadow: "0 0 0 1px rgba(99,102,241,0.5), 0 8px 24px -4px rgba(99,102,241,0.5)",
                 }}
               >
-                That Act.
-              </div>
-            </h1>
-          </div>
-
-          {/* Sub-copy */}
-          <p ref={subRef} className="text-base sm:text-lg text-slate-400 leading-relaxed max-w-md mb-8 font-sans font-light">
-            Autonomous AI agents, intelligent software and data systems
-            engineered for real-world execution.
-          </p>
-
-          {/* Capability pills */}
-          <div ref={pillsRef} className="flex flex-wrap gap-2.5 mb-10">
-            {PILLS.map(({ icon: Icon, label, color }) => (
-              <div
-                key={label}
-                className="flex items-center gap-2 px-3.5 py-2 rounded-xl glass-bright text-xs font-medium font-sans"
+                <span>Start a Conversation</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <a
+                href="#what-we-build"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-neutral-300 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
               >
-                <Icon className="w-3.5 h-3.5" style={{ color }} />
-                <span className="text-neutral-300">{label}</span>
-              </div>
-            ))}
+                Explore What We Build
+              </a>
+            </div>
+
+            {/* Stats strip */}
+            <div ref={statsRef} className="flex items-center gap-6 sm:gap-8 pt-4 border-t border-white/[0.08]">
+              {STATS.map((s, i) => (
+                <React.Fragment key={s.label}>
+                  {i > 0 && <div className="w-px h-7 bg-white/[0.08]" />}
+                  <div>
+                    <div className="text-xl sm:text-2xl font-bold font-display text-white">{s.value}</div>
+                    <div className="text-[10px] font-mono text-neutral-400 uppercase tracking-wider mt-0.5">{s.label}</div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </div>
           </div>
 
-          {/* CTAs */}
-          <div ref={ctaRef} className="flex flex-wrap items-center gap-4 mb-14">
-            <Link
-              href="/contact"
-              className="group inline-flex items-center gap-3 px-7 py-3.5 rounded-2xl font-semibold text-sm transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+          {/* ─ RIGHT: Proportional, uncut high-resolution product canvas ──────── */}
+          <div className="lg:col-span-7 xl:col-span-7 hidden lg:flex items-center justify-center pl-2 xl:pl-4">
+            <div
+              ref={imageRef}
+              className="relative w-full max-w-[760px] xl:max-w-[820px] rounded-2xl overflow-hidden glass-bright"
               style={{
-                background: "linear-gradient(135deg, #6366f1, #818cf8)",
-                boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 8px 32px -4px rgba(99,102,241,0.5)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: "0 25px 80px -15px rgba(0, 0, 0, 0.95), 0 0 60px -10px rgba(99, 102, 241, 0.25)",
+                willChange: "transform, opacity",
               }}
             >
-              <span>Start a Conversation</span>
-              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-            <a
-              href="#what-we-build"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-2xl font-semibold text-sm text-neutral-300 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02]"
-            >
-              Explore What We Build
-            </a>
-          </div>
-
-          {/* Stats strip */}
-          <div ref={statsRef} className="flex items-center gap-8 pt-6 border-t border-white/[0.06]">
-            {STATS.map((s, i) => (
-              <React.Fragment key={s.label}>
-                {i > 0 && <div className="w-px h-8 bg-white/[0.08]" />}
-                <div>
-                  <div className="text-2xl font-bold font-display text-white">{s.value}</div>
-                  <div className="text-[10px] font-mono text-neutral-500 uppercase tracking-widest mt-0.5">{s.label}</div>
-                </div>
-              </React.Fragment>
-            ))}
-          </div>
-        </div>
-
-        {/* ─ RIGHT — cinematic product screenshot ───────────────────────────── */}
-        <div
-          ref={imageRef}
-          className="relative flex-1 lg:min-h-screen overflow-hidden hidden lg:block"
-          style={{ willChange: "transform, opacity" }}
-        >
-          {/* The product image */}
-          <div className="absolute inset-0">
-            <Image
-              src="/wow/wow1-social-intelligence.png"
-              alt="Ashmyra Agentic Social Intelligence"
-              fill
-              priority
-              sizes="55vw"
-              className="object-cover object-left-top"
-            />
-          </div>
-
-          {/* Gradient overlays for seamless blending */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#050608] via-[#050608]/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#050608]/60 via-transparent to-[#050608]/20" />
-          <div className="absolute inset-0 bg-gradient-to-bl from-transparent via-transparent to-[#050608]/30" />
-
-          {/* Floating product badge — top right */}
-          <div className="absolute top-8 right-8 glass rounded-2xl px-4 py-3 flex items-center gap-2.5">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] font-mono text-emerald-300 font-medium">Autonomous Intelligence Active</span>
-          </div>
-
-          {/* Floating agent cards — bottom right */}
-          <div className="absolute bottom-10 right-8 flex flex-col gap-3">
-            {[
-              { label: "TREND AGENT",   val: "+340% Signal Detected",      color: "#22d3ee" },
-              { label: "CONTENT AGENT", val: "High-Intent B2B Draft Ready", color: "#a78bfa" },
-            ].map(card => (
-              <div
-                key={card.label}
-                className="glass rounded-xl px-3.5 py-2.5 flex items-center gap-3 text-xs"
-              >
-                <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: card.color }} />
-                <span className="font-mono font-bold text-white">{card.label}</span>
-                <span className="text-neutral-400 font-sans">{card.val}</span>
+              {/* Product Visual Area — Exact native resolution: zero crop, zero fill warnings */}
+              <div className="relative w-full bg-[#07090f] overflow-hidden rounded-2xl">
+                <Image
+                  src="/wow/wow1-social-intelligence.png"
+                  alt="Ashmyra Agentic Social Intelligence"
+                  width={1672}
+                  height={941}
+                  priority
+                  sizes="(min-width: 1280px) 58vw, 55vw"
+                  className="w-full h-auto object-contain transition-transform duration-700 hover:scale-[1.01]"
+                />
               </div>
-            ))}
+            </div>
           </div>
-        </div>
-      </div>
 
-      {/* ── Scroll indicator ──────────────────────────────────────────────── */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2">
-        <div className="w-px h-12 bg-gradient-to-b from-transparent via-indigo-400/60 to-indigo-400 animate-pulse" />
-        <span className="section-label text-neutral-600">Scroll</span>
+        </div>
       </div>
     </section>
   );

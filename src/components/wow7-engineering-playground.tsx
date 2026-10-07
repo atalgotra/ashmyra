@@ -5,15 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { 
-  Code2, 
-  Cpu, 
-  Smartphone, 
-  Box, 
-  Database, 
-  Cloud, 
-  Layers, 
-  Workflow, 
+import {
+  Code2,
+  Cpu,
+  Smartphone,
+  Box,
+  Database,
+  Cloud,
+  Layers,
+  Workflow,
   ArrowUpRight,
   Sparkles
 } from "lucide-react";
@@ -34,7 +34,7 @@ const CAPABILITIES_LIST = [
   { name: "INTEGRATIONS", icon: Workflow, desc: "Bi-directional APIs, webhooks, and third-party sync" },
 ];
 
-// Approved Project Examples ONLY (Requirement 17: FMO, 1A Veda, ramaroma herbs, Divagam — NO Zipaworld/Zippy)
+// Approved Project Examples ONLY (Requirement 17: FMO, 1A Veda, Ramaroma Herbs, Divagam — NO Zipaworld/Zippy)
 const APPROVED_PROJECTS = [
   {
     name: "FMO",
@@ -49,7 +49,7 @@ const APPROVED_PROJECTS = [
     tag: "Platform & Subscriptions",
   },
   {
-    name: "ramaroma herbs",
+    name: "Ramaroma Herbs",
     domain: "Natural Products & Wellness",
     desc: "Brand catalog, distributor management network, B2B lead generation, and autonomous SEO content engine.",
     tag: "Distributor & SEO Engine",
@@ -91,7 +91,7 @@ export function Wow7EngineeringPlayground() {
       className="relative py-32 px-4 sm:px-6 lg:px-8 bg-[#07090e] border-b border-white/[0.06] overflow-hidden"
     >
       <div className="max-w-7xl mx-auto relative z-10 space-y-16">
-        
+
         {/* Section Header (Requirement 17) */}
         <div className="text-center max-w-4xl mx-auto space-y-4">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs text-cyan-300 font-mono">
@@ -132,7 +132,7 @@ export function Wow7EngineeringPlayground() {
         </div>
 
         {/* WOW 7 Large Visual Asset Showcase (Requirement 17) */}
-        <div 
+        <div
           ref={visualRef}
           className="relative rounded-3xl overflow-hidden border border-white/[0.12] bg-[#090c16] shadow-[0_25px_80px_rgba(0,0,0,0.85)]"
         >
@@ -151,7 +151,7 @@ export function Wow7EngineeringPlayground() {
           <div className="relative w-full aspect-[16/9] min-h-[420px] bg-black">
             <Image
               src="/wow/wow7-engineering-playground.png"
-              alt="Ashmyra Engineering Playground - FMO, 1A Veda, ramaroma herbs, Divagam"
+              alt="Ashmyra Engineering Playground - FMO, 1A Veda, Ramaroma Herbs, Divagam"
               fill
               sizes="(max-width: 1400px) 100vw, 1400px"
               className="object-cover object-center filter contrast-[1.03]"

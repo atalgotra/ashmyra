@@ -1,70 +1,227 @@
+"use client";
+
 import React from "react";
 
 export function SeoSchema() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": "https://ashmyra.com/#organization",
     "name": "Ashmyra Technologies",
+    "legalName": "Ashmyra Technologies Private Limited",
+    "alternateName": ["Ashmyra", "Ashmyra AI", "Ashmyra Technologies Private Limited"],
     "url": "https://ashmyra.com",
-    "logo": "https://ashmyra.com/brand/ashmyra-logo.jpg",
-    "description": "AI-native technology company building intelligent systems that act: autonomous agents, SEO intelligence, HRMS platforms, and enterprise software.",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://ashmyra.com/brand/ashmyra-icon.png",
+      "width": 512,
+      "height": 512
+    },
+    "image": "https://ashmyra.com/brand/ashmyra-og-image.png",
+    "description": "AI-native technology company engineering autonomous agent swarms, data intelligence platforms, generative engine optimization (GEO), HRMS, CRM, and enterprise software systems that act—not just assist.",
+    "foundingDate": "2024",
+    "email": "info@ashmyra.com",
+    "telephone": "+91-9873746467",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "New Delhi",
+      "addressRegion": "Delhi",
+      "addressCountry": "IN",
+      "description": "New Delhi / NCR, India"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 28.6139,
+      "longitude": 77.2090
+    },
+    "areaServed": "Worldwide",
+    "serviceType": [
+      "Agentic AI Development",
+      "Enterprise Software Engineering",
+      "Generative Engine Optimization",
+      "HRMS & Workforce Management",
+      "Data Pipeline Engineering",
+      "SaaS Product Development"
+    ],
     "founders": [
       {
         "@type": "Person",
-        "name": "Manita",
-        "jobTitle": "Co-Founder"
+        "@id": "https://ashmyra.com/#ashish-talgotra",
+        "name": "Ashish Talgotra",
+        "jobTitle": "Founder & Lead AI Architect",
+        "description": "Ashish Talgotra is the Founder and Lead AI Architect of Ashmyra Technologies with 14+ years of experience in applied AI, distributed data systems, and agentic software engineering.",
+        "knowsAbout": [
+          "Agentic AI",
+          "Multi-Agent Systems",
+          "Distributed Data Systems",
+          "LLM Engineering",
+          "Real-Time Data Pipelines",
+          "Enterprise Software Architecture"
+        ],
+        "sameAs": [
+          "https://www.linkedin.com/in/atalgotra/",
+          "https://github.com/atalgotra"
+        ]
       },
       {
         "@type": "Person",
+        "@id": "https://ashmyra.com/#swati",
         "name": "Swati",
-        "jobTitle": "Co-Founder"
+        "jobTitle": "Co-Founder & Business Strategy",
+        "description": "Co-Founder of Ashmyra Technologies leading enterprise business development, commercial alliances, and go-to-market strategy."
       }
     ],
-    "employee": [
+    "contactPoint": [
       {
-        "@type": "Person",
-        "name": "Ashish Talgotra",
-        "jobTitle": "AI Engineer & Data Scientist",
-        "sameAs": "https://www.linkedin.com/in/atalgotra/"
+        "@type": "ContactPoint",
+        "telephone": "+91-9873746467",
+        "email": "info@ashmyra.com",
+        "contactType": "customer service",
+        "areaServed": "Worldwide",
+        "availableLanguage": ["English", "Hindi"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+91-9873746467",
+        "contactType": "sales",
+        "areaServed": "IN",
+        "availableLanguage": ["English", "Hindi"]
       }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/atalgotra/",
+      "https://github.com/atalgotra"
     ],
     "knowsAbout": [
       "Agentic AI Development",
-      "Autonomous AI Agents",
-      "SEO Intelligence & Automation",
+      "Autonomous Multi-Agent Swarms",
       "Generative Engine Optimization (GEO)",
+      "SEO Intelligence & Search Telemetry",
+      "Enterprise SaaS Engineering",
+      "Real-Time Data Pipelines",
+      "Human-in-the-Loop AI Automation",
       "HRMS & Workforce Intelligence",
-      "Enterprise Software Engineering",
-      "Data Science & Prompt Engineering"
-    ]
+      "CRM & Customer Intelligence",
+      "Workflow Automation"
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Ashmyra Intelligent Software Ecosystem",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra AI",
+            "description": "Autonomous multi-agent AI swarms for enterprise workflow automation and intelligent decision execution.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/ai"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra SEO",
+            "description": "Generative Engine Optimization (GEO) intelligence platform that makes businesses visible and citable by AI answer engines.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/seo"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra HRMS",
+            "description": "AI-powered workforce management platform covering attendance, payroll, performance, and employee intelligence.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/hrms"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra Analytics",
+            "description": "Real-time data intelligence platform with business analytics, dashboards, and predictive insights.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/analytics"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra CRM",
+            "description": "AI-enhanced CRM with predictive lead scoring, automated workflows, and pipeline intelligence.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/crm"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra Automation",
+            "description": "No-code enterprise workflow automation builder for complex business process automation.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/automation"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra Web",
+            "description": "AI-powered intelligent web presence and conversion optimization platform.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ashmyra.com/products/web"
+          }
+        }
+      ]
+    }
   };
 
-  const softwareApplicationSchema = {
+  const webSiteSchema = {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "Ashmyra Intelligent Systems Suite",
-    "operatingSystem": "Web, Cloud, Distributed",
-    "applicationCategory": "BusinessApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
+    "@type": "WebSite",
+    "@id": "https://ashmyra.com/#website",
+    "name": "Ashmyra Technologies",
+    "alternateName": "Ashmyra",
+    "url": "https://ashmyra.com",
+    "description": "Official website of Ashmyra Technologies — AI-native technology company building intelligent systems that act.",
+    "inLanguage": "en-US",
+    "publisher": {
+      "@id": "https://ashmyra.com/#organization"
     },
-    "creator": {
-      "@type": "Organization",
-      "name": "Ashmyra Technologies"
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ashmyra.com/resources?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
     }
   };
 
-  const productSchema = {
+  const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Ashmyra Agentic AI & SEO Intelligence",
-    "description": "Autonomous multi-agent orchestration, continuous search telemetry, and enterprise business systems.",
-    "brand": {
-      "@type": "Brand",
-      "name": "Ashmyra"
-    }
+    "@type": "WebPage",
+    "@id": "https://ashmyra.com/#webpage",
+    "url": "https://ashmyra.com",
+    "name": "Ashmyra | We Build Intelligent Systems That Act",
+    "isPartOf": { "@id": "https://ashmyra.com/#website" },
+    "about": { "@id": "https://ashmyra.com/#organization" },
+    "primaryImageOfPage": {
+      "@type": "ImageObject",
+      "url": "https://ashmyra.com/brand/ashmyra-og-image.png"
+    },
+    "speakable": {
+      "@type": "SpeakableSpecification",
+      "cssSelector": ["h1", "h2", ".speakable-content"]
+    },
+    "description": "Ashmyra Technologies engineers AI agents, agentic automation, enterprise SaaS, HRMS, CRM, and data intelligence platforms. Founded by Ashish Talgotra. Based in Delhi NCR, India.",
+    "inLanguage": "en-US"
   };
 
   const faqSchema = {
@@ -73,18 +230,66 @@ export function SeoSchema() {
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What does Ashmyra build?",
+        "name": "What is Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ashmyra builds intelligent systems that act — including autonomous agent swarms, real-time SEO intelligence, HRMS platforms, project management systems, and enterprise data solutions."
+          "text": "Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agentic systems, enterprise software platforms, HRMS solutions, GEO intelligence tools, and real-time data pipelines for enterprises globally. It was founded by Ashish Talgotra and Co-Founder Swati."
         }
       },
       {
         "@type": "Question",
-        "name": "How does Ashmyra's SEO intelligence differ from standard audit tools?",
+        "name": "Who founded Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Most tools only report what is wrong. Ashmyra isolates the exact root cause, calculates PageRank distribution, and generates verified code solutions and implementation steps."
+          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect with 14+ years in applied AI and distributed data systems) and Swati (Co-Founder leading enterprise business strategy and commercial alliances)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What products does Ashmyra Technologies offer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ashmyra offers seven flagship intelligent software products: (1) Ashmyra AI — autonomous agentic AI swarms, (2) Ashmyra SEO — Generative Engine Optimization (GEO) intelligence, (3) Ashmyra HRMS — AI-powered workforce management, (4) Ashmyra Analytics — real-time data intelligence, (5) Ashmyra CRM — customer intelligence and pipeline management, (6) Ashmyra Automation — no-code workflow automation, and (7) Ashmyra Web — AI-powered web presence platform."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Generative Engine Optimization (GEO)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Generative Engine Optimization (GEO) is the discipline of optimizing digital content, structured data, and knowledge graphs so that AI answer engines — including ChatGPT, Perplexity, Google Gemini, and Anthropic Claude — accurately identify, cite, and recommend a business as the primary authoritative source for relevant queries."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is Ashmyra Technologies located?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ashmyra Technologies is headquartered in New Delhi / NCR (National Capital Region), India. The team delivers remote-first engineering to enterprises across India and globally."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How can I contact Ashmyra Technologies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can reach Ashmyra Technologies by emailing info@ashmyra.com, calling +91-9873746467, or visiting the contact page at https://ashmyra.com/contact to book a demo or initiate an enterprise engagement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is Ashmyra HRMS?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ashmyra HRMS is an AI-powered Human Resource Management System built for enterprise-scale workforce intelligence. It covers attendance management, payroll processing, performance management, recruitment automation, and employee analytics — all powered by AI."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does Ashmyra serve clients outside India?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. While Ashmyra Technologies is headquartered in Delhi NCR, India, the company operates as a remote-first engineering firm and serves enterprise clients globally across multiple time zones."
         }
       }
     ]
@@ -103,8 +308,26 @@ export function SeoSchema() {
       {
         "@type": "ListItem",
         "position": 2,
-        "name": "Intelligent Systems",
-        "item": "https://ashmyra.com/#systems"
+        "name": "Products",
+        "item": "https://ashmyra.com/products"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Services",
+        "item": "https://ashmyra.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "About",
+        "item": "https://ashmyra.com/about"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Contact",
+        "item": "https://ashmyra.com/contact"
       }
     ]
   };
@@ -117,11 +340,11 @@ export function SeoSchema() {
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteSchema) }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageSchema) }}
       />
       <script
         type="application/ld+json"

@@ -15,9 +15,33 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About Ashmyra | Founder, Vision & Technology Team",
+  title: "About Ashmyra | Founder Ashish Talgotra, Vision & Technology Team",
   description:
-    "Ashmyra is an AI-native technology company founded by Ashish Talgotra, building intelligent software, SaaS products, and autonomous systems that reshape enterprise operations.",
+    "Ashmyra Technologies is an AI-native company founded by Ashish Talgotra (14+ years in applied AI, distributed data systems) and Co-Founder Swati. We engineer autonomous agent swarms, HRMS platforms, GEO intelligence, and enterprise SaaS that act—not just assist.",
+  keywords: [
+    "Ashmyra About",
+    "Ashish Talgotra",
+    "Ashmyra Founder",
+    "AI Company India",
+    "Swati Co-Founder",
+    "Ashmyra Technologies Team",
+    "AI-Native Company Delhi NCR",
+    "Enterprise AI Founders India",
+  ],
+  openGraph: {
+    title: "About Ashmyra | AI-Native Technology Company Founded by Ashish Talgotra",
+    description:
+      "Meet the team behind Ashmyra Technologies. Founded by Ashish Talgotra and Co-Founder Swati, Ashmyra engineers AI agents, data pipelines, and enterprise software that transforms how businesses operate.",
+    url: "https://ashmyra.com/about",
+    images: [
+      {
+        url: "/brand/ashmyra-og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "About Ashmyra Technologies - Founders and Vision",
+      },
+    ],
+  },
   alternates: {
     canonical: "https://ashmyra.com/about",
   },

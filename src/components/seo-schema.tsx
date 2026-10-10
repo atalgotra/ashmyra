@@ -67,6 +67,32 @@ export function SeoSchema() {
     "sameAs": [
       "https://www.linkedin.com/company/ashmyra"
     ],
+    "founder": [
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#ashish-talgotra",
+        "name": "Ashish Talgotra",
+        "jobTitle": "Founder & Lead AI Architect",
+        "sameAs": [
+          "https://www.linkedin.com/in/atalgotra/",
+          "https://github.com/atalgotra"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#swati-arora",
+        "name": "Swati Arora",
+        "jobTitle": "Co-Founder & Business Strategy"
+      }
+    ],
+    "employee": [
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#prince-rehan",
+        "name": "Prince Rehan",
+        "jobTitle": "Head - IT & Software Development"
+      }
+    ],
     "knowsAbout": [
       "Agentic AI Development",
       "Autonomous Multi-Agent Swarms",
@@ -261,11 +287,81 @@ export function SeoSchema() {
       },
       {
         "@type": "Question",
+        "name": "Who leads Ashmyra Technologies?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect) and Swati Arora (Co-Founder & Business Strategy), with Prince Rehan serving as Head - IT & Software Development. The leadership team brings over a decade of hands-on expertise building autonomous AI agent swarms, distributed data platforms, and enterprise software systems at scale."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Does Ashmyra serve clients outside India?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Yes. While Ashmyra Technologies is headquartered in Delhi NCR, India, the company operates as a remote-first engineering firm and serves enterprise clients globally across multiple time zones."
         }
+      }
+    ]
+  };
+
+  const leadershipSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#ashish-talgotra",
+        "name": "Ashish Talgotra",
+        "jobTitle": "Founder & Lead AI Architect",
+        "worksFor": {
+          "@id": "https://ashmyra.com/#organization"
+        },
+        "url": "https://ashmyra.com/team",
+        "image": "https://ashmyra.com/hero/ashish-portrait.png",
+        "sameAs": [
+          "https://www.linkedin.com/in/atalgotra/",
+          "https://github.com/atalgotra"
+        ],
+        "knowsAbout": [
+          "Autonomous Multi-Agent AI Swarms",
+          "Generative Engine Optimization (GEO)",
+          "Enterprise LLMs & AI Systems",
+          "Real-Time Data Pipelines",
+          "Distributed Architecture"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#swati-arora",
+        "name": "Swati Arora",
+        "jobTitle": "Co-Founder & Business Strategy",
+        "worksFor": {
+          "@id": "https://ashmyra.com/#organization"
+        },
+        "url": "https://ashmyra.com/team",
+        "knowsAbout": [
+          "Enterprise Business Strategy",
+          "Go-To-Market & Market Scale",
+          "Strategic Alliances",
+          "Commercial Operations Delivery"
+        ]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ashmyra.com/team#prince-rehan",
+        "name": "Prince Rehan",
+        "jobTitle": "Head - IT & Software Development",
+        "worksFor": {
+          "@id": "https://ashmyra.com/#organization"
+        },
+        "url": "https://ashmyra.com/team",
+        "image": "https://ashmyra.com/team/prince-rehan.jpg",
+        "knowsAbout": [
+          "Enterprise IT Infrastructure",
+          "Software Engineering Lifecycle",
+          "Cloud Systems & DevOps",
+          "Technical Systems Delivery",
+          "Mission-Critical Architectures"
+        ]
       }
     ]
   };
@@ -324,6 +420,10 @@ export function SeoSchema() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(leadershipSchema) }}
       />
       <script
         type="application/ld+json"

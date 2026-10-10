@@ -108,7 +108,7 @@ export function PeopleSection() {
 
           {/* ─ 01: Ashish Talgotra — Founder & Lead AI Architect ────────────── */}
           <div
-            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-indigo-500/30 hover:border-indigo-400/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(99,102,241,0.2)] overflow-hidden flex flex-col justify-between"
+            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-indigo-500/30 hover:border-indigo-400/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(99,102,241,0.2)] overflow-hidden flex flex-col justify-between"
           >
             <div>
               {/* Top row: Avatar + Verified Badge */}
@@ -194,7 +194,7 @@ export function PeopleSection() {
 
           {/* ─ 02: Swati — Co-Founder & Strategy Lead ───────────────────────── */}
           <div
-            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden flex flex-col justify-between"
+            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden flex flex-col justify-between"
           >
             <div>
               {/* Top row: Avatar + Verified Badge */}
@@ -273,7 +273,7 @@ export function PeopleSection() {
 
           {/* ─ 03: Prince Rehan — Head - IT & Software Development ─────────────── */}
           <div
-            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(168,85,247,0.15)] overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-1"
+            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(168,85,247,0.15)] overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-1"
           >
             <div>
               {/* Top row: Avatar + Verified Badge */}

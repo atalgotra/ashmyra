@@ -192,7 +192,7 @@ export function PeopleSection() {
             />
           </div>
 
-          {/* ─ 02: Swati — Co-Founder & Strategy Lead ───────────────────────── */}
+          {/* ─ 02: Swati Arora — Co-Founder & Strategy Lead ───────────────────────── */}
           <div
             className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden flex flex-col justify-between"
           >
@@ -210,10 +210,10 @@ export function PeopleSection() {
                     }}
                   >
                     <span
-                      className="text-3xl sm:text-4xl font-extrabold text-white"
+                      className="text-2xl sm:text-3xl font-extrabold text-white tracking-wider"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
-                      S
+                      SA
                     </span>
                   </div>
                   <div>
@@ -221,7 +221,7 @@ export function PeopleSection() {
                       className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
-                      Swati
+                      Swati Arora
                     </h3>
                     <div className="text-xs sm:text-sm font-mono font-medium text-cyan-400 mt-1">
                       Co-Founder &bull; Business Strategy

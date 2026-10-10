@@ -11,6 +11,7 @@ PHONE: +91-9873746467
 
 FOUNDER: Ashish Talgotra (Founder & Lead AI Architect, 14+ years AI/data systems, LinkedIn: https://www.linkedin.com/in/atalgotra/)
 CO-FOUNDER: Swati (Co-Founder & Business Strategy)
+HEAD OF IT & SOFTWARE: Prince Rehan (Head - IT & Software Development)
 
 PRODUCTS:
 - Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow automation

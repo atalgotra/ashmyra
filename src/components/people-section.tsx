@@ -12,6 +12,7 @@ import {
   ArrowUpRight,
   Layers,
   Terminal,
+  Code2,
 } from "lucide-react";
 
 const PRINCIPLES = [
@@ -102,68 +103,70 @@ export function PeopleSection() {
           </p>
         </div>
 
-        {/* ── Executive Leadership Cards (Full 50/50 Grid, Zero Empty Space) ─── */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-8">
+        {/* ── Executive Leadership Cards (3-Column Grid) ─── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
 
           {/* ─ 01: Ashish Talgotra — Founder & Lead AI Architect ────────────── */}
           <div
-            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-indigo-500/30 hover:border-indigo-400/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(99,102,241,0.2)] overflow-hidden"
+            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-indigo-500/30 hover:border-indigo-400/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(99,102,241,0.2)] overflow-hidden flex flex-col justify-between"
           >
-            {/* Top row: Avatar + Verified Badge */}
-            <div className="flex items-start justify-between gap-4 mb-6">
-              <div className="flex items-center gap-4">
-                {/* Photo Portrait */}
-                <div
-                  className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0"
-                  style={{
-                    border: "2px solid rgba(99,102,241,0.6)",
-                    boxShadow: "0 0 25px rgba(99,102,241,0.35)",
-                  }}
-                >
-                  <Image
-                    src="/hero/ashish-portrait.png"
-                    alt="Ashish Talgotra"
-                    fill
-                    sizes="88px"
-                    priority
-                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <div>
-                  <h3
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            <div>
+              {/* Top row: Avatar + Verified Badge */}
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  {/* Photo Portrait */}
+                  <div
+                    className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0"
+                    style={{
+                      border: "2px solid rgba(99,102,241,0.6)",
+                      boxShadow: "0 0 25px rgba(99,102,241,0.35)",
+                    }}
                   >
-                    Ashish Talgotra
-                  </h3>
-                  <div className="text-xs sm:text-sm font-mono font-medium text-indigo-400 mt-1 whitespace-nowrap">
-                    Founder &bull; Lead AI Architect
+                    <Image
+                      src="/hero/ashish-portrait.png"
+                      alt="Ashish Talgotra"
+                      fill
+                      sizes="88px"
+                      priority
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      Ashish Talgotra
+                    </h3>
+                    <div className="text-xs sm:text-sm font-mono font-medium text-indigo-400 mt-1">
+                      Founder &bull; Lead AI Architect
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Bio */}
-            <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
-              14+ years architecting autonomous multi-agent systems, deep data intelligence layers,
-              and enterprise platforms. Specializes in transforming complex enterprise friction into
-              deterministic, self-executing software engines that scale.
-            </p>
+              {/* Bio */}
+              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
+                14+ years architecting autonomous multi-agent systems, deep data intelligence layers,
+                and enterprise platforms. Specializes in transforming complex enterprise friction into
+                deterministic, self-executing software engines that scale.
+              </p>
 
-            {/* Expertise Pills */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["Agent Swarm Architecture", "Enterprise AI & LLMs", "Real-Time Data Systems", "14+ Yrs Tech"].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-indigo-200 bg-indigo-500/10 border border-indigo-500/20"
-                >
-                  {skill}
-                </span>
-              ))}
+              {/* Expertise Pills */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Agent Swarm Architecture", "Enterprise AI & LLMs", "Real-Time Data Systems", "14+ Yrs Tech"].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-indigo-200 bg-indigo-500/10 border border-indigo-500/20"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Footer Row */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
               <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
                 <Terminal className="w-3.5 h-3.5 text-indigo-400" />
                 <span>Core System Architecture</span>
@@ -191,62 +194,64 @@ export function PeopleSection() {
 
           {/* ─ 02: Swati — Co-Founder & Strategy Lead ───────────────────────── */}
           <div
-            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden"
+            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden flex flex-col justify-between"
           >
-            {/* Top row: Avatar + Verified Badge */}
-            <div className="flex items-start justify-between gap-4 mb-6">
-              <div className="flex items-center gap-4">
-                {/* Executive Stylized Monogram Avatar */}
-                <div
-                  className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-105"
-                  style={{
-                    background: "linear-gradient(135deg, rgba(99,102,241,0.35) 0%, rgba(34,211,238,0.25) 50%, rgba(167,139,250,0.3) 100%)",
-                    border: "2px solid rgba(34,211,238,0.5)",
-                    boxShadow: "0 0 25px rgba(34,211,238,0.25)",
-                  }}
-                >
-                  <span
-                    className="text-3xl sm:text-4xl font-extrabold text-white"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            <div>
+              {/* Top row: Avatar + Verified Badge */}
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  {/* Executive Stylized Monogram Avatar */}
+                  <div
+                    className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-105"
+                    style={{
+                      background: "linear-gradient(135deg, rgba(99,102,241,0.35) 0%, rgba(34,211,238,0.25) 50%, rgba(167,139,250,0.3) 100%)",
+                      border: "2px solid rgba(34,211,238,0.5)",
+                      boxShadow: "0 0 25px rgba(34,211,238,0.25)",
+                    }}
                   >
-                    S
-                  </span>
-                </div>
-                <div>
-                  <h3
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    Swati
-                  </h3>
-                  <div className="text-xs sm:text-sm font-mono font-medium text-cyan-400 mt-1 whitespace-nowrap">
-                    Co-Founder &bull; Business Strategy
+                    <span
+                      className="text-3xl sm:text-4xl font-extrabold text-white"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      S
+                    </span>
+                  </div>
+                  <div>
+                    <h3
+                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      Swati
+                    </h3>
+                    <div className="text-xs sm:text-sm font-mono font-medium text-cyan-400 mt-1">
+                      Co-Founder &bull; Business Strategy
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Bio */}
-            <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
-              Directs executive strategy, enterprise market delivery, and commercial alliances.
-              Ensures that every Ashmyra product and engagement is grounded in clear business ROI,
-              frictionless client execution, and measurable revenue acceleration.
-            </p>
+              {/* Bio */}
+              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
+                Directs executive strategy, enterprise market delivery, and commercial alliances.
+                Ensures that every Ashmyra product and engagement is grounded in clear business ROI,
+                frictionless client execution, and measurable revenue acceleration.
+              </p>
 
-            {/* Expertise Pills */}
-            <div className="flex flex-wrap gap-2 mb-6">
-              {["Enterprise Strategy", "GTM & Market Scale", "Strategic Alliances", "Operational Delivery"].map((skill) => (
-                <span
-                  key={skill}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-cyan-200 bg-cyan-500/10 border border-cyan-500/20"
-                >
-                  {skill}
-                </span>
-              ))}
+              {/* Expertise Pills */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["Enterprise Strategy", "GTM & Market Scale", "Strategic Alliances", "Operational Delivery"].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-cyan-200 bg-cyan-500/10 border border-cyan-500/20"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
             </div>
 
             {/* Footer Row */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between">
+            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
               <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
                 <Layers className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Commercial Scale &amp; Delivery</span>
@@ -261,6 +266,83 @@ export function PeopleSection() {
               className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none rounded-full"
               style={{
                 background: "radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%)",
+                filter: "blur(40px)",
+              }}
+            />
+          </div>
+
+          {/* ─ 03: Prince Rehan — Head - IT & Software Development ─────────────── */}
+          <div
+            className="group relative rounded-3xl p-7 sm:p-9 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(168,85,247,0.15)] overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-1"
+          >
+            <div>
+              {/* Top row: Avatar + Verified Badge */}
+              <div className="flex items-start justify-between gap-4 mb-6">
+                <div className="flex items-center gap-4">
+                  {/* Photo Portrait */}
+                  <div
+                    className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0"
+                    style={{
+                      border: "2px solid rgba(168,85,247,0.6)",
+                      boxShadow: "0 0 25px rgba(168,85,247,0.35)",
+                    }}
+                  >
+                    <Image
+                      src="/team/prince-rehan.jpg"
+                      alt="Prince Rehan"
+                      fill
+                      sizes="88px"
+                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                    />
+                  </div>
+                  <div>
+                    <h3
+                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    >
+                      Prince Rehan
+                    </h3>
+                    <div className="text-xs sm:text-sm font-mono font-medium text-purple-400 mt-1 leading-snug">
+                      Head &bull; IT &amp; Software Development
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bio */}
+              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
+                Directs enterprise IT infrastructure, technical systems architecture, and end-to-end software delivery. Oversees resilient cloud architecture, engineering execution, and mission-critical enterprise systems that power operations at scale.
+              </p>
+
+              {/* Expertise Pills */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {["IT Infrastructure", "Software Engineering", "Cloud Systems", "Technical Delivery"].map((skill) => (
+                  <span
+                    key={skill}
+                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-purple-200 bg-purple-500/10 border border-purple-500/20"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Footer Row */}
+            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
+              <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
+                <Code2 className="w-3.5 h-3.5 text-purple-400" />
+                <span>IT &amp; Systems Delivery</span>
+              </div>
+              <span className="text-xs font-mono text-neutral-500">
+                Ashmyra Leadership
+              </span>
+            </div>
+
+            {/* Ambient inner glow */}
+            <div
+              className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none rounded-full"
+              style={{
+                background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)",
                 filter: "blur(40px)",
               }}
             />

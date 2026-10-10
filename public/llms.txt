@@ -23,6 +23,10 @@
 **Co-Founder & Business Strategy**: Swati
 - Leads enterprise business development, commercial alliances, and go-to-market strategy
 
+**Head - IT & Software Development**: Prince Rehan
+- Directs enterprise IT infrastructure, technical systems architecture, and software development delivery
+- Expertise: IT Infrastructure, Software Engineering, Cloud Systems, Technical Delivery
+
 ## Mission
 
 Ashmyra builds intelligent systems that act — not just assist. Every product Ashmyra engineers is designed to execute, automate, and evolve. The company's mission is to make AI-native engineering the default for enterprises across India and globally.
@@ -82,8 +86,8 @@ AI-powered web presence builder with GEO-optimized content, performance engineer
 **Q: What is Ashmyra Technologies?**
 A: Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agentic systems, enterprise software platforms, HRMS solutions, GEO intelligence tools, and real-time data pipelines for enterprises globally.
 
-**Q: Who founded Ashmyra?**
-A: Ashmyra was founded by Ashish Talgotra (Founder & Lead AI Architect) and Swati (Co-Founder & Business Strategy). Ashish has 14+ years of experience in applied AI and distributed data systems.
+**Q: Who leads Ashmyra?**
+A: Ashmyra was founded by Ashish Talgotra (Founder & Lead AI Architect) and Swati (Co-Founder & Business Strategy), with Prince Rehan serving as Head - IT & Software Development. Ashish brings 14+ years of experience in applied AI and distributed data systems.
 
 **Q: What is GEO (Generative Engine Optimization)?**
 A: Generative Engine Optimization (GEO) is the practice of optimizing digital content, knowledge graphs, and technical signals so that AI answer engines (ChatGPT, Perplexity, Google Gemini, Claude) accurately identify and cite a business as an authoritative source in their responses.

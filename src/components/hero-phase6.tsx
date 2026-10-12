@@ -5,7 +5,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowRight, Zap, Brain, Globe } from "lucide-react";
-import { AshmyraIntelligenceEngine } from "./intelligence-engine";
+import { HeroCommandConsole } from "./hero-command-console";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -189,14 +189,14 @@ export function HeroPhase6() {
             </div>
           </div>
 
-          {/* ─ RIGHT: Intelligence Engine ──────────────────────────────────── */}
+          {/* ─ RIGHT: Hero Command Console ─────────────────────────────────── */}
           <div className="lg:col-span-7 xl:col-span-7 hidden lg:flex items-center justify-center">
             <div
               ref={imageRef}
-              className="relative w-full max-w-[500px] xl:max-w-[540px]"
+              className="relative w-full max-w-[580px]"
               style={{ willChange: "transform, opacity" }}
             >
-              <AshmyraIntelligenceEngine />
+              <HeroCommandConsole />
             </div>
           </div>
 

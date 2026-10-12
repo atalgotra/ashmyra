@@ -7,13 +7,15 @@ import {
   ShieldCheck,
   Cpu,
   Zap,
-  ExternalLink,
-  Sparkles,
   ArrowUpRight,
   Layers,
   Terminal,
   Code2,
 } from "lucide-react";
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  Data                                                                      */
+/* ─────────────────────────────────────────────────────────────────────────── */
 
 const PRINCIPLES = [
   {
@@ -21,20 +23,75 @@ const PRINCIPLES = [
     title: "Applied Intelligence Over Toys",
     desc: "Zero speculative demos. Every agent is built to connect to live enterprise databases, ERPs, and revenue operations from day one.",
     accent: "#818cf8",
+    accentRgb: "129,140,248",
   },
   {
     icon: ShieldCheck,
     title: "Deterministic Guardrails",
     desc: "Autonomous reasoning backed by strict schema enforcement, transparent audit logs, and bulletproof human-in-the-loop controls.",
     accent: "#22d3ee",
+    accentRgb: "34,211,238",
   },
   {
     icon: Zap,
     title: "Extreme Execution Velocity",
     desc: "No layers of agency bloat. Founders lead system architecture directly, moving platforms from blueprint to live production in weeks.",
     accent: "#a78bfa",
+    accentRgb: "167,139,250",
   },
 ];
+
+const LEADERS = [
+  {
+    num: "01",
+    name: "Ashish Talgotra",
+    title: "Founder & Lead AI Architect",
+    bio: "14+ years architecting autonomous multi-agent systems, deep data intelligence layers, and enterprise platforms. Specializes in transforming complex enterprise friction into deterministic, self-executing software engines that scale.",
+    skills: ["Agent Swarm Architecture", "Enterprise AI & LLMs", "Real-Time Data Systems", "14+ Yrs Tech"],
+    accent: "#818cf8",
+    accentRgb: "99,102,241",
+    photo: "/hero/ashish-portrait.png",
+    photoPosition: "object-top",
+    linkedin: "https://www.linkedin.com/in/atalgotra/",
+    monogram: null,
+    FooterIcon: Terminal,
+    footerLabel: "Core System Architecture",
+  },
+  {
+    num: "02",
+    name: "Swati Arora",
+    title: "Co-Founder & Business Strategy",
+    bio: "Directs executive strategy, enterprise market delivery, and commercial alliances. Ensures every Ashmyra product and engagement is grounded in clear business ROI, frictionless client execution, and measurable revenue acceleration.",
+    skills: ["Enterprise Strategy", "GTM & Market Scale", "Strategic Alliances", "Operational Delivery"],
+    accent: "#22d3ee",
+    accentRgb: "34,211,238",
+    photo: null,
+    photoPosition: "object-center",
+    linkedin: null,
+    monogram: "SA",
+    FooterIcon: Layers,
+    footerLabel: "Commercial Scale & Delivery",
+  },
+  {
+    num: "03",
+    name: "Prince Rehan",
+    title: "Head — IT & Software Development",
+    bio: "Directs enterprise IT infrastructure, technical systems architecture, and end-to-end software delivery. Oversees resilient cloud architecture, engineering execution, and mission-critical systems that power operations at scale.",
+    skills: ["IT Infrastructure", "Software Engineering", "Cloud Systems", "Technical Delivery"],
+    accent: "#a78bfa",
+    accentRgb: "168,85,247",
+    photo: "/team/prince-rehan.jpg",
+    photoPosition: "object-top",
+    linkedin: null,
+    monogram: null,
+    FooterIcon: Code2,
+    footerLabel: "IT & Systems Delivery",
+  },
+] as const;
+
+/* ─────────────────────────────────────────────────────────────────────────── */
+/*  Component                                                                  */
+/* ─────────────────────────────────────────────────────────────────────────── */
 
 export function PeopleSection() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -47,31 +104,32 @@ export function PeopleSection() {
       style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
     >
       <div id="founders" className="sr-only" aria-hidden="true" />
-      {/* ── Background Atmosphere & Ambient Light Blooms ─────────────────────── */}
+
+      {/* ── Ambient Atmosphere ─────────────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 dot-bg opacity-30" />
-        {/* Center top ambient bloom */}
+        <div className="absolute inset-0 dot-bg opacity-20" />
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[400px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[500px]"
           style={{
-            background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 70%)",
-            filter: "blur(60px)",
+            background:
+              "radial-gradient(ellipse 70% 60% at 50% 0%, rgba(99,102,241,0.13) 0%, transparent 70%)",
+            filter: "blur(80px)",
           }}
         />
-        {/* Bottom corner glow */}
         <div
-          className="absolute bottom-0 right-0 w-[50vw] h-[450px]"
+          className="absolute bottom-0 left-0 w-[60vw] h-[400px]"
           style={{
-            background: "radial-gradient(ellipse 60% 60% at 100% 100%, rgba(34,211,238,0.06) 0%, transparent 65%)",
-            filter: "blur(70px)",
+            background:
+              "radial-gradient(ellipse 60% 60% at 0% 100%, rgba(34,211,238,0.06) 0%, transparent 65%)",
+            filter: "blur(80px)",
           }}
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-12 sm:pt-16 pb-16 sm:pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-16 sm:pt-20 pb-20 sm:pb-28">
 
-        {/* ── Section Header (Full-width, editorial balance) ───────────────── */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10 sm:mb-12">
+        {/* ── Section Header ─────────────────────────────────────────────── */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 sm:mb-16">
           <div>
             <div className="flex items-center gap-2 mb-3">
               <span className="w-2 h-2 rounded-full bg-indigo-400 animate-pulse" />
@@ -96,273 +154,250 @@ export function PeopleSection() {
               </span>
             </h2>
           </div>
-
-          <p className="text-sm sm:text-base text-neutral-400 font-sans max-w-xl leading-relaxed">
+          <p className="text-sm sm:text-base text-neutral-400 font-sans max-w-xl leading-relaxed lg:text-right">
             Ashmyra was founded by engineering practitioners — leaders who have spent over a decade
             building AI architectures, data platforms, and high-concurrency systems for real-world enterprise operations.
           </p>
         </div>
 
-        {/* ── Executive Leadership Cards (3-Column Grid) ─── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-8">
-
-          {/* ─ 01: Ashish Talgotra — Founder & Lead AI Architect ────────────── */}
-          <div
-            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-indigo-500/30 hover:border-indigo-400/60 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(99,102,241,0.2)] overflow-hidden flex flex-col justify-between"
-          >
-            <div>
-              {/* Top row: Avatar + Verified Badge */}
-              <div className="flex items-start justify-between gap-4 mb-6">
-                <div className="flex items-center gap-4">
-                  {/* Photo Portrait */}
-                  <div
-                    className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0"
-                    style={{
-                      border: "2px solid rgba(99,102,241,0.6)",
-                      boxShadow: "0 0 25px rgba(99,102,241,0.35)",
-                    }}
-                  >
-                    <Image
-                      src="/hero/ashish-portrait.png"
-                      alt="Ashish Talgotra"
-                      fill
-                      sizes="88px"
-                      priority
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div>
-                    <h3
-                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      Ashish Talgotra
-                    </h3>
-                    <div className="text-xs sm:text-sm font-mono font-medium text-indigo-400 mt-1">
-                      Founder &bull; Lead AI Architect
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Bio */}
-              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
-                14+ years architecting autonomous multi-agent systems, deep data intelligence layers,
-                and enterprise platforms. Specializes in transforming complex enterprise friction into
-                deterministic, self-executing software engines that scale.
-              </p>
-
-              {/* Expertise Pills */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {["Agent Swarm Architecture", "Enterprise AI & LLMs", "Real-Time Data Systems", "14+ Yrs Tech"].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-indigo-200 bg-indigo-500/10 border border-indigo-500/20"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Row */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
-              <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
-                <Terminal className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Core System Architecture</span>
-              </div>
-              <Link
-                href="https://www.linkedin.com/in/atalgotra/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-indigo-500/20 border border-white/10 hover:border-indigo-400/40 transition-all"
+        {/* ── Leadership Cards ───────────────────────────────────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 mb-10">
+          {LEADERS.map((leader) => {
+            const FooterIcon = leader.FooterIcon;
+            return (
+              <div
+                key={leader.num}
+                className="group relative rounded-[22px] overflow-hidden flex flex-col"
+                style={{
+                  minHeight: "540px",
+                  background: `linear-gradient(160deg, rgba(14,16,28,0.97) 0%, rgba(6,8,16,0.99) 100%)`,
+                  border: `1px solid rgba(${leader.accentRgb}, 0.22)`,
+                  boxShadow: `0 30px 70px -20px rgba(0,0,0,0.95), 0 0 50px -15px rgba(${leader.accentRgb}, 0.12)`,
+                  transition: "transform 0.45s cubic-bezier(0.23,1,0.32,1), box-shadow 0.45s cubic-bezier(0.23,1,0.32,1), border-color 0.35s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(-10px)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 40px 80px -20px rgba(0,0,0,0.95), 0 0 60px -10px rgba(${leader.accentRgb}, 0.28)`;
+                  (e.currentTarget as HTMLDivElement).style.borderColor = `rgba(${leader.accentRgb}, 0.55)`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
+                  (e.currentTarget as HTMLDivElement).style.boxShadow = `0 30px 70px -20px rgba(0,0,0,0.95), 0 0 50px -15px rgba(${leader.accentRgb}, 0.12)`;
+                  (e.currentTarget as HTMLDivElement).style.borderColor = `rgba(${leader.accentRgb}, 0.22)`;
+                }}
               >
-                <span>LinkedIn</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400" />
-              </Link>
-            </div>
-
-            {/* Ambient inner glow */}
-            <div
-              className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-          </div>
-
-          {/* ─ 02: Swati Arora — Co-Founder & Strategy Lead ───────────────────────── */}
-          <div
-            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-cyan-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(34,211,238,0.15)] overflow-hidden flex flex-col justify-between"
-          >
-            <div>
-              {/* Top row: Avatar + Verified Badge */}
-              <div className="flex items-start justify-between gap-4 mb-6">
-                <div className="flex items-center gap-4">
-                  {/* Executive Stylized Monogram Avatar */}
-                  <div
-                    className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl flex items-center justify-center shrink-0 transition-transform duration-500 group-hover:scale-105"
-                    style={{
-                      background: "linear-gradient(135deg, rgba(99,102,241,0.35) 0%, rgba(34,211,238,0.25) 50%, rgba(167,139,250,0.3) 100%)",
-                      border: "2px solid rgba(34,211,238,0.5)",
-                      boxShadow: "0 0 25px rgba(34,211,238,0.25)",
-                    }}
-                  >
-                    <span
-                      className="text-2xl sm:text-3xl font-extrabold text-white tracking-wider"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                {/* ── Portrait / Monogram area ───────────────────────────── */}
+                <div className="relative overflow-hidden shrink-0" style={{ height: "272px" }}>
+                  {leader.photo ? (
+                    <>
+                      <Image
+                        src={leader.photo}
+                        alt={leader.name}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={leader.num === "01"}
+                        className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-[1.06]`}
+                      />
+                      {/* Bottom-fade overlay so image bleeds into card body */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(to bottom,
+                            rgba(0,0,0,0.05) 0%,
+                            rgba(6,8,16,0) 30%,
+                            rgba(6,8,16,0.65) 70%,
+                            rgba(6,8,16,0.99) 100%)`,
+                        }}
+                      />
+                      {/* Top-right ambient accent bloom */}
+                      <div
+                        className="absolute -top-10 -right-10 w-44 h-44 rounded-full pointer-events-none"
+                        style={{
+                          background: `radial-gradient(circle, rgba(${leader.accentRgb}, 0.35) 0%, transparent 70%)`,
+                          filter: "blur(35px)",
+                        }}
+                      />
+                    </>
+                  ) : (
+                    /* Monogram card (Swati — no photo) */
+                    <div
+                      className="w-full h-full flex items-center justify-center relative overflow-hidden"
+                      style={{
+                        background: `linear-gradient(145deg,
+                          rgba(${leader.accentRgb}, 0.1) 0%,
+                          rgba(99,102,241, 0.06) 50%,
+                          rgba(${leader.accentRgb}, 0.13) 100%)`,
+                      }}
                     >
-                      SA
+                      {/* Large ghost letter */}
+                      <span
+                        className="absolute select-none pointer-events-none"
+                        style={{
+                          fontFamily: "'Space Grotesk', sans-serif",
+                          fontSize: "180px",
+                          fontWeight: 900,
+                          color: `rgba(${leader.accentRgb}, 0.08)`,
+                          lineHeight: 1,
+                          letterSpacing: "0.1em",
+                          top: "50%",
+                          left: "50%",
+                          transform: "translate(-50%, -50%)",
+                          userSelect: "none",
+                        }}
+                      >
+                        {leader.monogram}
+                      </span>
+                      {/* Central glowing badge */}
+                      <div
+                        className="relative z-10 w-28 h-28 rounded-full flex items-center justify-center"
+                        style={{
+                          background: `linear-gradient(135deg, rgba(${leader.accentRgb}, 0.22) 0%, rgba(99,102,241,0.18) 100%)`,
+                          border: `2px solid rgba(${leader.accentRgb}, 0.45)`,
+                          boxShadow: `0 0 50px rgba(${leader.accentRgb}, 0.4), inset 0 0 20px rgba(${leader.accentRgb}, 0.08)`,
+                        }}
+                      >
+                        <span
+                          className="text-4xl font-black text-white"
+                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        >
+                          {leader.monogram}
+                        </span>
+                      </div>
+                      {/* Grid pattern overlay */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          backgroundImage: `linear-gradient(rgba(${leader.accentRgb},0.04) 1px, transparent 1px),
+                                            linear-gradient(90deg, rgba(${leader.accentRgb},0.04) 1px, transparent 1px)`,
+                          backgroundSize: "32px 32px",
+                        }}
+                      />
+                      {/* Bottom fade */}
+                      <div
+                        className="absolute inset-0"
+                        style={{
+                          background: `linear-gradient(to bottom, transparent 40%, rgba(6,8,16,0.99) 100%)`,
+                        }}
+                      />
+                    </div>
+                  )}
+
+                  {/* Editorial number tag — top left */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <span
+                      className="text-[11px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-lg"
+                      style={{
+                        color: leader.accent,
+                        background: `rgba(${leader.accentRgb}, 0.15)`,
+                        border: `1px solid rgba(${leader.accentRgb}, 0.3)`,
+                        backdropFilter: "blur(12px)",
+                        WebkitBackdropFilter: "blur(12px)",
+                      }}
+                    >
+                      {leader.num}
                     </span>
                   </div>
-                  <div>
-                    <h3
-                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      Swati Arora
-                    </h3>
-                    <div className="text-xs sm:text-sm font-mono font-medium text-cyan-400 mt-1">
-                      Co-Founder &bull; Business Strategy
-                    </div>
-                  </div>
                 </div>
-              </div>
 
-              {/* Bio */}
-              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
-                Directs executive strategy, enterprise market delivery, and commercial alliances.
-                Ensures that every Ashmyra product and engagement is grounded in clear business ROI,
-                frictionless client execution, and measurable revenue acceleration.
-              </p>
-
-              {/* Expertise Pills */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {["Enterprise Strategy", "GTM & Market Scale", "Strategic Alliances", "Operational Delivery"].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-cyan-200 bg-cyan-500/10 border border-cyan-500/20"
+                {/* ── Info Panel ─────────────────────────────────────────── */}
+                <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
+                  {/* Name */}
+                  <h3
+                    className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-1"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Row */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
-              <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
-                <Layers className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Commercial Scale &amp; Delivery</span>
-              </div>
-              <span className="text-xs font-mono text-neutral-500">
-                Ashmyra Leadership
-              </span>
-            </div>
-
-            {/* Ambient inner glow */}
-            <div
-              className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(34,211,238,0.15) 0%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-          </div>
-
-          {/* ─ 03: Prince Rehan — Head - IT & Software Development ─────────────── */}
-          <div
-            className="group relative rounded-3xl p-6 sm:p-8 transition-all duration-300 hover:-translate-y-1 bg-gradient-to-b from-[#0b0e1e]/90 via-[#070914]/90 to-[#04050a]/90 backdrop-blur-xl border border-white/10 hover:border-purple-400/50 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.85),0_0_35px_-5px_rgba(168,85,247,0.15)] overflow-hidden flex flex-col justify-between md:col-span-2 lg:col-span-1"
-          >
-            <div>
-              {/* Top row: Avatar + Verified Badge */}
-              <div className="flex items-start justify-between gap-4 mb-6">
-                <div className="flex items-center gap-4">
-                  {/* Photo Portrait */}
+                    {leader.name}
+                  </h3>
+                  {/* Title */}
                   <div
-                    className="relative w-20 h-20 sm:w-22 sm:h-22 rounded-2xl overflow-hidden shrink-0"
-                    style={{
-                      border: "2px solid rgba(168,85,247,0.6)",
-                      boxShadow: "0 0 25px rgba(168,85,247,0.35)",
-                    }}
+                    className="text-[11px] sm:text-xs font-mono font-semibold mb-4 tracking-wide"
+                    style={{ color: leader.accent }}
                   >
-                    <Image
-                      src="/team/prince-rehan.jpg"
-                      alt="Prince Rehan"
-                      fill
-                      sizes="88px"
-                      className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    />
+                    {leader.title}
                   </div>
-                  <div>
-                    <h3
-                      className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                    >
-                      Prince Rehan
-                    </h3>
-                    <div className="text-xs sm:text-sm font-mono font-medium text-purple-400 mt-1 leading-snug">
-                      Head &bull; IT &amp; Software Development
+                  {/* Bio */}
+                  <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-sans mb-4 flex-1">
+                    {leader.bio}
+                  </p>
+                  {/* Skill pills */}
+                  <div className="flex flex-wrap gap-1.5 mb-5">
+                    {leader.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2.5 py-[3px] rounded-md text-[10px] font-mono"
+                        style={{
+                          color: leader.accent,
+                          background: `rgba(${leader.accentRgb}, 0.1)`,
+                          border: `1px solid rgba(${leader.accentRgb}, 0.22)`,
+                        }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Footer */}
+                  <div
+                    className="pt-4 flex items-center justify-between"
+                    style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
+                  >
+                    <div className="flex items-center gap-2 text-[11px] font-mono text-neutral-500">
+                      <FooterIcon className="w-3.5 h-3.5 shrink-0" style={{ color: leader.accent }} />
+                      <span>{leader.footerLabel}</span>
                     </div>
+                    {leader.linkedin ? (
+                      <Link
+                        href={leader.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white transition-all duration-200"
+                        style={{
+                          background: "rgba(255,255,255,0.04)",
+                          border: "1px solid rgba(255,255,255,0.1)",
+                        }}
+                      >
+                        <span>LinkedIn</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" style={{ color: leader.accent }} />
+                      </Link>
+                    ) : (
+                      <span className="text-[11px] font-mono text-neutral-600">Ashmyra Leadership</span>
+                    )}
                   </div>
                 </div>
+
+                {/* Hover — inner glow ring (top-right corner) */}
+                <div
+                  className="absolute -top-16 -right-16 w-56 h-56 rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `radial-gradient(circle, rgba(${leader.accentRgb}, 0.18) 0%, transparent 70%)`,
+                    filter: "blur(50px)",
+                  }}
+                />
               </div>
-
-              {/* Bio */}
-              <p className="text-sm text-neutral-300 leading-relaxed font-sans mb-6">
-                Directs enterprise IT infrastructure, technical systems architecture, and end-to-end software delivery. Oversees resilient cloud architecture, engineering execution, and mission-critical enterprise systems that power operations at scale.
-              </p>
-
-              {/* Expertise Pills */}
-              <div className="flex flex-wrap gap-2 mb-6">
-                {["IT Infrastructure", "Software Engineering", "Cloud Systems", "Technical Delivery"].map((skill) => (
-                  <span
-                    key={skill}
-                    className="px-2.5 py-1 rounded-lg text-[11px] font-mono text-purple-200 bg-purple-500/10 border border-purple-500/20"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            {/* Footer Row */}
-            <div className="pt-4 border-t border-white/[0.08] flex items-center justify-between mt-auto">
-              <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
-                <Code2 className="w-3.5 h-3.5 text-purple-400" />
-                <span>IT &amp; Systems Delivery</span>
-              </div>
-              <span className="text-xs font-mono text-neutral-500">
-                Ashmyra Leadership
-              </span>
-            </div>
-
-            {/* Ambient inner glow */}
-            <div
-              className="absolute -top-12 -right-12 w-48 h-48 pointer-events-none rounded-full"
-              style={{
-                background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-          </div>
-
+            );
+          })}
         </div>
 
-        {/* ── Engineering Tenets Strip (Fills the Width & Anchors Credibility) ── */}
+        {/* ── Engineering Tenets Strip ───────────────────────────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
           {PRINCIPLES.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="p-5 sm:p-6 rounded-2xl bg-gradient-to-b from-white/[0.04] to-white/[0.015] border border-white/[0.08] hover:border-white/15 transition-all"
+                className="relative p-5 sm:p-6 rounded-2xl overflow-hidden group/tenet transition-all duration-300 hover:-translate-y-0.5"
+                style={{
+                  background: "linear-gradient(160deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.012) 100%)",
+                  border: "1px solid rgba(255,255,255,0.08)",
+                }}
               >
                 <div className="flex items-center gap-3 mb-3">
                   <div
                     className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: `${item.accent}15`, border: `1px solid ${item.accent}30` }}
+                    style={{
+                      background: `rgba(${item.accentRgb}, 0.12)`,
+                      border: `1px solid rgba(${item.accentRgb}, 0.28)`,
+                    }}
                   >
                     <Icon className="w-4 h-4" style={{ color: item.accent }} />
                   </div>
@@ -376,6 +411,14 @@ export function PeopleSection() {
                 <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
                   {item.desc}
                 </p>
+                {/* Corner accent glow on hover */}
+                <div
+                  className="absolute -bottom-6 -right-6 w-24 h-24 rounded-full pointer-events-none opacity-0 group-hover/tenet:opacity-100 transition-opacity duration-400"
+                  style={{
+                    background: `radial-gradient(circle, rgba(${item.accentRgb}, 0.2) 0%, transparent 70%)`,
+                    filter: "blur(20px)",
+                  }}
+                />
               </div>
             );
           })}

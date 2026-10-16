@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Solutions | Tailored for Startups, SMEs, Enterprises & Teams",
+  title: "Ashmyra Solutions | Startups, SMEs & Enterprise Teams",
   description:
     "Discover how Ashmyra solves operational bottlenecks for Startups, SMEs, Enterprises, HR teams, Marketing teams, and Operations leaders.",
   alternates: {

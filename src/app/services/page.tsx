@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Engineering Services & 7-Stage Process",
+  title: "Ashmyra Engineering Services | 7-Stage Agile Lifecycle",
   description:
     "Ashmyra partners with enterprises to architect, design, build, and scale custom software, Agentic AI, high-volume APIs, and generative search systems.",
   alternates: {

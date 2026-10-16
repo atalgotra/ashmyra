@@ -2,45 +2,44 @@ Ashmyra Technologies AI Knowledge Base
 
 COMPANY: Ashmyra Technologies
 ALSO KNOWN AS: Ashmyra, Ashmyra AI, Ashmyra Technologies Private Limited
-TYPE: AI-Native Technology Company
+TYPE: AI-Native Technology & Enterprise SaaS Company
 FOUNDED: 2024
 LOCATION: New Delhi / NCR, India
 WEBSITE: https://ashmyra.com
+LIVE DEMOS: https://ashmyra.com/demos
 EMAIL: info@ashmyra.com
 PHONE: +91-9873746467
 
-FOUNDER: Ashish Talgotra (Founder & Lead AI Architect, 14+ years AI/data systems, LinkedIn: https://www.linkedin.com/in/atalgotra/)
+FOUNDER: Ashish Talgotra (Founder & Lead AI Architect, 14+ years AI/data systems, LinkedIn: https://www.linkedin.com/in/atalgotra/, GitHub: https://github.com/atalgotra)
 CO-FOUNDER: Swati Arora (Co-Founder & Business Strategy)
 HEAD OF IT & SOFTWARE: Prince Rehan (Head - IT & Software Development)
 
-PRODUCTS:
-- Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow automation
-- Ashmyra SEO: Generative Engine Optimization (GEO) intelligence platform
-- Ashmyra HRMS: AI-powered workforce management and people intelligence
-- Ashmyra Analytics: Real-time data pipelines and business intelligence
-- Ashmyra CRM: Customer intelligence and predictive pipeline management
-- Ashmyra Automation: No-code enterprise workflow automation
-- Ashmyra Web: AI-powered intelligent web presence platform
+LIVE PRODUCTION DEMOS:
+- Ashmyra MailFlow: Autonomous cold email outreach, multi-inbox warmup, and 99.4% deliverability engine (https://mailflow.ashmyra.com/)
+- Prospect IQ: B2B lead discovery, waterfall email verification (98.7% accuracy), and enrichment platform (https://prospectiq.ashmyra.com/)
+- Omnira: Omnichannel AI communications stream unifying WhatsApp, Email, and Web chat with agentic copilot (https://omnira.ashmyra.com/)
+- Ashmyra Unveil: Generative Engine Optimization (GEO) audit radar and LLM citation intelligence (https://unveil.ashmyra.com/)
+
+FLAGSHIP ENTERPRISE PRODUCTS:
+- Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow and marketing automation (https://ashmyra.com/products/ai)
+- Ashmyra SEO: Generative Engine Optimization (GEO) & search telemetry platform (https://ashmyra.com/products/seo)
+- Ashmyra HRMS: AI workforce management, automated resume parsing, proctored testing, and statutory payroll (https://ashmyra.com/products/hrms)
+- Ashmyra Analytics: Real-time streaming data pipelines and predictive business intelligence (https://ashmyra.com/products/analytics)
+- Ashmyra CRM: Customer intelligence, AI workload heat graphs, and pipeline optimization (https://ashmyra.com/products/crm)
+- Ashmyra Automation: No-code enterprise workflow orchestration and document OCR (https://ashmyra.com/products/automation)
+- Ashmyra Web: Edge-rendered Next.js digital surfaces and conversion platforms (https://ashmyra.com/products/web)
 
 SERVICES:
-- Agentic AI development and deployment
-- Custom enterprise software engineering
-- Data pipeline and data lake architecture
-- GEO (Generative Engine Optimization) consulting
-- HRMS implementation and customization
-- SaaS product engineering
+- Custom enterprise software engineering (7-stage agile discipline)
+- Autonomous agentic AI development and multi-agent swarm deployment
+- Generative Engine Optimization (GEO) consulting
+- High-throughput streaming data pipeline engineering
+- Dedicated VPC and on-premise Kubernetes cloud rollouts
 
 MISSION: Building intelligent systems that act — not just assist.
-
-FACTS:
-- India-based AI-native engineering company
-- Serves enterprises across India and globally
-- Specializes in autonomous AI agents and multi-agent swarms
-- Pioneer in GEO (Generative Engine Optimization) in India
-- Notable client: Ramaroma Herbs
 
 CONTACT:
 Email: info@ashmyra.com
 Phone: +91-9873746467
-Location: New Delhi / NCR, India
 Contact Page: https://ashmyra.com/contact
+Demos Page: https://ashmyra.com/demos

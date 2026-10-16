@@ -114,7 +114,7 @@ export const MAIN_NAV: NavSection[] = [
   },
   {
     title: "Try Demo",
-    href: "/products#try-demo",
+    href: "/demos",
     badge: "Live",
     items: [
       {

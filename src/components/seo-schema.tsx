@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 
 export function SeoSchema() {
@@ -109,6 +107,46 @@ export function SeoSchema() {
       "@type": "OfferCatalog",
       "name": "Ashmyra Intelligent Software Ecosystem",
       "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra MailFlow",
+            "description": "Autonomous cold email warmup, mailbox rotation, and conversion-optimized copywriting with 99.4% deliverability.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://mailflow.ashmyra.com/"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Prospect IQ",
+            "description": "B2B lead intelligence, contact enrichment, and verified contact scraping platform.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://prospectiq.ashmyra.com/"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Omnira",
+            "description": "Unified omnichannel AI communications stream consolidating WhatsApp, Email, and Web Chat.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://omnira.ashmyra.com/"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
+            "name": "Ashmyra Unveil",
+            "description": "Generative Engine Optimization (GEO) audit radar and LLM citation intelligence platform.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://unveil.ashmyra.com/"
+          }
+        },
         {
           "@type": "Offer",
           "itemOffered": {
@@ -300,6 +338,22 @@ export function SeoSchema() {
           "@type": "Answer",
           "text": "Yes. While Ashmyra Technologies is headquartered in Delhi NCR, India, the company operates as a remote-first engineering firm and serves enterprise clients globally across multiple time zones."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Where can I test working live demos of Ashmyra software?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You can test live interactive production demos at https://ashmyra.com/demos. Four systems are immediately accessible: Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can Ashmyra platforms be deployed in our private VPC or on-premise cloud?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. All Ashmyra platforms support dedicated single-tenant enterprise deployments inside client AWS, Google Cloud, Microsoft Azure, or private on-premise Kubernetes clusters with dedicated SLAs and custom fine-tuned LLMs."
+        }
       }
     ]
   };
@@ -379,24 +433,30 @@ export function SeoSchema() {
       {
         "@type": "ListItem",
         "position": 2,
+        "name": "Live Demos",
+        "item": "https://ashmyra.com/demos"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
         "name": "Products",
         "item": "https://ashmyra.com/products"
       },
       {
         "@type": "ListItem",
-        "position": 3,
+        "position": 4,
         "name": "Services",
         "item": "https://ashmyra.com/services"
       },
       {
         "@type": "ListItem",
-        "position": 4,
+        "position": 5,
         "name": "Team",
         "item": "https://ashmyra.com/team"
       },
       {
         "@type": "ListItem",
-        "position": 5,
+        "position": 6,
         "name": "Contact",
         "item": "https://ashmyra.com/contact"
       }

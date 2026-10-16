@@ -3,65 +3,86 @@ import { MetadataRoute } from "next";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Allow all major search engines full access
+      // Allow all major search engines full access to pages and static assets
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/", "/_next/", "/favicon.ico"],
+        disallow: ["/api/"],
       },
-      // Allow Google's AI crawlers (SGE, Gemini training, etc.)
+      // Googlebot full indexing
       {
         userAgent: "Googlebot",
         allow: "/",
         disallow: ["/api/"],
       },
-      // Allow Bing AI / Copilot crawler
+      // Bingbot & Bing AI / Copilot
       {
         userAgent: "Bingbot",
         allow: "/",
         disallow: ["/api/"],
       },
-      // Explicitly allow ChatGPT / OpenAI crawler
+      // OpenAI ChatGPT crawler & SearchGPT crawler
       {
         userAgent: "GPTBot",
         allow: "/",
       },
-      // Allow Perplexity AI crawler
+      {
+        userAgent: "OAI-SearchBot",
+        allow: "/",
+      },
+      // Perplexity AI crawler
       {
         userAgent: "PerplexityBot",
         allow: "/",
       },
-      // Allow Claude / Anthropic crawler
+      // Anthropic Claude crawlers
+      {
+        userAgent: "ClaudeBot",
+        allow: "/",
+      },
       {
         userAgent: "Claude-Web",
         allow: "/",
       },
-      // Allow Anthropic's crawler
       {
         userAgent: "anthropic-ai",
         allow: "/",
       },
-      // Allow Common Crawl (used by many AI training sets)
+      // Common Crawl (used by foundational LLMs)
       {
         userAgent: "CCBot",
         allow: "/",
       },
-      // Allow Meta AI crawlers
+      // Meta AI crawlers
       {
         userAgent: "FacebookBot",
         allow: "/",
       },
-      // Allow Apple Intelligence crawler
+      // Apple Intelligence crawlers
       {
         userAgent: "Applebot",
         allow: "/",
       },
-      // Explicitly allow Gemini / Google Bard
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
+      },
+      // Google Gemini / Bard
       {
         userAgent: "Google-Extended",
         allow: "/",
       },
-      // Allow YouBot (You.com AI search)
+      // ByteDance / TikTok crawler
+      {
+        userAgent: "Bytespider",
+        allow: "/",
+      },
+      // Amazon Alexa & Bedrock crawler
+      {
+        userAgent: "Amazonbot",
+        allow: "/",
+      },
+      // You.com AI search
       {
         userAgent: "YouBot",
         allow: "/",

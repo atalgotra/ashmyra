@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { PRODUCTS } from "@/data/products";
 import { SERVICES } from "@/data/services";
+import { ARTICLES } from "@/data/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://ashmyra.com";
@@ -8,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Static core routes — ordered by SEO priority
   const staticRoutes: MetadataRoute.Sitemap = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/demos`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/products`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: `${baseUrl}/team`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
@@ -36,5 +38,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...serviceRoutes];
+  // Dynamic resource & technical articles
+  const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
+    url: `${baseUrl}/resources/${a.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...serviceRoutes, ...articleRoutes];
 }

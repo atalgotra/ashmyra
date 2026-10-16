@@ -46,8 +46,72 @@ export default async function ArticleDetailPage({
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": article.title,
+    "description": article.metaDesc || article.summary,
+    "url": `https://ashmyra.com/resources/${article.slug}`,
+    "datePublished": "2025-01-15T08:00:00+05:30",
+    "dateModified": "2026-10-16T12:00:00+05:30",
+    "author": {
+      "@type": "Person",
+      "name": "Ashish Talgotra",
+      "jobTitle": "Founder & Lead AI Architect",
+      "url": "https://ashmyra.com/team"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Ashmyra Technologies",
+      "url": "https://ashmyra.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ashmyra.com/brand/ashmyra-icon.png"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://ashmyra.com/resources/${article.slug}`
+    },
+    "articleSection": article.category,
+    "inLanguage": "en-US"
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ashmyra.com"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Resources",
+        "item": "https://ashmyra.com/resources"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": article.title,
+        "item": `https://ashmyra.com/resources/${article.slug}`
+      }
+    ]
+  };
+
   return (
     <article className="pt-32 pb-24 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Back link */}
         <div className="mb-8">

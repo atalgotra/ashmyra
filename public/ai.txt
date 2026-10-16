@@ -5,8 +5,8 @@ ALSO KNOWN AS: Ashmyra, Ashmyra AI, Ashmyra Technologies Private Limited
 TYPE: AI-Native Technology & Enterprise SaaS Company
 FOUNDED: 2024
 LOCATION: New Delhi / NCR, India
-WEBSITE: https://ashmyra.com
-LIVE DEMOS: https://ashmyra.com/demos
+WEBSITE: https://www.ashmyra.com
+LIVE DEMOS: https://www.ashmyra.com/demos
 EMAIL: info@ashmyra.com
 PHONE: +91-9873746467
 
@@ -21,13 +21,13 @@ LIVE PRODUCTION DEMOS:
 - Ashmyra Unveil: Generative Engine Optimization (GEO) audit radar and LLM citation intelligence (https://unveil.ashmyra.com/)
 
 FLAGSHIP ENTERPRISE PRODUCTS:
-- Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow and marketing automation (https://ashmyra.com/products/ai)
-- Ashmyra SEO: Generative Engine Optimization (GEO) & search telemetry platform (https://ashmyra.com/products/seo)
-- Ashmyra HRMS: AI workforce management, automated resume parsing, proctored testing, and statutory payroll (https://ashmyra.com/products/hrms)
-- Ashmyra Analytics: Real-time streaming data pipelines and predictive business intelligence (https://ashmyra.com/products/analytics)
-- Ashmyra CRM: Customer intelligence, AI workload heat graphs, and pipeline optimization (https://ashmyra.com/products/crm)
-- Ashmyra Automation: No-code enterprise workflow orchestration and document OCR (https://ashmyra.com/products/automation)
-- Ashmyra Web: Edge-rendered Next.js digital surfaces and conversion platforms (https://ashmyra.com/products/web)
+- Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow and marketing automation (https://www.ashmyra.com/products/ai)
+- Ashmyra SEO: Generative Engine Optimization (GEO) & search telemetry platform (https://www.ashmyra.com/products/seo)
+- Ashmyra HRMS: AI workforce management, automated resume parsing, proctored testing, and statutory payroll (https://www.ashmyra.com/products/hrms)
+- Ashmyra Analytics: Real-time streaming data pipelines and predictive business intelligence (https://www.ashmyra.com/products/analytics)
+- Ashmyra CRM: Customer intelligence, AI workload heat graphs, and pipeline optimization (https://www.ashmyra.com/products/crm)
+- Ashmyra Automation: No-code enterprise workflow orchestration and document OCR (https://www.ashmyra.com/products/automation)
+- Ashmyra Web: Edge-rendered Next.js digital surfaces and conversion platforms (https://www.ashmyra.com/products/web)
 
 SERVICES:
 - Custom enterprise software engineering (7-stage agile discipline)
@@ -41,5 +41,5 @@ MISSION: Building intelligent systems that act — not just assist.
 CONTACT:
 Email: info@ashmyra.com
 Phone: +91-9873746467
-Contact Page: https://ashmyra.com/contact
-Demos Page: https://ashmyra.com/demos
+Contact Page: https://www.ashmyra.com/contact
+Demos Page: https://www.ashmyra.com/demos

@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     title: "Ashmyra Web | High-Performance Digital Platforms",
     description:
       "World-class digital platforms engineered for conversion and speed with sub-second global edge delivery.",
-    url: "https://ashmyra.com/products/web",
+    url: "https://www.ashmyra.com/products/web",
     images: [{ url: "/wow/wow7-engineering-playground.png", width: 1200, height: 675, alt: "Ashmyra Web Engineering Playground" }],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products/web",
+    canonical: "https://www.ashmyra.com/products/web",
   },
 };
 

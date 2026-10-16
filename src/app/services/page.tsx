@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Ashmyra partners with enterprises to architect, design, build, and scale custom software, Agentic AI, high-volume APIs, and generative search systems.",
   alternates: {
-    canonical: "https://ashmyra.com/services",
+    canonical: "https://www.ashmyra.com/services",
   },
 };
 

@@ -24,12 +24,12 @@ export async function generateMetadata({
     title: `${article.metaTitle || article.title}`,
     description: article.metaDesc || article.summary,
     alternates: {
-      canonical: `https://ashmyra.com/resources/${article.slug}`,
+      canonical: `https://www.ashmyra.com/resources/${article.slug}`,
     },
     openGraph: {
       title: `${article.metaTitle || article.title}`,
       description: article.metaDesc || article.summary,
-      url: `https://ashmyra.com/resources/${article.slug}`,
+      url: `https://www.ashmyra.com/resources/${article.slug}`,
     },
   };
 }
@@ -51,27 +51,27 @@ export default async function ArticleDetailPage({
     "@type": "TechArticle",
     "headline": article.title,
     "description": article.metaDesc || article.summary,
-    "url": `https://ashmyra.com/resources/${article.slug}`,
+    "url": `https://www.ashmyra.com/resources/${article.slug}`,
     "datePublished": "2025-01-15T08:00:00+05:30",
     "dateModified": "2026-10-16T12:00:00+05:30",
     "author": {
       "@type": "Person",
       "name": "Ashish Talgotra",
       "jobTitle": "Founder & Lead AI Architect",
-      "url": "https://ashmyra.com/team"
+      "url": "https://www.ashmyra.com/team"
     },
     "publisher": {
       "@type": "Organization",
       "name": "Ashmyra Technologies",
-      "url": "https://ashmyra.com",
+      "url": "https://www.ashmyra.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://ashmyra.com/brand/ashmyra-icon.png"
+        "url": "https://www.ashmyra.com/brand/ashmyra-icon.png"
       }
     },
     "mainEntityOfPage": {
       "@type": "WebPage",
-      "@id": `https://ashmyra.com/resources/${article.slug}`
+      "@id": `https://www.ashmyra.com/resources/${article.slug}`
     },
     "articleSection": article.category,
     "inLanguage": "en-US"
@@ -85,19 +85,19 @@ export default async function ArticleDetailPage({
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://ashmyra.com"
+        "item": "https://www.ashmyra.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Resources",
-        "item": "https://ashmyra.com/resources"
+        "item": "https://www.ashmyra.com/resources"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": article.title,
-        "item": `https://ashmyra.com/resources/${article.slug}`
+        "item": `https://www.ashmyra.com/resources/${article.slug}`
       }
     ]
   };

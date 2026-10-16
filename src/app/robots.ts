@@ -88,7 +88,7 @@ export default function robots(): MetadataRoute.Robots {
         allow: "/",
       },
     ],
-    sitemap: "https://ashmyra.com/sitemap.xml",
-    host: "https://ashmyra.com",
+    sitemap: "https://www.ashmyra.com/sitemap.xml",
+    host: "https://www.ashmyra.com",
   };
 }

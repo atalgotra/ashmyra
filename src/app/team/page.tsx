@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Our Team | Ashmyra Technologies",
   description:
     "Meet the engineering leadership behind Ashmyra Technologies — practitioners with over a decade designing AI architectures, data platforms, and SaaS at scale.",
-  alternates: { canonical: "https://ashmyra.com/team" },
+  alternates: { canonical: "https://www.ashmyra.com/team" },
 };
 
 export default function TeamPage() {

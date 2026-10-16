@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Terms of Service | Ashmyra",
   description: "Terms and conditions governing the use of Ashmyra software, SaaS platforms, and engineering services.",
   alternates: {
-    canonical: "https://ashmyra.com/legal/terms",
+    canonical: "https://www.ashmyra.com/legal/terms",
   },
 };
 

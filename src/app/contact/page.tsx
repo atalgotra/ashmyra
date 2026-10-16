@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: "Contact Ashmyra Technologies | Book a Demo",
     description:
       "Reach Ashmyra's engineering team. Email info@ashmyra.com or call +91-9873746467 to discuss AI systems, automation, and enterprise software built for scale.",
-    url: "https://ashmyra.com/contact",
+    url: "https://www.ashmyra.com/contact",
     images: [
       {
         url: "/brand/ashmyra-og-image.png",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://ashmyra.com/contact",
+    canonical: "https://www.ashmyra.com/contact",
   },
 };
 

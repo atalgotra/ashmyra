@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
   alternates: {
-    canonical: "https://ashmyra.com/resources",
+    canonical: "https://www.ashmyra.com/resources",
   },
 };
 

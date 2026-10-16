@@ -4,7 +4,7 @@ import { SERVICES } from "@/data/services";
 import { ARTICLES } from "@/data/resources";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ashmyra.com";
+  const baseUrl = "https://www.ashmyra.com";
 
   // Static core routes — ordered by SEO priority
   const staticRoutes: MetadataRoute.Sitemap = [

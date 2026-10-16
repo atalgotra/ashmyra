@@ -52,11 +52,11 @@ export const metadata: Metadata = {
     title: "Ashmyra HRMS | Intelligent Workforce Operating System",
     description:
       "AI Resume Parser, live webcam-proctored assessments, automated cross-department exit clearance, and POSH compliance at 70% lower cost than legacy HR suites.",
-    url: "https://ashmyra.com/products/hrms",
+    url: "https://www.ashmyra.com/products/hrms",
     images: [{ url: "/wow/wow4-intelligent-workforce.png", width: 1200, height: 675, alt: "Ashmyra HRMS Platform Preview" }],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products/hrms",
+    canonical: "https://www.ashmyra.com/products/hrms",
   },
 };
 

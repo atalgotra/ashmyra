@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | Ashmyra",
   description: "Ashmyra privacy policy, data protection commitments, and enterprise security architecture.",
   alternates: {
-    canonical: "https://ashmyra.com/legal/privacy",
+    canonical: "https://www.ashmyra.com/legal/privacy",
   },
 };
 

@@ -4,18 +4,18 @@ export function SeoSchema() {
   const organizationSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "@id": "https://ashmyra.com/#organization",
+    "@id": "https://www.ashmyra.com/#organization",
     "name": "Ashmyra Technologies",
     "legalName": "Ashmyra Technologies Private Limited",
     "alternateName": ["Ashmyra", "Ashmyra AI", "Ashmyra Technologies Private Limited"],
-    "url": "https://ashmyra.com",
+    "url": "https://www.ashmyra.com",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://ashmyra.com/brand/ashmyra-icon.png",
+      "url": "https://www.ashmyra.com/brand/ashmyra-icon.png",
       "width": 512,
       "height": 512
     },
-    "image": "https://ashmyra.com/brand/ashmyra-og-image.png",
+    "image": "https://www.ashmyra.com/brand/ashmyra-og-image.png",
     "description": "AI-native technology company engineering autonomous agent swarms, data intelligence platforms, generative engine optimization (GEO), HRMS, CRM, and enterprise software systems that act—not just assist.",
     "foundingDate": "2024",
     "email": "info@ashmyra.com",
@@ -68,7 +68,7 @@ export function SeoSchema() {
     "founder": [
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#ashish-talgotra",
+        "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
         "jobTitle": "Founder & Lead AI Architect",
         "sameAs": [
@@ -78,7 +78,7 @@ export function SeoSchema() {
       },
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#swati-arora",
+        "@id": "https://www.ashmyra.com/team#swati-arora",
         "name": "Swati Arora",
         "jobTitle": "Co-Founder & Business Strategy"
       }
@@ -86,7 +86,7 @@ export function SeoSchema() {
     "employee": [
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#prince-rehan",
+        "@id": "https://www.ashmyra.com/team#prince-rehan",
         "name": "Prince Rehan",
         "jobTitle": "Head - IT & Software Development"
       }
@@ -154,7 +154,7 @@ export function SeoSchema() {
             "name": "Ashmyra AI",
             "description": "Autonomous multi-agent AI swarms for enterprise workflow automation and intelligent decision execution.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/ai"
+            "url": "https://www.ashmyra.com/products/ai"
           }
         },
         {
@@ -164,7 +164,7 @@ export function SeoSchema() {
             "name": "Ashmyra SEO",
             "description": "Generative Engine Optimization (GEO) intelligence platform that makes businesses visible and citable by AI answer engines.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/seo"
+            "url": "https://www.ashmyra.com/products/seo"
           }
         },
         {
@@ -174,7 +174,7 @@ export function SeoSchema() {
             "name": "Ashmyra HRMS",
             "description": "AI-powered workforce management platform covering attendance, payroll, performance, and employee intelligence.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/hrms"
+            "url": "https://www.ashmyra.com/products/hrms"
           }
         },
         {
@@ -184,7 +184,7 @@ export function SeoSchema() {
             "name": "Ashmyra Analytics",
             "description": "Real-time data intelligence platform with business analytics, dashboards, and predictive insights.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/analytics"
+            "url": "https://www.ashmyra.com/products/analytics"
           }
         },
         {
@@ -194,7 +194,7 @@ export function SeoSchema() {
             "name": "Ashmyra CRM",
             "description": "AI-enhanced CRM with predictive lead scoring, automated workflows, and pipeline intelligence.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/crm"
+            "url": "https://www.ashmyra.com/products/crm"
           }
         },
         {
@@ -204,7 +204,7 @@ export function SeoSchema() {
             "name": "Ashmyra Automation",
             "description": "No-code enterprise workflow automation builder for complex business process automation.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/automation"
+            "url": "https://www.ashmyra.com/products/automation"
           }
         },
         {
@@ -214,7 +214,7 @@ export function SeoSchema() {
             "name": "Ashmyra Web",
             "description": "AI-powered intelligent web presence and conversion optimization platform.",
             "applicationCategory": "BusinessApplication",
-            "url": "https://ashmyra.com/products/web"
+            "url": "https://www.ashmyra.com/products/web"
           }
         }
       ]
@@ -224,20 +224,20 @@ export function SeoSchema() {
   const webSiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://ashmyra.com/#website",
+    "@id": "https://www.ashmyra.com/#website",
     "name": "Ashmyra Technologies",
     "alternateName": "Ashmyra",
-    "url": "https://ashmyra.com",
+    "url": "https://www.ashmyra.com",
     "description": "Official website of Ashmyra Technologies — AI-native technology company building intelligent systems that act.",
     "inLanguage": "en-US",
     "publisher": {
-      "@id": "https://ashmyra.com/#organization"
+      "@id": "https://www.ashmyra.com/#organization"
     },
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://ashmyra.com/resources?q={search_term_string}"
+        "urlTemplate": "https://www.ashmyra.com/resources?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -246,14 +246,14 @@ export function SeoSchema() {
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://ashmyra.com/#webpage",
-    "url": "https://ashmyra.com",
+    "@id": "https://www.ashmyra.com/#webpage",
+    "url": "https://www.ashmyra.com",
     "name": "Ashmyra | We Build Intelligent Systems That Act",
-    "isPartOf": { "@id": "https://ashmyra.com/#website" },
-    "about": { "@id": "https://ashmyra.com/#organization" },
+    "isPartOf": { "@id": "https://www.ashmyra.com/#website" },
+    "about": { "@id": "https://www.ashmyra.com/#organization" },
     "primaryImageOfPage": {
       "@type": "ImageObject",
-      "url": "https://ashmyra.com/brand/ashmyra-og-image.png"
+      "url": "https://www.ashmyra.com/brand/ashmyra-og-image.png"
     },
     "speakable": {
       "@type": "SpeakableSpecification",
@@ -312,7 +312,7 @@ export function SeoSchema() {
         "name": "How can I contact Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can reach Ashmyra Technologies by emailing info@ashmyra.com, calling +91-9873746467, or visiting the contact page at https://ashmyra.com/contact to book a demo or initiate an enterprise engagement."
+          "text": "You can reach Ashmyra Technologies by emailing info@ashmyra.com, calling +91-9873746467, or visiting the contact page at https://www.ashmyra.com/contact to book a demo or initiate an enterprise engagement."
         }
       },
       {
@@ -344,7 +344,7 @@ export function SeoSchema() {
         "name": "Where can I test working live demos of Ashmyra software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can test live interactive production demos at https://ashmyra.com/demos. Four systems are immediately accessible: Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
+          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Four systems are immediately accessible: Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
         }
       },
       {
@@ -363,14 +363,14 @@ export function SeoSchema() {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#ashish-talgotra",
+        "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
         "jobTitle": "Founder & Lead AI Architect",
         "worksFor": {
-          "@id": "https://ashmyra.com/#organization"
+          "@id": "https://www.ashmyra.com/#organization"
         },
-        "url": "https://ashmyra.com/team",
-        "image": "https://ashmyra.com/hero/ashish-portrait.png",
+        "url": "https://www.ashmyra.com/team",
+        "image": "https://www.ashmyra.com/hero/ashish-portrait.png",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
@@ -385,13 +385,13 @@ export function SeoSchema() {
       },
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#swati-arora",
+        "@id": "https://www.ashmyra.com/team#swati-arora",
         "name": "Swati Arora",
         "jobTitle": "Co-Founder & Business Strategy",
         "worksFor": {
-          "@id": "https://ashmyra.com/#organization"
+          "@id": "https://www.ashmyra.com/#organization"
         },
-        "url": "https://ashmyra.com/team",
+        "url": "https://www.ashmyra.com/team",
         "knowsAbout": [
           "Enterprise Business Strategy",
           "Go-To-Market & Market Scale",
@@ -401,14 +401,14 @@ export function SeoSchema() {
       },
       {
         "@type": "Person",
-        "@id": "https://ashmyra.com/team#prince-rehan",
+        "@id": "https://www.ashmyra.com/team#prince-rehan",
         "name": "Prince Rehan",
         "jobTitle": "Head - IT & Software Development",
         "worksFor": {
-          "@id": "https://ashmyra.com/#organization"
+          "@id": "https://www.ashmyra.com/#organization"
         },
-        "url": "https://ashmyra.com/team",
-        "image": "https://ashmyra.com/team/prince-rehan.jpg",
+        "url": "https://www.ashmyra.com/team",
+        "image": "https://www.ashmyra.com/team/prince-rehan.jpg",
         "knowsAbout": [
           "Enterprise IT Infrastructure",
           "Software Engineering Lifecycle",
@@ -428,37 +428,37 @@ export function SeoSchema() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://ashmyra.com"
+        "item": "https://www.ashmyra.com"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Live Demos",
-        "item": "https://ashmyra.com/demos"
+        "item": "https://www.ashmyra.com/demos"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Products",
-        "item": "https://ashmyra.com/products"
+        "item": "https://www.ashmyra.com/products"
       },
       {
         "@type": "ListItem",
         "position": 4,
         "name": "Services",
-        "item": "https://ashmyra.com/services"
+        "item": "https://www.ashmyra.com/services"
       },
       {
         "@type": "ListItem",
         "position": 5,
         "name": "Team",
-        "item": "https://ashmyra.com/team"
+        "item": "https://www.ashmyra.com/team"
       },
       {
         "@type": "ListItem",
         "position": 6,
         "name": "Contact",
-        "item": "https://ashmyra.com/contact"
+        "item": "https://www.ashmyra.com/contact"
       }
     ]
   };

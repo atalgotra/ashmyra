@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   description:
     "Discover how Ashmyra solves operational bottlenecks for Startups, SMEs, Enterprises, HR teams, Marketing teams, and Operations leaders.",
   alternates: {
-    canonical: "https://ashmyra.com/solutions",
+    canonical: "https://www.ashmyra.com/solutions",
   },
 };
 

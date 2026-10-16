@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Architecting autonomous AI agents, enterprise RAG pipelines, fine-tuned domain models, and intelligent business automations.",
   alternates: {
-    canonical: "https://ashmyra.com/services/ai-development",
+    canonical: "https://www.ashmyra.com/services/ai-development",
   },
 };
 

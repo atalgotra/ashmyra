@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Our Work | Ashmyra Technologies",
   description:
     "Explore Ashmyra's engineering capabilities — AI systems, data intelligence, agentic automation, and enterprise software built for real-world execution.",
-  alternates: { canonical: "https://ashmyra.com/our-work" },
+  alternates: { canonical: "https://www.ashmyra.com/our-work" },
 };
 
 export default function OurWorkPage() {

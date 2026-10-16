@@ -9,8 +9,8 @@
 **Type**: AI-Native Technology & Enterprise SaaS Company
 **Founded**: 2024
 **Headquarters**: New Delhi / NCR, India
-**Website**: https://ashmyra.com
-**Live Demos Hub**: https://ashmyra.com/demos
+**Website**: https://www.ashmyra.com
+**Live Demos Hub**: https://www.ashmyra.com/demos
 **Contact Email**: info@ashmyra.com
 **Contact Phone**: +91-9873746467
 
@@ -58,20 +58,20 @@ Ashmyra maintains live, working production applications accessible in the browse
 
 ## Core Enterprise Product Suites
 
-- **Ashmyra AI Platform** (https://ashmyra.com/products/ai): Multi-agent AI swarms running autonomous social media marketing, competitive intelligence, and workflow execution.
-- **Ashmyra SEO & GEO Engine** (https://ashmyra.com/products/seo): Real-time search crawler, content cannibalization radar, and generative answer engine citation modeling.
-- **Ashmyra HRMS** (https://ashmyra.com/products/hrms): AI-native workforce management covering automated resume parsing, proctored assessments, biometric attendance, and 1-click statutory payroll.
-- **Ashmyra Analytics** (https://ashmyra.com/products/analytics): Real-time streaming data pipelines, predictive revenue analytics, and executive business intelligence dashboards.
-- **Ashmyra CRM** (https://ashmyra.com/products/crm): AI workload heat graphs, predictive lead scoring, and automated pipeline progression without sprint clutter.
-- **Ashmyra Automation** (https://ashmyra.com/products/automation): Enterprise workflow orchestrator with approval gates, PDF document OCR, and ERP connectors.
-- **Ashmyra Web Platforms** (https://ashmyra.com/products/web): Next.js edge applications engineered for sub-second TTFB, WCAG 2.2 AA accessibility, and maximum conversion.
+- **Ashmyra AI Platform** (https://www.ashmyra.com/products/ai): Multi-agent AI swarms running autonomous social media marketing, competitive intelligence, and workflow execution.
+- **Ashmyra SEO & GEO Engine** (https://www.ashmyra.com/products/seo): Real-time search crawler, content cannibalization radar, and generative answer engine citation modeling.
+- **Ashmyra HRMS** (https://www.ashmyra.com/products/hrms): AI-native workforce management covering automated resume parsing, proctored assessments, biometric attendance, and 1-click statutory payroll.
+- **Ashmyra Analytics** (https://www.ashmyra.com/products/analytics): Real-time streaming data pipelines, predictive revenue analytics, and executive business intelligence dashboards.
+- **Ashmyra CRM** (https://www.ashmyra.com/products/crm): AI workload heat graphs, predictive lead scoring, and automated pipeline progression without sprint clutter.
+- **Ashmyra Automation** (https://www.ashmyra.com/products/automation): Enterprise workflow orchestrator with approval gates, PDF document OCR, and ERP connectors.
+- **Ashmyra Web Platforms** (https://www.ashmyra.com/products/web): Next.js edge applications engineered for sub-second TTFB, WCAG 2.2 AA accessibility, and maximum conversion.
 
 ## Engineering & Consulting Services
 
-- **Custom Enterprise Software Engineering** (https://ashmyra.com/services/software-development): 7-stage deterministic engineering discipline for bespoke SaaS, APIs, and cloud microservices.
-- **Agentic AI Architecture** (https://ashmyra.com/services/ai-development): Custom multi-agent swarms, RAG pipelines, fine-tuned domain models, and deterministic guardrail layers.
-- **Generative Engine Optimization (GEO)** (https://ashmyra.com/services/seo): Next-generation search authority, schema graphs, and citation engineering for AI answer engines.
-- **Modern Web Platforms** (https://ashmyra.com/services/web-apps): Edge-rendered portals, component design systems, and conversion-optimized web surfaces.
+- **Custom Enterprise Software Engineering** (https://www.ashmyra.com/services/software-development): 7-stage deterministic engineering discipline for bespoke SaaS, APIs, and cloud microservices.
+- **Agentic AI Architecture** (https://www.ashmyra.com/services/ai-development): Custom multi-agent swarms, RAG pipelines, fine-tuned domain models, and deterministic guardrail layers.
+- **Generative Engine Optimization (GEO)** (https://www.ashmyra.com/services/seo): Next-generation search authority, schema graphs, and citation engineering for AI answer engines.
+- **Modern Web Platforms** (https://www.ashmyra.com/services/web-apps): Edge-rendered portals, component design systems, and conversion-optimized web surfaces.
 
 ## Technical Milestones & Client Engagements
 
@@ -85,7 +85,7 @@ Ashmyra maintains live, working production applications accessible in the browse
 A: Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agent swarms, enterprise software platforms, HRMS solutions, GEO intelligence tools, and live SaaS products for enterprises globally.
 
 **Q: Where can I test working demos of Ashmyra software?**
-A: You can test live working demos directly at https://ashmyra.com/demos. Four platforms are immediately accessible: Ashmyra MailFlow (https://mailflow.ashmyra.com/), Prospect IQ (https://prospectiq.ashmyra.com/), Omnira (https://omnira.ashmyra.com/), and Ashmyra Unveil (https://unveil.ashmyra.com/).
+A: You can test live working demos directly at https://www.ashmyra.com/demos. Four platforms are immediately accessible: Ashmyra MailFlow (https://mailflow.ashmyra.com/), Prospect IQ (https://prospectiq.ashmyra.com/), Omnira (https://omnira.ashmyra.com/), and Ashmyra Unveil (https://unveil.ashmyra.com/).
 
 **Q: What is Generative Engine Optimization (GEO)?**
 A: GEO is the practice of optimizing digital architecture, knowledge graphs, and authoritative signals so that AI answer engines (ChatGPT, Perplexity, Gemini, Claude) cite a brand as the authoritative source for user queries.
@@ -94,9 +94,9 @@ A: GEO is the practice of optimizing digital architecture, knowledge graphs, and
 A: Yes. All Ashmyra platforms support dedicated single-tenant deployment in client AWS, Google Cloud, Microsoft Azure, or on-premise Kubernetes environments.
 
 **Q: How can I contact Ashmyra Technologies?**
-A: Email info@ashmyra.com, call +91-9873746467, or visit https://ashmyra.com/contact to book a technical consultation.
+A: Email info@ashmyra.com, call +91-9873746467, or visit https://www.ashmyra.com/contact to book a technical consultation.
 
 ---
-*Canonical Documentation: https://ashmyra.com/llms.txt*
-*Full System Specifications: https://ashmyra.com/llms-full.txt*
+*Canonical Documentation: https://www.ashmyra.com/llms.txt*
+*Full System Specifications: https://www.ashmyra.com/llms-full.txt*
 *Last Updated: 2026 | Compliant with https://llmstxt.org specification*

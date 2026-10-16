@@ -63,10 +63,10 @@ export const metadata: Metadata = {
     title: "Ashmyra Automation | AI Workflow Automation & Orchestration",
     description:
       "Connect data, applications, AI agents and people into resilient workflows that execute, decide, communicate, recover and escalate — automatically.",
-    url: "https://ashmyra.com/products/automation",
+    url: "https://www.ashmyra.com/products/automation",
     images: [{ url: "/wow/wow6-workplace-communication.png", width: 1200, height: 675, alt: "Ashmyra Automation Engine" }],
   },
-  alternates: { canonical: "https://ashmyra.com/products/automation" },
+  alternates: { canonical: "https://www.ashmyra.com/products/automation" },
 };
 
 function LoopStage({ n, label, sub, color }: { n: string; label: string; sub: string; color: string }) {

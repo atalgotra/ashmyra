@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     "Intelligent Business Software",
   ],
   alternates: {
-    canonical: "https://ashmyra.com",
+    canonical: "https://www.ashmyra.com",
   },
   openGraph: {
     title: "Ashmyra | Intelligent Systems That Act | AI Technology",
     description:
       "Ashmyra Technologies builds AI agents, autonomous automation, enterprise SaaS, HRMS, CRM, and data platforms. Delhi NCR, India. Serving clients globally.",
-    url: "https://ashmyra.com",
+    url: "https://www.ashmyra.com",
     images: [
       {
         url: "/brand/ashmyra-og-image.png",

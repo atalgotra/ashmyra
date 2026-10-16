@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     title: "Ashmyra Work & Project Intelligence | Better Than Jira",
     description:
       "Zero tedious Jira stories or sprint ceremonies. Clean 3-tier hierarchy, real-time AI employee workload heatmaps, unlimited users*, and 70% lower cost + lifetime license.",
-    url: "https://ashmyra.com/products/crm",
+    url: "https://www.ashmyra.com/products/crm",
     images: [{ url: "/wow/wow3-project-management.png", width: 1200, height: 675, alt: "Ashmyra Work & Project Intelligence Preview" }],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products/crm",
+    canonical: "https://www.ashmyra.com/products/crm",
   },
 };
 

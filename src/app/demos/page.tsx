@@ -24,13 +24,13 @@ export const metadata: Metadata = {
   description:
     "Test live Ashmyra AI platforms in your browser: cold email automation, B2B lead scraping, SEO crawler & brand threat intelligence. Instant sandbox access.",
   alternates: {
-    canonical: "https://ashmyra.com/demos",
+    canonical: "https://www.ashmyra.com/demos",
   },
   openGraph: {
     title: "Ashmyra Live Demos | MailFlow, Prospect IQ, Omnira & Unveil",
     description:
       "Test live Ashmyra AI platforms in your browser: cold email automation, B2B lead scraping, SEO crawler & brand threat intelligence. Instant sandbox access.",
-    url: "https://ashmyra.com/demos",
+    url: "https://www.ashmyra.com/demos",
     images: [
       {
         url: "/brand/ashmyra-og-image.png",
@@ -67,7 +67,7 @@ export default function DemosPage() {
         "worstRating": "1",
       },
       "creator": {
-        "@id": "https://ashmyra.com/#organization",
+        "@id": "https://www.ashmyra.com/#organization",
       },
     })),
   };
@@ -80,13 +80,13 @@ export default function DemosPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://ashmyra.com",
+        "item": "https://www.ashmyra.com",
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Demos",
-        "item": "https://ashmyra.com/demos",
+        "item": "https://www.ashmyra.com/demos",
       },
     ],
   };

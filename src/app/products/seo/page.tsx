@@ -52,11 +52,11 @@ export const metadata: Metadata = {
     title: "Ashmyra SEO | Real-Time GSC/GA4 API Sync & GEO Intelligence Platform",
     description:
       "Full website technical audits with code-level fixes, keyword cannibalization detection, and GEO citation tracking at just ₹0.25 INR ($0.0025 USD) per page. Better than Semrush and Ahrefs.",
-    url: "https://ashmyra.com/products/seo",
+    url: "https://www.ashmyra.com/products/seo",
     images: [{ url: "/products/seo/seo-geo-studio.jpg", width: 1200, height: 675, alt: "Ashmyra SEO & GEO Intelligence Suite" }],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products/seo",
+    canonical: "https://www.ashmyra.com/products/seo",
   },
 };
 

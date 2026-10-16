@@ -51,11 +51,11 @@ export const metadata: Metadata = {
     title: "Ashmyra AI | Autonomous Social Media Agent Swarm",
     description:
       "Operates like an elite 7–8 person creative agency. Manages YouTube, Instagram, LinkedIn, and Facebook with competitor radar, reel script generation, and 1-click publishing.",
-    url: "https://ashmyra.com/products/ai",
+    url: "https://www.ashmyra.com/products/ai",
     images: [{ url: "/wow/wow1-social-intelligence.png", width: 1200, height: 675, alt: "Ashmyra AI Autonomous Architecture" }],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products/ai",
+    canonical: "https://www.ashmyra.com/products/ai",
   },
 };
 

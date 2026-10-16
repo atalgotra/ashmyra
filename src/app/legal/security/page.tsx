@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Security Architecture | Ashmyra",
   description: "Enterprise security architecture, data isolation, encryption standards, and agentic AI guardrails at Ashmyra.",
   alternates: {
-    canonical: "https://ashmyra.com/legal/security",
+    canonical: "https://www.ashmyra.com/legal/security",
   },
 };
 

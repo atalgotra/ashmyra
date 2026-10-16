@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: "Ashmyra Products | Enterprise AI, SEO, HRMS & SaaS",
     description:
       "Explore the Ashmyra software suite: agentic AI swarms, SEO intelligence, HRMS workforce, data analytics, and workflow automation built for enterprise scale.",
-    url: "https://ashmyra.com/products",
+    url: "https://www.ashmyra.com/products",
     images: [
       {
         url: "/brand/ashmyra-og-image.png",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://ashmyra.com/products",
+    canonical: "https://www.ashmyra.com/products",
   },
 };
 

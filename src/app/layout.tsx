@@ -33,7 +33,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ashmyra.com"),
+  metadataBase: new URL("https://www.ashmyra.com"),
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
     "AI SaaS Platform India",
   ],
   authors: [
-    { name: "Ashmyra Technologies", url: "https://ashmyra.com" },
+    { name: "Ashmyra Technologies", url: "https://www.ashmyra.com" },
   ],
   creator: "Ashmyra",
   publisher: "Ashmyra",
@@ -100,7 +100,7 @@ export const metadata: Metadata = {
     title: "Ashmyra | Technology That Thinks Beyond Software",
     description:
       "Ashmyra builds AI-powered software, SaaS platforms, and intelligent business systems that turn complex operations into simple, scalable workflows. Trusted by enterprises across India and globally.",
-    url: "https://ashmyra.com",
+    url: "https://www.ashmyra.com",
     siteName: "Ashmyra Technologies",
     locale: "en_US",
     type: "website",
@@ -136,10 +136,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://ashmyra.com",
+    canonical: "https://www.ashmyra.com",
     languages: {
-      "en-US": "https://ashmyra.com",
-      "en-IN": "https://ashmyra.com",
+      "en-US": "https://www.ashmyra.com",
+      "en-IN": "https://www.ashmyra.com",
     },
   },
   other: {

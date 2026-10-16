@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "End-to-end bespoke software engineering: multi-tenant SaaS architecture, cloud microservices, and mission-critical enterprise systems.",
   alternates: {
-    canonical: "https://ashmyra.com/services/software-development",
+    canonical: "https://www.ashmyra.com/services/software-development",
   },
 };
 

@@ -5,7 +5,7 @@ import { PeopleSection } from "@/components/people-section";
 export const metadata: Metadata = {
   title: "Our Team | Ashmyra Technologies",
   description:
-    "Meet the engineering leadership behind Ashmyra Technologies — practitioners who have spent over a decade building AI architectures, data platforms, and enterprise systems at scale.",
+    "Meet the engineering leadership behind Ashmyra Technologies — practitioners with over a decade designing AI architectures, data platforms, and SaaS at scale.",
   alternates: { canonical: "https://ashmyra.com/team" },
 };
 

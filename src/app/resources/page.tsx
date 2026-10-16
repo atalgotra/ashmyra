@@ -14,9 +14,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resources & Insights | AI Architecture, SEO in AI Search & Workforce Tech",
+  title: "Resources & Insights | AI Architecture & GEO Guides",
   description:
-    "Explore in-depth technical guides, engineering perspectives, and architectural case studies from the engineers at Ashmyra.",
+    "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
   alternates: {
     canonical: "https://ashmyra.com/resources",
   },

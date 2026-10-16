@@ -31,9 +31,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Work & Project Intelligence | Better Than Jira for High-Velocity Teams",
+  title: "Ashmyra CRM | Project Intelligence & Workload Radar",
   description:
-    "Built by founders and developers tired of Jira's tedious story and epic overhead. Clean Workspace → Project → Task hierarchy, real-time AI employee workload heat graph, 100% no-code frontend workflows, no maximum user limit*, and 70% lower cost + one-time lifetime plan.",
+    "Built for teams tired of Jira overhead. Workspace hierarchy, AI workload heat graph, no-code workflows, unlimited users, and 70% lower total cost.",
   keywords: [
     "Better than Jira",
     "Jira Alternative",

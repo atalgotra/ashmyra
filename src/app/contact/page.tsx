@@ -13,9 +13,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Ashmyra | Book a Demo | info@ashmyra.com | +91-9873746467",
+  title: "Contact Ashmyra | Enterprise AI & Software Scoping",
   description:
-    "Connect with Ashmyra Technologies. Email info@ashmyra.com or call +91-9873746467. Request a tailored demo of Ashmyra AI, Ashmyra SEO, Ashmyra HRMS, or discuss bespoke enterprise software engineering. Based in Delhi NCR, India.",
+    "Connect with Ashmyra Technologies in Delhi NCR, India. Book a tailored live demo of our AI platforms or discuss bespoke enterprise software engineering.",
   keywords: [
     "Contact Ashmyra",
     "Ashmyra Demo",

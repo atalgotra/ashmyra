@@ -33,9 +33,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra HRMS | AI Resume Parser, Proctored Quiz & 360° Clearance at 70% Less Cost",
+  title: "Ashmyra HRMS | AI Workforce, Resume Parser & Payroll",
   description:
-    "An intelligent workforce operating system unifying AI Resume Parsing, live AI-Proctored Quiz assessments with anti-cheat, cross-department onboarding/offboarding (IT, HR, Finance, Admin), and POSH compliance—at 70% less cost than Workday.",
+    "Intelligent workforce system with AI resume parsing, proctored assessments, cross-department onboarding, and statutory payroll at 70% lower cost than Workday.",
   keywords: [
     "Ashmyra HRMS",
     "AI Resume Parser",

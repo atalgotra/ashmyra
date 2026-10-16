@@ -37,9 +37,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Analytics | Data Intelligence & Revenue Operations Platform",
+  title: "Ashmyra Analytics | Data Intelligence & RevOps Engine",
   description:
-    "Turn raw data into revenue-ready intelligence. An end-to-end Data Intelligence & Revenue Operations platform: 24/7 collection, 4-layer AI deduplication, Golden Records, lead scoring, built-in calling CRM, sales pipeline, and closed-loop revenue intelligence.",
+    "Turn raw data into revenue intelligence with 24/7 collection, 4-layer deduplication, Golden Records, lead scoring, built-in calling CRM, and sales pipelines.",
   keywords: [
     "Ashmyra Analytics",
     "Data Intelligence Platform",

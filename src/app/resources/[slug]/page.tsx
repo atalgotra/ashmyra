@@ -21,10 +21,15 @@ export async function generateMetadata({
   if (!article) return {};
 
   return {
-    title: `${article.title} | Ashmyra Insights`,
-    description: article.summary,
+    title: `${article.metaTitle || article.title}`,
+    description: article.metaDesc || article.summary,
     alternates: {
       canonical: `https://ashmyra.com/resources/${article.slug}`,
+    },
+    openGraph: {
+      title: `${article.metaTitle || article.title}`,
+      description: article.metaDesc || article.summary,
+      url: `https://ashmyra.com/resources/${article.slug}`,
     },
   };
 }
@@ -85,11 +90,18 @@ export default async function ArticleDetailPage({
         </header>
 
         {/* Article Body */}
-        <div className="space-y-6 text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
-          {article.content.map((paragraph, index) => (
-            <p key={index} className="p-1">
-              {paragraph}
-            </p>
+        <div className="space-y-10 text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+          {article.sections.map((section, index) => (
+            <section key={index} className="space-y-4">
+              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                {section.heading}
+              </h2>
+              {section.paragraphs.map((p, pIdx) => (
+                <p key={pIdx} className="leading-relaxed text-neutral-300">
+                  {p}
+                </p>
+              ))}
+            </section>
           ))}
         </div>
 

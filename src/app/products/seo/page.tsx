@@ -33,9 +33,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra SEO | Real-Time GSC/GA4 Sync, Code-Level Audits & GEO at ₹0.25 ($0.0025)/Page",
+  title: "Ashmyra SEO | Real-Time GSC/GA4 Crawler & GEO Engine",
   description:
-    "First-in-market SEO intelligence connecting directly to GSC & GA4 APIs. Real-time streaming crawler, code-level fixes, keyword cannibalization detection, auto-generated Schema.org JSON-LD, and GEO at ₹0.25 INR ($0.0025 USD) per page.",
+    "SEO intelligence connecting directly to GSC & GA4 APIs. Real-time crawler, code-level fixes, cannibalization detection, Schema.org generator, and GEO readiness.",
   keywords: [
     "Ashmyra SEO",
     "GSC Direct API SEO",

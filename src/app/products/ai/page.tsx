@@ -33,9 +33,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra AI | Autonomous Social Media Agent Swarm & Multi-Channel Marketing",
+  title: "Ashmyra AI | Autonomous Social Media Agent Swarm",
   description:
-    "An autonomous agentic AI workforce that operates like an elite 7–8 person creative agency. Manages YouTube, Instagram, LinkedIn, and Facebook with dynamic competitor radar, viral trend discovery, end-to-end asset production, and 1-click human approval.",
+    "Autonomous agent swarms running multi-channel social marketing across YouTube, Instagram, and LinkedIn with competitor radar and 1-click approvals.",
   keywords: [
     "Ashmyra AI",
     "Agentic AI Social Media Manager",

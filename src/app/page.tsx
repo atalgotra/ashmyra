@@ -8,9 +8,9 @@ import { FinalCtaPhase6 } from "@/components/final-cta-phase6";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Ashmyra | We Build Intelligent Systems That Act | AI-Native Technology",
+  title: "Ashmyra | Intelligent Systems That Act | AI Technology",
   description:
-    "Ashmyra Technologies engineers AI agents, agentic automation, enterprise SaaS, HRMS, CRM, and data intelligence platforms. Based in Delhi NCR, India. Serving enterprises globally.",
+    "Ashmyra Technologies builds AI agents, autonomous automation, enterprise SaaS, HRMS, CRM, and data platforms. Delhi NCR, India. Serving clients globally.",
   keywords: [
     "Ashmyra",
     "Ashmyra Technologies",
@@ -28,9 +28,9 @@ export const metadata: Metadata = {
     canonical: "https://ashmyra.com",
   },
   openGraph: {
-    title: "Ashmyra | We Build Intelligent Systems That Act",
+    title: "Ashmyra | Intelligent Systems That Act | AI Technology",
     description:
-      "AI-native technology company engineering autonomous agent swarms, GEO intelligence, enterprise HRMS, CRM, and data pipelines. Delhi NCR, India.",
+      "Ashmyra Technologies builds AI agents, autonomous automation, enterprise SaaS, HRMS, CRM, and data platforms. Delhi NCR, India. Serving clients globally.",
     url: "https://ashmyra.com",
     images: [
       {

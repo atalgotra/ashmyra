@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SERVICES } from "@/data/services";
+import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
 import { 
   Search, 
   ArrowRight, 
@@ -81,6 +81,56 @@ export default function SeoServicePage() {
             <p className="text-xs text-neutral-400 leading-relaxed pt-2">
               Combining technical SEO audits, Core Web Vitals optimization, semantic schema graphs, and generative citation tracking.
             </p>
+          </div>
+        </div>
+
+        {/* Search & GEO Use Cases */}
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+              Search &amp; GEO Scenarios We Solve
+            </h2>
+            <p className="text-sm text-neutral-400">
+              Modern search architectures engineered for continuous entity visibility and algorithmic resilience.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {service.useCases.map((uc, i) => (
+              <div key={i} className="glass-panel p-6 rounded-2xl border border-white/[0.08] hover:border-sky-500/30 transition-all">
+                <div className="text-sm font-bold text-white mb-2">{uc.title}</div>
+                <p className="text-xs text-neutral-300 leading-relaxed">{uc.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 7-Stage Engineering Discipline */}
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+              Our 7-Stage Search &amp; GEO Roadmap
+            </h2>
+            <p className="text-sm text-neutral-400">
+              From crawling discovery and knowledge graph modeling to continuous generative citation tracking.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ENGINEERING_PROCESS.map((proc) => (
+              <div key={proc.step} className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-mono font-bold text-sky-400">{proc.step} · {proc.phase}</span>
+                </div>
+                <div className="text-xs font-bold text-white mb-1.5">{proc.title}</div>
+                <p className="text-[11px] text-neutral-400 leading-relaxed mb-3">{proc.desc}</p>
+                <div className="flex flex-wrap gap-1">
+                  {proc.outputs.map((out, oIdx) => (
+                    <span key={oIdx} className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-neutral-400 border border-white/[0.06]">
+                      {out}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

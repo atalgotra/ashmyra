@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Web | High-Performance Digital Platforms & Web Applications",
+  title: "Ashmyra Web | Edge Performance & Digital Platforms",
   description:
     "Ultra-responsive Next.js, React and modern edge architecture engineered for maximum conversion, perfect Core Web Vitals, and global scalability.",
   keywords: [

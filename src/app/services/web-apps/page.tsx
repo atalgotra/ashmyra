@@ -1,7 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SERVICES } from "@/data/services";
+import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
 import { 
   Globe, 
   ArrowRight, 
@@ -126,6 +126,36 @@ export default function WebAppsServicePage() {
               <div key={uc.title} className="glass-panel rounded-2xl p-6 space-y-2">
                 <h3 className="text-base font-bold text-white">{uc.title}</h3>
                 <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">{uc.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 7-Stage Web Architecture Discipline */}
+        <div className="mb-20">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+              Our 7-Stage Web Architecture Discipline
+            </h2>
+            <p className="text-sm text-neutral-400">
+              From design token systems to edge caching, accessibility compliance, and sub-second core web vitals.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {ENGINEERING_PROCESS.map((proc) => (
+              <div key={proc.step} className="p-5 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-emerald-500/30 transition-all">
+                <div className="flex items-center justify-between mb-2">
+                  <span className="text-xs font-mono font-bold text-emerald-400">{proc.step} · {proc.phase}</span>
+                </div>
+                <div className="text-xs font-bold text-white mb-1.5">{proc.title}</div>
+                <p className="text-[11px] text-neutral-400 leading-relaxed mb-3">{proc.desc}</p>
+                <div className="flex flex-wrap gap-1">
+                  {proc.outputs.map((out, oIdx) => (
+                    <span key={oIdx} className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/[0.04] text-neutral-400 border border-white/[0.06]">
+                      {out}
+                    </span>
+                  ))}
+                </div>
               </div>
             ))}
           </div>

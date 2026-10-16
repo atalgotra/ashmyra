@@ -39,7 +39,7 @@ export async function POST(req: Request) {
     }
 
     const apiKey = process.env.RESEND_API_KEY;
-    const toEmail = process.env.CONTACT_TO_EMAIL || "info@ashmyra.com";
+    const toEmail = process.env.CONTACT_TO_EMAIL || "ashishtalgotra11@gmail.com";
     const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
 
     if (!apiKey) {

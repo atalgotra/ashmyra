@@ -83,6 +83,57 @@ export default function ContactPage() {
               </div>
             </div>
 
+            {/* Direct Contact Channels */}
+            <div className="glass-panel rounded-3xl p-6 sm:p-7 space-y-4">
+              <h2 className="text-base font-bold text-white">Direct Communication Channels</h2>
+              
+              <div className="space-y-3">
+                <a
+                  href="mailto:info@ashmyra.com"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-white/[0.06] transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/25 flex items-center justify-center text-indigo-400 shrink-0">
+                    <Mail className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-mono text-neutral-400">Direct Email</div>
+                    <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-indigo-300 transition-colors truncate">
+                      info@ashmyra.com
+                    </div>
+                  </div>
+                </a>
+
+                <a
+                  href="https://wa.me/919873746467"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-emerald-500/40 hover:bg-white/[0.06] transition-all group"
+                >
+                  <div className="w-9 h-9 rounded-xl bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 shrink-0">
+                    <MessageSquare className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-mono text-neutral-400">Phone / WhatsApp</div>
+                    <div className="text-xs sm:text-sm font-semibold text-white group-hover:text-emerald-300 transition-colors truncate">
+                      +91-9873746467
+                    </div>
+                  </div>
+                </a>
+
+                <div className="flex items-center gap-3 p-3 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
+                  <div className="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/25 flex items-center justify-center text-cyan-400 shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-[11px] font-mono text-neutral-400">Engineering HQ</div>
+                    <div className="text-xs sm:text-sm font-semibold text-white truncate">
+                      New Delhi / NCR, India
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div className="glass-panel rounded-3xl p-6 sm:p-7 space-y-4 text-xs font-mono text-neutral-400">
               <div className="flex items-center gap-2 text-white font-semibold">
                 <Clock className="w-4 h-4 text-indigo-400" />
@@ -93,11 +144,11 @@ export default function ContactPage() {
               </p>
               <div className="pt-2 border-t border-white/[0.06]">
                 <span className="text-neutral-500 block mb-1">Company:</span>
-                <span className="text-white font-bold">Ashmyra</span>
+                <span className="text-white font-bold">Ashmyra Technologies</span>
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1">Domain:</span>
-                <span className="text-indigo-300">ashmyra.com</span>
+                <span className="text-indigo-300">www.ashmyra.com</span>
               </div>
               <div>
                 <span className="text-neutral-500 block mb-1">Leadership:</span>

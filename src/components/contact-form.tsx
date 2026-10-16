@@ -46,7 +46,7 @@ export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (formData.honeypot) {
       // Bot detected silently
@@ -61,11 +61,26 @@ export function ContactForm() {
     setErrorMsg(null);
     setIsSubmitting(true);
 
-    // Simulate reliable API submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry. Please try again.");
+      }
+
       setSubmitted(true);
-    }, 800);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Network error. Please email info@ashmyra.com directly.";
+      setErrorMsg(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (submitted) {

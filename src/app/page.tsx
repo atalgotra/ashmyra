@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { HeroPhase6 } from "@/components/hero-phase6";
 import { WowShowcasePhase6 } from "@/components/wow-showcase-phase6";
 import { CapabilityProof } from "@/components/capability-proof";
+import { TryDemoSection } from "@/components/try-demo-section";
 import { FinalCtaPhase6 } from "@/components/final-cta-phase6";
 import Link from "next/link";
 
@@ -55,7 +56,10 @@ export default function HomePage() {
       {/* 03 — CAPABILITY PROOF + SELECTED WORK */}
       <CapabilityProof />
 
-      {/* 04 — WHO WE ARE: Compact philosophy strip — no personal names on homepage */}
+      {/* 04 — TRY DEMO: Live Production Applications */}
+      <TryDemoSection />
+
+      {/* 05 — WHO WE ARE: Compact philosophy strip — no personal names on homepage */}
       <section className="relative bg-[#030406] border-t border-white/[0.06]">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-12 py-14 sm:py-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">

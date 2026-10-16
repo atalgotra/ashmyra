@@ -11,7 +11,16 @@ const NAV = [
       { text: "Agentic AI",        href: "/products/ai" },
       { text: "SEO Intelligence",  href: "/products/seo" },
       { text: "Workforce (HRMS)",  href: "/products/hrms" },
-      { text: "Data Intelligence", href: "#" },
+      { text: "Data Intelligence", href: "/products/analytics" },
+    ],
+  },
+  {
+    label: "Try Demo",
+    links: [
+      { text: "Ashmyra MailFlow", href: "https://mailflow.ashmyra.com/" },
+      { text: "Prospect IQ", href: "https://prospectiq.ashmyra.com/" },
+      { text: "Omnira", href: "https://omnira.ashmyra.com/" },
+      { text: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/" },
     ],
   },
   {
@@ -88,7 +97,7 @@ export function FooterMinimal() {
 
         {/* Nav grid */}
         <div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-8 py-10"
+          className="grid grid-cols-2 sm:grid-cols-5 gap-8 py-10"
           style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
         >
           {NAV.map((col) => (

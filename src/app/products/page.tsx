@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { PRODUCTS } from "@/data/products";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
+import { TryDemoSection } from "@/components/try-demo-section";
 import { 
   ArrowRight, 
   Cpu, 
@@ -281,9 +282,14 @@ export default function ProductsPage() {
             );
           })}
         </div>
+      </div>
 
+      {/* Try Demo Section — Live Applications */}
+      <TryDemoSection />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Global Bottom CTA */}
-        <div className="mt-24 text-center p-10 sm:p-14 rounded-3xl bg-indigo-950/20 border border-indigo-500/30">
+        <div className="mt-20 text-center p-10 sm:p-14 rounded-3xl bg-indigo-950/20 border border-indigo-500/30">
           <h3 className="text-2xl sm:text-3xl font-bold text-white mb-2">
             Need a tailored enterprise software solution?
           </h3>
@@ -298,7 +304,6 @@ export default function ProductsPage() {
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-
       </div>
     </div>
   );

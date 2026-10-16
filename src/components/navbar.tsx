@@ -23,6 +23,10 @@ import {
   ExternalLink,
   ShieldCheck,
   Layers,
+  Mail,
+  MessageSquare,
+  Eye,
+  Activity,
 } from "lucide-react";
 
 export function Navbar() {
@@ -30,6 +34,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileDemosOpen, setMobileDemosOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -45,6 +50,7 @@ export function Navbar() {
     setMobileOpen(false);
     setActiveDD(null);
     setMobileProductsOpen(false);
+    setMobileDemosOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -61,6 +67,18 @@ export function Navbar() {
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
     const t = title.toLowerCase();
+    if (t.includes("mailflow") || t.includes("email")) {
+      return <Mail className={cls} style={{ color: "#818cf8" }} />;
+    }
+    if (t.includes("prospect") || t.includes("lead")) {
+      return <Target className={cls} style={{ color: "#06b6d4" }} />;
+    }
+    if (t.includes("omnira")) {
+      return <MessageSquare className={cls} style={{ color: "#10b981" }} />;
+    }
+    if (t.includes("unveil")) {
+      return <Eye className={cls} style={{ color: "#f59e0b" }} />;
+    }
     if (t.includes("seo") || t.includes("search") || t.includes("geo")) {
       return <Search className={cls} style={{ color: "#22d3ee" }} />;
     }
@@ -144,6 +162,130 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
               {MAIN_NAV.map((nav) => {
+                // Dedicated Dropdown for Try Demo
+                if (nav.title === "Try Demo" && nav.items) {
+                  const open = activeDD === nav.title;
+                  return (
+                    <div
+                      key={nav.title}
+                      className="relative"
+                      onMouseEnter={() => setActiveDD(nav.title)}
+                      onMouseLeave={() => setActiveDD(null)}
+                    >
+                      <button
+                        onClick={() => setActiveDD(open ? null : nav.title)}
+                        className={`flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
+                          open
+                            ? "text-white bg-white/[0.08]"
+                            : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
+                        }`}
+                        aria-expanded={open}
+                      >
+                        <span>{nav.title}</span>
+                        {nav.badge && (
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 uppercase tracking-wider font-bold border border-emerald-500/30 flex items-center gap-1">
+                            <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
+                            {nav.badge}
+                          </span>
+                        )}
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
+                            open ? "rotate-180 text-emerald-400" : ""
+                          }`}
+                        />
+                      </button>
+
+                      {open && (
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[520px] z-50 animate-fadeIn">
+                          <div
+                            className="rounded-3xl p-5 shadow-2xl"
+                            style={{
+                              background: "#07090f",
+                              border: "1px solid rgba(16, 185, 129, 0.25)",
+                              backdropFilter: "blur(32px)",
+                              boxShadow: "0 24px 64px -12px rgba(0,0,0,0.95), 0 0 35px -10px rgba(16, 185, 129, 0.25)",
+                            }}
+                          >
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08] px-1">
+                              <div className="flex items-center gap-2">
+                                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
+                                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
+                                  Live Production Applications
+                                </span>
+                              </div>
+                              <Link
+                                href="/products#try-demo"
+                                onClick={() => setActiveDD(null)}
+                                className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
+                              >
+                                <span>All Demos</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </Link>
+                            </div>
+
+                            <div className="space-y-1.5">
+                              {nav.items.map((item) => (
+                                <a
+                                  key={item.title}
+                                  href={item.href}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={() => setActiveDD(null)}
+                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-all group/demo border border-transparent hover:border-white/[0.08]"
+                                >
+                                  <div
+                                    className="p-2 rounded-lg mt-0.5 transition-all group-hover/demo:scale-105 flex-shrink-0"
+                                    style={{
+                                      background: "rgba(255,255,255,0.04)",
+                                      border: "1px solid rgba(255,255,255,0.08)",
+                                    }}
+                                  >
+                                    {getIcon(item.title)}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="flex items-center justify-between">
+                                      <div className="flex items-center gap-1.5">
+                                        <span className="text-[13px] font-bold text-neutral-200 group-hover/demo:text-white transition-colors truncate">
+                                          {item.title}
+                                        </span>
+                                        {item.badge && (
+                                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/15 border border-emerald-500/25 text-emerald-300">
+                                            {item.badge}
+                                          </span>
+                                        )}
+                                      </div>
+                                      <ExternalLink className="w-3.5 h-3.5 text-neutral-500 group-hover/demo:text-emerald-400 transition-colors" />
+                                    </div>
+                                    {item.description && (
+                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">
+                                        {item.description}
+                                      </p>
+                                    )}
+                                  </div>
+                                </a>
+                              ))}
+                            </div>
+
+                            <div className="mt-3 pt-3 border-t border-white/[0.07] flex items-center justify-between text-[11px] font-mono text-neutral-400 px-1">
+                              <span className="text-emerald-400 flex items-center gap-1.5">
+                                <Activity className="w-3 h-3" />
+                                Real-Time Production Telemetry
+                              </span>
+                              <Link
+                                href="/products#try-demo"
+                                onClick={() => setActiveDD(null)}
+                                className="text-indigo-300 hover:text-white transition-colors flex items-center gap-1 font-semibold"
+                              >
+                                Deep Dive &amp; Specs →
+                              </Link>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                }
+
                 // Dropdown for Products & Services
                 if (nav.items) {
                   const open = activeDD === nav.title;
@@ -438,28 +580,7 @@ export function Navbar() {
               </span>
             </Link>
 
-            {/* 03: Our Work */}
-            <Link
-              href="/our-work"
-              onClick={() => setMobileOpen(false)}
-              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                pathname === "/our-work"
-                  ? "text-white bg-cyan-500/15 border border-cyan-500/35 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
-                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <span>Our Work</span>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                Proof
-              </span>
-            </Link>
-
-            {/* 04: Products & Services Accordion */}
+            {/* 03: Products & Services Accordion */}
             <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden transition-all">
               <button
                 type="button"
@@ -496,7 +617,7 @@ export function Navbar() {
                       Flagship Products
                     </div>
                     <div className="space-y-1">
-                      {MAIN_NAV.find((n) => n.items)?.items
+                      {MAIN_NAV.find((n) => n.title === "Products & Services")?.items
                         ?.filter((i) => i.category === "product")
                         .map((prod) => (
                           <Link
@@ -526,7 +647,7 @@ export function Navbar() {
                       Engineering Services
                     </div>
                     <div className="space-y-1">
-                      {MAIN_NAV.find((n) => n.items)?.items
+                      {MAIN_NAV.find((n) => n.title === "Products & Services")?.items
                         ?.filter((i) => i.category === "service")
                         .map((svc) => (
                           <Link
@@ -551,6 +672,105 @@ export function Navbar() {
                 </div>
               )}
             </div>
+
+            {/* 04: Try Demo Accordion */}
+            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] overflow-hidden transition-all">
+              <button
+                type="button"
+                onClick={() => setMobileDemosOpen(!mobileDemosOpen)}
+                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white hover:bg-white/[0.03] transition-colors"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
+                    <Zap className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-semibold text-white">Try Demo</span>
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    </div>
+                    <div className="text-[11px] text-emerald-300/80 font-mono">4 Live Working Platforms</div>
+                  </div>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">
+                    {mobileDemosOpen ? "Hide" : "Launch"}
+                  </span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-neutral-400 transition-transform duration-300 ${
+                      mobileDemosOpen ? "rotate-180" : ""
+                    }`}
+                  />
+                </div>
+              </button>
+
+              {mobileDemosOpen && (
+                <div className="px-3 pb-3 pt-1 space-y-2 border-t border-white/[0.06] bg-black/40">
+                  <div className="space-y-1">
+                    {[
+                      { title: "Ashmyra MailFlow", href: "https://mailflow.ashmyra.com/", desc: "Cold email & deliverability", badge: "Email AI" },
+                      { title: "Prospect IQ", href: "https://prospectiq.ashmyra.com/", desc: "B2B leads & ICP discovery", badge: "Leads" },
+                      { title: "Omnira", href: "https://omnira.ashmyra.com/", desc: "Omnichannel customer AI", badge: "Omni" },
+                      { title: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/", desc: "GEO & brand search radar", badge: "GEO" },
+                    ].map((demo) => (
+                      <a
+                        key={demo.title}
+                        href={demo.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => setMobileOpen(false)}
+                        className="flex items-center justify-between p-2.5 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.06] transition-all border border-transparent hover:border-white/[0.08]"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          {getIcon(demo.title)}
+                          <div className="min-w-0">
+                            <div className="font-semibold text-neutral-200 truncate">{demo.title}</div>
+                            <div className="text-[10px] text-neutral-400 truncate">{demo.desc}</div>
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                            {demo.badge}
+                          </span>
+                          <ExternalLink className="w-3 h-3 text-neutral-500" />
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+                  <div className="pt-2 border-t border-white/[0.06]">
+                    <Link
+                      href="/products#try-demo"
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-center gap-1.5 py-2 text-xs font-mono text-indigo-300 hover:text-white transition-colors"
+                    >
+                      <span>Explore Demos &amp; Architecture</span>
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* 05: Our Work */}
+            <Link
+              href="/our-work"
+              onClick={() => setMobileOpen(false)}
+              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
+                pathname === "/our-work"
+                  ? "text-white bg-cyan-500/15 border border-cyan-500/35 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
+                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
+              }`}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                  <Layers className="w-4 h-4" />
+                </div>
+                <span>Our Work</span>
+              </div>
+              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
+                Proof
+              </span>
+            </Link>
           </nav>
 
           {/* Bottom Action Drawer with Safe-Area Padding */}

@@ -113,12 +113,53 @@ export const MAIN_NAV: NavSection[] = [
     ],
   },
   {
+    title: "Try Demo",
+    href: "/products#try-demo",
+    badge: "Live",
+    items: [
+      {
+        title: "Ashmyra MailFlow",
+        href: "https://mailflow.ashmyra.com/",
+        description: "Autonomous cold email warmup, sequence automation & deliverability.",
+        badge: "Email AI",
+        category: "product",
+      },
+      {
+        title: "Prospect IQ",
+        href: "https://prospectiq.ashmyra.com/",
+        description: "B2B lead intelligence, contact enrichment & ICP discovery engine.",
+        badge: "Leads",
+        category: "product",
+      },
+      {
+        title: "Omnira",
+        href: "https://omnira.ashmyra.com/",
+        description: "Omnichannel customer communication & agentic workflow orchestration.",
+        badge: "Omnichannel",
+        category: "product",
+      },
+      {
+        title: "Ashmyra Unveil",
+        href: "https://unveil.ashmyra.com/",
+        description: "Generative Engine Optimization (GEO) & brand search intelligence.",
+        badge: "GEO Radar",
+        category: "product",
+      },
+    ],
+  },
+  {
     title: "Our Work",
     href: "/our-work",
   },
 ];
 
 export const FOOTER_LINKS = {
+  demos: [
+    { name: "Ashmyra MailFlow", href: "https://mailflow.ashmyra.com/" },
+    { name: "Prospect IQ", href: "https://prospectiq.ashmyra.com/" },
+    { name: "Omnira", href: "https://omnira.ashmyra.com/" },
+    { name: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/" },
+  ],
   products: [
     { name: "Ashmyra AI", href: "/products/ai" },
     { name: "Ashmyra SEO", href: "/products/seo" },

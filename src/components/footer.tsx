@@ -8,6 +8,7 @@ import {
   Phone,
   MapPin,
   ArrowUpRight,
+  ArrowRight,
   ShieldCheck,
   Sparkles,
   Globe,
@@ -145,6 +146,53 @@ export function Footer() {
             </div>
           </div>
 
+        </div>
+
+        {/* ── Live Production Demos Banner ─────────────────────────────── */}
+        <div className="mb-14 p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.08] relative overflow-hidden">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-4 pb-4 border-b border-white/[0.06]">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="text-xs font-mono font-bold uppercase tracking-wider text-emerald-300">
+                Try Live Working Demos
+              </span>
+              <span className="text-[11px] font-mono text-neutral-500 hidden sm:inline">· Instant Browser Access</span>
+            </div>
+            <Link
+              href="/products#try-demo"
+              className="text-xs font-mono text-indigo-300 hover:text-white transition-colors flex items-center gap-1"
+            >
+              <span>Explore All Live Architectures</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+            {[
+              { name: "Ashmyra MailFlow", url: "https://mailflow.ashmyra.com/", desc: "Cold email & deliverability", badge: "Email AI" },
+              { name: "Prospect IQ", url: "https://prospectiq.ashmyra.com/", desc: "B2B lead intelligence", badge: "Leads" },
+              { name: "Omnira", url: "https://omnira.ashmyra.com/", desc: "Omnichannel customer AI", badge: "Omni" },
+              { name: "Ashmyra Unveil", url: "https://unveil.ashmyra.com/", desc: "GEO & brand search radar", badge: "GEO" },
+            ].map((demo) => (
+              <a
+                key={demo.name}
+                href={demo.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-between p-3 rounded-xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-emerald-500/30 transition-all"
+              >
+                <div>
+                  <div className="text-xs font-bold text-white group-hover:text-emerald-300 transition-colors">
+                    {demo.name}
+                  </div>
+                  <div className="text-[10px] text-neutral-400 font-mono mt-0.5">
+                    {demo.desc}
+                  </div>
+                </div>
+                <ArrowUpRight className="w-3.5 h-3.5 text-neutral-500 group-hover:text-emerald-400 transition-colors shrink-0" />
+              </a>
+            ))}
+          </div>
         </div>
 
         {/* ── Navigation Grid (High contrast, modern typography) ─────────────── */}

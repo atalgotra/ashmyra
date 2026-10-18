@@ -11,6 +11,7 @@ import {
   Layers,
   Terminal,
   Code2,
+  Heart,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────────────────── */
@@ -54,11 +55,28 @@ const LEADERS = [
     photoPosition: "object-top",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
     monogram: null,
+    roleBadge: "Founder",
     FooterIcon: Terminal,
     footerLabel: "Core System Architecture",
   },
   {
     num: "02",
+    name: "Bella",
+    title: "Chief Happiness Officer",
+    bio: "Head of office morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    skills: ["Morale Optimization", "Stress De-escalation", "Treat Auditing", "Zero-Bug Mascot"],
+    accent: "#fb7185",
+    accentRgb: "251,113,133",
+    photo: "/team/bella.png",
+    photoPosition: "object-top",
+    linkedin: null,
+    monogram: null,
+    roleBadge: "Office Pup 🐾",
+    FooterIcon: Heart,
+    footerLabel: "Chief Happiness & Morale",
+  },
+  {
+    num: "03",
     name: "Swati Arora",
     title: "Co-Founder & Business Strategy",
     bio: "Directs executive strategy, enterprise market delivery, and commercial alliances. Ensures every Ashmyra product and engagement is grounded in clear business ROI, frictionless client execution, and measurable revenue acceleration.",
@@ -69,11 +87,12 @@ const LEADERS = [
     photoPosition: "object-center",
     linkedin: null,
     monogram: "SA",
+    roleBadge: "Co-Founder",
     FooterIcon: Layers,
     footerLabel: "Commercial Scale & Delivery",
   },
   {
-    num: "03",
+    num: "04",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     bio: "Directs enterprise IT infrastructure, technical systems architecture, and end-to-end software delivery. Oversees resilient cloud architecture, engineering execution, and mission-critical systems that power operations at scale.",
@@ -84,6 +103,7 @@ const LEADERS = [
     photoPosition: "object-top",
     linkedin: null,
     monogram: null,
+    roleBadge: "Head of IT",
     FooterIcon: Code2,
     footerLabel: "IT & Systems Delivery",
   },
@@ -161,7 +181,7 @@ export function PeopleSection() {
         </div>
 
         {/* ── Leadership Cards ───────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-7 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {LEADERS.map((leader) => {
             const FooterIcon = leader.FooterIcon;
             return (
@@ -194,8 +214,8 @@ export function PeopleSection() {
                         src={leader.photo}
                         alt={leader.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={leader.num === "01"}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        priority={leader.num === "01" || leader.num === "02"}
                         className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-[1.06]`}
                       />
                       {/* Bottom-fade overlay so image bleeds into card body */}
@@ -300,23 +320,23 @@ export function PeopleSection() {
                 </div>
 
                 {/* ── Info Panel ─────────────────────────────────────────── */}
-                <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
+                <div className="flex flex-col flex-1 px-5 sm:px-6 pb-6 pt-3">
                   {/* Name */}
                   <h3
-                    className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug mb-1"
+                    className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug mb-1"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
                     {leader.name}
                   </h3>
                   {/* Title */}
                   <div
-                    className="text-[11px] sm:text-xs font-mono font-semibold mb-4 tracking-wide"
+                    className="text-[11px] font-mono font-semibold mb-3 tracking-wide"
                     style={{ color: leader.accent }}
                   >
                     {leader.title}
                   </div>
                   {/* Bio */}
-                  <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-sans mb-4 flex-1">
+                  <p className="text-xs text-neutral-400 leading-relaxed font-sans mb-4 flex-1">
                     {leader.bio}
                   </p>
                   {/* Skill pills */}
@@ -338,19 +358,19 @@ export function PeopleSection() {
 
                   {/* Footer */}
                   <div
-                    className="pt-4 flex items-center justify-between"
+                    className="pt-3.5 flex items-center justify-between gap-2"
                     style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
                   >
-                    <div className="flex items-center gap-2 text-[11px] font-mono text-neutral-500">
+                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-neutral-500 truncate min-w-0">
                       <FooterIcon className="w-3.5 h-3.5 shrink-0" style={{ color: leader.accent }} />
-                      <span>{leader.footerLabel}</span>
+                      <span className="truncate">{leader.footerLabel}</span>
                     </div>
                     {leader.linkedin ? (
                       <Link
                         href={leader.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white transition-all duration-200"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white transition-all duration-200 shrink-0"
                         style={{
                           background: "rgba(255,255,255,0.04)",
                           border: "1px solid rgba(255,255,255,0.1)",
@@ -360,7 +380,16 @@ export function PeopleSection() {
                         <ArrowUpRight className="w-3.5 h-3.5" style={{ color: leader.accent }} />
                       </Link>
                     ) : (
-                      <span className="text-[11px] font-mono text-neutral-600">Ashmyra Leadership</span>
+                      <span
+                        className="text-[10px] font-mono px-2 py-0.5 rounded shrink-0 font-medium"
+                        style={{
+                          color: leader.accent,
+                          background: `rgba(${leader.accentRgb}, 0.1)`,
+                          border: `1px solid rgba(${leader.accentRgb}, 0.22)`,
+                        }}
+                      >
+                        {leader.roleBadge}
+                      </span>
                     )}
                   </div>
                 </div>

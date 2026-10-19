@@ -197,9 +197,11 @@ export function WowShowcasePhase6() {
         if (touchStart === null) return;
         const d = touchStart - e.changedTouches[0].clientX;
         if (Math.abs(d) > 45) {
-          d > 0
-            ? goTo((current + 1) % SLIDES.length, "forward")
-            : goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward");
+          if (d > 0) {
+            goTo((current + 1) % SLIDES.length, "forward");
+          } else {
+            goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward");
+          }
         }
         setTouchStart(null);
       }}

@@ -199,9 +199,11 @@ export function WowShowcase() {
     if (touchStart === null) return;
     const delta = touchStart - e.changedTouches[0].clientX;
     if (Math.abs(delta) > 50) {
-      delta > 0
-        ? goTo((current + 1) % SLIDES.length, "forward")
-        : goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward");
+      if (delta > 0) {
+        goTo((current + 1) % SLIDES.length, "forward");
+      } else {
+        goTo((current - 1 + SLIDES.length) % SLIDES.length, "backward");
+      }
     }
     setTouchStart(null);
   };

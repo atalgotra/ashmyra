@@ -110,4 +110,28 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     ],
     highlight: "Generative Search Visibility",
   },
+  {
+    id: "veyrix",
+    name: "Veyrix",
+    url: "https://veyrix.ashmyra.com/",
+    tagline: "Search Intelligence, Deep Spider Forensics & GEO Citation Radar",
+    description:
+      "Autonomous deep website crawler, multi-agent technical SEO auditing, GSC/GA4 live telemetry, and AI engine citation radar across Perplexity, ChatGPT, and Gemini.",
+    category: "Search Intelligence & Deep SEO Forensics",
+    badge: "Search Intel",
+    accent: "#38bdf8",
+    accentRgb: "56, 189, 248",
+    features: [
+      "Autonomous Deep Spider Crawler & Forensic Audits",
+      "GEO AI Citation Radar (ChatGPT, Perplexity, Gemini)",
+      "Live Google Search Console & GA4 Data Streams",
+      "Schema Studio, Log Analyzer & Competitor Intelligence",
+    ],
+    metrics: [
+      { label: "Crawl Depth", value: "Multi-Tier" },
+      { label: "AI Radar", value: "Real-Time" },
+      { label: "Audit Telemetry", value: "GSC + GA4" },
+    ],
+    highlight: "See Beyond the Search",
+  },
 ];

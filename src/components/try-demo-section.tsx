@@ -8,6 +8,7 @@ import {
   Target,
   MessageSquare,
   Eye,
+  Search,
   ExternalLink,
   ArrowUpRight,
   Activity,
@@ -29,6 +30,8 @@ export function TryDemoSection() {
         return <MessageSquare className={cls} style={{ color: accent }} />;
       case "unveil":
         return <Eye className={cls} style={{ color: accent }} />;
+      case "veyrix":
+        return <Search className={cls} style={{ color: accent }} />;
       default:
         return <Sparkles className={cls} style={{ color: accent }} />;
     }
@@ -105,13 +108,13 @@ export function TryDemoSection() {
           </p>
         </div>
 
-        {/* 4 Demo Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* Demo Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {DEMO_PRODUCTS.map((demo: DemoProduct) => {
             return (
               <div
                 key={demo.id}
-                className="group relative rounded-3xl p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:border-white/25"
+                className="group relative rounded-3xl p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:border-white/25 last:md:col-span-2 last:lg:col-span-1"
                 style={{
                   background:
                     "linear-gradient(145deg, rgba(11, 15, 25, 0.96), rgba(7, 9, 16, 0.98))",

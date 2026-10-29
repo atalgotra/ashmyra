@@ -145,6 +145,13 @@ export const MAIN_NAV: NavSection[] = [
         badge: "GEO Radar",
         category: "product",
       },
+      {
+        title: "Veyrix",
+        href: "https://veyrix.ashmyra.com/",
+        description: "Search intelligence, deep spider forensics & GEO AI citation radar.",
+        badge: "Search Intel",
+        category: "product",
+      },
     ],
   },
   {
@@ -159,6 +166,7 @@ export const FOOTER_LINKS = {
     { name: "Prospect IQ", href: "https://prospectiq.ashmyra.com/" },
     { name: "Omnira", href: "https://omnira.ashmyra.com/" },
     { name: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/" },
+    { name: "Veyrix", href: "https://veyrix.ashmyra.com/" },
   ],
   products: [
     { name: "Ashmyra AI", href: "/products/ai" },

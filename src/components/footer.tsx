@@ -167,12 +167,13 @@ export function Footer() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
             {[
               { name: "Ashmyra MailFlow", url: "https://mailflow.ashmyra.com/", desc: "Cold email & deliverability", badge: "Email AI" },
               { name: "Prospect IQ", url: "https://prospectiq.ashmyra.com/", desc: "B2B lead intelligence", badge: "Leads" },
               { name: "Omnira", url: "https://omnira.ashmyra.com/", desc: "Omnichannel customer AI", badge: "Omni" },
               { name: "Ashmyra Unveil", url: "https://unveil.ashmyra.com/", desc: "GEO & brand search radar", badge: "GEO" },
+              { name: "Veyrix", url: "https://veyrix.ashmyra.com/", desc: "Search intel & deep spider", badge: "Search" },
             ].map((demo) => (
               <a
                 key={demo.name}

@@ -19,6 +19,7 @@ LIVE PRODUCTION DEMOS:
 - Prospect IQ: B2B lead discovery, waterfall email verification (98.7% accuracy), and enrichment platform (https://prospectiq.ashmyra.com/)
 - Omnira: Omnichannel AI communications stream unifying WhatsApp, Email, and Web chat with agentic copilot (https://omnira.ashmyra.com/)
 - Ashmyra Unveil: Generative Engine Optimization (GEO) audit radar and LLM citation intelligence (https://unveil.ashmyra.com/)
+- Veyrix: Search intelligence, autonomous deep crawler, and GEO citation radar (https://veyrix.ashmyra.com/)
 
 FLAGSHIP ENTERPRISE PRODUCTS:
 - Ashmyra AI: Autonomous multi-agent AI swarms for enterprise workflow and marketing automation (https://www.ashmyra.com/products/ai)

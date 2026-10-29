@@ -151,6 +151,16 @@ export function SeoSchema() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "SoftwareApplication",
+            "name": "Veyrix",
+            "description": "Search intelligence platform featuring autonomous deep spider crawling, multi-agent SEO forensics, GSC/GA4 telemetry, and GEO citation radar.",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://veyrix.ashmyra.com/"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "SoftwareApplication",
             "name": "Ashmyra AI",
             "description": "Autonomous multi-agent AI swarms for enterprise workflow automation and intelligent decision execution.",
             "applicationCategory": "BusinessApplication",
@@ -344,7 +354,7 @@ export function SeoSchema() {
         "name": "Where can I test working live demos of Ashmyra software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Four systems are immediately accessible: Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
+          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Five systems are immediately accessible: Veyrix (search intelligence & deep spider forensics at https://veyrix.ashmyra.com/), Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
         }
       },
       {

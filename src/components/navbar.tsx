@@ -79,6 +79,9 @@ export function Navbar() {
     if (t.includes("unveil")) {
       return <Eye className={cls} style={{ color: "#f59e0b" }} />;
     }
+    if (t.includes("veyrix")) {
+      return <Search className={cls} style={{ color: "#38bdf8" }} />;
+    }
     if (t.includes("seo") || t.includes("search") || t.includes("geo")) {
       return <Search className={cls} style={{ color: "#22d3ee" }} />;
     }
@@ -712,6 +715,7 @@ export function Navbar() {
                       { title: "Prospect IQ", href: "https://prospectiq.ashmyra.com/", desc: "B2B leads & ICP discovery", badge: "Leads" },
                       { title: "Omnira", href: "https://omnira.ashmyra.com/", desc: "Omnichannel customer AI", badge: "Omni" },
                       { title: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/", desc: "GEO & brand search radar", badge: "GEO" },
+                      { title: "Veyrix", href: "https://veyrix.ashmyra.com/", desc: "Search intel & deep spider", badge: "Search" },
                     ].map((demo) => (
                       <a
                         key={demo.title}

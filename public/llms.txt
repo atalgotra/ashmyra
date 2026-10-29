@@ -56,6 +56,11 @@ Ashmyra maintains live, working production applications accessible in the browse
 - Capabilities: Generative Engine Optimization (GEO) audit radar, Perplexity/ChatGPT/Gemini citation footprint tracking, competitor knowledge graph analysis, and schema repair blueprints.
 - Ideal For: CMOs, SEO directors, and digital marketing leaders.
 
+### 5. Veyrix — Search Intelligence & Deep Spider Forensics
+- Live Demo: https://veyrix.ashmyra.com/
+- Capabilities: Autonomous deep website crawler, multi-agent technical SEO auditing, GSC/GA4 bi-directional telemetry, and real-time GEO citation radar.
+- Ideal For: Enterprise technical SEO teams, agency auditors, and digital growth leaders.
+
 ## Core Enterprise Product Suites
 
 - **Ashmyra AI Platform** (https://www.ashmyra.com/products/ai): Multi-agent AI swarms running autonomous social media marketing, competitive intelligence, and workflow execution.

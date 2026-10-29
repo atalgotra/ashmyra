@@ -31,6 +31,12 @@ export async function GET() {
 - Live Endpoint: https://unveil.ashmyra.com/
 - Generative Radar: Headless browser cluster executing real-time prompts against Perplexity, ChatGPT, and Google Gemini.
 - Schema Validator: Automated JSON-LD syntax and entity hierarchy validator detecting missing Wikidata / Wikipedia sameAs entity linkages.
+
+### 5. Veyrix Search Intelligence Architecture
+- Live Endpoint: https://veyrix.ashmyra.com/
+- Deep Spider Crawler: Multi-threaded headless engine executing deep architectural audits, internal link graphs, and HTTP forensic telemetry.
+- Telemetry Integration: Bi-directional OAuth sync with Google Search Console & GA4 streaming live click trends, cannibalization detection, and query rankings.
+- GEO Citation Radar: Real-time brand entity tracking across AI answer engines (ChatGPT, Perplexity, Google Gemini).
 `;
 
     return new NextResponse(fullContent, {

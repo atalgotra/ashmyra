@@ -1,8 +1,28 @@
 "use client";
 
 import React, { useState } from "react";
-import Link from "next/link";
-import { ArrowRight, Send, CheckCircle2, ShieldCheck, Mail, Sparkles } from "lucide-react";
+import Image from "next/image";
+import {
+  ArrowUpRight,
+  CheckCircle2,
+  ShieldCheck,
+  Mail,
+  Lock,
+  Clock,
+  Sparkles,
+  Terminal,
+  UserCheck,
+  Layers,
+} from "lucide-react";
+
+const PROJECT_TYPES = [
+  { id: "Agentic AI / Automation", label: "Agentic AI Swarms", icon: "🤖" },
+  { id: "Enterprise SaaS / Software", label: "Enterprise Software", icon: "⚡" },
+  { id: "Data Intelligence / GEO", label: "Data & GEO Radar", icon: "🌐" },
+  { id: "Mobile App Development", label: "Mobile Ecosystem", icon: "📱" },
+  { id: "3D Web / GSAP Experiences", label: "3D / GSAP Web", icon: "✨" },
+  { id: "Custom AI Architecture", label: "Custom Architecture", icon: "⚙️" },
+];
 
 export function FinalCtaPhase7() {
   const [formData, setFormData] = useState({
@@ -52,110 +72,208 @@ export function FinalCtaPhase7() {
 
       setSubmitted(true);
     } catch (err: unknown) {
-      setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again or email info@ashmyra.com directly.");
+      setErrorMsg(
+        err instanceof Error
+          ? err.message
+          : "Something went wrong. Please try again or email info@ashmyra.com directly."
+      );
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact-experience" className="relative bg-[#05070c] py-24 sm:py-28 lg:py-32 overflow-hidden text-white border-t border-white/[0.06]">
+    <section
+      id="contact-experience"
+      className="relative bg-[#05070c] py-24 sm:py-28 lg:py-32 overflow-hidden text-white border-t border-white/[0.06]"
+    >
       {/* Background radial atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[450px]"
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[500px]"
           style={{
             background:
-              "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.04) 50%, transparent 70%)",
+              "radial-gradient(ellipse 65% 50% at 50% 50%, rgba(99, 102, 241, 0.12) 0%, rgba(34, 211, 238, 0.05) 50%, transparent 70%)",
             filter: "blur(90px)",
           }}
         />
         <div className="absolute inset-0 dot-bg opacity-15" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Left Column: Heading & Positioning */}
-          <div className="lg:col-span-5">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono tracking-widest text-indigo-300 uppercase mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-              DIRECT ENGINEERING DISCOVERY
-            </div>
+          {/* Left Column: Heading, Practitioner Direct Value & Founder Card */}
+          <div className="lg:col-span-5 flex flex-col justify-between">
+            <div>
+              {/* Executive Glowing Eyebrow */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-[11px] font-mono tracking-widest text-indigo-300 uppercase mb-6 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Direct Founder Access · Technical Discovery</span>
+              </div>
 
-            <h2
-              className="text-4xl sm:text-5xl lg:text-[3.5rem] font-bold tracking-tight text-white leading-[1.06] mb-6"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              WHAT SHOULD WE
-              <br />
-              <span
-                style={{
-                  background:
-                    "linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
-                }}
+              <h2
+                className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-white leading-[1.05] mb-6"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                BUILD NEXT?
-              </span>
-            </h2>
+                WHAT SHOULD WE
+                <br />
+                <span
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #818cf8 80%, #38bdf8 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  BUILD NEXT?
+                </span>
+              </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-8">
-              Bring us the problem. Let&apos;s engineer the system.
-            </p>
+              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-8">
+                Bring us your operational bottleneck or bold product vision. Speak
+                directly with engineering practitioners who architect and deploy systems
+                into production.
+              </p>
 
-            <div className="space-y-4 pt-6 border-t border-white/[0.08] text-xs font-mono text-neutral-400">
-              <div className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                <span>Direct technical engagement with core engineering leads</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                <span>NDA protected · Zero speculative sales agency bloat</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                <span>Turnaround response within 24 business hours</span>
+              {/* 3 Practitioner Guarantees */}
+              <div className="space-y-3 pt-6 border-t border-white/[0.08]">
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                  <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0 mt-0.5 text-indigo-400">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                      Direct Practitioner Engagement
+                    </div>
+                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                      Zero sales gatekeepers or agency bloat. You collaborate directly with principal systems architects.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                  <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                      Strict Mutual NDA Protection
+                    </div>
+                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                      100% intellectual property protection with auditable data isolation for enterprise roadmaps.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-0.5 text-emerald-400">
+                    <Clock className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                      24-Hour Feasibility Review
+                    </div>
+                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                      Receive structured technical feedback and system architecture feasibility within 24 business hours.
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
-            {/* Direct Email Link */}
-            <div className="mt-8 pt-6 border-t border-white/[0.06] flex items-center gap-2 text-xs font-mono text-neutral-400">
-              <Mail className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Direct inquiries:</span>
+            {/* Direct Founder Channel Badge */}
+            <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-indigo-950/40 via-slate-900/40 to-indigo-950/30 border border-indigo-500/25 backdrop-blur-md flex items-center gap-4 shadow-lg">
+              <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-indigo-400/40 shadow-inner">
+                <Image
+                  src="/team/ashish-talgotra.jpg"
+                  alt="Ashish Talgotra"
+                  fill
+                  className="object-cover object-[center_20%]"
+                />
+              </div>
+              <div className="min-w-0 flex-1">
+                <div className="text-[10px] font-mono font-semibold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span>Direct Founder Channel</span>
+                </div>
+                <div className="text-sm font-bold text-white tracking-tight truncate">
+                  Ashish Talgotra
+                </div>
+                <div className="text-xs text-neutral-400 truncate">
+                  Founder &amp; Lead AI Architect · Personal Technical Review
+                </div>
+              </div>
               <a
                 href="mailto:info@ashmyra.com"
-                className="text-indigo-300 hover:text-white transition-colors underline underline-offset-4"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-neutral-200 hover:text-white transition-all shrink-0"
               >
-                info@ashmyra.com
+                <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                <span>Email</span>
               </a>
             </div>
           </div>
 
-          {/* Right Column: Clean Working Enquiry Form */}
+          {/* Right Column: Executive Architecture Terminal */}
           <div className="lg:col-span-7">
             <div
-              className="p-6 sm:p-8 rounded-2xl sm:rounded-3xl border border-white/[0.1] shadow-2xl relative"
+              className="group relative rounded-3xl p-7 sm:p-9 border border-white/[0.1] shadow-2xl overflow-hidden"
               style={{
-                background: "linear-gradient(160deg, rgba(14, 18, 30, 0.95) 0%, rgba(6, 8, 14, 0.98) 100%)",
-                boxShadow: "0 25px 60px -15px rgba(0, 0, 0, 0.9)",
+                background:
+                  "linear-gradient(160deg, rgba(14, 18, 30, 0.96) 0%, rgba(6, 8, 14, 0.99) 100%)",
+                boxShadow:
+                  "0 25px 70px -15px rgba(0, 0, 0, 0.9), 0 0 45px -15px rgba(99, 102, 241, 0.2)",
               }}
             >
+              {/* Top Laser Accent Line */}
+              <div
+                className="absolute top-0 inset-x-8 h-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                style={{
+                  background:
+                    "linear-gradient(90deg, transparent, #818cf8, #22d3ee, transparent)",
+                }}
+              />
+
+              {/* Ambient Terminal Corner Bloom */}
+              <div
+                className="absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl opacity-20 pointer-events-none group-hover:opacity-35 transition-opacity"
+                style={{ background: "#818cf8" }}
+              />
+
+              {/* Terminal Header Bar */}
+              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.08]">
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
+                  </div>
+                  <span className="text-[11px] font-mono font-semibold text-neutral-400 ml-2 tracking-wider">
+                    SYS_ID: ASHMYRA_INGEST_V2.4
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] font-mono text-emerald-400">
+                  <Lock className="w-3 h-3 text-emerald-400" />
+                  <span>256-BIT TLS ENCRYPTED</span>
+                </div>
+              </div>
+
               {submitted ? (
-                <div className="py-12 text-center space-y-4 animate-fadeIn">
-                  <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400">
-                    <CheckCircle2 className="w-6 h-6" />
+                <div className="py-16 text-center space-y-4 animate-fadeIn">
+                  <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.25)]">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3
-                    className="text-2xl font-bold text-white tracking-tight"
+                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
-                    Inquiry Received
+                    Brief Transmitted Successfully
                   </h3>
                   <p className="text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
-                    Thank you. Your project brief has been logged with Ashmyra&apos;s engineering team. A principal engineer will reach out within 24 hours.
+                    Thank you. Your architecture brief has been delivered directly to
+                    Ashish Talgotra and the senior engineering team. A principal engineer
+                    will return technical feasibility within 24 hours.
                   </p>
                   <button
                     onClick={() => {
@@ -169,124 +287,166 @@ export function FinalCtaPhase7() {
                         honeypot: "",
                       });
                     }}
-                    className="mt-4 px-4 py-2 rounded-xl text-xs font-mono text-neutral-400 hover:text-white bg-white/[0.04] border border-white/[0.08]"
+                    className="mt-6 px-5 py-2.5 rounded-xl text-xs font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all"
                   >
-                    Submit Another Inquiry
+                    Submit Another Brief
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Anti-bot honeypot */}
                   <input
                     type="text"
                     name="honeypot"
                     value={formData.honeypot}
-                    onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, honeypot: e.target.value })
+                    }
                     className="hidden"
                     tabIndex={-1}
                     autoComplete="off"
                   />
 
                   {errorMsg && (
-                    <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono">
+                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono">
                       {errorMsg}
                     </div>
                   )}
 
+                  {/* Interactive Architecture Scope Selection */}
+                  <div>
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-2.5 font-semibold">
+                      System Architecture Scope *
+                    </label>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                      {PROJECT_TYPES.map((pt) => {
+                        const active = formData.requirement === pt.id;
+                        return (
+                          <button
+                            key={pt.id}
+                            type="button"
+                            onClick={() =>
+                              setFormData({ ...formData, requirement: pt.id })
+                            }
+                            className={`px-3 py-2.5 rounded-xl text-xs font-mono font-medium text-left transition-all duration-200 border flex items-center gap-2 ${
+                              active
+                                ? "bg-indigo-600/25 border-indigo-400 text-white shadow-[0_0_15px_rgba(99,102,241,0.35)]"
+                                : "bg-white/[0.03] border-white/[0.08] text-neutral-400 hover:text-white hover:bg-white/[0.06] hover:border-white/20"
+                            }`}
+                          >
+                            <span>{pt.icon}</span>
+                            <span className="truncate">{pt.label}</span>
+                          </button>
+                        );
+                      })}
+                    </div>
+                  </div>
+
+                  {/* Row 1: Name + Business Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Name */}
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-medium">
+                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
                         Your Name *
                       </label>
                       <input
                         type="text"
                         required
                         value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, name: e.target.value })
+                        }
                         placeholder="Alex Morgan"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.06] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                        className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
                       />
                     </div>
 
-                    {/* Business Email */}
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-medium">
+                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
                         Business Email *
                       </label>
                       <input
                         type="email"
                         required
                         value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        onChange={(e) =>
+                          setFormData({ ...formData, email: e.target.value })
+                        }
                         placeholder="alex@enterprise.com"
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.06] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                        className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
                       />
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {/* Company */}
-                    <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-medium">
-                        Company Name
-                      </label>
-                      <input
-                        type="text"
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        placeholder="Acme Global Inc."
-                        className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.06] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
-                      />
-                    </div>
-
-                    {/* Project Type */}
-                    <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-medium">
-                        Project Type *
-                      </label>
-                      <select
-                        value={formData.requirement}
-                        onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl bg-[#090c14] border border-white/[0.08] focus:border-indigo-500 text-white text-sm outline-none transition-all"
-                      >
-                        <option value="Agentic AI / Automation">Agentic AI / Multi-Agent Swarms</option>
-                        <option value="Enterprise SaaS / Software">Enterprise SaaS / Custom Software</option>
-                        <option value="Mobile App Development">Mobile App (iOS / Android)</option>
-                        <option value="3D Web / GSAP Experiences">3D Web / GSAP High-Performance Site</option>
-                        <option value="Data Intelligence / GEO">Data Intelligence & GEO / SEO</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  {/* Project Description */}
+                  {/* Row 2: Company */}
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-medium">
-                      Project Description *
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                      Company / Organization Name
+                    </label>
+                    <input
+                      type="text"
+                      value={formData.company}
+                      onChange={(e) =>
+                        setFormData({ ...formData, company: e.target.value })
+                      }
+                      placeholder="Acme Global Inc. / Startup Studio"
+                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                    />
+                  </div>
+
+                  {/* Row 3: Project Description / Technical Brief */}
+                  <div>
+                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                      Technical Problem / System Requirements *
                     </label>
                     <textarea
                       required
                       rows={4}
                       value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Briefly describe the operational bottleneck, architecture goals, or system you want engineered..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/[0.04] border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.06] text-white text-sm outline-none transition-all placeholder:text-neutral-500 resize-none leading-relaxed"
+                      onChange={(e) =>
+                        setFormData({ ...formData, message: e.target.value })
+                      }
+                      placeholder="Describe the operational bottleneck, architecture objectives, or software platform you need engineered..."
+                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500 resize-none leading-relaxed"
                     />
                   </div>
 
-                  {/* Submit CTA */}
+                  {/* Submit CTA Button */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3.5 rounded-xl font-semibold text-sm text-white flex items-center justify-center gap-2 transition-all duration-300 hover:scale-[1.01] active:scale-[0.99] disabled:opacity-60"
+                    className="w-full py-4 rounded-xl font-semibold text-sm sm:text-base text-white flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] disabled:opacity-60 shadow-xl group/cta"
                     style={{
-                      background: "linear-gradient(135deg, #6366f1, #818cf8)",
-                      boxShadow: "0 0 0 1px rgba(99,102,241,0.45), 0 8px 20px -4px rgba(99,102,241,0.5)",
+                      background:
+                        "linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #06b6d4 100%)",
+                      boxShadow:
+                        "0 0 0 1px rgba(99,102,241,0.4), 0 12px 30px -6px rgba(99,102,241,0.55)",
                     }}
                   >
-                    <span>{isSubmitting ? "Transmitting..." : "Let's Build Something"}</span>
-                    <Send className="w-4 h-4" />
+                    <span>
+                      {isSubmitting
+                        ? "Transmitting Architecture Brief..."
+                        : "Transmit Project Brief"}
+                    </span>
+                    <ArrowUpRight className="w-5 h-5 transition-transform group-hover/cta:translate-x-1 group-hover/cta:-translate-y-1" />
                   </button>
+
+                  {/* Security & Verification Footer */}
+                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-[11px] font-mono text-neutral-400">
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                      <span>Strict Mutual NDA</span>
+                    </span>
+                    <span>·</span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>24h Architecture Review</span>
+                    </span>
+                    <span>·</span>
+                    <span className="flex items-center gap-1.5">
+                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>Zero Spam Guarantee</span>
+                    </span>
+                  </div>
                 </form>
               )}
             </div>

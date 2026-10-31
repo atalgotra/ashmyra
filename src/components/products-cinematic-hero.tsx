@@ -30,21 +30,24 @@ import {
 export function ProductsCinematicHero() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const rightColRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLDivElement>(null);
+  const dynamicContentRef = useRef<HTMLDivElement>(null);
+  const pauseTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   const activeProduct: DemoProduct = DEMO_PRODUCTS[activeIndex] || DEMO_PRODUCTS[0];
 
-  // Auto-cycle through products every 6.5s unless paused
+  // Auto-cycle through products every 5.5s unless paused or hovered
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || isHovered) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % DEMO_PRODUCTS.length);
-    }, 6500);
+    }, 5500);
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, isHovered]);
 
   // Entrance motion with GSAP
   useEffect(() => {
@@ -58,15 +61,15 @@ export function ProductsCinematicHero() {
       if (leftColRef.current) {
         gsap.fromTo(
           leftColRef.current.children,
-          { opacity: 0, y: 14 },
-          { opacity: 1, y: 0, duration: 0.55, stagger: 0.07, ease: "power2.out" }
+          { opacity: 0, y: 12 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" }
         );
       }
       if (rightColRef.current) {
         gsap.fromTo(
           rightColRef.current,
-          { opacity: 0, scale: 0.97, y: 16 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.7, ease: "power2.out", delay: 0.1 }
+          { opacity: 0, scale: 0.98, y: 14 },
+          { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: "power2.out", delay: 0.08 }
         );
       }
     }, heroRef);
@@ -74,20 +77,40 @@ export function ProductsCinematicHero() {
     return () => ctx.revert();
   }, []);
 
-  // Card transition motion on index change
+  // Smooth transition on index change for both left dynamic copy and right card
   useEffect(() => {
     const prefersReducedMotion =
       typeof window !== "undefined" &&
       window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (prefersReducedMotion || !cardRef.current) return;
+    if (prefersReducedMotion) return;
 
-    gsap.fromTo(
-      cardRef.current,
-      { opacity: 0.88, y: 6 },
-      { opacity: 1, y: 0, duration: 0.3, ease: "power2.out" }
-    );
+    if (dynamicContentRef.current) {
+      gsap.fromTo(
+        dynamicContentRef.current,
+        { opacity: 0.5, y: 4 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
+      );
+    }
+
+    if (cardRef.current) {
+      gsap.fromTo(
+        cardRef.current,
+        { opacity: 0.85, y: 5 },
+        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
+      );
+    }
   }, [activeIndex]);
+
+  const handleSelectProduct = (idx: number) => {
+    setActiveIndex(idx);
+    setIsPaused(true);
+    if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
+    // Auto-resume after 7 seconds of inactivity
+    pauseTimerRef.current = setTimeout(() => {
+      setIsPaused(false);
+    }, 7000);
+  };
 
   const getProductIcon = (id: string, cls = "w-4 h-4") => {
     switch (id) {
@@ -107,59 +130,57 @@ export function ProductsCinematicHero() {
   };
 
   /* ──────────────────────────────────────────────────────────────────────────
-     TAILORED INTERACTIVE PRODUCT SIMULATORS
-     Authentic, code-rendered hardware telemetry for all 5 verified platforms
+     TAILORED INTERACTIVE PRODUCT SIMULATORS (Compact & Precision Fitted)
   ─────────────────────────────────────────────────────────────────────────── */
   const renderProductSimulator = (id: string) => {
     switch (id) {
       // 1. MailFlow — Cold Email & Warmup Deliverability Engine
       case "mailflow":
         return (
-          <div className="h-full flex flex-col justify-between p-4 sm:p-5 font-mono text-xs select-none">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
             {/* Top Status Indicators */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                 <span className="text-white font-semibold">14 Mailboxes Rotating</span>
                 <span className="text-neutral-500 text-[10px]">· Google + Outlook 365</span>
               </div>
               <span className="text-[10px] text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 px-2 py-0.5 rounded">
-                SPF / DKIM / DMARC: 100% Validated
+                SPF/DKIM/DMARC: 100%
               </span>
             </div>
 
             {/* Warmup Ramp Visual Graph & Rotation Stream */}
-            <div className="space-y-3 py-2">
-              <div className="p-3 rounded-xl bg-black/50 border border-white/[0.06] space-y-2">
+            <div className="space-y-2 py-1">
+              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] space-y-1.5">
                 <div className="flex items-center justify-between text-[11px]">
                   <span className="text-neutral-400">Warmup Delivery Ramp:</span>
                   <span className="text-emerald-400 font-bold">99.4% Inbox Placement</span>
                 </div>
-                {/* SVG Warmup Progress Bar */}
-                <div className="w-full bg-white/[0.06] h-2 rounded-full overflow-hidden relative">
+                {/* Progress Ramp Bar */}
+                <div className="w-full bg-white/[0.06] h-1.5 rounded-full overflow-hidden relative">
                   <div
                     className="h-full rounded-full transition-all duration-700"
                     style={{
-                      width: "92%",
+                      width: "94%",
                       background: "linear-gradient(90deg, #818cf8, #38bdf8, #34d399)",
                     }}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] text-neutral-500 pt-0.5">
+                <div className="flex justify-between text-[9px] text-neutral-500">
                   <span>Day 1 (DNS Handshake)</span>
-                  <span>Day 7 (Gradual Ingestion)</span>
                   <span className="text-emerald-400 font-semibold">Day 14 (Full Velocity)</span>
                 </div>
               </div>
 
               {/* Real-time Rotation Stream */}
-              <div className="flex items-center justify-between p-2.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-[11px]">
+              <div className="flex items-center justify-between p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-[10.5px]">
                 <div className="flex items-center gap-2 text-indigo-200 truncate">
                   <Activity className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <span className="text-neutral-400">Next Scheduled Pool:</span>
-                  <span className="text-white font-semibold">outreach-04@domain.com</span>
+                  <span className="text-neutral-400">Active Pool:</span>
+                  <span className="text-white font-semibold truncate">outreach-04@domain.com</span>
                 </div>
-                <span className="text-[10px] text-neutral-400 font-mono shrink-0">
+                <span className="text-[9.5px] text-emerald-400 font-mono shrink-0">
                   Zero Spam Risk
                 </span>
               </div>
@@ -171,7 +192,7 @@ export function ProductsCinematicHero() {
                 <Check className="w-3 h-3 text-emerald-400" />
                 <span>AI Subject Optimization: 94/100 conversion score</span>
               </span>
-              <span className="text-indigo-400">Multi-Stage Followups Active</span>
+              <span className="text-indigo-400">Followups Active</span>
             </div>
           </div>
         );
@@ -179,9 +200,9 @@ export function ProductsCinematicHero() {
       // 2. Prospect IQ — B2B Lead Intelligence & Waterfall Scraper
       case "prospectiq":
         return (
-          <div className="h-full flex flex-col justify-between p-4 sm:p-5 font-mono text-xs select-none">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
             {/* Top Query Filter Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
                 <span className="text-white font-semibold">Active ICP Search Pipeline</span>
@@ -192,36 +213,36 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* Waterfall Enrichment Execution Simulator */}
-            <div className="space-y-2 py-2">
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] flex items-center justify-between text-[11px]">
+            <div className="space-y-1.5 py-1">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10.5px]">
                 <div className="flex items-center gap-2 truncate">
                   <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                  <span className="text-neutral-400">Target Role:</span>
-                  <span className="text-cyan-200 font-semibold">&quot;VP Engineering&quot; · Series A-C SaaS</span>
+                  <span className="text-neutral-400">Query:</span>
+                  <span className="text-cyan-200 font-semibold truncate">&quot;VP Engineering&quot; · Series A-C SaaS</span>
                 </div>
-                <span className="text-[10px] text-neutral-400 font-mono">1.2s</span>
+                <span className="text-[9.5px] text-neutral-400 font-mono">1.2s</span>
               </div>
 
               {/* Waterfall Verification Stages */}
-              <div className="p-3 rounded-xl bg-cyan-950/20 border border-cyan-500/20 space-y-1.5 text-[10px]">
+              <div className="p-2.5 rounded-xl bg-cyan-950/20 border border-cyan-500/20 space-y-1 text-[9.5px]">
                 <div className="flex items-center justify-between text-neutral-300">
                   <span className="flex items-center gap-1.5">
                     <Check className="w-3 h-3 text-cyan-400" />
-                    <span>Waterfall Layer 1: Corporate Domain Verification</span>
+                    <span>Waterfall 1: Domain Verification</span>
                   </span>
                   <span className="text-cyan-300">Valid</span>
                 </div>
                 <div className="flex items-center justify-between text-neutral-300">
                   <span className="flex items-center gap-1.5">
                     <Check className="w-3 h-3 text-cyan-400" />
-                    <span>Waterfall Layer 2: SMTP MX Handshake &amp; Catch-All Resolution</span>
+                    <span>Waterfall 2: SMTP MX Handshake</span>
                   </span>
                   <span className="text-cyan-300">Deliverable</span>
                 </div>
                 <div className="flex items-center justify-between text-neutral-300">
                   <span className="flex items-center gap-1.5">
                     <Check className="w-3 h-3 text-emerald-400" />
-                    <span>Tech Stack Enrichment: AWS, PostgreSQL, Next.js, FastAPI</span>
+                    <span>Tech Stack: AWS, PostgreSQL, Next.js</span>
                   </span>
                   <span className="text-emerald-400 font-bold">98.7% Confirmed</span>
                 </div>
@@ -230,7 +251,7 @@ export function ProductsCinematicHero() {
 
             {/* Footer Quick Action */}
             <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
-              <span>Auto-Enriched Tech Profiles</span>
+              <span>Auto-Enriched Decision Makers</span>
               <span className="text-cyan-400 font-semibold">1-Click CRM Sync Ready</span>
             </div>
           </div>
@@ -239,12 +260,12 @@ export function ProductsCinematicHero() {
       // 3. Omnira — Autonomous Agentic AI Social Media Manager
       case "omnira":
         return (
-          <div className="h-full flex flex-col justify-between p-4 sm:p-5 font-mono text-xs select-none">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
             {/* Top Multi-Platform Network Status */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-white font-semibold">Autonomous Swarm Team (4 Channels)</span>
+                <span className="text-white font-semibold">Autonomous Swarm (4 Channels)</span>
               </div>
               <span className="text-[10px] text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded">
                 YouTube · LinkedIn · FB · IG
@@ -252,29 +273,29 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* Micro-Agent Activity Waterfall */}
-            <div className="space-y-2 py-2">
-              <div className="p-2.5 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2">
+            <div className="space-y-1.5 py-1">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
+                <div className="flex items-center gap-2 truncate">
                   <span className="text-emerald-400 font-bold">[Agent 1 - Radar]:</span>
-                  <span className="text-neutral-300">Ingested 14 competitor hooks &amp; viral market news</span>
+                  <span className="text-neutral-300 truncate">Ingested 14 competitor viral hooks</span>
                 </div>
-                <span className="text-emerald-400 text-[9px]">Active</span>
+                <span className="text-emerald-400">Active</span>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
+                <div className="flex items-center gap-2 truncate">
                   <span className="text-indigo-400 font-bold">[Agent 2 - Script]:</span>
-                  <span className="text-neutral-300">Drafted 0-60s timed Reel script with visual stage cues</span>
+                  <span className="text-neutral-300 truncate">Drafted 0-60s timed Reel script with visual cues</span>
                 </div>
-                <span className="text-emerald-400 text-[9px]">Finished</span>
+                <span className="text-emerald-400">Finished</span>
               </div>
 
-              <div className="p-2.5 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
+                <div className="flex items-center gap-2 truncate">
                   <span className="text-cyan-400 font-bold">[Agent 3 - Tags]:</span>
-                  <span className="text-neutral-300">24 targeted hashtag clusters with 1.4M audience reach</span>
+                  <span className="text-neutral-300 truncate">24 targeted hashtag clusters · 1.4M reach</span>
                 </div>
-                <span className="text-emerald-400 text-[9px]">Ready</span>
+                <span className="text-emerald-400">Ready</span>
               </div>
             </div>
 
@@ -282,7 +303,7 @@ export function ProductsCinematicHero() {
             <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px]">
               <span className="text-neutral-400">1-Click Human Clearance Gate:</span>
               <span className="text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded">
-                Editorial Calendar Synchronized
+                Calendar Synchronized
               </span>
             </div>
           </div>
@@ -291,9 +312,9 @@ export function ProductsCinematicHero() {
       // 4. Unveil — Generative Engine Optimization (GEO) Radar
       case "unveil":
         return (
-          <div className="h-full flex flex-col justify-between p-4 sm:p-5 font-mono text-xs select-none">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
             {/* Top Query & GEO Score Bar */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
                 <span className="text-white font-semibold">Generative Search Radar (GEO)</span>
@@ -304,36 +325,36 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* AI Engine Citations Breakdown */}
-            <div className="space-y-2 py-2">
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] flex items-center justify-between text-[11px]">
+            <div className="space-y-1.5 py-1">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
                 <div className="flex items-center gap-2 truncate">
                   <span className="text-amber-400 font-bold">ChatGPT / GPT-4o:</span>
                   <span className="text-neutral-300 truncate">Cited in top brand recommendations</span>
                 </div>
-                <span className="text-emerald-400 text-[10px] font-semibold shrink-0">Rank #1</span>
+                <span className="text-emerald-400 font-semibold shrink-0">Rank #1</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] flex items-center justify-between text-[11px]">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
                 <div className="flex items-center gap-2 truncate">
                   <span className="text-cyan-400 font-bold">Perplexity AI:</span>
                   <span className="text-neutral-300 truncate">Sourced in 4 verified answer syntheses</span>
                 </div>
-                <span className="text-emerald-400 text-[10px] font-semibold shrink-0">Direct Source</span>
+                <span className="text-emerald-400 font-semibold shrink-0">Direct Source</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] flex items-center justify-between text-[11px]">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
                 <div className="flex items-center gap-2 truncate">
                   <span className="text-indigo-400 font-bold">Google AI Overviews:</span>
                   <span className="text-neutral-300 truncate">Cluster entity presence confirmed</span>
                 </div>
-                <span className="text-emerald-400 text-[10px] font-semibold shrink-0">Included</span>
+                <span className="text-emerald-400 font-semibold shrink-0">Included</span>
               </div>
             </div>
 
             {/* Schema Fixes Telemetry */}
             <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
               <span>Schema.org JSON-LD Entities: 100% Validated</span>
-              <span className="text-amber-400">Audit Latency: &lt;8s</span>
+              <span className="text-amber-400">Latency: &lt;8s</span>
             </div>
           </div>
         );
@@ -341,9 +362,9 @@ export function ProductsCinematicHero() {
       // 5. Veyrix — Search Intelligence & Spider Forensics
       case "veyrix":
         return (
-          <div className="h-full flex flex-col justify-between p-4 sm:p-5 font-mono text-xs select-none">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
             {/* Top Crawler Status */}
-            <div className="flex items-center justify-between pb-3 border-b border-white/[0.08]">
+            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
                 <span className="text-white font-semibold">Deep Spider Crawl Forensics</span>
@@ -354,8 +375,8 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* Live Streaming Crawl Waterfall & Core Web Vitals */}
-            <div className="space-y-2 py-2">
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] space-y-1.5 text-[10px]">
+            <div className="space-y-1.5 py-1">
+              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] space-y-1 text-[9.5px]">
                 <div className="flex items-center justify-between text-neutral-300">
                   <span className="text-sky-300">Spider Status:</span>
                   <span className="text-emerald-400 font-semibold">2,450 URLs Audited · 0 Errors</span>
@@ -367,18 +388,18 @@ export function ProductsCinematicHero() {
               </div>
 
               {/* Core Web Vitals HUD */}
-              <div className="grid grid-cols-3 gap-1.5 text-center text-[10px]">
-                <div className="p-2 rounded-lg bg-sky-950/20 border border-sky-500/20">
+              <div className="grid grid-cols-3 gap-1.5 text-center text-[9.5px]">
+                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
                   <div className="text-sky-300 font-bold font-mono">0.8s</div>
-                  <div className="text-[9px] text-neutral-400">LCP (Fast)</div>
+                  <div className="text-[8.5px] text-neutral-400">LCP (Fast)</div>
                 </div>
-                <div className="p-2 rounded-lg bg-sky-950/20 border border-sky-500/20">
+                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
                   <div className="text-emerald-400 font-bold font-mono">0.001</div>
-                  <div className="text-[9px] text-neutral-400">CLS (Stable)</div>
+                  <div className="text-[8.5px] text-neutral-400">CLS (Stable)</div>
                 </div>
-                <div className="p-2 rounded-lg bg-sky-950/20 border border-sky-500/20">
+                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
                   <div className="text-cyan-300 font-bold font-mono">24ms</div>
-                  <div className="text-[9px] text-neutral-400">INP (Instant)</div>
+                  <div className="text-[8.5px] text-neutral-400">INP (Instant)</div>
                 </div>
               </div>
             </div>
@@ -399,19 +420,19 @@ export function ProductsCinematicHero() {
   return (
     <section
       ref={heroRef}
-      className="relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 overflow-hidden bg-[#050608]"
+      className="relative pt-14 sm:pt-16 lg:pt-18 pb-6 sm:pb-8 overflow-hidden bg-[#050608]"
     >
       {/* Background Lighting Gradients */}
       <div className="absolute inset-0 pointer-events-none">
         <div
-          className="absolute top-8 left-1/4 w-[500px] h-[300px] rounded-full blur-[130px] opacity-25"
+          className="absolute top-4 left-1/4 w-[480px] h-[260px] rounded-full blur-[120px] opacity-25"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(99,102,241,0.5), rgba(6,182,212,0.3), transparent 70%)",
           }}
         />
         <div
-          className="absolute top-16 right-10 w-[450px] h-[300px] rounded-full blur-[120px] opacity-20"
+          className="absolute top-10 right-10 w-[420px] h-[260px] rounded-full blur-[110px] opacity-20"
           style={{
             background:
               "radial-gradient(ellipse at center, rgba(16,185,129,0.3), transparent 70%)",
@@ -423,73 +444,89 @@ export function ProductsCinematicHero() {
           style={{
             backgroundImage:
               "linear-gradient(rgba(255,255,255,0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.2) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
+            backgroundSize: "36px 36px",
           }}
         />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* ── Split Layout: 45% Left / 55% Right (Clean Viewport Fitted) ───── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-7 lg:gap-8 items-center">
 
-          {/* ── Left Column (~45%) ─────────────────────────────────────────── */}
-          <div ref={leftColRef} className="lg:col-span-5 space-y-5 text-left">
-            {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-[11px] text-indigo-300 font-mono tracking-wide">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-              <span>ASHMYRA PRODUCT ECOSYSTEM</span>
+          {/* ── Left Column (~45%): DYNAMICALLY CYCLES IN SYNC (MailFlow -> Veyrix) ── */}
+          <div ref={leftColRef} className="lg:col-span-5 space-y-3.5 text-left">
+            {/* Dynamic Eyebrow showing Active Engine */}
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-[11px] font-mono tracking-wide">
+              <span
+                className="w-1.5 h-1.5 rounded-full animate-pulse"
+                style={{ backgroundColor: activeProduct.accent }}
+              />
+              <span className="text-white font-semibold">{activeProduct.name}</span>
+              <span className="text-neutral-500">·</span>
+              <span style={{ color: activeProduct.accent }}>{activeProduct.badge}</span>
+              <span className="text-neutral-500">·</span>
+              <span className="text-neutral-400">0{activeIndex + 1}/05</span>
             </div>
 
-            {/* Main Headline */}
-            <h1
-              className="text-3xl sm:text-4xl lg:text-[3.25rem] font-bold text-white tracking-tight leading-[1.08]"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Intelligent Products.
-              <span
-                className="block mt-1"
+            {/* Dynamic Headline transforming with active platform */}
+            <div ref={dynamicContentRef} className="space-y-2">
+              <h1
+                className="text-2xl sm:text-3xl lg:text-[2.75rem] font-bold text-white tracking-tight leading-[1.08]"
+                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              >
+                Intelligent Products.
+                <span
+                  key={activeProduct.id}
+                  className="block mt-0.5 transition-all duration-300"
+                  style={{
+                    background: `linear-gradient(135deg, ${activeProduct.accent} 0%, #38bdf8 55%, #ffffff 100%)`,
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                  }}
+                >
+                  {activeProduct.name}: {activeProduct.tagline.split("&")[0].trim()}.
+                </span>
+              </h1>
+
+              {/* Dynamic Supporting Description */}
+              <p
+                key={`desc-${activeProduct.id}`}
+                className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed max-w-lg min-h-[38px] transition-opacity duration-300"
+              >
+                {activeProduct.description}
+              </p>
+            </div>
+
+            {/* Dynamic CTAs tied directly to active platform */}
+            <div className="flex flex-wrap items-center gap-3 pt-0.5">
+              <a
+                href={`#${activeProduct.id}`}
+                className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl text-white font-semibold text-xs sm:text-[13px] shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background:
-                    "linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #67e8f9 100%)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  backgroundClip: "text",
+                  background: `linear-gradient(135deg, ${activeProduct.accent}, #4f46e5)`,
+                  boxShadow: `0 8px 20px -5px rgba(${activeProduct.accentRgb}, 0.35)`,
                 }}
               >
-                Engineered for Real Business.
-              </span>
-            </h1>
-
-            {/* Supporting Text */}
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed max-w-lg">
-              Explore Ashmyra&apos;s suite of intelligent software products,
-              designed to simplify complex workflows, connect business
-              operations and turn technology into practical outcomes.
-            </p>
-
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-1">
-              <a
-                href="#explore-products"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
-              >
-                <span>Explore Products</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Explore {activeProduct.name}</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
 
-              <Link
-                href="/contact?intent=demo"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white border border-white/[0.12] hover:border-white/[0.25] font-semibold text-xs sm:text-sm transition-all"
+              <a
+                href={activeProduct.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white border border-white/[0.12] hover:border-white/[0.25] font-semibold text-xs sm:text-[13px] transition-all"
               >
-                <span>Request a Demo</span>
-              </Link>
+                <span>Live Sandbox ↗</span>
+              </a>
             </div>
 
-            {/* Integrated Platform Switcher Strip */}
-            <div className="pt-3 border-t border-white/[0.08]">
-              <div className="flex items-center justify-between mb-2">
+            {/* Integrated Platform Switcher Strip with Live Sync Indicator */}
+            <div className="pt-2.5 border-t border-white/[0.08]">
+              <div className="flex items-center justify-between mb-1.5">
                 <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold">
-                  Select Live Platform:
+                  Live Platform Switcher:
                 </span>
                 <button
                   onClick={() => setIsPaused(!isPaused)}
@@ -504,33 +541,33 @@ export function ProductsCinematicHero() {
                   ) : (
                     <>
                       <Pause className="w-2.5 h-2.5 text-cyan-400" />
-                      <span>Pause Auto-Play</span>
+                      <span>Auto-Playing (5.5s)</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* 5 Product Pills with active indicators */}
+              {/* 5 Product Pills with active sync indicators */}
               <div className="grid grid-cols-5 gap-1.5">
                 {DEMO_PRODUCTS.map((prod, idx) => {
                   const isActive = idx === activeIndex;
                   return (
                     <button
                       key={prod.id}
-                      onClick={() => {
-                        setActiveIndex(idx);
-                        setIsPaused(true);
-                      }}
-                      className={`flex flex-col items-center gap-1 p-2 rounded-xl transition-all duration-200 border text-center ${
+                      onClick={() => handleSelectProduct(idx)}
+                      className={`flex flex-col items-center gap-1 p-1.5 sm:p-2 rounded-xl transition-all duration-200 border text-center ${
                         isActive
-                          ? "bg-white/[0.08] border-cyan-500/50 shadow-md shadow-cyan-500/10 text-white"
+                          ? "bg-white/[0.08] shadow-md text-white"
                           : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.05] text-neutral-400 hover:text-neutral-200"
                       }`}
+                      style={{
+                        borderColor: isActive ? prod.accent : "rgba(255,255,255,0.06)",
+                      }}
                     >
-                      <div className="w-5 h-5 flex items-center justify-center">
+                      <div className="w-4.5 h-4.5 flex items-center justify-center">
                         {getProductIcon(prod.id, "w-3.5 h-3.5")}
                       </div>
-                      <span className="text-[10.5px] font-semibold truncate w-full">
+                      <span className="text-[10px] font-semibold truncate w-full">
                         {prod.name}
                       </span>
                     </button>
@@ -540,7 +577,7 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* Reassurance Line */}
-            <div className="flex items-center gap-2 text-[11px] font-mono text-neutral-400 pt-0.5">
+            <div className="flex items-center gap-2 text-[10.5px] font-mono text-neutral-400 pt-0.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>5 Live Platforms • Dedicated VPC &amp; On-Premise Deployable</span>
             </div>
@@ -550,27 +587,29 @@ export function ProductsCinematicHero() {
           <div
             ref={rightColRef}
             className="lg:col-span-7 relative flex items-center justify-center"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
           >
             {/* Ambient Backlight Glow tailored to active product accent */}
             <div
-              className="absolute -inset-2 rounded-3xl blur-3xl opacity-25 transition-all duration-700 pointer-events-none"
+              className="absolute -inset-2 rounded-3xl blur-3xl opacity-20 transition-all duration-700 pointer-events-none"
               style={{
                 background: `radial-gradient(circle at 60% 40%, ${activeProduct.accent}, transparent 65%)`,
               }}
             />
 
-            {/* ── Hardware Terminal Frame (Linear / Raycast Caliber) ──── */}
+            {/* ── Hardware Terminal Frame ──── */}
             <div
               ref={cardRef}
               className="relative w-full rounded-2xl border transition-all duration-300 overflow-hidden"
               style={{
                 backgroundColor: "#0B0E17",
                 borderColor: `rgba(${activeProduct.accentRgb}, 0.35)`,
-                boxShadow: `0 24px 60px -15px rgba(0,0,0,0.95), 0 0 40px -10px rgba(${activeProduct.accentRgb}, 0.2)`,
+                boxShadow: `0 24px 60px -15px rgba(0,0,0,0.95), 0 0 35px -10px rgba(${activeProduct.accentRgb}, 0.18)`,
               }}
             >
               {/* Terminal Top Window Bar */}
-              <div className="flex items-center justify-between px-4 py-3 border-b border-white/[0.08] bg-[#07090F]">
+              <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-white/[0.08] bg-[#07090F]">
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-red-500/25 border border-red-500/40" />
@@ -583,16 +622,16 @@ export function ProductsCinematicHero() {
                       {getProductIcon(activeProduct.id, "w-3.5 h-3.5")}
                     </div>
                     <span className="font-semibold text-white">{activeProduct.name}</span>
-                    <span className="text-neutral-500 text-[10px] hidden sm:inline">
+                    <span className="text-neutral-500 text-[10px] hidden sm:inline truncate max-w-[200px]">
                       · {activeProduct.tagline}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-[9.5px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Production Active
+                    Live
                   </span>
 
                   <a
@@ -611,17 +650,17 @@ export function ProductsCinematicHero() {
               </div>
 
               {/* ── Interactive Simulator Screen (Height-fitted, razor-sharp) ── */}
-              <div className="h-[250px] sm:h-[265px] bg-[#05070C] overflow-hidden">
+              <div className="h-[215px] sm:h-[225px] bg-[#05070C] overflow-hidden">
                 {renderProductSimulator(activeProduct.id)}
               </div>
 
               {/* Bottom Telemetry Metrics Strip */}
-              <div className="p-3.5 sm:p-4 bg-[#07090F] border-t border-white/[0.08]">
+              <div className="px-3.5 py-2.5 sm:py-3 bg-[#07090F] border-t border-white/[0.08]">
                 <div className="grid grid-cols-3 gap-2 text-center">
                   {activeProduct.metrics.map((m, i) => (
                     <div
                       key={i}
-                      className="p-2 sm:p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.05]"
+                      className="p-1.5 sm:p-2 rounded-lg bg-white/[0.02] border border-white/[0.05]"
                     >
                       <div
                         className="text-xs sm:text-sm font-bold font-mono"
@@ -629,7 +668,7 @@ export function ProductsCinematicHero() {
                       >
                         {m.value}
                       </div>
-                      <div className="text-[10px] text-neutral-400 mt-0.5 truncate">
+                      <div className="text-[9.5px] text-neutral-400 mt-0.5 truncate">
                         {m.label}
                       </div>
                     </div>
@@ -637,7 +676,7 @@ export function ProductsCinematicHero() {
                 </div>
 
                 {/* Mobile Sandbox Button */}
-                <div className="mt-3 pt-2.5 border-t border-white/[0.06] sm:hidden">
+                <div className="mt-2.5 pt-2 border-t border-white/[0.06] sm:hidden">
                   <a
                     href={activeProduct.url}
                     target="_blank"

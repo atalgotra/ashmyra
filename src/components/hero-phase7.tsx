@@ -192,18 +192,6 @@ export function HeroPhase7() {
                   <span className="text-neutral-200 font-medium">Enterprise Software</span>
                 </div>
               </div>
-
-              {/* Enterprise Credibility Status Strip */}
-              <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-neutral-400">
-                <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  Production Deployed
-                </span>
-                <span className="text-neutral-600">·</span>
-                <span>Sub-100ms Agent Latency</span>
-                <span className="text-neutral-600 hidden xs:inline">·</span>
-                <span className="hidden xs:inline">Global Multi-Cloud</span>
-              </div>
             </div>
 
           </div>

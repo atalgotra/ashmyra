@@ -16,12 +16,12 @@ export interface DemoProduct {
 export const DEMO_PRODUCTS: DemoProduct[] = [
   {
     id: "mailflow",
-    name: "Ashmyra MailFlow",
+    name: "MailFlow",
     url: "https://mailflow.ashmyra.com/",
     tagline: "Autonomous Cold Email & Deliverability Engine",
     description:
       "AI-driven cold email outreach, automated warmup sequences, mailbox rotation, and conversion-optimized copywriting with real-time inbox health monitoring.",
-    category: "Cold Email & Outreach Automation",
+    category: "Cold Email & Outreach",
     badge: "Email AI",
     accent: "#818cf8",
     accentRgb: "129, 140, 248",
@@ -45,7 +45,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     tagline: "B2B Lead Intelligence & Prospect Discovery Platform",
     description:
       "Deep lead discovery, automated enrichment, verified contact scraping, ICP scoring, and multichannel prospect routing designed for high-velocity outbound teams.",
-    category: "Lead Intelligence & Scraping",
+    category: "Lead Intelligence",
     badge: "Lead Intel",
     accent: "#06b6d4",
     accentRgb: "6, 182, 212",
@@ -69,7 +69,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     tagline: "Autonomous Agentic AI Social Media Manager & Growth Engine",
     description:
       "Autonomous social media manager for YouTube, LinkedIn, Facebook, and Instagram. Deeply audits channel performance, tracks real-time market news and competitor playbooks, and generates detailed, platform-native content with researched hashtag clusters.",
-    category: "Agentic Social Media AI Manager",
+    category: "Social Media AI Agent",
     badge: "Social AI Agent",
     accent: "#10b981",
     accentRgb: "16, 185, 129",
@@ -88,12 +88,12 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
   },
   {
     id: "unveil",
-    name: "Ashmyra Unveil",
+    name: "Unveil",
     url: "https://unveil.ashmyra.com/",
     tagline: "AI Search, Competitor Intelligence & GEO Discovery",
     description:
       "Audit and optimize your digital presence for the generative AI era. Analyzes brand visibility across Perplexity, ChatGPT, Gemini, and Google AI Overviews with live audits.",
-    category: "GEO & Search Intelligence",
+    category: "GEO & Search Intel",
     badge: "GEO Intelligence",
     accent: "#f59e0b",
     accentRgb: "245, 158, 11",
@@ -117,7 +117,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     tagline: "Search Intelligence, Deep Spider Forensics & GEO Citation Radar",
     description:
       "Autonomous deep website crawler, multi-agent technical SEO auditing, GSC/GA4 live telemetry, and AI engine citation radar across Perplexity, ChatGPT, and Gemini.",
-    category: "Search Intelligence & Deep SEO Forensics",
+    category: "Search Intel & SEO",
     badge: "Search Intel",
     accent: "#38bdf8",
     accentRgb: "56, 189, 248",

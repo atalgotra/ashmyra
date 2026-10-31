@@ -4,7 +4,22 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { ArrowRight, ArrowUpRight, CheckCircle2, Play, Pause, ChevronLeft, ChevronRight } from "lucide-react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Play,
+  Pause,
+  ChevronLeft,
+  ChevronRight,
+  Volume2,
+  VolumeX,
+} from "lucide-react";
+
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 export interface EngineerCapability {
   id: string;
@@ -31,7 +46,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/01-digital-experiences.mp4",
     posterSrc: "/videos/capabilities/01-digital-experiences.jpg",
     accent: "#818cf8",
-    accentGlow: "rgba(129, 140, 248, 0.22)",
+    accentGlow: "rgba(129, 140, 248, 0.25)",
     href: "/services/web-apps",
     tags: ["WebGL / Three.js", "GSAP Motion", "Next.js App Router", "Sub-second LCP"],
   },
@@ -45,7 +60,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/02-mobile-applications.mp4",
     posterSrc: "/videos/capabilities/02-mobile-applications.jpg",
     accent: "#38bdf8",
-    accentGlow: "rgba(56, 189, 248, 0.22)",
+    accentGlow: "rgba(56, 189, 248, 0.25)",
     href: "/services/software-development",
     tags: ["iOS / Swift", "Android / Kotlin", "Flutter", "Real-Time Telemetry"],
   },
@@ -59,7 +74,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/03-crm-platforms.mp4",
     posterSrc: "/videos/capabilities/03-crm-platforms.jpg",
     accent: "#f43f5e",
-    accentGlow: "rgba(244, 63, 94, 0.22)",
+    accentGlow: "rgba(244, 63, 94, 0.25)",
     href: "/products/crm",
     tags: ["Pipeline Telemetry", "Predictive Scoring", "Multi-channel Routing", "Zero-Latency Sync"],
   },
@@ -73,7 +88,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/04-enterprise-saas.mp4",
     posterSrc: "/videos/capabilities/04-enterprise-saas.jpg",
     accent: "#a78bfa",
-    accentGlow: "rgba(167, 139, 250, 0.22)",
+    accentGlow: "rgba(167, 139, 250, 0.25)",
     href: "/products/hrms",
     tags: ["Multi-Tenant SaaS", "Statutory Payroll", "Automated HRMS", "SOC2 Compliance"],
   },
@@ -87,7 +102,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/05-agentic-ai.mp4",
     posterSrc: "/videos/capabilities/05-agentic-ai.jpg",
     accent: "#22d3ee",
-    accentGlow: "rgba(34, 211, 238, 0.22)",
+    accentGlow: "rgba(34, 211, 238, 0.25)",
     href: "/products/ai",
     tags: ["Multi-Agent Consensus", "RAG Pipelines", "Autonomous Tool Calling", "Audit Guardrails"],
   },
@@ -101,7 +116,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/06-data-intelligence.mp4",
     posterSrc: "/videos/capabilities/06-data-intelligence.jpg",
     accent: "#34d399",
-    accentGlow: "rgba(52, 211, 153, 0.22)",
+    accentGlow: "rgba(52, 211, 153, 0.25)",
     href: "/products/analytics",
     tags: ["Streaming Ingestion", "Golden Record Synthesis", "LLM Citation Radar", "Anomaly Analytics"],
   },
@@ -115,7 +130,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     videoSrc: "/videos/capabilities/07-software-ecosystems.mp4",
     posterSrc: "/videos/capabilities/07-software-ecosystems.jpg",
     accent: "#fbbf24",
-    accentGlow: "rgba(251, 191, 36, 0.22)",
+    accentGlow: "rgba(251, 191, 36, 0.25)",
     href: "/services/software-development",
     tags: ["Unified API Mesh", "Multi-Surface Sync", "Edge Rendering", "Cloud-Native Scaling"],
   },
@@ -123,30 +138,90 @@ export const CAPABILITIES: EngineerCapability[] = [
 
 export function WhatWeEngineerShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
   const sectionRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+
   const current = CAPABILITIES[activeIndex];
 
-  // Switch video smoothly on active index change
+  // Smooth cross-fade on active index change
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
     gsap.fromTo(
       video,
-      { opacity: 0.4, scale: 0.985 },
+      { opacity: 0.35, scale: 0.985 },
       { opacity: 1, scale: 1, duration: 0.45, ease: "power2.out" }
     );
     video.currentTime = 0;
     video.play().catch(() => {});
   }, [activeIndex]);
 
+  // GSAP ScrollTrigger Viewport Observer: activates as user naturally scrolls
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      mm.add("(min-width: 1024px)", () => {
+        cardRefs.current.forEach((card, idx) => {
+          if (!card) return;
+
+          ScrollTrigger.create({
+            trigger: card,
+            start: "top 55%",
+            end: "bottom 45%",
+            onEnter: () => setActiveIndex(idx),
+            onEnterBack: () => setActiveIndex(idx),
+          });
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  // Smooth click navigation to glide to a specific card
+  const scrollToCard = (idx: number) => {
+    const card = cardRefs.current[idx];
+    if (card) {
+      const yOffset = -140; // account for sticky header
+      const y = card.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+    setActiveIndex(idx);
+  };
+
   const handlePrev = () => {
-    setActiveIndex((prev) => (prev > 0 ? prev - 1 : CAPABILITIES.length - 1));
+    const nextIdx = activeIndex > 0 ? activeIndex - 1 : CAPABILITIES.length - 1;
+    scrollToCard(nextIdx);
   };
 
   const handleNext = () => {
-    setActiveIndex((prev) => (prev < CAPABILITIES.length - 1 ? prev + 1 : 0));
+    const nextIdx = activeIndex < CAPABILITIES.length - 1 ? activeIndex + 1 : 0;
+    scrollToCard(nextIdx);
+  };
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play().catch(() => {});
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
   };
 
   return (
@@ -157,19 +232,21 @@ export function WhatWeEngineerShowcase() {
     >
       {/* Dynamic Background Atmosphere */}
       <div
-        className="absolute top-1/3 right-1/4 w-[50vw] h-[50vh] pointer-events-none transition-all duration-700"
+        className="absolute top-1/3 right-1/4 w-[55vw] h-[55vh] pointer-events-none transition-all duration-700"
         style={{
           background: `radial-gradient(ellipse 60% 50% at 50% 50%, ${current.accentGlow} 0%, transparent 70%)`,
-          filter: "blur(100px)",
+          filter: "blur(110px)",
         }}
       />
+      <div className="absolute inset-0 dot-bg opacity-10 pointer-events-none" />
 
       <div className="relative z-10 max-w-[1480px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
+
         {/* Section Header */}
-        <div className="mb-10 sm:mb-12">
+        <div className="mb-12 sm:mb-16">
           <div className="flex items-center gap-2 mb-3">
             <span
-              className="w-1.5 h-1.5 rounded-full"
+              className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
               style={{ background: current.accent }}
             />
             <span className="text-[11px] font-mono tracking-[0.24em] text-indigo-400 uppercase font-semibold">
@@ -190,18 +267,18 @@ export function WhatWeEngineerShowcase() {
               </p>
             </div>
 
-            {/* Interactive capability navigation controls */}
+            {/* Quick interactive navigation controls */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-xl">
+              <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-xl">
                 <span className="text-white font-bold">{current.num}</span>
                 <span>/</span>
                 <span>07</span>
-                <span className="ml-1 text-[10px] uppercase text-neutral-300 hidden sm:inline truncate max-w-[180px]">
+                <span className="ml-1 text-[10px] uppercase text-neutral-300 hidden sm:inline truncate max-w-[200px]">
                   {current.title}
                 </span>
               </div>
 
-              <div className="flex items-center gap-1">
+              <div className="flex items-center gap-1.5">
                 <button
                   onClick={handlePrev}
                   className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-neutral-300 hover:text-white transition-all active:scale-95"
@@ -223,27 +300,42 @@ export function WhatWeEngineerShowcase() {
           </div>
         </div>
 
-        {/* ── Desktop Pinned Interactive Layout (lg+) ──────────────────────── */}
-        <div className="hidden lg:grid grid-cols-12 gap-12 items-start">
+        {/* ── Desktop Apple-Style Layout: Scroll Spine (Left) + Sticky Canvas (Right) ── */}
+        <div className="hidden lg:grid grid-cols-12 gap-10 xl:gap-14 items-start relative">
 
-          {/* Left Column: Interactive Capability Selector List (~45%: 5 cols) */}
-          <div className="col-span-5 space-y-2">
+          {/* Left Column: Natural Scroll Spine of 7 Story Cards (~42%: 5 cols) */}
+          <div className="col-span-5 flex flex-col gap-6 lg:gap-8 pb-32">
             {CAPABILITIES.map((cap, idx) => {
               const isActive = idx === activeIndex;
               return (
                 <div
                   key={cap.id}
-                  onClick={() => setActiveIndex(idx)}
-                  className={`p-4 rounded-2xl cursor-pointer transition-all duration-300 ${
+                  ref={(el) => {
+                    cardRefs.current[idx] = el;
+                  }}
+                  onClick={() => scrollToCard(idx)}
+                  className={`p-6 sm:p-7 rounded-2xl cursor-pointer transition-all duration-500 relative select-none ${
                     isActive
-                      ? "bg-white/[0.06] border shadow-lg"
-                      : "bg-transparent border border-transparent hover:bg-white/[0.02]"
+                      ? "bg-white/[0.05] border shadow-2xl opacity-100 scale-[1.01]"
+                      : "bg-white/[0.015] border border-white/[0.05] opacity-40 hover:opacity-75 hover:bg-white/[0.03] scale-100"
                   }`}
                   style={{
-                    borderColor: isActive ? `${cap.accent}44` : "transparent",
+                    borderColor: isActive ? `${cap.accent}66` : "rgba(255, 255, 255, 0.06)",
+                    boxShadow: isActive ? `0 20px 50px -15px ${cap.accentGlow}` : "none",
                   }}
                 >
-                  <div className="flex items-center justify-between gap-3 mb-1">
+                  {/* Active Card Top Accent Highlight */}
+                  {isActive && (
+                    <div
+                      className="absolute top-0 inset-x-6 h-[2px] rounded-full"
+                      style={{
+                        background: `linear-gradient(90deg, transparent, ${cap.accent}, transparent)`,
+                        boxShadow: `0 0 10px ${cap.accent}`,
+                      }}
+                    />
+                  )}
+
+                  <div className="flex items-center justify-between gap-3 mb-2">
                     <div className="flex items-center gap-3">
                       <span
                         className={`text-xs font-mono font-bold transition-colors ${
@@ -254,7 +346,7 @@ export function WhatWeEngineerShowcase() {
                         {cap.num}
                       </span>
                       <h3
-                        className={`text-base font-bold tracking-tight transition-colors ${
+                        className={`text-lg font-bold tracking-tight transition-colors ${
                           isActive ? "text-white" : "text-neutral-400"
                         }`}
                         style={{ fontFamily: "'Space Grotesk', sans-serif" }}
@@ -271,80 +363,96 @@ export function WhatWeEngineerShowcase() {
                     )}
                   </div>
 
-                  {isActive && (
-                    <div className="mt-2 pl-7 animate-fadeIn">
-                      <p className="text-xs text-neutral-300 leading-relaxed font-sans mb-3">
-                        {cap.description}
-                      </p>
+                  <p className="text-xs font-mono text-indigo-300 mb-3">
+                    {cap.subtitle}
+                  </p>
 
-                      <div className="flex flex-wrap gap-1.5 mb-3">
-                        {cap.tags.map((t) => (
-                          <span
-                            key={t}
-                            className="text-[9.5px] font-mono px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-neutral-300"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans mb-4">
+                    {cap.description}
+                  </p>
 
-                      <Link
-                        href={cap.href}
-                        className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-colors hover:text-white"
-                        style={{ color: cap.accent }}
+                  <div className="flex flex-wrap gap-1.5 mb-4">
+                    {cap.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-[10px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] text-neutral-300"
                       >
-                        <span>Explore Architecture</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
-                      </Link>
-                    </div>
-                  )}
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  <Link
+                    href={cap.href}
+                    onClick={(e) => e.stopPropagation()}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-colors hover:text-white"
+                    style={{ color: cap.accent }}
+                  >
+                    <span>Explore Architecture</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
                 </div>
               );
             })}
           </div>
 
-          {/* Right Column: Large Pinned Cinematic Video Viewport (~55%: 7 cols) */}
-          <div className="col-span-7 sticky top-28">
+          {/* Right Column: Sticky Cinema Canvas (~58%: 7 cols) */}
+          <div className="col-span-7 sticky top-24 lg:top-28 self-start">
+            {/* Ambient Ambilight Glow */}
             <div
-              className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-700"
+              className="absolute -inset-4 rounded-3xl pointer-events-none transition-all duration-700 opacity-60 -z-10"
               style={{
-                background: "linear-gradient(160deg, rgba(12, 16, 28, 0.96) 0%, rgba(5, 7, 12, 0.98) 100%)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                boxShadow: `0 25px 70px -15px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${current.accentGlow}`,
+                background: `radial-gradient(ellipse 70% 60% at 50% 50%, ${current.accent} 0%, transparent 70%)`,
+                filter: "blur(65px)",
+              }}
+            />
+
+            {/* Hardware Chassis */}
+            <div
+              className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 select-none"
+              style={{
+                background:
+                  "linear-gradient(160deg, rgba(12, 16, 28, 0.96) 0%, rgba(5, 7, 12, 0.98) 100%)",
+                border: "1px solid rgba(255, 255, 255, 0.12)",
+                boxShadow: `0 30px 80px -20px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${current.accentGlow}`,
               }}
             >
               {/* Header Bar */}
               <div
                 className="px-5 py-3 flex items-center justify-between border-b backdrop-blur-md"
                 style={{
-                  borderColor: "rgba(255, 255, 255, 0.07)",
-                  background: "rgba(0, 0, 0, 0.35)",
+                  borderColor: "rgba(255, 255, 255, 0.08)",
+                  background: "rgba(0, 0, 0, 0.4)",
                 }}
               >
                 <div className="flex items-center gap-2.5">
                   <span
-                    className="w-2 h-2 rounded-full"
+                    className="w-2 h-2 rounded-full animate-pulse shrink-0"
                     style={{ background: current.accent }}
                   />
                   <span className="text-xs font-mono font-bold text-white tracking-wider">
-                    {current.num} / 07 — {current.title}
+                    SHOWCASE {current.num} / 07 — {current.title}
                   </span>
                 </div>
 
                 <div className="text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Cinematic Architecture Reel</span>
+                  <span>Google Flow Verified</span>
                 </div>
               </div>
 
-              {/* Video Player */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#04060a]">
+              {/* Cinematic Video Viewport */}
+              <div
+                onClick={togglePlay}
+                className="relative aspect-[16/9] w-full overflow-hidden bg-[#04060a] cursor-pointer group"
+              >
+                {/* Poster Fallback */}
                 <Image
                   src={current.posterSrc}
                   alt={current.title}
                   fill
                   priority
-                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  sizes="(max-width: 1024px) 100vw, 58vw"
                   className="object-cover object-center pointer-events-none"
                 />
 
@@ -354,39 +462,101 @@ export function WhatWeEngineerShowcase() {
                   src={current.videoSrc}
                   poster={current.posterSrc}
                   autoPlay
-                  muted
+                  muted={isMuted}
                   playsInline
                   loop
-                  className="relative z-10 w-full h-full object-cover object-center"
+                  className="relative z-10 w-full h-full object-cover object-center transition-transform duration-700"
                 />
 
+                {/* Cinematic Vignette */}
                 <div
                   className="absolute inset-0 z-20 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(4, 6, 10, 0.6) 0%, transparent 20%), linear-gradient(to bottom, rgba(4, 6, 10, 0.25) 0%, transparent 12%)",
+                      "linear-gradient(to top, rgba(4, 6, 10, 0.75) 0%, transparent 28%), linear-gradient(to bottom, rgba(4, 6, 10, 0.3) 0%, transparent 15%)",
                   }}
                 />
 
-                <div className="absolute bottom-4 left-5 z-30 pointer-events-none">
+                {/* Bottom Left Label */}
+                <div className="absolute bottom-4 left-5 z-30 pointer-events-none max-w-[65%]">
                   <span
-                    className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded bg-black/60 border backdrop-blur-md"
+                    className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-md bg-black/70 border backdrop-blur-md inline-block mb-1.5"
                     style={{
                       color: current.accent,
-                      borderColor: `${current.accent}44`,
+                      borderColor: `${current.accent}55`,
                     }}
                   >
                     {current.subtitle}
                   </span>
+                  <h3
+                    className="text-lg sm:text-2xl font-bold tracking-tight text-white drop-shadow-md truncate"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  >
+                    {current.title}
+                  </h3>
+                </div>
+
+                {/* Bottom Right Floating Media Controls */}
+                <div
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute bottom-4 right-5 z-30 flex items-center gap-1.5 p-1.5 rounded-full bg-black/65 hover:bg-black/85 border border-white/20 backdrop-blur-xl shadow-2xl transition-all"
+                >
+                  {/* Audio */}
+                  <button
+                    onClick={toggleMute}
+                    className="p-1.5 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                    aria-label={isMuted ? "Unmute audio" : "Mute audio"}
+                    title={isMuted ? "Unmute audio" : "Mute audio"}
+                  >
+                    {isMuted ? (
+                      <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
+                    ) : (
+                      <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
+                    )}
+                  </button>
+
+                  <span className="w-[1px] h-3.5 bg-white/20" />
+
+                  {/* Play / Pause */}
+                  <button
+                    onClick={togglePlay}
+                    className="p-1.5 rounded-full text-neutral-200 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                    aria-label={isPlaying ? "Pause playback" : "Resume playback"}
+                    title={isPlaying ? "Pause playback" : "Resume playback"}
+                  >
+                    {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                  </button>
+
+                  <span className="w-[1px] h-3.5 bg-white/20" />
+
+                  {/* Prev */}
+                  <button
+                    onClick={handlePrev}
+                    className="p-1.5 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                    aria-label="Previous capability"
+                    title="Previous capability"
+                  >
+                    <ChevronLeft className="w-3.5 h-3.5" />
+                  </button>
+
+                  {/* Next */}
+                  <button
+                    onClick={handleNext}
+                    className="p-1.5 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+                    aria-label="Next capability"
+                    title="Next capability"
+                  >
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
                 </div>
               </div>
 
-              {/* Footer info bar */}
+              {/* Footer Info Bar */}
               <div
                 className="px-5 py-3.5 flex items-center justify-between text-xs font-mono text-neutral-400 border-t"
                 style={{
-                  borderColor: "rgba(255, 255, 255, 0.06)",
-                  background: "rgba(0, 0, 0, 0.3)",
+                  borderColor: "rgba(255, 255, 255, 0.08)",
+                  background: "rgba(0, 0, 0, 0.4)",
                 }}
               >
                 <span>Production Architecture Proof</span>
@@ -394,7 +564,7 @@ export function WhatWeEngineerShowcase() {
                   href={current.href}
                   className="text-white hover:underline flex items-center gap-1 font-medium transition-colors"
                 >
-                  <span>Explore Capabilities</span>
+                  <span>Explore Architecture</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
@@ -404,14 +574,14 @@ export function WhatWeEngineerShowcase() {
         </div>
 
         {/* ── Mobile Stacked Presentation (< lg) ───────────────────────────── */}
-        <div className="lg:hidden space-y-6">
+        <div className="lg:hidden space-y-8">
           {CAPABILITIES.map((cap) => (
             <div
               key={cap.id}
               className="rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02]"
             >
               {/* Video Viewport */}
-              <div className="relative aspect-[16/10] w-full bg-[#04060a]">
+              <div className="relative aspect-[16/9] w-full bg-[#04060a]">
                 <video
                   src={cap.videoSrc}
                   poster={cap.posterSrc}

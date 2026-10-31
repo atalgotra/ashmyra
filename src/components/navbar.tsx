@@ -4,36 +4,40 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MAIN_NAV, NavSection } from "@/data/navigation";
+import { MAIN_NAV, NavSection, NavItem } from "@/data/navigation";
 import {
   Menu,
   X,
   ChevronDown,
   ArrowRight,
-  Cpu,
+  ArrowUpRight,
   Search,
   Users,
-  Zap,
-  BarChart3,
   Target,
+  BarChart3,
+  Zap,
   Globe,
   Code2,
   Bot,
-  ExternalLink,
-  ShieldCheck,
-  Layers,
   Sparkles,
+  ShieldCheck,
+  Cpu,
+  Layers,
+  Briefcase,
+  Building2,
+  Workflow,
+  Smartphone,
+  Palette,
 } from "lucide-react";
 
 export function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [mobileDemosOpen, setMobileDemosOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
+  const [mobileSectionOpen, setMobileSectionOpen] = useState<Record<string, boolean>>({});
   const headerRef = useRef<HTMLElement>(null);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -45,9 +49,6 @@ export function Navbar() {
   useEffect(() => {
     setMobileOpen(false);
     setActiveDD(null);
-    setMobileProductsOpen(false);
-    setMobileDemosOpen(false);
-    setMobileServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -61,13 +62,43 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
+  // Handle escape key to close dropdowns
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setActiveDD(null);
+        setMobileOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
+  const handleMouseEnter = (title: string) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDD(title);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setActiveDD(null);
+    }, 150);
+  };
+
+  const toggleMobileSection = (title: string) => {
+    setMobileSectionOpen((prev) => ({
+      ...prev,
+      [title]: !prev[title],
+    }));
+  };
+
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
     const t = title.toLowerCase();
     if (t.includes("seo") || t.includes("search") || t.includes("geo")) {
       return <Search className={cls} style={{ color: "#22d3ee" }} />;
     }
-    if (t.includes("hrms") || t.includes("workforce") || t.includes("human")) {
+    if (t.includes("hrms") || t.includes("workforce") || t.includes("people")) {
       return <Users className={cls} style={{ color: "#10b981" }} />;
     }
     if (t.includes("crm") || t.includes("pipeline") || t.includes("target")) {
@@ -76,24 +107,32 @@ export function Navbar() {
     if (t.includes("analytics") || t.includes("data")) {
       return <BarChart3 className={cls} style={{ color: "#a78bfa" }} />;
     }
-    if (t.includes("automation") || t.includes("orchestrator")) {
+    if (t.includes("automation") || t.includes("workflow")) {
       return <Zap className={cls} style={{ color: "#fbbf24" }} />;
+    }
+    if (t.includes("mobile") || t.includes("app")) {
+      return <Smartphone className={cls} style={{ color: "#38bdf8" }} />;
+    }
+    if (t.includes("3d") || t.includes("gsap") || t.includes("design") || t.includes("ui/ux")) {
+      return <Palette className={cls} style={{ color: "#ec4899" }} />;
     }
     if (t.includes("web") || t.includes("platform")) {
       return <Globe className={cls} style={{ color: "#38bdf8" }} />;
     }
-    if (t.includes("software") || t.includes("engineering")) {
+    if (t.includes("software") || t.includes("engineering") || t.includes("api")) {
       return <Code2 className={cls} style={{ color: "#60a5fa" }} />;
     }
-    if (t.includes("agentic") || t.includes("ai")) {
+    if (t.includes("agentic") || t.includes("ai") || t.includes("swarm") || t.includes("multi-agent")) {
       return <Bot className={cls} style={{ color: "#818cf8" }} />;
+    }
+    if (t.includes("work") || t.includes("case") || t.includes("project")) {
+      return <Briefcase className={cls} style={{ color: "#34d399" }} />;
+    }
+    if (t.includes("company") || t.includes("about") || t.includes("leadership") || t.includes("career")) {
+      return <Building2 className={cls} style={{ color: "#818cf8" }} />;
     }
     return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
   };
-
-  const productsNav = MAIN_NAV.find((n) => n.title === "Products");
-  const demosNav = MAIN_NAV.find((n) => n.title === "Demos");
-  const servicesNav = MAIN_NAV.find((n) => n.title === "Services");
 
   return (
     <>
@@ -102,7 +141,7 @@ export function Navbar() {
         className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
         style={{
           background: scrolled
-            ? "rgba(5, 7, 12, 0.94)"
+            ? "rgba(5, 7, 12, 0.95)"
             : "rgba(5, 7, 12, 0.82)",
           backdropFilter: "blur(20px) saturate(160%)",
           WebkitBackdropFilter: "blur(20px) saturate(160%)",
@@ -115,7 +154,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-[72px]">
 
-            {/* Logo */}
+            {/* Ashmyra Logo */}
             <Link
               href="/"
               className="group flex items-center gap-3 focus:outline-none rounded-xl"
@@ -165,8 +204,8 @@ export function Navbar() {
                     <div
                       key={nav.title}
                       className="relative"
-                      onMouseEnter={() => setActiveDD(nav.title)}
-                      onMouseLeave={() => setActiveDD(null)}
+                      onMouseEnter={() => handleMouseEnter(nav.title)}
+                      onMouseLeave={handleMouseLeave}
                     >
                       <button
                         onClick={() => setActiveDD(open ? null : nav.title)}
@@ -185,9 +224,17 @@ export function Navbar() {
                         />
                       </button>
 
-                      {/* Dropdown Menu */}
+                      {/* Dropdown / Mega Menu */}
                       {open && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[560px] z-50 animate-fadeIn">
+                        <div
+                          className={`absolute top-full pt-2.5 z-50 animate-fadeIn ${
+                            nav.title === "Products" || nav.title === "Services"
+                              ? "left-1/2 -translate-x-1/2 w-[620px]"
+                              : nav.title === "Solutions" || nav.title === "AI & Automation"
+                              ? "left-1/2 -translate-x-1/2 w-[520px]"
+                              : "right-0 w-[380px]"
+                          }`}
+                        >
                           <div
                             className="rounded-2xl p-5 shadow-2xl"
                             style={{
@@ -197,9 +244,20 @@ export function Navbar() {
                               boxShadow: "0 24px 60px -15px rgba(0,0,0,0.9)",
                             }}
                           >
+                            {/* Group Header */}
                             <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
                               <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
-                                {nav.title === "Products" ? "Enterprise Software & AI Platforms" : "Engineering Capabilities"}
+                                {nav.title === "Products"
+                                  ? "Intelligent Software & Platforms"
+                                  : nav.title === "Solutions"
+                                  ? "Enterprise Business Solutions"
+                                  : nav.title === "AI & Automation"
+                                  ? "Autonomous Intelligence & Swarms"
+                                  : nav.title === "Services"
+                                  ? "Core Engineering Capabilities"
+                                  : nav.title === "Our Work"
+                                  ? "Production Systems & Proven Work"
+                                  : "Company & Leadership"}
                               </span>
                               <Link
                                 href={nav.href}
@@ -211,7 +269,14 @@ export function Navbar() {
                               </Link>
                             </div>
 
-                            <div className="grid grid-cols-1 gap-1">
+                            {/* Dropdown Items Grid */}
+                            <div
+                              className={`grid gap-1.5 ${
+                                nav.title === "Products" || nav.title === "Services"
+                                  ? "grid-cols-2"
+                                  : "grid-cols-1"
+                              }`}
+                            >
                               {nav.items?.map((item) => (
                                 <Link
                                   key={item.title}
@@ -229,11 +294,18 @@ export function Navbar() {
                                     {getIcon(item.title)}
                                   </div>
                                   <div className="flex-1 min-w-0">
-                                    <div className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
-                                      {item.title}
+                                    <div className="flex items-center justify-between gap-1">
+                                      <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
+                                        {item.title}
+                                      </span>
+                                      {item.demoUrl && (
+                                        <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-1.5 py-0.2 rounded shrink-0">
+                                          Live Demo ↗
+                                        </span>
+                                      )}
                                     </div>
                                     {item.description && (
-                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">
+                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug">
                                         {item.description}
                                       </p>
                                     )}
@@ -260,11 +332,6 @@ export function Navbar() {
                     }`}
                   >
                     <span>{nav.title}</span>
-                    {nav.badge && (
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 uppercase tracking-wider font-semibold">
-                        {nav.badge}
-                      </span>
-                    )}
                   </Link>
                 );
               })}
@@ -280,7 +347,7 @@ export function Navbar() {
                   boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
                 }}
               >
-                <span>Start a Conversation</span>
+                <span>Let&apos;s Build Something</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
@@ -298,186 +365,81 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {mobileOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-40 flex flex-col pt-20"
+          className="fixed inset-0 top-16 z-40 lg:hidden overflow-y-auto"
           style={{
             background: "rgba(5, 7, 12, 0.98)",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-2">
+          <div className="px-5 py-6 space-y-3 pb-24">
+            {MAIN_NAV.map((nav) => {
+              const hasItems = nav.items && nav.items.length > 0;
+              const isOpen = !!mobileSectionOpen[nav.title];
 
-            {/* Products Accordion */}
-            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
-              <button
-                type="button"
-                onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
-              >
-                <span>Products</span>
-                <ChevronDown
-                  className={`w-4 h-4 text-neutral-400 transition-transform ${
-                    mobileProductsOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {mobileProductsOpen && (
-                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
-                  {productsNav?.items?.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
-                    >
-                      <div className="font-medium text-white">{item.title}</div>
-                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
-                    </Link>
-                  ))}
-                  <Link
-                    href="/products"
-                    onClick={() => setMobileOpen(false)}
-                    className="block pt-2 text-xs font-mono text-indigo-300"
+              if (hasItems) {
+                return (
+                  <div
+                    key={nav.title}
+                    className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.02]"
                   >
-                    All Products →
-                  </Link>
-                </div>
-              )}
-            </div>
-
-            {/* Solutions */}
-            <Link
-              href="/solutions"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
-            >
-              <span>Solutions</span>
-              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
-            </Link>
-
-            {/* AI */}
-            <Link
-              href="/products/ai"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
-            >
-              <span>AI</span>
-              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
-            </Link>
-
-            {/* Demos Accordion */}
-            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
-              <button
-                type="button"
-                onClick={() => setMobileDemosOpen(!mobileDemosOpen)}
-                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
-              >
-                <div className="flex items-center gap-2">
-                  <span>Demos</span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                </div>
-                <ChevronDown
-                  className={`w-4 h-4 text-neutral-400 transition-transform ${
-                    mobileDemosOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {mobileDemosOpen && (
-                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
-                  {demosNav?.items?.map((item) => (
-                    <a
-                      key={item.title}
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setMobileOpen(false)}
-                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
+                    <button
+                      onClick={() => toggleMobileSection(nav.title)}
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-neutral-200 hover:text-white transition-colors"
                     >
-                      <div className="font-medium text-white flex items-center gap-1.5">
-                        <span>{item.title}</span>
-                        <ExternalLink className="w-3 h-3 text-neutral-500" />
+                      <span>{nav.title}</span>
+                      <ChevronDown
+                        className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
+                          isOpen ? "rotate-180 text-indigo-400" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {isOpen && (
+                      <div className="px-3 pb-3 space-y-1 border-t border-white/[0.05] pt-2">
+                        {nav.items?.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            onClick={() => setMobileOpen(false)}
+                            className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white"
+                          >
+                            <div className="flex items-center gap-2.5 min-w-0">
+                              {getIcon(item.title)}
+                              <span className="font-medium truncate">{item.title}</span>
+                            </div>
+                            {item.demoUrl ? (
+                              <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 px-1.5 py-0.5 rounded">
+                                Demo ↗
+                              </span>
+                            ) : (
+                              <ArrowRight className="w-3 h-3 text-neutral-500 shrink-0" />
+                            )}
+                          </Link>
+                        ))}
                       </div>
-                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
-                    </a>
-                  ))}
-                  <Link
-                    href="/demos"
-                    onClick={() => setMobileOpen(false)}
-                    className="block pt-2 text-xs font-mono text-indigo-300"
-                  >
-                    All Live Demos →
-                  </Link>
-                </div>
-              )}
-            </div>
+                    )}
+                  </div>
+                );
+              }
 
-            {/* Services Accordion */}
-            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
-              <button
-                type="button"
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
-              >
-                <span>Services</span>
-                <ChevronDown
-                  className={`w-4 h-4 text-neutral-400 transition-transform ${
-                    mobileServicesOpen ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-              {mobileServicesOpen && (
-                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
-                  {servicesNav?.items?.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
-                    >
-                      <div className="font-medium text-white">{item.title}</div>
-                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
-                    </Link>
-                  ))}
-                  <Link
-                    href="/services"
-                    onClick={() => setMobileOpen(false)}
-                    className="block pt-2 text-xs font-mono text-indigo-300"
-                  >
-                    All Services →
-                  </Link>
-                </div>
-              )}
-            </div>
+              return (
+                <Link
+                  key={nav.title}
+                  href={nav.href}
+                  onClick={() => setMobileOpen(false)}
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
+                >
+                  <span>{nav.title}</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
+                </Link>
+              );
+            })}
 
-            {/* Work */}
-            <Link
-              href="/our-work"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
-            >
-              <span>Work</span>
-              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
-            </Link>
-
-            {/* Our Team */}
-            <Link
-              href="/team"
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
-            >
-              <div className="flex items-center gap-2">
-                <span>Our Team</span>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                  Leadership
-                </span>
-              </div>
-              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
-            </Link>
-
-            {/* CTA */}
+            {/* Mobile CTA */}
             <div className="pt-4">
               <Link
                 href="/contact"
@@ -487,12 +449,11 @@ export function Navbar() {
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                 }}
               >
-                <span>Start a Conversation</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Let&apos;s Build Something</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
-
-          </nav>
+          </div>
         </div>
       )}
     </>

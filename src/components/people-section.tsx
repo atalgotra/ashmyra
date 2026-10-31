@@ -45,40 +45,6 @@ const PRINCIPLES = [
 const LEADERS = [
   {
     num: "01",
-    name: "Ashish Talgotra",
-    title: "AI Engineer / Data Scientist",
-    roleSubtitle: "Systems & Data Architecture",
-    bio: "Architects autonomous multi-agent systems, real-time data pipelines, and deep intelligence layers. Focuses on converting complex enterprise bottlenecks into deterministic, scalable software engines that execute reliably in production.",
-    skills: ["Agent Swarm Architecture", "LLM Orchestration", "Real-Time Data Pipelines", "Distributed Systems"],
-    accent: "#818cf8",
-    accentRgb: "99,102,241",
-    photo: "/hero/ashish-portrait.png",
-    photoPosition: "object-top",
-    linkedin: "https://www.linkedin.com/in/atalgotra/",
-    monogram: null,
-    roleBadge: "Engineering",
-    FooterIcon: Terminal,
-    footerLabel: "AI & Data Architecture",
-  },
-  {
-    num: "02",
-    name: "Bella",
-    title: "Chief Happiness Officer",
-    roleSubtitle: "Morale & Stress De-escalation",
-    bio: "Head of office morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
-    skills: ["Morale Optimization", "Stress De-escalation", "Treat Auditing", "Zero-Bug Mascot"],
-    accent: "#fb7185",
-    accentRgb: "251,113,133",
-    photo: "/team/bella.png",
-    photoPosition: "object-top",
-    linkedin: null,
-    monogram: null,
-    roleBadge: "Office Pup 🐾",
-    FooterIcon: Heart,
-    footerLabel: "Chief Happiness & Morale",
-  },
-  {
-    num: "03",
     name: "Swati Arora",
     title: "Founder",
     roleSubtitle: "Business Strategy & Operations",
@@ -95,7 +61,24 @@ const LEADERS = [
     footerLabel: "Executive Leadership",
   },
   {
-    num: "04",
+    num: "02",
+    name: "Ashish Talgotra",
+    title: "AI Engineer / Data Scientist",
+    roleSubtitle: "Systems & Data Architecture",
+    bio: "Architects autonomous multi-agent systems, real-time data pipelines, and deep intelligence layers. Focuses on converting complex enterprise bottlenecks into deterministic, scalable software engines that execute reliably in production.",
+    skills: ["Agent Swarm Architecture", "LLM Orchestration", "Real-Time Data Pipelines", "Distributed Systems"],
+    accent: "#818cf8",
+    accentRgb: "99,102,241",
+    photo: "/hero/ashish-portrait.png",
+    photoPosition: "object-top",
+    linkedin: "https://www.linkedin.com/in/atalgotra/",
+    monogram: null,
+    roleBadge: "Engineering",
+    FooterIcon: Terminal,
+    footerLabel: "AI & Data Architecture",
+  },
+  {
+    num: "03",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
@@ -110,6 +93,23 @@ const LEADERS = [
     roleBadge: "IT & Systems",
     FooterIcon: Code2,
     footerLabel: "Software & Cloud Systems",
+  },
+  {
+    num: "04",
+    name: "Bella",
+    title: "Chief Happiness Officer",
+    roleSubtitle: "Morale & Stress De-escalation",
+    bio: "Head of office morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    skills: ["Morale Optimization", "Stress De-escalation", "Treat Auditing", "Zero-Bug Mascot"],
+    accent: "#fb7185",
+    accentRgb: "251,113,133",
+    photo: "/team/bella.png",
+    photoPosition: "object-top",
+    linkedin: null,
+    monogram: null,
+    roleBadge: "Office Pup 🐾",
+    FooterIcon: Heart,
+    footerLabel: "Chief Happiness & Morale",
   },
 ] as const;
 
@@ -200,7 +200,7 @@ export function PeopleSection() {
                         alt={leader.name}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        priority={leader.num === "01" || leader.num === "02"}
+                        priority={leader.num === "02"}
                         className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                       />
                       <div

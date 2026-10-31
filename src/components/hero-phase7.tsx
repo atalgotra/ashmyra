@@ -1,71 +1,12 @@
 "use client";
 
-import React, { useRef, useEffect, useState } from "react";
-import Image from "next/image";
+import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import gsap from "gsap";
-import {
-  ArrowRight,
-  ArrowUpRight,
-  Cpu,
-  Database,
-  Layers,
-  Sparkles,
-  Search,
-  Activity,
-  CheckCircle2,
-} from "lucide-react";
-
-interface ArchitectureView {
-  id: string;
-  tabLabel: string;
-  systemName: string;
-  category: string;
-  description: string;
-  image: string;
-  accent: string;
-  accentGlow: string;
-  href: string;
-}
-
-const ARCHITECTURE_VIEWS: ArchitectureView[] = [
-  {
-    id: "swarm",
-    tabLabel: "Agentic Swarm",
-    systemName: "Autonomous Multi-Agent Swarm",
-    category: "AI ORCHESTRATION",
-    description: "Multi-agent consensus mesh with 8 specialized agents executing production workflows.",
-    image: "/products/ai/pillar-1-swarm-team.jpg",
-    accent: "#818cf8",
-    accentGlow: "rgba(129, 140, 248, 0.18)",
-    href: "/products/ai",
-  },
-  {
-    id: "geo",
-    tabLabel: "GEO Radar",
-    systemName: "Generative Engine Optimization Radar",
-    category: "SEARCH INTELLIGENCE",
-    description: "Deep citation tracking and entity authority across ChatGPT, Perplexity & Gemini.",
-    image: "/products/seo/seo-geo-studio.jpg",
-    accent: "#22d3ee",
-    accentGlow: "rgba(34, 211, 238, 0.18)",
-    href: "/products/seo",
-  },
-  {
-    id: "pipeline",
-    tabLabel: "Data Engine",
-    systemName: "Automated Data-to-Revenue Pipeline",
-    category: "DATA INTELLIGENCE",
-    description: "Real-time streaming ingestion, golden record synthesis and anomaly detection.",
-    image: "/analytics/analytics-pipeline-engine.jpg",
-    accent: "#34d399",
-    accentGlow: "rgba(52, 211, 153, 0.18)",
-    href: "/products/analytics",
-  },
-];
+import { ArrowRight, ArrowUpRight, Cpu, Database, Layers } from "lucide-react";
+import { AshmyraHeroShowreel } from "@/components/hero-showreel";
 
 export function HeroPhase7() {
-  const [activeTab, setActiveTab] = useState<ArchitectureView>(ARCHITECTURE_VIEWS[0]);
   const sectionRef = useRef<HTMLElement>(null);
   const leftColRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
@@ -131,11 +72,12 @@ export function HeroPhase7() {
     >
       {/* ── Editorial Background Atmosphere ─────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Soft radial background depth matching active architecture view */}
+        {/* Soft radial background depth */}
         <div
-          className="absolute top-1/4 right-0 w-[55vw] h-[65vh] transition-all duration-700"
+          className="absolute top-1/4 right-0 w-[55vw] h-[65vh]"
           style={{
-            background: `radial-gradient(ellipse 70% 60% at 75% 40%, ${activeTab.accentGlow} 0%, rgba(34, 211, 238, 0.03) 45%, transparent 70%)`,
+            background:
+              "radial-gradient(ellipse 70% 60% at 75% 40%, rgba(99, 102, 241, 0.1) 0%, rgba(34, 211, 238, 0.04) 45%, transparent 70%)",
             filter: "blur(90px)",
           }}
         />
@@ -226,7 +168,7 @@ export function HeroPhase7() {
                   border: "1px solid rgba(255, 255, 255, 0.1)",
                 }}
               >
-                <span>Start a Conversation</span>
+                <span>Let&apos;s Build Something</span>
                 <ArrowUpRight className="w-4 h-4 text-neutral-400" />
               </Link>
             </div>
@@ -252,104 +194,9 @@ export function HeroPhase7() {
 
           </div>
 
-          {/* ── Right Column: Interactive Product & Architecture Showcase (~57%: 7 cols / 12) ── */}
-          <div className="lg:col-span-7 flex items-center justify-center">
-            <div
-              ref={visualRef}
-              className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden"
-              style={{
-                background: "linear-gradient(160deg, rgba(13, 16, 28, 0.95) 0%, rgba(6, 8, 15, 0.98) 100%)",
-                border: "1px solid rgba(255, 255, 255, 0.1)",
-                boxShadow: `0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 45px -10px ${activeTab.accentGlow}`,
-              }}
-            >
-              {/* Architecture Perspective Tabs Header */}
-              <div
-                className="px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3 border-b"
-                style={{
-                  borderColor: "rgba(255, 255, 255, 0.07)",
-                  background: "rgba(255, 255, 255, 0.02)",
-                }}
-              >
-                {/* Clean Tab Pills */}
-                <div className="flex items-center gap-1.5 sm:gap-2">
-                  {ARCHITECTURE_VIEWS.map((tab) => {
-                    const isActive = activeTab.id === tab.id;
-                    return (
-                      <button
-                        key={tab.id}
-                        onClick={() => setActiveTab(tab)}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-mono font-medium transition-all duration-200 ${
-                          isActive
-                            ? "text-white bg-white/[0.1] shadow-sm"
-                            : "text-neutral-400 hover:text-neutral-200 hover:bg-white/[0.04]"
-                        }`}
-                        style={{
-                          border: isActive
-                            ? `1px solid ${tab.accent}55`
-                            : "1px solid transparent",
-                        }}
-                      >
-                        {tab.tabLabel}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {/* Live Verified Telemetry Status */}
-                <div className="flex items-center gap-2 text-[10px] font-mono text-neutral-400">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="hidden sm:inline">Production Architecture</span>
-                  <span className="sm:hidden">Verified</span>
-                </div>
-              </div>
-
-              {/* Large Immersive Product Interface Visual */}
-              <div className="relative aspect-[16/10] w-full overflow-hidden bg-[#070912]">
-                <Image
-                  key={activeTab.id}
-                  src={activeTab.image}
-                  alt={activeTab.systemName}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 58vw"
-                  className="object-cover object-top transition-all duration-500 hover:scale-[1.01]"
-                />
-                {/* Subtle vignette border gradient */}
-                <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(7, 9, 16, 0.65) 0%, transparent 22%), linear-gradient(to bottom, rgba(7, 9, 16, 0.25) 0%, transparent 12%)",
-                  }}
-                />
-              </div>
-
-              {/* Verified Editorial Caption Footer */}
-              <div
-                className="px-4 sm:px-6 py-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-[11px] font-mono text-neutral-400 border-t"
-                style={{
-                  borderColor: "rgba(255, 255, 255, 0.06)",
-                  background: "rgba(0, 0, 0, 0.35)",
-                }}
-              >
-                <div className="flex items-center gap-2">
-                  <span
-                    className="w-1.5 h-1.5 rounded-full"
-                    style={{ background: activeTab.accent }}
-                  />
-                  <span className="text-white font-medium">{activeTab.systemName}</span>
-                </div>
-
-                <Link
-                  href={activeTab.href}
-                  className="inline-flex items-center gap-1.5 text-indigo-300 hover:text-white transition-colors"
-                >
-                  <span>Explore Architecture</span>
-                  <ArrowRight className="w-3 h-3" />
-                </Link>
-              </div>
-            </div>
+          {/* ── Right Column: The Cinematic Ashmyra Showreel (~57%: 7 cols / 12) ── */}
+          <div ref={visualRef} className="lg:col-span-7 flex items-center justify-center">
+            <AshmyraHeroShowreel />
           </div>
 
         </div>

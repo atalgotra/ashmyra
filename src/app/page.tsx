@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import { HeroPhase7 } from "@/components/hero-phase7";
 import { BrandIntroPhase7 } from "@/components/brand-intro-phase7";
-import { ShowcasePhase7 } from "@/components/showcase-phase7";
+import { WhatWeEngineerShowcase } from "@/components/what-we-engineer-showcase";
 import { EngineeringCapabilitiesPhase7 } from "@/components/engineering-capabilities-phase7";
 import { SelectedWorkPhase7 } from "@/components/selected-work-phase7";
 import { TryDemoSection } from "@/components/try-demo-section";
@@ -48,16 +48,16 @@ export default function HomePage() {
   return (
     <div className="flex flex-col min-h-screen bg-[#05070c] selection:bg-indigo-500/30 selection:text-indigo-200">
 
-      {/* 01 — HERO: Two-column editorial layout (~43% left, ~57% right) */}
+      {/* 01 — HERO: Two-column editorial layout (~43% left, ~57% right: Cinematic Ashmyra Showreel) */}
       <HeroPhase7 />
 
       {/* 02 — SHORT BRAND INTRODUCTION: Engineering practitioners. Not advisors. */}
       <BrandIntroPhase7 />
 
-      {/* 03 — WHAT WE BUILD: Seven-image interactive capability reel */}
-      <ShowcasePhase7 />
+      {/* 03 — WHAT WE ENGINEER: 7-Capability Pinned Video Exploration Showcase */}
+      <WhatWeEngineerShowcase />
 
-      {/* 04 — ENGINEERING CREDIBILITY: Engineering Complexity Into Clarity */}
+      {/* 04 — ENGINEERING CAPABILITIES: 9 Specialized Technical Disciplines */}
       <EngineeringCapabilitiesPhase7 />
 
       {/* 05 — SELECTED WORK: Refined project gallery (FMO, 1A Veda, Ramaroma Herbs, Divagam) */}
@@ -66,10 +66,10 @@ export default function HomePage() {
       {/* 06 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}
       <TryDemoSection />
 
-      {/* 07 — LEADERSHIP & TEAM: Swati (Founder), Ashish (AI Engineer / Data Scientist), Prince Rehan (Head - IT) */}
+      {/* 07 — LEADERSHIP & TEAM: Swati Arora (Founder), Ashish Talgotra (AI Engineer / Data Scientist), Prince Rehan, Bella */}
       <PeopleSection />
 
-      {/* 07 — FINAL CTA: Premium editorial closing section */}
+      {/* 08 — FINAL CTA: WHAT SHOULD WE BUILD NEXT? + Working Enquiry Form */}
       <FinalCtaPhase7 />
 
     </div>

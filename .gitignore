@@ -40,6 +40,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Raw video assets
+/Hero videos/
+
 # root-level scratch / draft assets (keep in public/ instead)
 /*.png
 /*.jpeg

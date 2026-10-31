@@ -2,7 +2,8 @@ export interface NavItem {
   title: string;
   href: string;
   description?: string;
-  category?: "product" | "service" | "demo";
+  demoUrl?: string;
+  category?: "product" | "service" | "solution" | "ai" | "company";
 }
 
 export interface NavSection {
@@ -23,50 +24,46 @@ export const MAIN_NAV: NavSection[] = [
     href: "/products",
     featured: {
       title: "Ashmyra Intelligent Operating System",
-      desc: "Autonomous multi-agent architectures and enterprise platforms engineered for production execution.",
+      desc: "Autonomous multi-agent architectures and enterprise software platforms engineered for production execution.",
       href: "/products/ai",
     },
     items: [
       {
-        title: "Ashmyra Agentic AI",
+        title: "Agentic Social Intelligence",
         href: "/products/ai",
-        description: "Autonomous multi-agent swarms for workflow and operations automation.",
+        description: "Autonomous multi-agent swarms orchestrating cross-platform signals and content generation.",
         category: "product",
       },
       {
-        title: "Ashmyra SEO",
+        title: "Agentic SEO Intelligence",
         href: "/products/seo",
-        description: "Deep search telemetry, site crawler & Generative Engine Optimization.",
+        description: "Deep search telemetry, site crawler forensics and Generative Engine Optimization (GEO).",
+        demoUrl: "https://veyrix.ashmyra.com/",
         category: "product",
       },
       {
-        title: "Ashmyra HRMS",
-        href: "/products/hrms",
-        description: "Workforce management platform with intelligent resume parsing & statutory payroll.",
-        category: "product",
-      },
-      {
-        title: "Ashmyra CRM",
-        href: "/products/crm",
-        description: "Customer intelligence platform with predictive pipeline & workload telemetry.",
-        category: "product",
-      },
-      {
-        title: "Ashmyra Analytics",
-        href: "/products/analytics",
-        description: "Real-time streaming data pipelines, anomaly detection & business intelligence.",
-        category: "product",
-      },
-      {
-        title: "Ashmyra Automation",
+        title: "AI Project Management",
         href: "/products/automation",
-        description: "Enterprise workflow orchestrator with approval gates & document intelligence.",
+        description: "Enterprise workflow orchestrator with automated milestones and approval gates.",
         category: "product",
       },
       {
-        title: "Ashmyra Web",
+        title: "HRMS",
+        href: "/products/hrms",
+        description: "Workforce intelligence platform with resume parsing, statutory payroll and talent analytics.",
+        category: "product",
+      },
+      {
+        title: "Enterprise Communication",
         href: "/products/web",
-        description: "Edge-rendered Next.js digital surfaces and high-performance applications.",
+        description: "Omnichannel customer communication stream unifying WhatsApp, Email and live messaging.",
+        demoUrl: "https://omnira.ashmyra.com/",
+        category: "product",
+      },
+      {
+        title: "Data Intelligence",
+        href: "/products/analytics",
+        description: "Real-time streaming data pipelines, golden record synthesis and anomaly detection.",
         category: "product",
       },
     ],
@@ -74,44 +71,72 @@ export const MAIN_NAV: NavSection[] = [
   {
     title: "Solutions",
     href: "/solutions",
-  },
-  {
-    title: "AI",
-    href: "/products/ai",
-  },
-  {
-    title: "Demos",
-    href: "/demos",
     items: [
       {
-        title: "Veyrix",
-        href: "https://veyrix.ashmyra.com/",
-        description: "Search intelligence platform, deep spider forensics & real-time GEO citation radar.",
-        category: "demo",
+        title: "Business Automation",
+        href: "/solutions#business-automation",
+        description: "End-to-end operational automation cutting manual overhead across business units.",
+        category: "solution",
       },
       {
-        title: "Ashmyra MailFlow",
-        href: "https://mailflow.ashmyra.com/",
-        description: "Autonomous cold email warmup, sequence automation & deliverability optimization.",
-        category: "demo",
+        title: "Enterprise Systems",
+        href: "/solutions#enterprise-systems",
+        description: "Mission-critical architectures engineered for 99.99% uptime and high transaction throughput.",
+        category: "solution",
       },
       {
-        title: "Prospect IQ",
-        href: "https://prospectiq.ashmyra.com/",
-        description: "B2B lead intelligence, contact enrichment & waterfall email verification.",
-        category: "demo",
+        title: "Intelligent Workflows",
+        href: "/solutions#intelligent-workflows",
+        description: "Self-healing business processes with automated exception routing and audit verification.",
+        category: "solution",
       },
       {
-        title: "Omnira",
-        href: "https://omnira.ashmyra.com/",
-        description: "Unified omnichannel customer communications stream for WhatsApp, Email & Web Chat.",
-        category: "demo",
+        title: "Digital Transformation",
+        href: "/solutions#digital-transformation",
+        description: "Modernizing legacy stacks into responsive, event-driven cloud-native platforms.",
+        category: "solution",
       },
       {
-        title: "Ashmyra Unveil",
-        href: "https://unveil.ashmyra.com/",
-        description: "Generative Engine Optimization (GEO) audit radar & LLM citation intelligence.",
-        category: "demo",
+        title: "Custom Business Platforms",
+        href: "/solutions#custom-platforms",
+        description: "Tailored software ecosystems solving unique enterprise operational constraints.",
+        category: "solution",
+      },
+    ],
+  },
+  {
+    title: "AI & Automation",
+    href: "/products/ai",
+    items: [
+      {
+        title: "Agentic AI Development",
+        href: "/services/ai-development",
+        description: "Custom autonomous agent swarms engineered for reasoning, tool use and execution.",
+        category: "ai",
+      },
+      {
+        title: "Multi-Agent Systems",
+        href: "/products/ai",
+        description: "Consensus-driven multi-agent swarms collaborating across enterprise tasks.",
+        category: "ai",
+      },
+      {
+        title: "AI Integration",
+        href: "/services/ai-development",
+        description: "Embedding LLMs, specialized SLMs and vector databases into live production software.",
+        category: "ai",
+      },
+      {
+        title: "AI Workflow Automation",
+        href: "/products/automation",
+        description: "Document intelligence, automated decision trees and cognitive business workflows.",
+        category: "ai",
+      },
+      {
+        title: "AI Engineering",
+        href: "/services/ai-development",
+        description: "Model fine-tuning, RAG pipeline architecture and deterministic guardrail layers.",
+        category: "ai",
       },
     ],
   },
@@ -120,38 +145,100 @@ export const MAIN_NAV: NavSection[] = [
     href: "/services",
     items: [
       {
-        title: "Custom Software Engineering",
-        href: "/services/software-development",
-        description: "Bespoke SaaS architectures, cloud platforms & high-concurrency systems.",
-        category: "service",
-      },
-      {
-        title: "Agentic AI Architecture",
-        href: "/services/ai-development",
-        description: "Custom multi-agent swarms, RAG pipelines & fine-tuned domain models.",
-        category: "service",
-      },
-      {
-        title: "Technical SEO & GEO Search",
-        href: "/services/seo",
-        description: "Authoritative knowledge graphs and Generative Engine Optimization.",
-        category: "service",
-      },
-      {
-        title: "Modern Web Platforms",
+        title: "Website Development",
         href: "/services/web-apps",
-        description: "High-performance edge applications, design systems & digital experiences.",
+        description: "High-performance edge-rendered Next.js digital platforms and design systems.",
+        category: "service",
+      },
+      {
+        title: "3D / GSAP Experiences",
+        href: "/services/web-apps",
+        description: "Award-winning WebGL, Three.js and GSAP kinetic digital experiences.",
+        category: "service",
+      },
+      {
+        title: "Mobile Application Development",
+        href: "/services/software-development",
+        description: "Native iOS/Android and Flutter cross-platform mobile engineering.",
+        category: "service",
+      },
+      {
+        title: "SaaS Development",
+        href: "/services/software-development",
+        description: "Full-cycle multi-tenant SaaS architecture, billing and subscription infrastructure.",
+        category: "service",
+      },
+      {
+        title: "Custom Software Development",
+        href: "/services/software-development",
+        description: "Bespoke high-concurrency software built for specific operational scaling.",
+        category: "service",
+      },
+      {
+        title: "Data Engineering",
+        href: "/services/software-development",
+        description: "Streaming pipelines, lakehouses, ETL automation and data modeling.",
+        category: "service",
+      },
+      {
+        title: "API Development",
+        href: "/services/software-development",
+        description: "High-throughput REST and GraphQL microservices with cryptographic security.",
+        category: "service",
+      },
+      {
+        title: "UI/UX Design",
+        href: "/services/web-apps",
+        description: "Precision enterprise product design systems, user flows and design tokens.",
         category: "service",
       },
     ],
   },
   {
-    title: "Work",
+    title: "Our Work",
     href: "/our-work",
+    items: [
+      {
+        title: "Selected Projects",
+        href: "/our-work#selected-projects",
+        description: "Verified case studies spanning eCommerce, AI search and enterprise platforms.",
+      },
+      {
+        title: "Case Studies",
+        href: "/our-work#case-studies",
+        description: "Technical deep-dives: architecture blueprints, performance gains and business return.",
+      },
+      {
+        title: "Engineering Showcase",
+        href: "/our-work#showcase",
+        description: "Interactive breakdown of platforms engineered and delivered to production.",
+      },
+    ],
   },
   {
-    title: "Our Team",
+    title: "Company",
     href: "/team",
-    badge: "Leadership",
+    items: [
+      {
+        title: "About Ashmyra",
+        href: "/team#about",
+        description: "Engineering practitioners dedicated to high-velocity, real-world software delivery.",
+      },
+      {
+        title: "Leadership",
+        href: "/team#leadership",
+        description: "Executive and engineering leads steering technical strategy and commercial execution.",
+      },
+      {
+        title: "Contact",
+        href: "/contact",
+        description: "Direct engineering discovery: discuss technical scope, timelines and deliverables.",
+      },
+      {
+        title: "Careers",
+        href: "/contact?intent=careers",
+        description: "Join our core team building autonomous intelligence and next-generation software.",
+      },
+    ],
   },
 ];

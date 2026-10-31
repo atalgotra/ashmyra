@@ -11,6 +11,9 @@ import {
   ChevronDown,
   ArrowRight,
   ArrowUpRight,
+  Mail,
+  Share2,
+  Eye,
   Search,
   Users,
   Target,
@@ -95,11 +98,26 @@ export function Navbar() {
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
     const t = title.toLowerCase();
-    if (t.includes("seo") || t.includes("search") || t.includes("geo")) {
+    if (t.includes("mailflow") || t.includes("email") || t.includes("mail")) {
+      return <Mail className={cls} style={{ color: "#818cf8" }} />;
+    }
+    if (t.includes("prospect") || t.includes("lead")) {
+      return <Target className={cls} style={{ color: "#06b6d4" }} />;
+    }
+    if (t.includes("omnira") || t.includes("social")) {
+      return <Share2 className={cls} style={{ color: "#10b981" }} />;
+    }
+    if (t.includes("unveil") || t.includes("geo")) {
+      return <Eye className={cls} style={{ color: "#f59e0b" }} />;
+    }
+    if (t.includes("veyrix") || t.includes("spider") || t.includes("crawler")) {
+      return <Search className={cls} style={{ color: "#38bdf8" }} />;
+    }
+    if (t.includes("seo") || t.includes("search")) {
       return <Search className={cls} style={{ color: "#22d3ee" }} />;
     }
     if (t.includes("hrms") || t.includes("workforce") || t.includes("people")) {
-      return <Users className={cls} style={{ color: "#10b981" }} />;
+      return <Users className={cls} style={{ color: "#a78bfa" }} />;
     }
     if (t.includes("crm") || t.includes("pipeline") || t.includes("target")) {
       return <Target className={cls} style={{ color: "#f43f5e" }} />;
@@ -192,14 +210,14 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {MAIN_NAV.map((nav) => {
-                const isDropdown = Boolean(nav.items && nav.items.length > 0 && !nav.isDirectLink);
+                const hasItems = nav.items && nav.items.length > 0;
                 const open = activeDD === nav.title;
                 const isSectionActive =
                   nav.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(nav.href);
 
-                if (isDropdown) {
+                if (hasItems) {
                   return (
                     <div
                       key={nav.title}
@@ -217,11 +235,6 @@ export function Navbar() {
                         aria-expanded={open}
                       >
                         <span>{nav.title}</span>
-                        {nav.badge && (
-                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 leading-none">
-                            {nav.badge}
-                          </span>
-                        )}
                         <ChevronDown
                           className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
                             open ? "rotate-180 text-indigo-400" : ""
@@ -234,103 +247,232 @@ export function Navbar() {
                         <div
                           className={`absolute top-full pt-2.5 z-50 animate-fadeIn ${
                             nav.title === "Products"
-                              ? "left-1/2 -translate-x-1/2 w-[540px]"
-                              : "right-0 w-[360px]"
+                              ? "left-1/2 -translate-x-1/2 w-[860px]"
+                              : nav.title === "Services"
+                              ? "left-1/2 -translate-x-1/2 w-[620px]"
+                              : nav.title === "Solutions" || nav.title === "AI & Automation"
+                              ? "left-1/2 -translate-x-1/2 w-[520px]"
+                              : "right-0 w-[380px]"
                           }`}
                         >
-                          <div
-                            className="rounded-2xl p-4 sm:p-5 shadow-2xl"
-                            style={{
-                              background: "rgba(7, 9, 16, 0.98)",
-                              border: "1px solid rgba(255, 255, 255, 0.1)",
-                              backdropFilter: "blur(30px)",
-                              boxShadow: "0 24px 60px -15px rgba(0,0,0,0.9)",
-                            }}
-                          >
-                            {/* Group Header */}
-                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
-                              <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
-                                {nav.title === "Products"
-                                  ? "Autonomous Systems & Platforms"
-                                  : "Engineering Studio & Leadership"}
-                              </span>
-                              <Link
-                                href={nav.href}
-                                onClick={() => setActiveDD(null)}
-                                className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
-                              >
-                                <span>Overview</span>
-                                <ArrowRight className="w-3 h-3" />
-                              </Link>
-                            </div>
-
-                            {/* Dropdown Items Grid */}
+                          {nav.title === "Products" ? (
+                            /* World-Class Products Mega-Menu */
                             <div
-                              className={`grid gap-1.5 ${
-                                nav.title === "Products"
-                                  ? "grid-cols-1 sm:grid-cols-2"
-                                  : "grid-cols-1"
-                              }`}
+                              className="rounded-2xl p-6 shadow-2xl overflow-hidden relative"
+                              style={{
+                                background: "rgba(7, 9, 16, 0.98)",
+                                border: "1px solid rgba(255, 255, 255, 0.12)",
+                                backdropFilter: "blur(30px)",
+                                boxShadow: "0 24px 70px -15px rgba(0,0,0,0.95), 0 0 40px -10px rgba(99,102,241,0.15)",
+                              }}
                             >
-                              {nav.items?.map((item) => (
-                                <Link
-                                  key={item.title}
-                                  href={item.href}
-                                  onClick={() => setActiveDD(null)}
-                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.05] transition-all group/item"
-                                >
-                                  <div
-                                    className="p-2 rounded-lg mt-0.5 transition-transform group-hover/item:scale-105 shrink-0"
-                                    style={{
-                                      background: "rgba(255,255,255,0.04)",
-                                      border: "1px solid rgba(255,255,255,0.07)",
-                                    }}
-                                  >
-                                    {getIcon(item.title)}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between gap-1">
-                                      <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
-                                        {item.title}
-                                      </span>
-                                      {item.demoUrl && (
-                                        <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-1.5 py-0.2 rounded shrink-0">
-                                          Demo ↗
-                                        </span>
-                                      )}
-                                      {item.badge && !item.demoUrl && (
-                                        <span className="text-[9px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.2 rounded shrink-0">
-                                          {item.badge}
-                                        </span>
-                                      )}
-                                    </div>
-                                    {item.description && (
-                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug">
-                                        {item.description}
-                                      </p>
-                                    )}
-                                  </div>
-                                </Link>
-                              ))}
-                            </div>
-
-                            {/* Products Bottom Banner */}
-                            {nav.title === "Products" && (
-                              <div className="mt-3 pt-3 border-t border-white/[0.07] px-1 flex items-center justify-between text-[11px] font-mono">
-                                <span className="text-neutral-400">
-                                  Want to test live production sandboxes?
-                                </span>
+                              {/* Top Bar */}
+                              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                                <div className="flex items-center gap-2.5">
+                                  <span className="flex h-2 w-2 relative">
+                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                                  </span>
+                                  <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                                    Flagship Product Suite <span className="text-neutral-500">•</span> 5 Live Production Platforms
+                                  </span>
+                                </div>
                                 <Link
                                   href="/demos"
                                   onClick={() => setActiveDD(null)}
-                                  className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 transition-colors"
+                                  className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
                                 >
-                                  <span>All 5 Live Demos</span>
-                                  <ArrowUpRight className="w-3 h-3" />
+                                  <span>Explore All Live Sandboxes</span>
+                                  <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
                                 </Link>
                               </div>
-                            )}
-                          </div>
+
+                              {/* Two-Column Layout */}
+                              <div className="grid grid-cols-12 gap-5">
+                                {/* Left 7 Cols: Products Grid */}
+                                <div className="col-span-7 grid grid-cols-2 gap-2">
+                                  {nav.items?.map((item) => (
+                                    <Link
+                                      key={item.title}
+                                      href={item.href}
+                                      onClick={() => setActiveDD(null)}
+                                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.06] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                                    >
+                                      <div
+                                        className="p-2.5 rounded-lg mt-0.5 transition-all group-hover/item:scale-105 group-hover/item:border-cyan-500/40 shrink-0"
+                                        style={{
+                                          background: "rgba(255,255,255,0.04)",
+                                          border: "1px solid rgba(255,255,255,0.08)",
+                                        }}
+                                      >
+                                        {getIcon(item.title)}
+                                      </div>
+                                      <div className="flex-1 min-w-0">
+                                        <div className="flex items-center justify-between gap-1">
+                                          <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
+                                            {item.title}
+                                          </span>
+                                          {item.demoUrl ? (
+                                            <span className="text-[9px] font-mono text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 px-1.5 py-0.5 rounded font-medium shrink-0">
+                                              Live ↗
+                                            </span>
+                                          ) : (
+                                            <span className="text-[9px] font-mono text-neutral-400 bg-white/[0.04] border border-white/[0.08] px-1.5 py-0.5 rounded shrink-0">
+                                              Core
+                                            </span>
+                                          )}
+                                        </div>
+                                        {item.description && (
+                                          <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                                            {item.description}
+                                          </p>
+                                        )}
+                                      </div>
+                                    </Link>
+                                  ))}
+                                </div>
+
+                                {/* Right 5 Cols: Live Sandbox Spotlight */}
+                                <div className="col-span-5 flex flex-col">
+                                  <div
+                                    className="h-full rounded-xl p-4.5 flex flex-col justify-between relative overflow-hidden group/spotlight"
+                                    style={{
+                                      background: "linear-gradient(145deg, rgba(14, 21, 37, 0.95), rgba(7, 10, 20, 0.98))",
+                                      border: "1px solid rgba(6, 182, 212, 0.25)",
+                                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 30px -10px rgba(6,182,212,0.2)",
+                                    }}
+                                  >
+                                    <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl pointer-events-none" />
+
+                                    <div>
+                                      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-[10px] font-mono text-cyan-300 font-medium mb-3">
+                                        <Sparkles className="w-3 h-3 text-cyan-400" />
+                                        <span>LIVE PRODUCTION SANDBOX</span>
+                                      </div>
+                                      <h4 className="text-white text-[14px] font-semibold tracking-tight leading-snug">
+                                        Experience Our Production AI Platforms in Real-Time
+                                      </h4>
+                                      <p className="text-neutral-300 text-[11px] leading-relaxed mt-1.5">
+                                        Test autonomous email warmups, cross-platform social bots, lead scrapers, and visual verification right in your browser.
+                                      </p>
+                                    </div>
+
+                                    <div className="mt-4 pt-3 border-t border-white/[0.08]">
+                                      <Link
+                                        href="/demos"
+                                        onClick={() => setActiveDD(null)}
+                                        className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-[12px] font-semibold transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35"
+                                      >
+                                        <span>Launch Interactive Demos</span>
+                                        <ArrowRight className="w-3.5 h-3.5" />
+                                      </Link>
+                                      <div className="flex items-center justify-center gap-3 text-[10px] font-mono text-neutral-400 mt-2.5">
+                                        <span>✓ Zero Signup</span>
+                                        <span>•</span>
+                                        <span>✓ Live Sandbox</span>
+                                        <span>•</span>
+                                        <span>✓ Real Engine</span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              {/* Mega Menu Footer Banner */}
+                              <div className="mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                                <span className="flex items-center gap-1.5">
+                                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                                  <span>All platforms deployable into Dedicated VPC, AWS GovCloud, or On-Premise Air-Gapped Clusters.</span>
+                                </span>
+                                <Link
+                                  href="/contact"
+                                  onClick={() => setActiveDD(null)}
+                                  className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                                >
+                                  Schedule Architecture Discovery →
+                                </Link>
+                              </div>
+                            </div>
+                          ) : (
+                            /* Standard Dropdown for other sections */
+                            <div
+                              className="rounded-2xl p-5 shadow-2xl"
+                              style={{
+                                background: "rgba(7, 9, 16, 0.98)",
+                                border: "1px solid rgba(255, 255, 255, 0.1)",
+                                backdropFilter: "blur(30px)",
+                                boxShadow: "0 24px 60px -15px rgba(0,0,0,0.9)",
+                              }}
+                            >
+                              {/* Group Header */}
+                              <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
+                                <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
+                                  {nav.title === "Solutions"
+                                    ? "Enterprise Business Solutions"
+                                    : nav.title === "AI & Automation"
+                                    ? "Autonomous Intelligence & Swarms"
+                                    : nav.title === "Services"
+                                    ? "Core Engineering Capabilities"
+                                    : nav.title === "Our Work"
+                                    ? "Production Systems & Proven Work"
+                                    : "Company & Leadership"}
+                                </span>
+                                <Link
+                                  href={nav.href}
+                                  onClick={() => setActiveDD(null)}
+                                  className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
+                                >
+                                  <span>Overview</span>
+                                  <ArrowRight className="w-3 h-3" />
+                                </Link>
+                              </div>
+
+                              {/* Dropdown Items Grid */}
+                              <div
+                                className={`grid gap-1.5 ${
+                                  nav.title === "Services"
+                                    ? "grid-cols-2"
+                                    : "grid-cols-1"
+                                }`}
+                              >
+                                {nav.items?.map((item) => (
+                                  <Link
+                                    key={item.title}
+                                    href={item.href}
+                                    onClick={() => setActiveDD(null)}
+                                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.05] transition-all group/item"
+                                  >
+                                    <div
+                                      className="p-2 rounded-lg mt-0.5 transition-transform group-hover/item:scale-105 shrink-0"
+                                      style={{
+                                        background: "rgba(255,255,255,0.04)",
+                                        border: "1px solid rgba(255,255,255,0.07)",
+                                      }}
+                                    >
+                                      {getIcon(item.title)}
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <div className="flex items-center justify-between gap-1">
+                                        <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
+                                          {item.title}
+                                        </span>
+                                        {item.demoUrl && (
+                                          <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-1.5 py-0.2 rounded shrink-0">
+                                            Live Demo ↗
+                                          </span>
+                                        )}
+                                      </div>
+                                      {item.description && (
+                                        <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug">
+                                          {item.description}
+                                        </p>
+                                      )}
+                                    </div>
+                                  </Link>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       )}
                     </div>
@@ -349,11 +491,6 @@ export function Navbar() {
                     }`}
                   >
                     <span>{nav.title}</span>
-                    {nav.badge && (
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 leading-none">
-                        {nav.badge}
-                      </span>
-                    )}
                   </Link>
                 );
               })}
@@ -362,14 +499,14 @@ export function Navbar() {
             {/* Right: CTA & Mobile Hamburger */}
             <div className="flex items-center gap-3">
               <Link
-                href="/contact?intent=discovery"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                href="/contact"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                   boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
                 }}
               >
-                <span>Book Discovery</span>
+                <span>Let&apos;s Build Something</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
@@ -399,10 +536,10 @@ export function Navbar() {
         >
           <div className="px-5 py-6 space-y-3 pb-24">
             {MAIN_NAV.map((nav) => {
-              const isDropdown = Boolean(nav.items && nav.items.length > 0 && !nav.isDirectLink);
+              const hasItems = nav.items && nav.items.length > 0;
               const isOpen = !!mobileSectionOpen[nav.title];
 
-              if (isDropdown) {
+              if (hasItems) {
                 return (
                   <div
                     key={nav.title}
@@ -412,14 +549,7 @@ export function Navbar() {
                       onClick={() => toggleMobileSection(nav.title)}
                       className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-neutral-200 hover:text-white transition-colors"
                     >
-                      <div className="flex items-center gap-2">
-                        <span>{nav.title}</span>
-                        {nav.badge && (
-                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300">
-                            {nav.badge}
-                          </span>
-                        )}
-                      </div>
+                      <span>{nav.title}</span>
                       <ChevronDown
                         className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
                           isOpen ? "rotate-180 text-indigo-400" : ""
@@ -462,14 +592,7 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
                 >
-                  <div className="flex items-center gap-2">
-                    <span>{nav.title}</span>
-                    {nav.badge && (
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300">
-                        {nav.badge}
-                      </span>
-                    )}
-                  </div>
+                  <span>{nav.title}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
                 </Link>
               );
@@ -478,14 +601,14 @@ export function Navbar() {
             {/* Mobile CTA */}
             <div className="pt-4">
               <Link
-                href="/contact?intent=discovery"
+                href="/contact"
                 onClick={() => setMobileOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                 }}
               >
-                <span>Book Technical Discovery</span>
+                <span>Let&apos;s Build Something</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

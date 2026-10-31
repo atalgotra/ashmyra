@@ -4,12 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, ArrowUpRight, CheckCircle2, Play, Pause } from "lucide-react";
-
-if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger);
-}
+import { ArrowRight, ArrowUpRight, CheckCircle2, Play, Pause, ChevronLeft, ChevronRight } from "lucide-react";
 
 export interface EngineerCapability {
   id: string;
@@ -146,44 +141,19 @@ export function WhatWeEngineerShowcase() {
     video.play().catch(() => {});
   }, [activeIndex]);
 
-  // Setup GSAP ScrollTrigger pinning for desktop
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev > 0 ? prev - 1 : CAPABILITIES.length - 1));
+  };
 
-    const ctx = gsap.context(() => {
-      // Use matchMedia to only pin on desktop screens (>= 1024px)
-      const mm = gsap.matchMedia();
-
-      mm.add("(min-width: 1024px)", () => {
-        const trigger = ScrollTrigger.create({
-          trigger: sectionRef.current,
-          start: "top 15%",
-          end: `+=${CAPABILITIES.length * 450}`,
-          pin: true,
-          scrub: 0.5,
-          onUpdate: (self) => {
-            const idx = Math.min(
-              CAPABILITIES.length - 1,
-              Math.floor(self.progress * CAPABILITIES.length)
-            );
-            setActiveIndex(idx);
-          },
-        });
-
-        return () => {
-          trigger.kill();
-        };
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev < CAPABILITIES.length - 1 ? prev + 1 : 0));
+  };
 
   return (
     <section
       ref={sectionRef}
       id="what-we-engineer"
-      className="relative w-full bg-[#05070c] text-white py-20 lg:py-28 overflow-hidden border-t border-white/[0.06]"
+      className="relative w-full bg-[#05070c] text-white py-16 sm:py-20 lg:py-24 border-t border-white/[0.06]"
     >
       {/* Dynamic Background Atmosphere */}
       <div
@@ -194,9 +164,9 @@ export function WhatWeEngineerShowcase() {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
+      <div className="relative z-10 max-w-[1480px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
         {/* Section Header */}
-        <div className="mb-14 sm:mb-16">
+        <div className="mb-10 sm:mb-12">
           <div className="flex items-center gap-2 mb-3">
             <span
               className="w-1.5 h-1.5 rounded-full"
@@ -220,14 +190,35 @@ export function WhatWeEngineerShowcase() {
               </p>
             </div>
 
-            {/* Quick slide progress indicator */}
-            <div className="flex items-center gap-2 font-mono text-xs text-neutral-400">
-              <span className="text-white font-bold">{current.num}</span>
-              <span>/</span>
-              <span>07</span>
-              <span className="ml-2 px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-[10px] text-neutral-300">
-                SCROLL OR SELECT
-              </span>
+            {/* Interactive capability navigation controls */}
+            <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 bg-white/[0.03] border border-white/[0.08] px-3 py-1.5 rounded-xl">
+                <span className="text-white font-bold">{current.num}</span>
+                <span>/</span>
+                <span>07</span>
+                <span className="ml-1 text-[10px] uppercase text-neutral-300 hidden sm:inline truncate max-w-[180px]">
+                  {current.title}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={handlePrev}
+                  className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-neutral-300 hover:text-white transition-all active:scale-95"
+                  aria-label="Previous capability"
+                  title="Previous capability"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-neutral-300 hover:text-white transition-all active:scale-95"
+                  aria-label="Next capability"
+                  title="Next capability"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </div>
         </div>

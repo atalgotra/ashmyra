@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { HeroPhase7 } from "@/components/hero-phase7";
 import { BrandIntroPhase7 } from "@/components/brand-intro-phase7";
 import { WhatWeEngineerShowcase } from "@/components/what-we-engineer-showcase";
-import { EngineeringCapabilitiesPhase7 } from "@/components/engineering-capabilities-phase7";
 import { SelectedWorkPhase7 } from "@/components/selected-work-phase7";
 import { TryDemoSection } from "@/components/try-demo-section";
 import { PeopleSection } from "@/components/people-section";
@@ -54,13 +53,10 @@ export default function HomePage() {
       {/* 02 — SHORT BRAND INTRODUCTION: Engineering practitioners. Not advisors. */}
       <BrandIntroPhase7 />
 
-      {/* 03 — WHAT WE ENGINEER: 7-Capability Pinned Video Exploration Showcase */}
+      {/* 03 — WHAT WE ENGINEER: Complete Scroll-Driven Technical Architecture & Video Showcase */}
       <WhatWeEngineerShowcase />
 
-      {/* 04 — ENGINEERING CAPABILITIES: 9 Specialized Technical Disciplines */}
-      <EngineeringCapabilitiesPhase7 />
-
-      {/* 05 — SELECTED WORK: Refined project gallery (FMO, 1A Veda, Ramaroma Herbs, Divagam) */}
+      {/* 04 — SELECTED WORK: Refined project gallery (FMO, 1A Veda, Ramaroma Herbs, Divagam) */}
       <SelectedWorkPhase7 />
 
       {/* 06 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}

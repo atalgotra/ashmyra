@@ -234,37 +234,7 @@ export function AshmyraHeroShowreel() {
           boxShadow: `0 30px 80px -20px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${currentClip.accentGlow}`,
         }}
       >
-        {/* ── Top Bar: Capability index & Live indicator ──────────────────── */}
-        <div
-          className="px-4 sm:px-6 py-3 flex items-center justify-between border-b backdrop-blur-md"
-          style={{
-            borderColor: "rgba(255, 255, 255, 0.08)",
-            background: "rgba(0, 0, 0, 0.35)",
-          }}
-        >
-          <div className="flex items-center gap-2.5">
-            <span
-              className="w-2 h-2 rounded-full animate-pulse shrink-0"
-              style={{ background: currentClip.accent }}
-            />
-            <span className="text-[11px] font-mono tracking-widest text-neutral-300 font-semibold shrink-0">
-              {currentClip.indexStr}
-            </span>
-            <span className="text-neutral-600">·</span>
-            <span className="text-[10px] font-mono tracking-wider uppercase text-neutral-400 font-medium truncate max-w-[200px] sm:max-w-none">
-              {currentClip.category}
-            </span>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono text-emerald-400 font-medium flex items-center gap-1.5 shrink-0">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="hidden sm:inline">Production Verified</span>
-            </span>
-          </div>
-        </div>
-
-        {/* ── Main Cinematic Video Viewport ──────────────────────────────── */}
+        {/* ── Main Cinematic Video Viewport (Full Bleed to Top Rounded Corners) ── */}
         <div
           onClick={togglePlay}
           className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#04060a] cursor-pointer group"
@@ -306,17 +276,20 @@ export function AshmyraHeroShowreel() {
             ref={labelRef}
             className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 z-30 pointer-events-none max-w-[65%]"
           >
-            <div className="flex items-center gap-2 mb-1.5">
+            <div className="flex items-center gap-2 mb-1.5 flex-wrap">
               <span
                 className="text-[9.5px] sm:text-[10px] font-mono font-bold tracking-widest px-2 py-0.5 rounded-md"
                 style={{
                   color: currentClip.accent,
-                  background: "rgba(0, 0, 0, 0.7)",
+                  background: "rgba(0, 0, 0, 0.75)",
                   border: `1px solid ${currentClip.accent}55`,
                   backdropFilter: "blur(10px)",
                 }}
               >
                 SHOWCASE {currentClip.indexStr}
+              </span>
+              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-neutral-300 font-medium hidden sm:inline drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                · {currentClip.category}
               </span>
             </div>
             <h2

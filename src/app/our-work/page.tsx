@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CapabilityProof } from "@/components/capability-proof";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CASE_STUDY_PREVIEWS } from "@/data/resources";
 import { ArrowRight, CheckCircle2, Layers, Cpu, Database, ShieldCheck } from "lucide-react";
 
@@ -24,11 +23,6 @@ export default function OurWorkPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(99,102,241,0.09)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute inset-0 dot-bg opacity-30 pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <Breadcrumbs
-            items={[{ label: "Our Work" }]}
-            className="mb-6 justify-center"
-          />
-
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono tracking-widest text-indigo-300 uppercase mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
             Engineering Proof
@@ -46,10 +40,15 @@ export default function OurWorkPage() {
         </div>
       </div>
 
+      {/* Navigation Anchors */}
+      <div id="selected-projects" className="sr-only" aria-hidden="true" />
+      <div id="showcase" className="sr-only" aria-hidden="true" />
+
       {/* Full capability + selected work section */}
       <CapabilityProof />
 
       {/* Enterprise Case Studies & Technical Milestones */}
+      <div id="case-studies" className="sr-only" aria-hidden="true" />
       <section className="relative z-10 py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full border-t border-white/[0.08]">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300 mb-4">

@@ -42,6 +42,13 @@ export default function SolutionsPage() {
           </p>
         </div>
 
+        {/* Navigation Anchors */}
+        <div id="revenue-growth" className="sr-only" aria-hidden="true" />
+        <div id="business-operations" className="sr-only" aria-hidden="true" />
+        <div id="workforce-enterprise" className="sr-only" aria-hidden="true" />
+        <div id="data-intelligence" className="sr-only" aria-hidden="true" />
+        <div id="digital-modernisation" className="sr-only" aria-hidden="true" />
+
         {/* Primary Solutions Grid */}
         <div className="space-y-12 mb-24">
           {SOLUTIONS.map((sol) => (

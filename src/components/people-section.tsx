@@ -95,6 +95,9 @@ export function PeopleSection() {
       style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
     >
       <div id="founders" className="sr-only" aria-hidden="true" />
+      <div id="about" className="sr-only" aria-hidden="true" />
+      <div id="leadership" className="sr-only" aria-hidden="true" />
+      <div id="approach" className="sr-only" aria-hidden="true" />
 
       {/* ── Ambient Atmosphere ─────────────────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">

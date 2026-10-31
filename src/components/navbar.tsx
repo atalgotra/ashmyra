@@ -4,33 +4,44 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import gsap from "gsap";
 import { MAIN_NAV, NavSection, NavItem } from "@/data/navigation";
 import {
   Menu,
   X,
   ChevronDown,
   ArrowRight,
-  ArrowUpRight,
+  ExternalLink,
   Mail,
+  Target,
   Share2,
   Eye,
   Search,
-  Users,
-  Target,
-  BarChart3,
+  TrendingUp,
   Zap,
-  Globe,
-  Code2,
-  Bot,
-  Sparkles,
-  ShieldCheck,
-  Cpu,
+  Users,
+  BarChart3,
   Layers,
-  Briefcase,
-  Building2,
+  Bot,
+  Cpu,
+  Database,
+  Sparkles,
   Workflow,
+  ShieldCheck,
+  Rocket,
+  Code2,
+  Globe,
   Smartphone,
   Palette,
+  Cloud,
+  Server,
+  RefreshCw,
+  Briefcase,
+  FileText,
+  Terminal,
+  Building2,
+  Compass,
+  MessageSquare,
 } from "lucide-react";
 
 export function Navbar() {
@@ -40,20 +51,24 @@ export function Navbar() {
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const [mobileSectionOpen, setMobileSectionOpen] = useState<Record<string, boolean>>({});
   const headerRef = useRef<HTMLElement>(null);
+  const menuCardRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Scroll listener for subtle header elevation
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 30);
+    const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Close menus on route change
   useEffect(() => {
     setMobileOpen(false);
     setActiveDD(null);
   }, [pathname]);
 
+  // Lock body scroll on mobile drawer
   useEffect(() => {
     if (mobileOpen) {
       document.body.style.overflow = "hidden";
@@ -77,6 +92,37 @@ export function Navbar() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  // GSAP animation for mega-menu entrance & exit
+  useEffect(() => {
+    if (!menuCardRef.current || !activeDD) return;
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (prefersReducedMotion) {
+      gsap.set(menuCardRef.current, { opacity: 1, y: 0 });
+      return;
+    }
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        menuCardRef.current,
+        { opacity: 0, y: -6 },
+        { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }
+      );
+      const items = menuCardRef.current?.querySelectorAll(".mega-menu-item");
+      if (items && items.length > 0) {
+        gsap.fromTo(
+          items,
+          { opacity: 0, y: 4 },
+          { opacity: 1, y: 0, duration: 0.18, stagger: 0.02, ease: "power1.out" }
+        );
+      }
+    }, menuCardRef);
+
+    return () => ctx.revert();
+  }, [activeDD]);
+
   const handleMouseEnter = (title: string) => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
     setActiveDD(title);
@@ -85,7 +131,7 @@ export function Navbar() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDD(null);
-    }, 150);
+    }, 180);
   };
 
   const toggleMobileSection = (title: string) => {
@@ -95,61 +141,83 @@ export function Navbar() {
     }));
   };
 
+  // Consistent icon resolver across all navigation categories
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
     const t = title.toLowerCase();
-    if (t.includes("mailflow") || t.includes("email") || t.includes("mail")) {
-      return <Mail className={cls} style={{ color: "#818cf8" }} />;
-    }
-    if (t.includes("prospect") || t.includes("lead")) {
-      return <Target className={cls} style={{ color: "#06b6d4" }} />;
-    }
-    if (t.includes("omnira") || t.includes("social")) {
-      return <Share2 className={cls} style={{ color: "#10b981" }} />;
-    }
-    if (t.includes("unveil") || t.includes("geo")) {
-      return <Eye className={cls} style={{ color: "#f59e0b" }} />;
-    }
-    if (t.includes("veyrix") || t.includes("spider") || t.includes("crawler")) {
-      return <Search className={cls} style={{ color: "#38bdf8" }} />;
-    }
-    if (t.includes("seo") || t.includes("search")) {
-      return <Search className={cls} style={{ color: "#22d3ee" }} />;
-    }
-    if (t.includes("hrms") || t.includes("workforce") || t.includes("people")) {
-      return <Users className={cls} style={{ color: "#a78bfa" }} />;
-    }
-    if (t.includes("crm") || t.includes("pipeline") || t.includes("target")) {
-      return <Target className={cls} style={{ color: "#f43f5e" }} />;
-    }
-    if (t.includes("analytics") || t.includes("data")) {
-      return <BarChart3 className={cls} style={{ color: "#a78bfa" }} />;
-    }
-    if (t.includes("automation") || t.includes("workflow")) {
-      return <Zap className={cls} style={{ color: "#fbbf24" }} />;
-    }
-    if (t.includes("mobile") || t.includes("app")) {
-      return <Smartphone className={cls} style={{ color: "#38bdf8" }} />;
-    }
-    if (t.includes("3d") || t.includes("gsap") || t.includes("design") || t.includes("ui/ux")) {
-      return <Palette className={cls} style={{ color: "#ec4899" }} />;
-    }
-    if (t.includes("web") || t.includes("platform")) {
-      return <Globe className={cls} style={{ color: "#38bdf8" }} />;
-    }
-    if (t.includes("software") || t.includes("engineering") || t.includes("api")) {
-      return <Code2 className={cls} style={{ color: "#60a5fa" }} />;
-    }
-    if (t.includes("agentic") || t.includes("ai") || t.includes("swarm") || t.includes("multi-agent")) {
-      return <Bot className={cls} style={{ color: "#818cf8" }} />;
-    }
-    if (t.includes("work") || t.includes("case") || t.includes("project")) {
-      return <Briefcase className={cls} style={{ color: "#34d399" }} />;
-    }
-    if (t.includes("company") || t.includes("about") || t.includes("leadership") || t.includes("career")) {
-      return <Building2 className={cls} style={{ color: "#818cf8" }} />;
-    }
+
+    // Products
+    if (t.includes("mailflow")) return <Mail className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("prospect")) return <Target className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("omnira")) return <Share2 className={cls} style={{ color: "#10b981" }} />;
+    if (t.includes("unveil")) return <Eye className={cls} style={{ color: "#f59e0b" }} />;
+    if (t.includes("veyrix")) return <Search className={cls} style={{ color: "#38bdf8" }} />;
+
+    // Solutions
+    if (t.includes("revenue") || t.includes("growth")) return <TrendingUp className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("operations") || t.includes("automation")) return <Zap className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("workforce") || t.includes("enterprise management")) return <Users className={cls} style={{ color: "#a78bfa" }} />;
+    if (t.includes("data & decision") || t.includes("decision intelligence")) return <BarChart3 className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("modernisation") || t.includes("modernization")) return <Layers className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("consultation") || t.includes("scoping")) return <ShieldCheck className={cls} style={{ color: "#6366f1" }} />;
+
+    // Capabilities - AI & Intelligent Systems
+    if (t.includes("agentic ai")) return <Bot className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("multi-agent")) return <Cpu className={cls} style={{ color: "#a78bfa" }} />;
+    if (t.includes("rag") || t.includes("knowledge")) return <Database className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("ai integration")) return <Sparkles className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("workflow automation")) return <Workflow className={cls} style={{ color: "#34d399" }} />;
+    if (t.includes("ai engineering") || t.includes("evaluation")) return <ShieldCheck className={cls} style={{ color: "#f43f5e" }} />;
+
+    // Capabilities - Software & Product Engineering
+    if (t.includes("saas")) return <Rocket className={cls} style={{ color: "#6366f1" }} />;
+    if (t.includes("custom software")) return <Code2 className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("website")) return <Globe className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("mobile")) return <Smartphone className={cls} style={{ color: "#10b981" }} />;
+    if (t.includes("api")) return <Server className={cls} style={{ color: "#a78bfa" }} />;
+    if (t.includes("ui/ux") || t.includes("3d")) return <Palette className={cls} style={{ color: "#ec4899" }} />;
+
+    // Capabilities - Data & Platform Engineering
+    if (t.includes("data engineering")) return <Database className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("cloud architecture")) return <Cloud className={cls} style={{ color: "#60a5fa" }} />;
+    if (t.includes("data pipelines")) return <Workflow className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("analytics")) return <BarChart3 className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("platform modernisation")) return <RefreshCw className={cls} style={{ color: "#34d399" }} />;
+    if (t.includes("infrastructure")) return <Server className={cls} style={{ color: "#a78bfa" }} />;
+
+    // Our Work
+    if (t.includes("selected projects")) return <Briefcase className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("case studies")) return <FileText className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("showcase")) return <Terminal className={cls} style={{ color: "#10b981" }} />;
+
+    // Company
+    if (t.includes("about ashmyra") || t.includes("about")) return <Building2 className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("leadership")) return <Users className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("engineering approach") || t.includes("approach")) return <Compass className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("contact")) return <MessageSquare className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("careers")) return <Sparkles className={cls} style={{ color: "#ec4899" }} />;
+
     return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
+  };
+
+  const activeNavSection = MAIN_NAV.find((n) => n.title === activeDD);
+
+  // Maximum width per menu category
+  const getMenuMaxWidth = (title: string) => {
+    switch (title) {
+      case "Capabilities":
+        return "1160px";
+      case "Products":
+        return "920px";
+      case "Solutions":
+        return "880px";
+      case "Our Work":
+        return "640px";
+      case "Company":
+        return "640px";
+      default:
+        return "720px";
+    }
   };
 
   return (
@@ -158,21 +226,15 @@ export function Navbar() {
         ref={headerRef}
         className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
         style={{
-          background: scrolled
-            ? "rgba(5, 7, 12, 0.95)"
-            : "rgba(5, 7, 12, 0.82)",
-          backdropFilter: "blur(20px) saturate(160%)",
-          WebkitBackdropFilter: "blur(20px) saturate(160%)",
-          borderBottom: scrolled
-            ? "1px solid rgba(255, 255, 255, 0.08)"
-            : "1px solid rgba(255, 255, 255, 0.05)",
-          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.8)" : "none",
+          backgroundColor: scrolled ? "#07090e" : "rgba(7, 9, 14, 0.96)",
+          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
+          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.85)" : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 sm:h-[72px]">
 
-            {/* Ashmyra Logo */}
+            {/* Ashmyra Brand Logo */}
             <Link
               href="/"
               className="group flex items-center gap-3 focus:outline-none rounded-xl"
@@ -208,313 +270,70 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+            <nav
+              className="hidden lg:flex items-center gap-1 xl:gap-2"
+              role="menubar"
+              aria-label="Main Navigation"
+            >
               {MAIN_NAV.map((nav) => {
-                const hasItems = nav.items && nav.items.length > 0;
                 const open = activeDD === nav.title;
                 const isSectionActive =
                   nav.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(nav.href);
 
-                if (hasItems) {
-                  return (
-                    <div
-                      key={nav.title}
-                      className="relative"
-                      onMouseEnter={() => handleMouseEnter(nav.title)}
-                      onMouseLeave={handleMouseLeave}
-                    >
-                      <button
-                        onClick={() => setActiveDD(open ? null : nav.title)}
-                        className={`flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
-                          open || isSectionActive
-                            ? "text-white bg-white/[0.08]"
-                            : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
-                        }`}
-                        aria-expanded={open}
-                      >
-                        <span>{nav.title}</span>
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
-                            open ? "rotate-180 text-indigo-400" : ""
-                          }`}
-                        />
-                      </button>
-
-                      {/* Dropdown / Mega Menu */}
-                      {open && (
-                        <div
-                          className={`absolute top-full pt-2.5 z-50 animate-fadeIn ${
-                            nav.title === "Products"
-                              ? "left-1/2 -translate-x-1/2 w-[860px]"
-                              : nav.title === "Services"
-                              ? "left-1/2 -translate-x-1/2 w-[620px]"
-                              : nav.title === "Solutions" || nav.title === "AI & Automation"
-                              ? "left-1/2 -translate-x-1/2 w-[520px]"
-                              : "right-0 w-[380px]"
-                          }`}
-                        >
-                          {nav.title === "Products" ? (
-                            /* World-Class Products Mega-Menu */
-                            <div
-                              className="rounded-2xl p-6 shadow-2xl overflow-hidden relative"
-                              style={{
-                                background: "rgba(7, 9, 16, 0.98)",
-                                border: "1px solid rgba(255, 255, 255, 0.12)",
-                                backdropFilter: "blur(30px)",
-                                boxShadow: "0 24px 70px -15px rgba(0,0,0,0.95), 0 0 40px -10px rgba(99,102,241,0.15)",
-                              }}
-                            >
-                              {/* Top Bar */}
-                              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                                <div className="flex items-center gap-2.5">
-                                  <span className="flex h-2 w-2 relative">
-                                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                                  </span>
-                                  <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                                    Flagship Product Suite <span className="text-neutral-500">•</span> 5 Live Production Platforms
-                                  </span>
-                                </div>
-                                <Link
-                                  href="/demos"
-                                  onClick={() => setActiveDD(null)}
-                                  className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
-                                >
-                                  <span>Explore All Live Sandboxes</span>
-                                  <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
-                                </Link>
-                              </div>
-
-                              {/* Two-Column Layout */}
-                              <div className="grid grid-cols-12 gap-5">
-                                {/* Left 7 Cols: Products Grid */}
-                                <div className="col-span-7 grid grid-cols-2 gap-2">
-                                  {nav.items?.map((item) => (
-                                    <Link
-                                      key={item.title}
-                                      href={item.href}
-                                      onClick={() => setActiveDD(null)}
-                                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-white/[0.06] border border-transparent hover:border-white/[0.08] transition-all group/item"
-                                    >
-                                      <div
-                                        className="p-2.5 rounded-lg mt-0.5 transition-all group-hover/item:scale-105 group-hover/item:border-cyan-500/40 shrink-0"
-                                        style={{
-                                          background: "rgba(255,255,255,0.04)",
-                                          border: "1px solid rgba(255,255,255,0.08)",
-                                        }}
-                                      >
-                                        {getIcon(item.title)}
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex items-center justify-between gap-1">
-                                          <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
-                                            {item.title}
-                                          </span>
-                                          {item.demoUrl ? (
-                                            <span className="text-[9px] font-mono text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 px-1.5 py-0.5 rounded font-medium shrink-0">
-                                              Live ↗
-                                            </span>
-                                          ) : (
-                                            <span className="text-[9px] font-mono text-neutral-400 bg-white/[0.04] border border-white/[0.08] px-1.5 py-0.5 rounded shrink-0">
-                                              Core
-                                            </span>
-                                          )}
-                                        </div>
-                                        {item.description && (
-                                          <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
-                                            {item.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-
-                                {/* Right 5 Cols: Live Sandbox Spotlight */}
-                                <div className="col-span-5 flex flex-col">
-                                  <div
-                                    className="h-full rounded-xl p-4.5 flex flex-col justify-between relative overflow-hidden group/spotlight"
-                                    style={{
-                                      background: "linear-gradient(145deg, rgba(14, 21, 37, 0.95), rgba(7, 10, 20, 0.98))",
-                                      border: "1px solid rgba(6, 182, 212, 0.25)",
-                                      boxShadow: "inset 0 1px 0 rgba(255,255,255,0.1), 0 10px 30px -10px rgba(6,182,212,0.2)",
-                                    }}
-                                  >
-                                    <div className="absolute -top-12 -right-12 w-32 h-32 rounded-full bg-cyan-500/10 blur-2xl pointer-events-none" />
-
-                                    <div>
-                                      <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-[10px] font-mono text-cyan-300 font-medium mb-3">
-                                        <Sparkles className="w-3 h-3 text-cyan-400" />
-                                        <span>LIVE PRODUCTION SANDBOX</span>
-                                      </div>
-                                      <h4 className="text-white text-[14px] font-semibold tracking-tight leading-snug">
-                                        Experience Our Production AI Platforms in Real-Time
-                                      </h4>
-                                      <p className="text-neutral-300 text-[11px] leading-relaxed mt-1.5">
-                                        Test autonomous email warmups, cross-platform social bots, lead scrapers, and visual verification right in your browser.
-                                      </p>
-                                    </div>
-
-                                    <div className="mt-4 pt-3 border-t border-white/[0.08]">
-                                      <Link
-                                        href="/demos"
-                                        onClick={() => setActiveDD(null)}
-                                        className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2.5 rounded-lg bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white text-[12px] font-semibold transition-all shadow-lg shadow-cyan-500/20 hover:shadow-cyan-500/35"
-                                      >
-                                        <span>Launch Interactive Demos</span>
-                                        <ArrowRight className="w-3.5 h-3.5" />
-                                      </Link>
-                                      <div className="flex items-center justify-center gap-3 text-[10px] font-mono text-neutral-400 mt-2.5">
-                                        <span>✓ Zero Signup</span>
-                                        <span>•</span>
-                                        <span>✓ Live Sandbox</span>
-                                        <span>•</span>
-                                        <span>✓ Real Engine</span>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-
-                              {/* Mega Menu Footer Banner */}
-                              <div className="mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                                <span className="flex items-center gap-1.5">
-                                  <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-                                  <span>All platforms deployable into Dedicated VPC, AWS GovCloud, or On-Premise Air-Gapped Clusters.</span>
-                                </span>
-                                <Link
-                                  href="/contact"
-                                  onClick={() => setActiveDD(null)}
-                                  className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
-                                >
-                                  Schedule Architecture Discovery →
-                                </Link>
-                              </div>
-                            </div>
-                          ) : (
-                            /* Standard Dropdown for other sections */
-                            <div
-                              className="rounded-2xl p-5 shadow-2xl"
-                              style={{
-                                background: "rgba(7, 9, 16, 0.98)",
-                                border: "1px solid rgba(255, 255, 255, 0.1)",
-                                backdropFilter: "blur(30px)",
-                                boxShadow: "0 24px 60px -15px rgba(0,0,0,0.9)",
-                              }}
-                            >
-                              {/* Group Header */}
-                              <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
-                                <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
-                                  {nav.title === "Solutions"
-                                    ? "Enterprise Business Solutions"
-                                    : nav.title === "AI & Automation"
-                                    ? "Autonomous Intelligence & Swarms"
-                                    : nav.title === "Services"
-                                    ? "Core Engineering Capabilities"
-                                    : nav.title === "Our Work"
-                                    ? "Production Systems & Proven Work"
-                                    : "Company & Leadership"}
-                                </span>
-                                <Link
-                                  href={nav.href}
-                                  onClick={() => setActiveDD(null)}
-                                  className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
-                                >
-                                  <span>Overview</span>
-                                  <ArrowRight className="w-3 h-3" />
-                                </Link>
-                              </div>
-
-                              {/* Dropdown Items Grid */}
-                              <div
-                                className={`grid gap-1.5 ${
-                                  nav.title === "Services"
-                                    ? "grid-cols-2"
-                                    : "grid-cols-1"
-                                }`}
-                              >
-                                {nav.items?.map((item) => (
-                                  <Link
-                                    key={item.title}
-                                    href={item.href}
-                                    onClick={() => setActiveDD(null)}
-                                    className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.05] transition-all group/item"
-                                  >
-                                    <div
-                                      className="p-2 rounded-lg mt-0.5 transition-transform group-hover/item:scale-105 shrink-0"
-                                      style={{
-                                        background: "rgba(255,255,255,0.04)",
-                                        border: "1px solid rgba(255,255,255,0.07)",
-                                      }}
-                                    >
-                                      {getIcon(item.title)}
-                                    </div>
-                                    <div className="flex-1 min-w-0">
-                                      <div className="flex items-center justify-between gap-1">
-                                        <span className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
-                                          {item.title}
-                                        </span>
-                                        {item.demoUrl && (
-                                          <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-1.5 py-0.2 rounded shrink-0">
-                                            Live Demo ↗
-                                          </span>
-                                        )}
-                                      </div>
-                                      {item.description && (
-                                        <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1 leading-snug">
-                                          {item.description}
-                                        </p>
-                                      )}
-                                    </div>
-                                  </Link>
-                                ))}
-                              </div>
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-
                 return (
-                  <Link
+                  <div
                     key={nav.title}
-                    href={nav.href}
-                    onClick={() => setActiveDD(null)}
-                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
-                      isSectionActive
-                        ? "text-white bg-white/[0.08]"
-                        : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
-                    }`}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(nav.title)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <span>{nav.title}</span>
-                  </Link>
+                    <button
+                      onClick={() => setActiveDD(open ? null : nav.title)}
+                      className={`flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-indigo-500/50 ${
+                        open || isSectionActive
+                          ? "text-white bg-white/[0.08]"
+                          : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
+                      }`}
+                      aria-haspopup="true"
+                      aria-expanded={open}
+                      role="menuitem"
+                    >
+                      <span>{nav.title}</span>
+                      <ChevronDown
+                        className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
+                          open ? "rotate-180 text-cyan-400" : ""
+                        }`}
+                        aria-hidden="true"
+                      />
+                    </button>
+                  </div>
                 );
               })}
             </nav>
 
-            {/* Right: CTA & Mobile Hamburger */}
+            {/* Right Action: Primary CTA */}
             <div className="flex items-center gap-3">
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-indigo-600/25"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                   boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
                 }}
               >
-                <span>Let&apos;s Build Something</span>
+                <span>Let&apos;s Talk</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
+              {/* Mobile Drawer Toggle */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white transition-colors"
+                className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500/50"
                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
                 aria-label="Toggle navigation menu"
+                aria-expanded={mobileOpen}
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -524,19 +343,486 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Drawer */}
+      {/* ── Desktop Mega-Menu Backdrop Scrim ────────────────────────────────────── */}
+      {activeDD && (
+        <div
+          className="hidden lg:block fixed inset-0 top-16 sm:top-[72px] bg-black/60 backdrop-blur-[2px] z-40 transition-opacity duration-200 pointer-events-auto"
+          onClick={() => setActiveDD(null)}
+          aria-hidden="true"
+        />
+      )}
+
+      {/* ── Desktop Mega-Menu Container ─────────────────────────────────────────── */}
+      {activeDD && activeNavSection && (
+        <div
+          className="hidden lg:flex fixed top-16 sm:top-[72px] inset-x-0 z-50 justify-center px-4 sm:px-6 pointer-events-none pt-2.5"
+          onMouseEnter={() => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+          }}
+          onMouseLeave={handleMouseLeave}
+        >
+          <div
+            ref={menuCardRef}
+            className="pointer-events-auto w-full rounded-2xl p-6 sm:p-7 relative overflow-hidden text-white"
+            style={{
+              backgroundColor: "#0B0E17",
+              border: "1px solid rgba(255, 255, 255, 0.12)",
+              boxShadow: "0 24px 60px -15px rgba(0,0,0,0.95), 0 0 35px -10px rgba(99,102,241,0.12)",
+              maxWidth: getMenuMaxWidth(activeDD),
+            }}
+            role="menu"
+            aria-label={`${activeDD} Mega Menu`}
+          >
+            {/* 1. PRODUCTS MEGA-MENU */}
+            {activeDD === "Products" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Verified Production Platforms <span className="text-neutral-500">•</span> 5 Live AI Systems
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <Link
+                      href="/products"
+                      onClick={() => setActiveDD(null)}
+                      className="text-[11px] font-mono text-neutral-300 hover:text-white flex items-center gap-1.5 transition-colors font-semibold group/sub"
+                    >
+                      <span>Explore All Products</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover/sub:translate-x-0.5 transition-transform" />
+                    </Link>
+                    <span className="text-neutral-600">|</span>
+                    <Link
+                      href="/demos"
+                      onClick={() => setActiveDD(null)}
+                      className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    >
+                      <span>Live Sandboxes</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </Link>
+                  </div>
+                </div>
+
+                {/* Grid: 5 Live Products + 1 Interactive Sandboxes Card */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {activeNavSection.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setActiveDD(null)}
+                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                        }}
+                      >
+                        {getIcon(item.title)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center justify-between gap-1">
+                          <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors truncate">
+                            {item.title}
+                          </span>
+                          <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium shrink-0 flex items-center gap-1">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            Live ↗
+                          </span>
+                        </div>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+
+                  {/* 6th Card: Interactive Live Sandboxes Quick Access */}
+                  <Link
+                    href="/demos"
+                    onClick={() => setActiveDD(null)}
+                    className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl bg-gradient-to-br from-indigo-950/40 to-cyan-950/30 border border-cyan-500/20 hover:border-cyan-500/40 transition-all group/sandbox"
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                      style={{
+                        background: "rgba(6, 182, 212, 0.15)",
+                        border: "1px solid rgba(6, 182, 212, 0.35)",
+                      }}
+                    >
+                      <Sparkles className="w-4 h-4 text-cyan-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center justify-between gap-1">
+                        <span className="text-[13px] font-semibold text-white group-hover/sandbox:text-cyan-300 transition-colors truncate">
+                          Interactive Live Sandboxes
+                        </span>
+                        <span className="text-[9px] font-mono text-cyan-300 bg-cyan-500/20 border border-cyan-500/35 px-1.5 py-0.5 rounded font-medium shrink-0">
+                          Production ➔
+                        </span>
+                      </div>
+                      <p className="text-[11.5px] text-neutral-300 mt-1 leading-snug">
+                        Test all 5 platforms live with real workloads directly in your browser. Instant access, zero signup.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span className="flex items-center gap-1.5">
+                    <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>All platforms deployable into Dedicated VPC, AWS GovCloud, or On-Premise Air-Gapped Clusters.</span>
+                  </span>
+                  <Link
+                    href="/contact"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Schedule Architecture Discovery →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* 2. SOLUTIONS MEGA-MENU */}
+            {activeDD === "Solutions" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Enterprise Business Solutions <span className="text-neutral-500">•</span> Targeted Problem Outcomes
+                    </span>
+                  </div>
+                  <Link
+                    href="/solutions"
+                    onClick={() => setActiveDD(null)}
+                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                  >
+                    <span>All Solutions Overview</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Grid: 5 Solutions Categories + 1 Discovery Card */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {activeNavSection.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setActiveDD(null)}
+                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                        }}
+                      >
+                        {getIcon(item.title)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
+                          {item.title}
+                        </span>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+
+                  {/* 6th Card: Bespoke Enterprise Architecture */}
+                  <Link
+                    href="/contact?intent=solutions"
+                    onClick={() => setActiveDD(null)}
+                    className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/20 hover:border-indigo-500/40 transition-all group/custom"
+                  >
+                    <div
+                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                      style={{
+                        background: "rgba(99, 102, 241, 0.15)",
+                        border: "1px solid rgba(99, 102, 241, 0.35)",
+                      }}
+                    >
+                      <ShieldCheck className="w-4 h-4 text-indigo-400" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <span className="text-[13px] font-semibold text-white group-hover/custom:text-indigo-200 transition-colors block">
+                        Enterprise Architecture Scoping
+                      </span>
+                      <p className="text-[11.5px] text-neutral-300 mt-1 leading-snug">
+                        Have a complex operational constraint? Discuss targeted system blueprints with our lead architects.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span className="flex items-center gap-1.5">
+                    <Workflow className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Engineered for 99.99% uptime, strict SOC2/GDPR compliance, and zero data leakage.</span>
+                  </span>
+                  <Link
+                    href="/solutions"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-indigo-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Explore Solutions Architecture →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* 3. CAPABILITIES MEGA-MENU */}
+            {activeDD === "Capabilities" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Engineering Disciplines <span className="text-neutral-500">•</span> What Ashmyra Can Engineer
+                    </span>
+                  </div>
+                  <Link
+                    href="/services"
+                    onClick={() => setActiveDD(null)}
+                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                  >
+                    <span>Engineering Services Overview</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* 3-Column Visual Groups */}
+                <div className="grid grid-cols-3 gap-6">
+                  {activeNavSection.groups?.map((group) => (
+                    <div key={group.groupTitle} className="space-y-1.5">
+                      <div className="flex items-center gap-2 pb-2 mb-1.5 border-b border-white/[0.06]">
+                        {group.groupTitle.includes("AI") ? (
+                          <Bot className="w-3.5 h-3.5 text-indigo-400" />
+                        ) : group.groupTitle.includes("Software") ? (
+                          <Code2 className="w-3.5 h-3.5 text-cyan-400" />
+                        ) : (
+                          <Database className="w-3.5 h-3.5 text-emerald-400" />
+                        )}
+                        <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                          {group.groupTitle}
+                        </span>
+                      </div>
+
+                      <div className="space-y-1">
+                        {group.items.map((item) => (
+                          <Link
+                            key={item.title}
+                            href={item.href}
+                            onClick={() => setActiveDD(null)}
+                            className="mega-menu-item flex items-start gap-2.5 p-2 rounded-lg hover:bg-white/[0.04] border border-transparent hover:border-white/[0.06] transition-all group/item"
+                          >
+                            <div
+                              className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                              style={{
+                                background: "rgba(255,255,255,0.03)",
+                                border: "1px solid rgba(255,255,255,0.08)",
+                              }}
+                            >
+                              {getIcon(item.title)}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <span className="text-[12.5px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block leading-snug truncate">
+                                {item.title}
+                              </span>
+                              <p className="text-[11px] text-neutral-400 mt-0.5 leading-snug group-hover/item:text-neutral-300 transition-colors line-clamp-1">
+                                {item.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span className="flex items-center gap-1.5">
+                    <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+                    <span>Deterministic engineering practices with automated unit, integration, and load testing on every deliverable.</span>
+                  </span>
+                  <Link
+                    href="/contact"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Schedule Technical Discovery →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* 4. OUR WORK MENU */}
+            {activeDD === "Our Work" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Production Systems &amp; Proven Work
+                    </span>
+                  </div>
+                  <Link
+                    href="/our-work"
+                    onClick={() => setActiveDD(null)}
+                    className="text-[11px] font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                  >
+                    <span>View All Deliverables</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Items */}
+                <div className="space-y-2">
+                  {activeNavSection.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setActiveDD(null)}
+                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                        }}
+                      >
+                        {getIcon(item.title)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[13px] font-semibold text-white group-hover/item:text-emerald-200 transition-colors block">
+                          {item.title}
+                        </span>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span>100% verified production systems delivered to international engineering standards.</span>
+                  <Link
+                    href="/contact"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-emerald-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Discuss Your Project Scope →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* 5. COMPANY MENU */}
+            {activeDD === "Company" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Company &amp; Engineering Culture
+                    </span>
+                  </div>
+                  <Link
+                    href="/team"
+                    onClick={() => setActiveDD(null)}
+                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                  >
+                    <span>Company Overview</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Items */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {activeNavSection.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setActiveDD(null)}
+                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                        }}
+                      >
+                        {getIcon(item.title)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[13px] font-semibold text-white group-hover/item:text-indigo-200 transition-colors block">
+                          {item.title}
+                        </span>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span className="flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-indigo-400" />
+                    <span>Founded by senior practitioners. Based in Delhi NCR, serving clients globally.</span>
+                  </span>
+                  <Link
+                    href="/contact"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-indigo-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Get in Touch →
+                  </Link>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* ── Mobile Navigation Drawer ────────────────────────────────────────────── */}
       {mobileOpen && (
         <div
           className="fixed inset-0 top-16 z-40 lg:hidden overflow-y-auto"
           style={{
-            background: "rgba(5, 7, 12, 0.98)",
-            backdropFilter: "blur(24px)",
-            WebkitBackdropFilter: "blur(24px)",
+            backgroundColor: "#07090E",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
           }}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation"
         >
           <div className="px-5 py-6 space-y-3 pb-24">
             {MAIN_NAV.map((nav) => {
-              const hasItems = nav.items && nav.items.length > 0;
+              const hasItems = (nav.items && nav.items.length > 0) || (nav.groups && nav.groups.length > 0);
               const isOpen = !!mobileSectionOpen[nav.title];
 
               if (hasItems) {
@@ -547,38 +833,64 @@ export function Navbar() {
                   >
                     <button
                       onClick={() => toggleMobileSection(nav.title)}
-                      className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-neutral-200 hover:text-white transition-colors"
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-white hover:text-cyan-300 transition-colors min-h-[44px]"
+                      aria-expanded={isOpen}
                     >
                       <span>{nav.title}</span>
                       <ChevronDown
                         className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
-                          isOpen ? "rotate-180 text-indigo-400" : ""
+                          isOpen ? "rotate-180 text-cyan-400" : ""
                         }`}
                       />
                     </button>
 
                     {isOpen && (
                       <div className="px-3 pb-3 space-y-1 border-t border-white/[0.05] pt-2">
-                        {nav.items?.map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white"
-                          >
-                            <div className="flex items-center gap-2.5 min-w-0">
-                              {getIcon(item.title)}
-                              <span className="font-medium truncate">{item.title}</span>
-                            </div>
-                            {item.demoUrl ? (
-                              <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 px-1.5 py-0.5 rounded">
-                                Demo ↗
+                        {/* Capabilities visual groups */}
+                        {nav.groups ? (
+                          nav.groups.map((group) => (
+                            <div key={group.groupTitle} className="mb-3 last:mb-0">
+                              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold px-2.5 py-1 block">
+                                {group.groupTitle}
                               </span>
-                            ) : (
-                              <ArrowRight className="w-3 h-3 text-neutral-500 shrink-0" />
-                            )}
-                          </Link>
-                        ))}
+                              {group.items.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  onClick={() => setMobileOpen(false)}
+                                  className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
+                                >
+                                  <div className="flex items-center gap-2.5 min-w-0">
+                                    {getIcon(item.title)}
+                                    <span className="font-medium truncate">{item.title}</span>
+                                  </div>
+                                  <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
+                                </Link>
+                              ))}
+                            </div>
+                          ))
+                        ) : (
+                          nav.items?.map((item) => (
+                            <Link
+                              key={item.title}
+                              href={item.href}
+                              onClick={() => setMobileOpen(false)}
+                              className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
+                            >
+                              <div className="flex items-center gap-2.5 min-w-0">
+                                {getIcon(item.title)}
+                                <span className="font-medium truncate">{item.title}</span>
+                              </div>
+                              {item.badge ? (
+                                <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium">
+                                  {item.badge} ↗
+                                </span>
+                              ) : (
+                                <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
+                              )}
+                            </Link>
+                          ))
+                        )}
                       </div>
                     )}
                   </div>
@@ -590,7 +902,7 @@ export function Navbar() {
                   key={nav.title}
                   href={nav.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08] min-h-[44px]"
                 >
                   <span>{nav.title}</span>
                   <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
@@ -598,18 +910,18 @@ export function Navbar() {
               );
             })}
 
-            {/* Mobile CTA */}
+            {/* Mobile Primary CTA */}
             <div className="pt-4">
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white shadow-lg shadow-indigo-600/30 min-h-[48px]"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                 }}
               >
-                <span>Let&apos;s Build Something</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Let&apos;s Talk</span>
+                <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>

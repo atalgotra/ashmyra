@@ -173,21 +173,23 @@ export function HeroPhase7() {
               </Link>
             </div>
 
-            {/* Three Concise Capability Labels (Zero Truncation) */}
+            {/* Unified Executive Capability Ribbon (Single Cohesive Row) */}
             <div
               ref={capabilitiesRef}
               className="pt-5 border-t border-white/[0.08]"
             >
-              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-mono">
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+              <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-md shadow-sm">
+                <div className="flex items-center gap-2 text-xs font-mono">
                   <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <span className="text-neutral-200 font-medium">Agentic AI Systems</span>
+                  <span className="text-neutral-200 font-medium">Agentic AI</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-cyan-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+                <span className="w-1 h-1 rounded-full bg-neutral-600 hidden sm:inline shrink-0" />
+                <div className="flex items-center gap-2 text-xs font-mono">
                   <Database className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                   <span className="text-neutral-200 font-medium">Data Intelligence</span>
                 </div>
-                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-purple-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+                <span className="w-1 h-1 rounded-full bg-neutral-600 hidden sm:inline shrink-0" />
+                <div className="flex items-center gap-2 text-xs font-mono">
                   <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
                   <span className="text-neutral-200 font-medium">Enterprise Software</span>
                 </div>

@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { HeroPhase7 } from "@/components/hero-phase7";
 import { BrandIntroPhase7 } from "@/components/brand-intro-phase7";
 import { WhatWeEngineerShowcase } from "@/components/what-we-engineer-showcase";
-import { SelectedWorkPhase7 } from "@/components/selected-work-phase7";
 import { TryDemoSection } from "@/components/try-demo-section";
 import { PeopleSection } from "@/components/people-section";
 import { FinalCtaPhase7 } from "@/components/final-cta-phase7";
@@ -56,16 +55,13 @@ export default function HomePage() {
       {/* 03 — WHAT WE ENGINEER: Complete Scroll-Driven Technical Architecture & Video Showcase */}
       <WhatWeEngineerShowcase />
 
-      {/* 04 — SELECTED WORK: Refined project gallery (FMO, 1A Veda, Ramaroma Herbs, Divagam) */}
-      <SelectedWorkPhase7 />
-
-      {/* 06 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}
+      {/* 04 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}
       <TryDemoSection />
 
-      {/* 07 — LEADERSHIP & TEAM: Swati Arora (Founder), Ashish Talgotra (AI Engineer / Data Scientist), Prince Rehan, Bella */}
+      {/* 05 — LEADERSHIP & TEAM: Swati Arora (Founder), Ashish Talgotra (AI Engineer / Data Scientist), Prince Rehan, Bella */}
       <PeopleSection />
 
-      {/* 08 — FINAL CTA: WHAT SHOULD WE BUILD NEXT? + Working Enquiry Form */}
+      {/* 06 — FINAL CTA: WHAT SHOULD WE BUILD NEXT? + Working Enquiry Form */}
       <FinalCtaPhase7 />
 
     </div>

@@ -68,22 +68,16 @@ export function SeoSchema() {
     "founder": [
       {
         "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#swati-arora",
-        "name": "Swati Arora",
-        "jobTitle": "Founder"
-      }
-    ],
-    "employee": [
-      {
-        "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "AI Engineer / Data Scientist",
+        "jobTitle": "Founder & Lead AI Architect",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
         ]
-      },
+      }
+    ],
+    "employee": [
       {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#prince-rehan",
@@ -338,7 +332,7 @@ export function SeoSchema() {
         "name": "Who leads Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect) and Swati Arora (Co-Founder & Business Strategy), with Prince Rehan serving as Head - IT & Software Development. The leadership team brings over a decade of hands-on expertise building autonomous AI agent swarms, distributed data platforms, and enterprise software systems at scale."
+          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect), with Prince Rehan serving as Head - IT & Software Development. The engineering leadership brings over a decade of hands-on expertise building autonomous AI agent swarms, distributed data platforms, and enterprise software systems at scale."
         }
       },
       {
@@ -373,30 +367,14 @@ export function SeoSchema() {
     "@graph": [
       {
         "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#swati-arora",
-        "name": "Swati Arora",
-        "jobTitle": "Founder",
-        "worksFor": {
-          "@id": "https://www.ashmyra.com/#organization"
-        },
-        "url": "https://www.ashmyra.com/team",
-        "knowsAbout": [
-          "Enterprise Business Strategy",
-          "Go-To-Market & Market Scale",
-          "Strategic Alliances",
-          "Commercial Operations Delivery"
-        ]
-      },
-      {
-        "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "AI Engineer / Data Scientist",
+        "jobTitle": "Founder & Lead AI Architect",
         "worksFor": {
           "@id": "https://www.ashmyra.com/#organization"
         },
         "url": "https://www.ashmyra.com/team",
-        "image": "https://www.ashmyra.com/hero/ashish-portrait.png",
+        "image": "https://www.ashmyra.com/team/ashish-talgotra.jpg",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"

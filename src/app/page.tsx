@@ -58,7 +58,7 @@ export default function HomePage() {
       {/* 04 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}
       <TryDemoSection />
 
-      {/* 05 — LEADERSHIP & TEAM: Swati Arora (Founder), Ashish Talgotra (AI Engineer / Data Scientist), Prince Rehan, Bella */}
+      {/* 05 — LEADERSHIP & TEAM: Ashish Talgotra (Founder & Lead AI Architect), Prince Rehan, Bella */}
       <PeopleSection />
 
       {/* 06 — FINAL CTA: WHAT SHOULD WE BUILD NEXT? + Working Enquiry Form */}

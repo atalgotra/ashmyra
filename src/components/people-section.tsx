@@ -8,7 +8,6 @@ import {
   Cpu,
   Zap,
   ArrowUpRight,
-  Layers,
   Terminal,
   Code2,
   Heart,
@@ -24,89 +23,84 @@ const PRINCIPLES = [
     title: "Applied Intelligence Over Toys",
     desc: "Zero speculative demos. Every system is engineered to integrate with live enterprise data layers, APIs, and operational workflows.",
     accent: "#818cf8",
-    accentRgb: "129,140,248",
+    accentRgb: "129, 140, 248",
   },
   {
     icon: ShieldCheck,
     title: "Deterministic Guardrails",
     desc: "Autonomous multi-agent loops governed by strict schema validation, auditable execution traces, and human-in-the-loop controls.",
     accent: "#22d3ee",
-    accentRgb: "34,211,238",
+    accentRgb: "34, 211, 238",
   },
   {
     icon: Zap,
     title: "Extreme Execution Velocity",
-    desc: "Engineering leads design and deploy system architecture directly. We move platforms from specification to live production with speed.",
+    desc: "Engineering practitioners design and deploy architecture directly. We move platforms from specification to live production with speed.",
     accent: "#a78bfa",
-    accentRgb: "167,139,250",
+    accentRgb: "167, 139, 250",
   },
 ];
 
 const LEADERS = [
   {
     num: "01",
-    name: "Swati Arora",
-    title: "Founder",
-    roleSubtitle: "Business Strategy & Operations",
-    bio: "Leads executive leadership, commercial direction, and enterprise partnerships. Ensures every Ashmyra engagement delivers measurable business return, reliable execution, and sustainable operational acceleration.",
-    skills: ["Enterprise Strategy", "Commercial Scale", "Strategic Alliances", "Operations Leadership"],
-    accent: "#22d3ee",
-    accentRgb: "34,211,238",
-    photo: null,
-    photoPosition: "object-center",
-    linkedin: null,
-    monogram: "SA",
-    roleBadge: "Founder",
-    FooterIcon: Layers,
-    footerLabel: "Executive Leadership",
+    name: "Ashish Talgotra",
+    title: "Founder & Lead AI Architect",
+    roleSubtitle: "Systems, Data & Agentic Architecture",
+    bio: "Architects autonomous multi-agent swarms, distributed data pipelines, and deep intelligence layers. Leads Ashmyra from engineering conception to production scale, converting complex enterprise bottlenecks into deterministic, mission-critical software engines.",
+    skills: [
+      "Agent Swarm Architecture",
+      "LLM Orchestration",
+      "Real-Time Data Pipelines",
+      "Distributed Systems",
+    ],
+    accent: "#818cf8",
+    accentRgb: "129, 140, 248",
+    photo: "/team/ashish-talgotra.jpg",
+    photoPosition: "object-[center_20%]",
+    linkedin: "https://www.linkedin.com/in/atalgotra/",
+    roleBadge: "Founder & Architect",
+    FooterIcon: Terminal,
+    footerLabel: "Founder & Chief Architect",
   },
   {
     num: "02",
-    name: "Ashish Talgotra",
-    title: "AI Engineer / Data Scientist",
-    roleSubtitle: "Systems & Data Architecture",
-    bio: "Architects autonomous multi-agent systems, real-time data pipelines, and deep intelligence layers. Focuses on converting complex enterprise bottlenecks into deterministic, scalable software engines that execute reliably in production.",
-    skills: ["Agent Swarm Architecture", "LLM Orchestration", "Real-Time Data Pipelines", "Distributed Systems"],
-    accent: "#818cf8",
-    accentRgb: "99,102,241",
-    photo: "/hero/ashish-portrait.png",
-    photoPosition: "object-top",
-    linkedin: "https://www.linkedin.com/in/atalgotra/",
-    monogram: null,
-    roleBadge: "Engineering",
-    FooterIcon: Terminal,
-    footerLabel: "AI & Data Architecture",
-  },
-  {
-    num: "03",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
     bio: "Directs enterprise cloud infrastructure, software development lifecycles, and technical delivery. Oversees resilient cloud systems, deployment pipelines, and high-concurrency architectures that power operations at scale.",
-    skills: ["Cloud Architecture", "Software Engineering", "System Resilience", "Technical Delivery"],
+    skills: [
+      "Cloud Architecture",
+      "Software Engineering",
+      "System Resilience",
+      "Technical Delivery",
+    ],
     accent: "#a78bfa",
-    accentRgb: "168,85,247",
+    accentRgb: "168, 85, 247",
     photo: "/team/prince-rehan.jpg",
     photoPosition: "object-top",
     linkedin: null,
-    monogram: null,
-    roleBadge: "IT & Systems",
+    roleBadge: "Head of IT & Systems",
     FooterIcon: Code2,
     footerLabel: "Software & Cloud Systems",
   },
   {
-    num: "04",
+    num: "03",
     name: "Bella",
-    title: "Chief Happiness Officer",
+    title: "Chief Happiness Officer 🐾",
     roleSubtitle: "Morale & Stress De-escalation",
-    bio: "Head of office morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
-    skills: ["Morale Optimization", "Stress De-escalation", "Treat Auditing", "Zero-Bug Mascot"],
+    bio: "Head of studio morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    skills: [
+      "Morale Optimization",
+      "Stress De-escalation",
+      "Treat Auditing",
+      "Zero-Bug Mascot",
+    ],
     accent: "#fb7185",
-    accentRgb: "251,113,133",
+    accentRgb: "251, 113, 133",
     photo: "/team/bella.png",
     photoPosition: "object-top",
     linkedin: null,
-    monogram: null,
     roleBadge: "Office Pup 🐾",
     FooterIcon: Heart,
     footerLabel: "Chief Happiness & Morale",
@@ -160,7 +154,8 @@ export function PeopleSection() {
               Engineered by practitioners who{" "}
               <span
                 style={{
-                  background: "linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%)",
+                  background:
+                    "linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -171,96 +166,74 @@ export function PeopleSection() {
             </h2>
           </div>
           <p className="text-sm sm:text-base text-neutral-400 font-sans max-w-xl leading-relaxed lg:text-right">
-            Ashmyra brings together software engineering discipline, applied artificial intelligence,
-            and enterprise systems expertise to deliver robust, scalable technology solutions.
+            Ashmyra brings together software engineering discipline, applied
+            artificial intelligence, and enterprise systems expertise to deliver
+            robust, scalable technology solutions.
           </p>
         </div>
 
-        {/* ── Leadership & Team Cards (4-Column Grid) ─────────────────────── */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* ── Leadership & Team Cards (Balanced 3-Column Grid) ─────────────── */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
           {LEADERS.map((leader) => {
             const FooterIcon = leader.FooterIcon;
+            const isFounder = leader.num === "01";
+
             return (
               <div
                 key={leader.num}
-                className="group relative rounded-2xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5"
+                className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
                 style={{
-                  minHeight: "530px",
-                  background: "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
-                  border: "1px solid rgba(255, 255, 255, 0.08)",
-                  boxShadow: "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
+                  minHeight: "560px",
+                  background:
+                    "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
+                  border: isFounder
+                    ? `1px solid rgba(${leader.accentRgb}, 0.35)`
+                    : "1px solid rgba(255, 255, 255, 0.08)",
+                  boxShadow: isFounder
+                    ? `0 20px 60px -20px rgba(0, 0, 0, 0.85), 0 0 50px -15px rgba(${leader.accentRgb}, 0.2)`
+                    : "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
                 }}
               >
-                {/* Portrait Area */}
-                <div className="relative overflow-hidden shrink-0" style={{ height: "260px" }}>
-                  {leader.photo ? (
-                    <>
-                      <Image
-                        src={leader.photo}
-                        alt={leader.name}
-                        fill
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                        priority={leader.num === "02"}
-                        className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
-                      />
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background:
-                            "linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(7,9,16,0.3) 40%, rgba(7,9,16,0.95) 100%)",
-                        }}
-                      />
-                    </>
-                  ) : (
-                    /* Monogram frame */
-                    <div
-                      className="w-full h-full flex items-center justify-center relative overflow-hidden"
-                      style={{
-                        background: `linear-gradient(145deg, rgba(${leader.accentRgb}, 0.1) 0%, rgba(13, 16, 28, 0.9) 100%)`,
-                      }}
-                    >
-                      <span
-                        className="absolute select-none pointer-events-none"
-                        style={{
-                          fontFamily: "'Space Grotesk', sans-serif",
-                          fontSize: "140px",
-                          fontWeight: 900,
-                          color: `rgba(${leader.accentRgb}, 0.06)`,
-                          lineHeight: 1,
-                        }}
-                      >
-                        {leader.monogram}
-                      </span>
-                      <div
-                        className="relative z-10 w-24 h-24 rounded-2xl flex items-center justify-center"
-                        style={{
-                          background: `rgba(${leader.accentRgb}, 0.15)`,
-                          border: `1px solid rgba(${leader.accentRgb}, 0.35)`,
-                        }}
-                      >
-                        <span
-                          className="text-3xl font-bold text-white"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                        >
-                          {leader.monogram}
-                        </span>
-                      </div>
-                      <div
-                        className="absolute inset-0"
-                        style={{
-                          background: "linear-gradient(to bottom, transparent 40%, rgba(7,9,16,0.95) 100%)",
-                        }}
-                      />
-                    </div>
-                  )}
+                {/* Top Glowing Laser Hairline */}
+                <div
+                  className="absolute top-0 inset-x-8 h-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-20"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${leader.accent}, transparent)`,
+                  }}
+                />
 
-                  {/* Number Badge */}
+                {/* Ambient Backlight Glow */}
+                <div
+                  className="absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-15 pointer-events-none group-hover:opacity-35 transition-opacity"
+                  style={{ background: leader.accent }}
+                />
+
+                {/* Portrait Area */}
+                <div className="relative overflow-hidden shrink-0" style={{ height: "310px" }}>
+                  <Image
+                    src={leader.photo}
+                    alt={leader.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    priority={isFounder}
+                    className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
+                  />
+                  {/* Cinematic Bottom Gradient Fade */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(7,9,16,0.3) 55%, rgba(7,9,16,0.98) 100%)",
+                    }}
+                  />
+
+                  {/* Top Left: Number Badge */}
                   <div className="absolute top-4 left-4 z-10">
                     <span
                       className="text-[10px] font-mono font-semibold tracking-widest px-2.5 py-1 rounded-md"
                       style={{
                         color: leader.accent,
-                        background: "rgba(7, 9, 16, 0.75)",
+                        background: "rgba(7, 9, 16, 0.8)",
                         border: "1px solid rgba(255, 255, 255, 0.12)",
                         backdropFilter: "blur(10px)",
                       }}
@@ -268,19 +241,34 @@ export function PeopleSection() {
                       {leader.num}
                     </span>
                   </div>
+
+                  {/* Top Right: Role Badge */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <span
+                      className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full uppercase"
+                      style={{
+                        color: leader.accent,
+                        background: `rgba(${leader.accentRgb}, 0.15)`,
+                        border: `1px solid rgba(${leader.accentRgb}, 0.35)`,
+                        backdropFilter: "blur(10px)",
+                      }}
+                    >
+                      {leader.roleBadge}
+                    </span>
+                  </div>
                 </div>
 
                 {/* Info Panel */}
-                <div className="flex flex-col flex-1 px-5 sm:px-6 pb-6 pt-3">
+                <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
                   <div className="mb-3">
                     <h3
-                      className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug"
+                      className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-white transition-colors"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       {leader.name}
                     </h3>
                     <div
-                      className="text-xs font-mono font-semibold mt-1"
+                      className="text-xs sm:text-[13px] font-mono font-semibold mt-1"
                       style={{ color: leader.accent }}
                     >
                       {leader.title}
@@ -290,16 +278,16 @@ export function PeopleSection() {
                     </div>
                   </div>
 
-                  <p className="text-xs text-neutral-300 leading-relaxed font-sans mb-4 flex-1">
+                  <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed font-sans mb-5 flex-1">
                     {leader.bio}
                   </p>
 
-                  {/* Skills */}
+                  {/* Competencies / Skills */}
                   <div className="flex flex-wrap gap-1.5 mb-5">
                     {leader.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2 py-0.5 rounded-md text-[10px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08]"
+                        className="px-2.5 py-1 rounded-md text-[10.5px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] transition-colors"
                       >
                         {skill}
                       </span>
@@ -308,11 +296,14 @@ export function PeopleSection() {
 
                   {/* Footer */}
                   <div
-                    className="pt-4 flex items-center justify-between gap-2"
+                    className="pt-4 flex items-center justify-between gap-2 mt-auto"
                     style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}
                   >
-                    <div className="flex items-center gap-1.5 text-[11px] font-mono text-neutral-400 truncate min-w-0">
-                      <FooterIcon className="w-3.5 h-3.5 shrink-0" style={{ color: leader.accent }} />
+                    <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 truncate min-w-0">
+                      <FooterIcon
+                        className="w-3.5 h-3.5 shrink-0"
+                        style={{ color: leader.accent }}
+                      />
                       <span className="truncate">{leader.footerLabel}</span>
                     </div>
 
@@ -321,14 +312,14 @@ export function PeopleSection() {
                         href={leader.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all shrink-0"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold text-neutral-200 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] transition-all shrink-0 hover:scale-105"
                       >
                         <span>LinkedIn</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400" />
                       </Link>
                     ) : (
                       <span
-                        className="text-[10px] font-mono px-2 py-0.5 rounded shrink-0 font-medium"
+                        className="text-[10px] font-mono px-2.5 py-0.5 rounded-full shrink-0 font-medium"
                         style={{
                           color: leader.accent,
                           background: `rgba(${leader.accentRgb}, 0.1)`,
@@ -343,7 +334,7 @@ export function PeopleSection() {
 
                 {/* Subtle border highlight on hover */}
                 <div
-                  className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="absolute inset-0 rounded-3xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                   style={{
                     border: `1px solid rgba(${leader.accentRgb}, 0.4)`,
                   }}
@@ -354,32 +345,40 @@ export function PeopleSection() {
         </div>
 
         {/* ── Engineering Tenets ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
           {PRINCIPLES.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.title}
-                className="p-5 sm:p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-white/[0.12] transition-colors"
+                className="group relative p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] hover:border-white/[0.16] transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="flex items-center gap-3 mb-3">
+                {/* Top Subtle Hairline */}
+                <div
+                  className="absolute top-0 inset-x-6 h-[1px] opacity-25 group-hover:opacity-80 transition-opacity"
+                  style={{
+                    background: `linear-gradient(90deg, transparent, ${item.accent}, transparent)`,
+                  }}
+                />
+
+                <div className="flex items-center gap-3.5 mb-3.5">
                   <div
-                    className="w-8 h-8 rounded-xl flex items-center justify-center shrink-0"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110"
                     style={{
-                      background: `rgba(${item.accentRgb}, 0.1)`,
-                      border: `1px solid rgba(${item.accentRgb}, 0.25)`,
+                      background: `rgba(${item.accentRgb}, 0.12)`,
+                      border: `1px solid rgba(${item.accentRgb}, 0.3)`,
                     }}
                   >
-                    <Icon className="w-4 h-4" style={{ color: item.accent }} />
+                    <Icon className="w-5 h-5" style={{ color: item.accent }} />
                   </div>
                   <h4
-                    className="text-sm sm:text-base font-bold text-white tracking-tight"
+                    className="text-base font-bold text-white tracking-tight"
                     style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                   >
                     {item.title}
                   </h4>
                 </div>
-                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-sans">
                   {item.desc}
                 </p>
               </div>

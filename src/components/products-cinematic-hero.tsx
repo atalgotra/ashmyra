@@ -40,12 +40,12 @@ export function ProductsCinematicHero() {
 
   const activeProduct: DemoProduct = DEMO_PRODUCTS[activeIndex] || DEMO_PRODUCTS[0];
 
-  // Auto-cycle through products every 5.5s unless paused or hovered
+  // Auto-cycle through products every 2.8s unless paused or hovered
   useEffect(() => {
     if (isPaused || isHovered) return;
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % DEMO_PRODUCTS.length);
-    }, 5500);
+    }, 2800);
     return () => clearInterval(interval);
   }, [isPaused, isHovered]);
 
@@ -62,14 +62,14 @@ export function ProductsCinematicHero() {
         gsap.fromTo(
           leftColRef.current.children,
           { opacity: 0, y: 12 },
-          { opacity: 1, y: 0, duration: 0.5, stagger: 0.06, ease: "power2.out" }
+          { opacity: 1, y: 0, duration: 0.4, stagger: 0.05, ease: "power2.out" }
         );
       }
       if (rightColRef.current) {
         gsap.fromTo(
           rightColRef.current,
           { opacity: 0, scale: 0.98, y: 14 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.65, ease: "power2.out", delay: 0.08 }
+          { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power2.out", delay: 0.06 }
         );
       }
     }, heroRef);
@@ -77,7 +77,7 @@ export function ProductsCinematicHero() {
     return () => ctx.revert();
   }, []);
 
-  // Smooth transition on index change for both left dynamic copy and right card
+  // Snappy transition on index change for both left dynamic copy and right card
   useEffect(() => {
     const prefersReducedMotion =
       typeof window !== "undefined" &&
@@ -88,16 +88,16 @@ export function ProductsCinematicHero() {
     if (dynamicContentRef.current) {
       gsap.fromTo(
         dynamicContentRef.current,
-        { opacity: 0.5, y: 4 },
-        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
+        { opacity: 0.45, y: 3 },
+        { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }
       );
     }
 
     if (cardRef.current) {
       gsap.fromTo(
         cardRef.current,
-        { opacity: 0.85, y: 5 },
-        { opacity: 1, y: 0, duration: 0.35, ease: "power2.out" }
+        { opacity: 0.82, y: 4 },
+        { opacity: 1, y: 0, duration: 0.22, ease: "power2.out" }
       );
     }
   }, [activeIndex]);
@@ -106,10 +106,10 @@ export function ProductsCinematicHero() {
     setActiveIndex(idx);
     setIsPaused(true);
     if (pauseTimerRef.current) clearTimeout(pauseTimerRef.current);
-    // Auto-resume after 7 seconds of inactivity
+    // Auto-resume after 3.5s of inactivity
     pauseTimerRef.current = setTimeout(() => {
       setIsPaused(false);
-    }, 7000);
+    }, 3500);
   };
 
   const getProductIcon = (id: string, cls = "w-4 h-4") => {
@@ -541,13 +541,13 @@ export function ProductsCinematicHero() {
                   ) : (
                     <>
                       <Pause className="w-2.5 h-2.5 text-cyan-400" />
-                      <span>Auto-Playing (5.5s)</span>
+                      <span>Auto-Playing (2.8s)</span>
                     </>
                   )}
                 </button>
               </div>
 
-              {/* 5 Product Pills with active sync indicators */}
+              {/* 5 Product Pills with active sync indicators & progress line */}
               <div className="grid grid-cols-5 gap-1.5">
                 {DEMO_PRODUCTS.map((prod, idx) => {
                   const isActive = idx === activeIndex;
@@ -555,7 +555,7 @@ export function ProductsCinematicHero() {
                     <button
                       key={prod.id}
                       onClick={() => handleSelectProduct(idx)}
-                      className={`flex flex-col items-center gap-1 p-1.5 sm:p-2 rounded-xl transition-all duration-200 border text-center ${
+                      className={`relative overflow-hidden flex flex-col items-center gap-1 p-1.5 sm:p-2 rounded-xl transition-all duration-200 border text-center ${
                         isActive
                           ? "bg-white/[0.08] shadow-md text-white"
                           : "bg-white/[0.02] border-white/[0.06] hover:bg-white/[0.05] text-neutral-400 hover:text-neutral-200"
@@ -570,6 +570,15 @@ export function ProductsCinematicHero() {
                       <span className="text-[10px] font-semibold truncate w-full">
                         {prod.name}
                       </span>
+                      {/* Active Countdown Progress Line */}
+                      {isActive && !isPaused && (
+                        <span
+                          className="absolute bottom-0 inset-x-0 h-[2px] animate-pulse"
+                          style={{
+                            background: `linear-gradient(90deg, ${prod.accent}, #38bdf8)`,
+                          }}
+                        />
+                      )}
                     </button>
                   );
                 })}

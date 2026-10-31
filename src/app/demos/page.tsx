@@ -22,14 +22,14 @@ import {
 export const metadata: Metadata = {
   title: "Ashmyra Live Demos | Veyrix, MailFlow, Prospect IQ, Omnira & Unveil",
   description:
-    "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, cold email automation, B2B lead scraping, SEO crawler & brand threat intelligence. Instant sandbox access.",
+    "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, Omnira social media AI agent, MailFlow cold email automation, Prospect IQ B2B leads & Unveil GEO radar. Instant sandbox access.",
   alternates: {
     canonical: "https://www.ashmyra.com/demos",
   },
   openGraph: {
     title: "Ashmyra Live Demos | Veyrix, MailFlow, Prospect IQ, Omnira & Unveil",
     description:
-      "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, cold email automation, B2B lead scraping, SEO crawler & brand threat intelligence. Instant sandbox access.",
+      "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, Omnira social media AI agent, MailFlow cold email automation, Prospect IQ B2B leads & Unveil GEO radar. Instant sandbox access.",
     url: "https://www.ashmyra.com/demos",
     images: [
       {

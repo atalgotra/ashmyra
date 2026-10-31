@@ -24,8 +24,8 @@ export async function GET() {
 
 ### 3. Omnira Architecture
 - Live Endpoint: https://omnira.ashmyra.com/
-- Ingestion Gateway: Cloud webhook stream ingesting Meta WhatsApp Cloud API, SendGrid/Postmark inbound webhooks, and WebSocket livechat.
-- Autonomous Copilot: Semantic intent classifier with deterministic escalation boundaries and tool calling capabilities.
+- Core Function: Autonomous Agentic AI Social Media Manager for YouTube, LinkedIn, Facebook, and Instagram.
+- Capabilities: Deep channel performance auditing, real-time market news and competitor playbook intelligence, automated post creation, video scripts, and high-intent hashtag cluster optimization.
 
 ### 4. Ashmyra Unveil Architecture
 - Live Endpoint: https://unveil.ashmyra.com/

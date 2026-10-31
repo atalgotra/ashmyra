@@ -54,9 +54,9 @@ export const MAIN_NAV: NavSection[] = [
         category: "product",
       },
       {
-        title: "Enterprise Communication",
-        href: "/products/web",
-        description: "Omnichannel customer communication stream unifying WhatsApp, Email and live messaging.",
+        title: "Social Media AI Manager",
+        href: "/products/ai",
+        description: "Agentic AI social media manager for YouTube, LinkedIn, FB & IG with audit, competitor intel & hashtag engine.",
         demoUrl: "https://omnira.ashmyra.com/",
         category: "product",
       },

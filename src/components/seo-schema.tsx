@@ -132,7 +132,7 @@ export function SeoSchema() {
           "itemOffered": {
             "@type": "SoftwareApplication",
             "name": "Omnira",
-            "description": "Unified omnichannel AI communications stream consolidating WhatsApp, Email, and Web Chat.",
+            "description": "Agentic AI social media manager for YouTube, LinkedIn, Facebook, and Instagram. Deeply audits channels, tracks market news and competitor playbooks, and generates detailed content with targeted hashtag strategies.",
             "applicationCategory": "BusinessApplication",
             "url": "https://omnira.ashmyra.com/"
           }
@@ -354,7 +354,7 @@ export function SeoSchema() {
         "name": "Where can I test working live demos of Ashmyra software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Five systems are immediately accessible: Veyrix (search intelligence & deep spider forensics at https://veyrix.ashmyra.com/), Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (omnichannel AI communications at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
+          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Five systems are immediately accessible: Veyrix (search intelligence & deep spider forensics at https://veyrix.ashmyra.com/), Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (agentic AI social media manager for YouTube, LinkedIn, FB & IG at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
         }
       },
       {

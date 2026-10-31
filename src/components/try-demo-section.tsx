@@ -7,6 +7,7 @@ import {
   Mail,
   Target,
   MessageSquare,
+  Share2,
   Eye,
   Search,
   ExternalLink,
@@ -27,7 +28,7 @@ export function TryDemoSection() {
       case "prospectiq":
         return <Target className={cls} style={{ color: accent }} />;
       case "omnira":
-        return <MessageSquare className={cls} style={{ color: accent }} />;
+        return <Share2 className={cls} style={{ color: accent }} />;
       case "unveil":
         return <Eye className={cls} style={{ color: accent }} />;
       case "veyrix":

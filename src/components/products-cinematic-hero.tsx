@@ -137,122 +137,139 @@ export function ProductsCinematicHero() {
       // 1. MailFlow — Cold Email & Warmup Deliverability Engine
       case "mailflow":
         return (
-          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
-            {/* Top Status Indicators */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
+            {/* Top Status & Health Badge */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-white font-semibold">14 Mailboxes Rotating</span>
-                <span className="text-neutral-500 text-[10px]">· Google + Outlook 365</span>
+                <span className="text-white font-semibold text-[12px]">Outbound Campaign Hub</span>
+                <span className="text-neutral-500 text-[10.5px]">· 14 Mailboxes Connected</span>
               </div>
-              <span className="text-[10px] text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 px-2 py-0.5 rounded">
-                SPF/DKIM/DMARC: 100%
+              <span className="text-[10px] text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-medium flex items-center gap-1">
+                <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                99.4% Inbox Placement
               </span>
             </div>
 
-            {/* Warmup Ramp Visual Graph & Rotation Stream */}
-            <div className="space-y-2 py-1">
-              <div className="p-2.5 rounded-xl bg-black/50 border border-white/[0.06] space-y-1.5">
+            {/* Visual Campaign Performance Card */}
+            <div className="space-y-2 py-0.5">
+              <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] space-y-2">
+                {/* Email Subject & Reply Rate */}
                 <div className="flex items-center justify-between text-[11px]">
-                  <span className="text-neutral-400">Warmup Delivery Ramp:</span>
-                  <span className="text-emerald-400 font-bold">99.4% Inbox Placement</span>
+                  <div className="flex items-center gap-2 min-w-0">
+                    <Mail className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                    <span className="text-neutral-200 font-medium truncate">
+                      AI Pipeline &amp; Enterprise Architecture for Q4
+                    </span>
+                  </div>
+                  <span className="text-indigo-300 font-semibold bg-indigo-500/15 border border-indigo-500/30 px-2 py-0.5 rounded text-[10px] shrink-0">
+                    28.4% Reply Rate
+                  </span>
                 </div>
-                {/* Progress Ramp Bar */}
-                <div className="w-full bg-white/[0.06] h-1.5 rounded-full overflow-hidden relative">
-                  <div
-                    className="h-full rounded-full transition-all duration-700"
-                    style={{
-                      width: "94%",
-                      background: "linear-gradient(90deg, #818cf8, #38bdf8, #34d399)",
-                    }}
-                  />
-                </div>
-                <div className="flex justify-between text-[9px] text-neutral-500">
-                  <span>Day 1 (DNS Handshake)</span>
-                  <span className="text-emerald-400 font-semibold">Day 14 (Full Velocity)</span>
+
+                {/* Visual Health Gauge Meter */}
+                <div className="space-y-1">
+                  <div className="flex justify-between text-[10px]">
+                    <span className="text-neutral-400">Primary Inbox Delivery Rate</span>
+                    <span className="text-emerald-400 font-semibold">99.4% Delivered</span>
+                  </div>
+                  <div className="w-full bg-white/[0.06] h-1.5 rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all duration-700"
+                      style={{
+                        width: "99.4%",
+                        background: "linear-gradient(90deg, #818cf8 0%, #38bdf8 50%, #34d399 100%)",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
 
-              {/* Real-time Rotation Stream */}
-              <div className="flex items-center justify-between p-2 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-[10.5px]">
-                <div className="flex items-center gap-2 text-indigo-200 truncate">
-                  <Activity className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <span className="text-neutral-400">Active Pool:</span>
-                  <span className="text-white font-semibold truncate">outreach-04@domain.com</span>
+              {/* Feature Highlights Row */}
+              <div className="grid grid-cols-2 gap-2 text-[10.5px]">
+                <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-emerald-300">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <span className="truncate">Auto-Rotated &amp; Spam Protected</span>
                 </div>
-                <span className="text-[9.5px] text-emerald-400 font-mono shrink-0">
-                  Zero Spam Risk
-                </span>
+                <div className="flex items-center gap-1.5 p-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20 text-indigo-300">
+                  <Sparkles className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span className="truncate">AI Subject Score: 94/100</span>
+                </div>
               </div>
             </div>
 
-            {/* Footer Telemetry Snippet */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
+            {/* Footer Status */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
               <span className="flex items-center gap-1.5">
                 <Check className="w-3 h-3 text-emerald-400" />
-                <span>AI Subject Optimization: 94/100 conversion score</span>
+                <span>Active Warmup &amp; Automated Followups</span>
               </span>
-              <span className="text-indigo-400">Followups Active</span>
+              <span className="text-indigo-400 font-medium">Google + Outlook 365</span>
             </div>
           </div>
         );
 
-      // 2. Prospect IQ — B2B Lead Intelligence & Waterfall Scraper
+      // 2. Prospect IQ — B2B Lead Intelligence & Prospect Discovery Platform
       case "prospectiq":
         return (
-          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
-            {/* Top Query Filter Bar */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
+            {/* Top Status & Lead Pool Badge */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                <span className="text-white font-semibold">Active ICP Search Pipeline</span>
+                <span className="text-white font-semibold text-[12px]">Verified Prospect Discovery</span>
+                <span className="text-neutral-500 text-[10.5px]">· ICP Filter</span>
               </div>
-              <span className="text-[10px] text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded">
-                50M+ Verified Records
+              <span className="text-[10px] text-cyan-300 bg-cyan-500/15 border border-cyan-500/30 px-2.5 py-0.5 rounded-full font-medium">
+                50M+ B2B Contacts
               </span>
             </div>
 
-            {/* Waterfall Enrichment Execution Simulator */}
-            <div className="space-y-1.5 py-1">
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10.5px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                  <span className="text-neutral-400">Query:</span>
-                  <span className="text-cyan-200 font-semibold truncate">&quot;VP Engineering&quot; · Series A-C SaaS</span>
+            {/* Visual Prospect Profile Card */}
+            <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] space-y-2 py-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-500 flex items-center justify-center text-white font-bold text-xs shrink-0 shadow-sm">
+                    AC
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-white font-semibold text-[11.5px] flex items-center gap-1.5">
+                      <span>Alex Chen</span>
+                      <span className="text-[9px] text-emerald-400 bg-emerald-500/15 px-1.5 py-0.2 rounded border border-emerald-500/30 font-medium">
+                        Verified
+                      </span>
+                    </div>
+                    <div className="text-neutral-400 text-[10px] truncate">
+                      VP of Engineering · CloudScale Tech (Series B)
+                    </div>
+                  </div>
                 </div>
-                <span className="text-[9.5px] text-neutral-400 font-mono">1.2s</span>
+                <span className="text-[9.5px] text-neutral-400 bg-white/[0.04] px-2 py-0.5 rounded border border-white/[0.08] hidden sm:inline">
+                  180+ Employees
+                </span>
               </div>
 
-              {/* Waterfall Verification Stages */}
-              <div className="p-2.5 rounded-xl bg-cyan-950/20 border border-cyan-500/20 space-y-1 text-[9.5px]">
-                <div className="flex items-center justify-between text-neutral-300">
-                  <span className="flex items-center gap-1.5">
-                    <Check className="w-3 h-3 text-cyan-400" />
-                    <span>Waterfall 1: Domain Verification</span>
-                  </span>
-                  <span className="text-cyan-300">Valid</span>
+              {/* Verified Contact Details & Tech Tags */}
+              <div className="flex flex-wrap items-center justify-between gap-1.5 pt-1.5 border-t border-white/[0.06] text-[10px]">
+                <div className="flex items-center gap-1.5 text-neutral-300">
+                  <Mail className="w-3 h-3 text-cyan-400 shrink-0" />
+                  <span className="text-cyan-200 text-[9.5px] font-medium">alex.c@cloudscale.io</span>
                 </div>
-                <div className="flex items-center justify-between text-neutral-300">
-                  <span className="flex items-center gap-1.5">
-                    <Check className="w-3 h-3 text-cyan-400" />
-                    <span>Waterfall 2: SMTP MX Handshake</span>
-                  </span>
-                  <span className="text-cyan-300">Deliverable</span>
-                </div>
-                <div className="flex items-center justify-between text-neutral-300">
-                  <span className="flex items-center gap-1.5">
-                    <Check className="w-3 h-3 text-emerald-400" />
-                    <span>Tech Stack: AWS, PostgreSQL, Next.js</span>
-                  </span>
-                  <span className="text-emerald-400 font-bold">98.7% Confirmed</span>
+                <div className="flex items-center gap-1 text-neutral-400">
+                  <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-[9px]">AWS</span>
+                  <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-[9px]">PostgreSQL</span>
+                  <span className="px-1.5 py-0.5 rounded bg-white/[0.04] border border-white/[0.06] text-[9px]">Next.js</span>
                 </div>
               </div>
             </div>
 
-            {/* Footer Quick Action */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
-              <span>Auto-Enriched Decision Makers</span>
-              <span className="text-cyan-400 font-semibold">1-Click CRM Sync Ready</span>
+            {/* Footer Status */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3 h-3 text-emerald-400" />
+                <span>Zero Bounce Guarantee · 98.7% Accuracy</span>
+              </span>
+              <span className="text-cyan-400 font-medium">1-Click CRM Sync</span>
             </div>
           </div>
         );
@@ -260,51 +277,56 @@ export function ProductsCinematicHero() {
       // 3. Omnira — Autonomous Agentic AI Social Media Manager
       case "omnira":
         return (
-          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
-            {/* Top Multi-Platform Network Status */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
+            {/* Top Status & Channel Sync Badge */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-white font-semibold">Autonomous Swarm (4 Channels)</span>
+                <span className="text-white font-semibold text-[12px]">Autonomous Content Studio</span>
+                <span className="text-neutral-500 text-[10.5px]">· AI Social Engine</span>
               </div>
-              <span className="text-[10px] text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded">
-                YouTube · LinkedIn · FB · IG
+              <span className="text-[10px] text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2.5 py-0.5 rounded-full font-medium">
+                4 Channels Synchronized
               </span>
             </div>
 
-            {/* Micro-Agent Activity Waterfall */}
-            <div className="space-y-1.5 py-1">
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-emerald-400 font-bold">[Agent 1 - Radar]:</span>
-                  <span className="text-neutral-300 truncate">Ingested 14 competitor viral hooks</span>
-                </div>
-                <span className="text-emerald-400">Active</span>
+            {/* Visual Content Queue Card */}
+            <div className="p-2.5 rounded-xl bg-white/[0.03] border border-white/[0.08] space-y-2 py-2">
+              <div className="flex items-center justify-between text-[11px]">
+                <span className="text-neutral-400 font-medium">Next Scheduled Campaign:</span>
+                <span className="text-emerald-400 font-semibold text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded">
+                  96% Viral Index
+                </span>
               </div>
 
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-indigo-400 font-bold">[Agent 2 - Script]:</span>
-                  <span className="text-neutral-300 truncate">Drafted 0-60s timed Reel script with visual cues</span>
-                </div>
-                <span className="text-emerald-400">Finished</span>
+              <div className="text-white font-medium text-[11.5px] truncate">
+                &quot;How Autonomous AI Agents Are Transforming Enterprise Workflows&quot;
               </div>
 
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[9.5px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-cyan-400 font-bold">[Agent 3 - Tags]:</span>
-                  <span className="text-neutral-300 truncate">24 targeted hashtag clusters · 1.4M reach</span>
-                </div>
-                <span className="text-emerald-400">Ready</span>
+              {/* Multi-Platform Distribution Badges */}
+              <div className="flex flex-wrap items-center gap-1.5 pt-1.5 border-t border-white/[0.06]">
+                <span className="px-2 py-0.5 rounded bg-red-500/10 border border-red-500/20 text-red-300 text-[9.5px] font-medium">
+                  YouTube (4K Video)
+                </span>
+                <span className="px-2 py-0.5 rounded bg-blue-500/10 border border-blue-500/20 text-blue-300 text-[9.5px] font-medium">
+                  LinkedIn (Article)
+                </span>
+                <span className="px-2 py-0.5 rounded bg-pink-500/10 border border-pink-500/20 text-pink-300 text-[9.5px] font-medium">
+                  Instagram (Reels)
+                </span>
+                <span className="px-2 py-0.5 rounded bg-sky-500/10 border border-sky-500/20 text-sky-300 text-[9.5px] font-medium">
+                  Facebook
+                </span>
               </div>
             </div>
 
-            {/* Clearance Gate Status */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px]">
-              <span className="text-neutral-400">1-Click Human Clearance Gate:</span>
-              <span className="text-emerald-400 font-semibold bg-emerald-500/10 px-2 py-0.5 rounded">
-                Calendar Synchronized
+            {/* Footer Status */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3 h-3 text-emerald-400" />
+                <span>Human-in-the-Loop Approval Gate</span>
               </span>
+              <span className="text-emerald-400 font-medium">140K+ Projected Reach</span>
             </div>
           </div>
         );
@@ -312,49 +334,61 @@ export function ProductsCinematicHero() {
       // 4. Unveil — Generative Engine Optimization (GEO) Radar
       case "unveil":
         return (
-          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
-            {/* Top Query & GEO Score Bar */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
+            {/* Top Status & GEO Score Badge */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-white font-semibold">Generative Search Radar (GEO)</span>
+                <span className="text-white font-semibold text-[12px]">Generative Engine Visibility (GEO)</span>
               </div>
-              <span className="text-[10px] text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2 py-0.5 rounded font-bold">
+              <span className="text-[10px] text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-bold">
                 GEO Score: 96/100
               </span>
             </div>
 
-            {/* AI Engine Citations Breakdown */}
-            <div className="space-y-1.5 py-1">
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-amber-400 font-bold">ChatGPT / GPT-4o:</span>
-                  <span className="text-neutral-300 truncate">Cited in top brand recommendations</span>
+            {/* Visual AI Model Citation Leaderboard */}
+            <div className="space-y-1.5 py-0.5">
+              <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="text-white font-medium">ChatGPT / GPT-4o</span>
+                  <span className="text-neutral-400 text-[9.5px]">· Top Recommendation</span>
                 </div>
-                <span className="text-emerald-400 font-semibold shrink-0">Rank #1</span>
+                <span className="text-emerald-400 font-semibold text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded">
+                  Rank #1
+                </span>
               </div>
 
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-cyan-400 font-bold">Perplexity AI:</span>
-                  <span className="text-neutral-300 truncate">Sourced in 4 verified answer syntheses</span>
+              <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                  <span className="text-white font-medium">Perplexity AI</span>
+                  <span className="text-neutral-400 text-[9.5px]">· 4 Direct Citations</span>
                 </div>
-                <span className="text-emerald-400 font-semibold shrink-0">Direct Source</span>
+                <span className="text-cyan-400 font-semibold text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded">
+                  Primary Source
+                </span>
               </div>
 
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] flex items-center justify-between text-[10px]">
-                <div className="flex items-center gap-2 truncate">
-                  <span className="text-indigo-400 font-bold">Google AI Overviews:</span>
-                  <span className="text-neutral-300 truncate">Cluster entity presence confirmed</span>
+              <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                  <span className="text-white font-medium">Google AI Overviews</span>
+                  <span className="text-neutral-400 text-[9.5px]">· Featured Entity Card</span>
                 </div>
-                <span className="text-emerald-400 font-semibold shrink-0">Included</span>
+                <span className="text-indigo-400 font-semibold text-[10px] bg-indigo-500/10 px-2 py-0.5 rounded">
+                  Included
+                </span>
               </div>
             </div>
 
-            {/* Schema Fixes Telemetry */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
-              <span>Schema.org JSON-LD Entities: 100% Validated</span>
-              <span className="text-amber-400">Latency: &lt;8s</span>
+            {/* Footer Status */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
+              <span className="flex items-center gap-1.5">
+                <Check className="w-3 h-3 text-emerald-400" />
+                <span>Automated Schema.org &amp; Entity Sync</span>
+              </span>
+              <span className="text-amber-400 font-medium">Daily AI Brand Audits</span>
             </div>
           </div>
         );
@@ -362,52 +396,52 @@ export function ProductsCinematicHero() {
       // 5. Veyrix — Search Intelligence & Spider Forensics
       case "veyrix":
         return (
-          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 font-mono text-xs select-none">
-            {/* Top Crawler Status */}
-            <div className="flex items-center justify-between pb-2.5 border-b border-white/[0.08]">
+          <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
+            {/* Top Status & Overall Health Score */}
+            <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-sky-400 animate-pulse" />
-                <span className="text-white font-semibold">Deep Spider Crawl Forensics</span>
+                <span className="text-white font-semibold text-[12px]">Enterprise Site Health &amp; Speed HUD</span>
               </div>
-              <span className="text-[10px] text-sky-300 bg-sky-500/15 border border-sky-500/30 px-2 py-0.5 rounded">
-                GSC + GA4 Live Stream
+              <span className="text-[10px] text-sky-300 bg-sky-500/15 border border-sky-500/30 px-2.5 py-0.5 rounded-full font-semibold">
+                99.8% Perfect Health
               </span>
             </div>
 
-            {/* Live Streaming Crawl Waterfall & Core Web Vitals */}
-            <div className="space-y-1.5 py-1">
-              <div className="p-2 rounded-lg bg-black/50 border border-white/[0.06] space-y-1 text-[9.5px]">
-                <div className="flex items-center justify-between text-neutral-300">
-                  <span className="text-sky-300">Spider Status:</span>
-                  <span className="text-emerald-400 font-semibold">2,450 URLs Audited · 0 Errors</span>
-                </div>
-                <div className="flex items-center justify-between text-neutral-400">
-                  <span>Render-Blocking Resources:</span>
-                  <span className="text-white font-semibold">0 Detected · Optimized</span>
-                </div>
+            {/* 3 Executive Health Tiles */}
+            <div className="grid grid-cols-3 gap-2 py-0.5">
+              <div className="p-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-center space-y-0.5">
+                <div className="text-sky-300 font-bold text-sm tracking-tight">0.8s</div>
+                <div className="text-[10px] text-neutral-300 font-medium">Load Speed</div>
+                <div className="text-[9px] text-emerald-400">Fast (Google Pass)</div>
               </div>
 
-              {/* Core Web Vitals HUD */}
-              <div className="grid grid-cols-3 gap-1.5 text-center text-[9.5px]">
-                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
-                  <div className="text-sky-300 font-bold font-mono">0.8s</div>
-                  <div className="text-[8.5px] text-neutral-400">LCP (Fast)</div>
-                </div>
-                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
-                  <div className="text-emerald-400 font-bold font-mono">0.001</div>
-                  <div className="text-[8.5px] text-neutral-400">CLS (Stable)</div>
-                </div>
-                <div className="p-1.5 rounded-lg bg-sky-950/20 border border-sky-500/20">
-                  <div className="text-cyan-300 font-bold font-mono">24ms</div>
-                  <div className="text-[8.5px] text-neutral-400">INP (Instant)</div>
-                </div>
+              <div className="p-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-center space-y-0.5">
+                <div className="text-emerald-400 font-bold text-sm tracking-tight">100%</div>
+                <div className="text-[10px] text-neutral-300 font-medium">Page Stability</div>
+                <div className="text-[9px] text-emerald-400">Zero Shifts</div>
+              </div>
+
+              <div className="p-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-center space-y-0.5">
+                <div className="text-cyan-300 font-bold text-sm tracking-tight">2,450</div>
+                <div className="text-[10px] text-neutral-300 font-medium">Pages Crawled</div>
+                <div className="text-[9px] text-emerald-400">0 Broken Links</div>
               </div>
             </div>
 
-            {/* Footer Keyword Cannibalization Status */}
-            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10px] text-neutral-400">
-              <span>Canonical &amp; PageRank Equity Map: Active</span>
-              <span className="text-sky-400">₹0.25 ($0.0025) / Page</span>
+            {/* Health Status Banner */}
+            <div className="p-1.5 rounded-lg bg-sky-500/10 border border-sky-500/20 text-sky-200 text-[10.5px] flex items-center justify-between">
+              <span className="flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-sky-400 shrink-0" />
+                <span>Continuous Revenue &amp; SEO Safeguard</span>
+              </span>
+              <span className="text-[9.5px] text-emerald-400 font-medium">Live 24/7</span>
+            </div>
+
+            {/* Footer Status */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
+              <span>Instant Slack &amp; Email Regressions Alert</span>
+              <span className="text-sky-400 font-medium">100% Automated</span>
             </div>
           </div>
         );
@@ -456,7 +490,7 @@ export function ProductsCinematicHero() {
           {/* ── Left Column (~45%): DYNAMICALLY CYCLES IN SYNC (MailFlow -> Veyrix) ── */}
           <div ref={leftColRef} className="lg:col-span-5 space-y-3.5 text-left">
             {/* Dynamic Eyebrow showing Active Engine */}
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-[11px] font-mono tracking-wide">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-[11px] font-sans tracking-wide">
               <span
                 className="w-1.5 h-1.5 rounded-full animate-pulse"
                 style={{ backgroundColor: activeProduct.accent }}
@@ -525,12 +559,12 @@ export function ProductsCinematicHero() {
             {/* Integrated Platform Switcher Strip with Live Sync Indicator */}
             <div className="pt-2.5 border-t border-white/[0.08]">
               <div className="flex items-center justify-between mb-1.5">
-                <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold">
+                <span className="text-[10px] font-sans uppercase tracking-wider text-neutral-400 font-semibold">
                   Live Platform Switcher:
                 </span>
                 <button
                   onClick={() => setIsPaused(!isPaused)}
-                  className="flex items-center gap-1.5 text-[10px] font-mono text-neutral-400 hover:text-white transition-colors"
+                  className="flex items-center gap-1.5 text-[10px] font-sans text-neutral-400 hover:text-white transition-colors"
                   aria-label={isPaused ? "Play showcase" : "Pause showcase"}
                 >
                   {isPaused ? (
@@ -586,7 +620,7 @@ export function ProductsCinematicHero() {
             </div>
 
             {/* Reassurance Line */}
-            <div className="flex items-center gap-2 text-[10.5px] font-mono text-neutral-400 pt-0.5">
+            <div className="flex items-center gap-2 text-[10.5px] font-sans text-neutral-400 pt-0.5">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
               <span>5 Live Platforms • Dedicated VPC &amp; On-Premise Deployable</span>
             </div>
@@ -625,22 +659,22 @@ export function ProductsCinematicHero() {
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/25 border border-amber-500/40" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/25 border border-emerald-500/40" />
                   </div>
-                  <span className="text-neutral-500 text-xs mx-1 font-mono">|</span>
-                  <div className="flex items-center gap-2 text-xs font-mono text-neutral-300">
+                  <span className="text-neutral-500 text-xs mx-1">|</span>
+                  <div className="flex items-center gap-2 text-xs font-sans text-neutral-300">
                     <div className="w-4 h-4 flex items-center justify-center">
                       {getProductIcon(activeProduct.id, "w-3.5 h-3.5")}
                     </div>
                     <span className="font-semibold text-white">{activeProduct.name}</span>
-                    <span className="text-neutral-500 text-[10px] hidden sm:inline truncate max-w-[200px]">
+                    <span className="text-neutral-500 text-[10.5px] hidden sm:inline truncate max-w-[200px]">
                       · {activeProduct.tagline}
                     </span>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2.5">
-                  <span className="text-[9.5px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
+                  <span className="text-[9.5px] font-sans text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    Live
+                    Live System
                   </span>
 
                   <a
@@ -672,7 +706,7 @@ export function ProductsCinematicHero() {
                       className="p-1.5 sm:p-2 rounded-lg bg-white/[0.02] border border-white/[0.05]"
                     >
                       <div
-                        className="text-xs sm:text-sm font-bold font-mono"
+                        className="text-xs sm:text-sm font-bold font-sans tracking-tight"
                         style={{ color: activeProduct.accent }}
                       >
                         {m.value}

@@ -228,19 +228,24 @@ export function PeopleSection() {
                   />
 
 
-                  {/* Top Right: Role Badge */}
+                  {/* Top Right: High-Contrast Role Badge */}
                   <div className="absolute top-4 right-4 z-10">
-                    <span
-                      className="text-[10px] font-mono font-semibold tracking-wider px-2.5 py-1 rounded-full uppercase"
+                    <div
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
                       style={{
-                        color: leader.accent,
-                        background: `rgba(${leader.accentRgb}, 0.15)`,
-                        border: `1px solid rgba(${leader.accentRgb}, 0.35)`,
-                        backdropFilter: "blur(10px)",
+                        background: "rgba(5, 7, 12, 0.92)",
+                        border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
+                        backdropFilter: "blur(12px)",
                       }}
                     >
-                      {leader.roleBadge}
-                    </span>
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0 shadow-[0_0_8px_currentColor]"
+                        style={{ background: leader.accent, color: leader.accent }}
+                      />
+                      <span className="text-[11px] font-mono font-bold tracking-wider text-white uppercase">
+                        {leader.roleBadge}
+                      </span>
+                    </div>
                   </div>
                 </div>
 

@@ -101,15 +101,15 @@ export function HeroPhase7() {
           <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-center">
 
             {/* Eyebrow & Positioning Kicker */}
-            <div ref={eyebrowRef} className="mb-4 sm:mb-5">
-              <div className="flex items-center gap-2 mb-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                <span className="text-[11px] font-mono font-semibold tracking-[0.24em] text-indigo-300 uppercase">
+            <div ref={eyebrowRef} className="mb-5">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 backdrop-blur-md mb-3 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
+                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] text-indigo-300 uppercase">
                   AI • DATA • SOFTWARE • AUTOMATION
                 </span>
               </div>
-              <p className="text-[12px] font-mono text-neutral-400 tracking-wide">
-                We build intelligent systems that act.
+              <p className="text-[12.5px] font-mono text-neutral-400 tracking-wide">
+                We engineer intelligent autonomous systems that drive enterprise advantage.
               </p>
             </div>
 
@@ -161,34 +161,34 @@ export function HeroPhase7() {
               </Link>
 
               <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-neutral-200 hover:text-white transition-all duration-300 hover:bg-white/[0.06] text-center"
+                href="/contact?intent=discovery"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-neutral-200 hover:text-white transition-all duration-300 hover:bg-white/[0.08] hover:border-white/25 text-center group"
                 style={{
-                  background: "rgba(255, 255, 255, 0.03)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  background: "rgba(255, 255, 255, 0.04)",
+                  border: "1px solid rgba(255, 255, 255, 0.12)",
                 }}
               >
-                <span>Let&apos;s Build Something</span>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400" />
+                <span>Book Technical Discovery</span>
+                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 
             {/* Three Concise Capability Labels */}
             <div
               ref={capabilitiesRef}
-              className="pt-6 border-t border-white/[0.08] flex flex-wrap gap-4 sm:gap-6 text-xs font-mono text-neutral-400"
+              className="pt-6 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 text-xs font-mono"
             >
-              <div className="flex items-center gap-2">
-                <Cpu className="w-3.5 h-3.5 text-indigo-400" />
-                <span>Agentic AI Systems</span>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+                <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                <span className="text-neutral-300 font-medium truncate">Agentic AI</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Database className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Data Intelligence</span>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+                <Database className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                <span className="text-neutral-300 font-medium truncate">Data Systems</span>
               </div>
-              <div className="flex items-center gap-2">
-                <Layers className="w-3.5 h-3.5 text-purple-400" />
-                <span>Enterprise Software</span>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
+                <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                <span className="text-neutral-300 font-medium truncate">Enterprise SaaS</span>
               </div>
             </div>
 

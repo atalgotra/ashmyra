@@ -289,8 +289,9 @@ export function Navbar() {
                     onMouseEnter={() => handleMouseEnter(nav.title)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <button
-                      onClick={() => setActiveDD(open ? null : nav.title)}
+                    <Link
+                      href={nav.href}
+                      onClick={() => setActiveDD(null)}
                       className={`flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-indigo-500/50 ${
                         open || isSectionActive
                           ? "text-white bg-white/[0.08]"
@@ -307,7 +308,7 @@ export function Navbar() {
                         }`}
                         aria-hidden="true"
                       />
-                    </button>
+                    </Link>
                   </div>
                 );
               })}
@@ -846,6 +847,15 @@ export function Navbar() {
 
                     {isOpen && (
                       <div className="px-3 pb-3 space-y-1 border-t border-white/[0.05] pt-2">
+                        {/* Section overview link */}
+                        <Link
+                          href={nav.href}
+                          onClick={() => setMobileOpen(false)}
+                          className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] text-xs font-semibold text-cyan-300 hover:text-white border border-white/[0.06] mb-2 min-h-[44px]"
+                        >
+                          <span>Explore All {nav.title}</span>
+                          <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+                        </Link>
                         {/* Capabilities visual groups */}
                         {nav.groups ? (
                           nav.groups.map((group) => (

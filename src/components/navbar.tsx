@@ -30,6 +30,7 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileDemosOpen, setMobileDemosOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
@@ -45,6 +46,7 @@ export function Navbar() {
     setMobileOpen(false);
     setActiveDD(null);
     setMobileProductsOpen(false);
+    setMobileDemosOpen(false);
     setMobileServicesOpen(false);
   }, [pathname]);
 
@@ -90,6 +92,7 @@ export function Navbar() {
   };
 
   const productsNav = MAIN_NAV.find((n) => n.title === "Products");
+  const demosNav = MAIN_NAV.find((n) => n.title === "Demos");
   const servicesNav = MAIN_NAV.find((n) => n.title === "Services");
 
   return (
@@ -359,6 +362,52 @@ export function Navbar() {
               <span>AI</span>
               <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
+
+            {/* Demos Accordion */}
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+              <button
+                type="button"
+                onClick={() => setMobileDemosOpen(!mobileDemosOpen)}
+                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
+              >
+                <div className="flex items-center gap-2">
+                  <span>Demos</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                </div>
+                <ChevronDown
+                  className={`w-4 h-4 text-neutral-400 transition-transform ${
+                    mobileDemosOpen ? "rotate-180" : ""
+                  }`}
+                />
+              </button>
+              {mobileDemosOpen && (
+                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
+                  {demosNav?.items?.map((item) => (
+                    <a
+                      key={item.title}
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileOpen(false)}
+                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
+                    >
+                      <div className="font-medium text-white flex items-center gap-1.5">
+                        <span>{item.title}</span>
+                        <ExternalLink className="w-3 h-3 text-neutral-500" />
+                      </div>
+                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
+                    </a>
+                  ))}
+                  <Link
+                    href="/demos"
+                    onClick={() => setMobileOpen(false)}
+                    className="block pt-2 text-xs font-mono text-indigo-300"
+                  >
+                    All Live Demos →
+                  </Link>
+                </div>
+              )}
+            </div>
 
             {/* Services Accordion */}
             <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">

@@ -2,7 +2,7 @@ export interface NavItem {
   title: string;
   href: string;
   description?: string;
-  category?: "product" | "service";
+  category?: "product" | "service" | "demo";
 }
 
 export interface NavSection {
@@ -77,6 +77,42 @@ export const MAIN_NAV: NavSection[] = [
   {
     title: "AI",
     href: "/products/ai",
+  },
+  {
+    title: "Demos",
+    href: "/demos",
+    items: [
+      {
+        title: "Veyrix",
+        href: "https://veyrix.ashmyra.com/",
+        description: "Search intelligence platform, deep spider forensics & real-time GEO citation radar.",
+        category: "demo",
+      },
+      {
+        title: "Ashmyra MailFlow",
+        href: "https://mailflow.ashmyra.com/",
+        description: "Autonomous cold email warmup, sequence automation & deliverability optimization.",
+        category: "demo",
+      },
+      {
+        title: "Prospect IQ",
+        href: "https://prospectiq.ashmyra.com/",
+        description: "B2B lead intelligence, contact enrichment & waterfall email verification.",
+        category: "demo",
+      },
+      {
+        title: "Omnira",
+        href: "https://omnira.ashmyra.com/",
+        description: "Unified omnichannel customer communications stream for WhatsApp, Email & Web Chat.",
+        category: "demo",
+      },
+      {
+        title: "Ashmyra Unveil",
+        href: "https://unveil.ashmyra.com/",
+        description: "Generative Engine Optimization (GEO) audit radar & LLM citation intelligence.",
+        category: "demo",
+      },
+    ],
   },
   {
     title: "Services",

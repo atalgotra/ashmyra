@@ -5,6 +5,7 @@ import { BrandIntroPhase7 } from "@/components/brand-intro-phase7";
 import { ShowcasePhase7 } from "@/components/showcase-phase7";
 import { EngineeringCapabilitiesPhase7 } from "@/components/engineering-capabilities-phase7";
 import { SelectedWorkPhase7 } from "@/components/selected-work-phase7";
+import { TryDemoSection } from "@/components/try-demo-section";
 import { PeopleSection } from "@/components/people-section";
 import { FinalCtaPhase7 } from "@/components/final-cta-phase7";
 
@@ -62,7 +63,10 @@ export default function HomePage() {
       {/* 05 — SELECTED WORK: Refined project gallery (FMO, 1A Veda, Ramaroma Herbs, Divagam) */}
       <SelectedWorkPhase7 />
 
-      {/* 06 — LEADERSHIP & TEAM: Swati (Founder), Ashish (AI Engineer / Data Scientist), Prince Rehan (Head - IT) */}
+      {/* 06 — LIVE PRODUCTION DEMOS: Interactive Software Applications */}
+      <TryDemoSection />
+
+      {/* 07 — LEADERSHIP & TEAM: Swati (Founder), Ashish (AI Engineer / Data Scientist), Prince Rehan (Head - IT) */}
       <PeopleSection />
 
       {/* 07 — FINAL CTA: Premium editorial closing section */}

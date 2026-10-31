@@ -417,31 +417,7 @@ export function WhatWeEngineerShowcase() {
                 boxShadow: `0 30px 80px -20px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${current.accentGlow}`,
               }}
             >
-              {/* Header Bar */}
-              <div
-                className="px-5 py-3 flex items-center justify-between border-b backdrop-blur-md"
-                style={{
-                  borderColor: "rgba(255, 255, 255, 0.08)",
-                  background: "rgba(0, 0, 0, 0.4)",
-                }}
-              >
-                <div className="flex items-center gap-2.5">
-                  <span
-                    className="w-2 h-2 rounded-full animate-pulse shrink-0"
-                    style={{ background: current.accent }}
-                  />
-                  <span className="text-xs font-mono font-bold text-white tracking-wider">
-                    SHOWCASE {current.num} / 07 — {current.title}
-                  </span>
-                </div>
-
-                <div className="text-[10px] font-mono text-emerald-400 flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Google Flow Verified</span>
-                </div>
-              </div>
-
-              {/* Cinematic Video Viewport */}
+              {/* Cinematic Video Viewport (Full Bleed to Top Rounded Corners) */}
               <div
                 onClick={togglePlay}
                 className="relative aspect-[16/9] w-full overflow-hidden bg-[#04060a] cursor-pointer group"

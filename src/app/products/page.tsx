@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PRODUCTS } from "@/data/products";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
 import { TryDemoSection } from "@/components/try-demo-section";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { 
   ArrowRight, 
   Cpu, 
@@ -94,6 +95,11 @@ export default function ProductsPage() {
   return (
     <div className="pt-32 pb-24 min-h-screen bg-[#050608]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Breadcrumbs
+          items={[{ label: "Products" }]}
+          className="mb-8 justify-center"
+        />
+
         {/* Header */}
         <div className="text-center max-w-4xl mx-auto mb-14">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-4">

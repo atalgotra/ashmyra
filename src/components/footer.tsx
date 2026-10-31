@@ -148,132 +148,159 @@ export function Footer() {
         </div>
 
 
-        {/* ── Navigation Grid (High contrast, modern typography) ─────────────── */}
+        {/* ── Navigation Grid (Streamlined 4 Columns) ───────────────────────── */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
-          {/* Col 1 */}
+          {/* Col 1: Systems & Platforms */}
           <div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-              <span>Core Systems</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+              <span>Systems &amp; Platforms</span>
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
-                <Link href="/products/ai" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Agentic AI Swarms</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                <Link href="/demos#mailflow" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>MailFlow (Warmup &amp; Delivery)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
                 </Link>
               </li>
               <li>
-                <Link href="/products/seo" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>SEO Intelligence</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                <Link href="/demos#prospectiq" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Prospect IQ (B2B Lead Intel)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
                 </Link>
               </li>
               <li>
-                <Link href="/products/hrms" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Intelligent Workforce (HRMS)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                <Link href="/demos#omnira" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Omnira (Social Media AI)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
                 </Link>
               </li>
               <li>
-                <Link href="/products/analytics" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Data &amp; Analytics Layer</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                <Link href="/demos#unveil" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Unveil (GEO Citation Radar)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/demos#veyrix" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Veyrix (Deep Spider Crawler)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                </Link>
+              </li>
+              <li className="pt-1 border-t border-white/[0.06]">
+                <Link href="/demos" className="text-cyan-400 hover:text-cyan-300 font-mono text-xs flex items-center justify-between group">
+                  <span>All 5 Live Demos ↗</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-cyan-400" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 2 */}
+          {/* Col 2: Engineering Disciplines */}
           <div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-              <span>Capabilities</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+              <span>Engineering Disciplines</span>
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
-                <Link href="/services/ai-development" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Multi-Agent Engineering</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                <Link href="/products/ai" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Multi-Agent Swarm Engineering</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/services/software-development" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Enterprise Software SaaS</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/services/seo" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Autonomous SEO Pipelines</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                  <span>Generative Engine Optimization (GEO)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
                 </Link>
               </li>
               <li>
                 <Link href="/products/web" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>High-Performance 3D Web</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
+                  <span>High-Performance 3D Web &amp; Mobile</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>All Software Capabilities</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-indigo-400" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 3 */}
+          {/* Col 3: Insights & Research */}
           <div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-purple-400" />
-              <span>Organization</span>
+              <span>Insights &amp; Research</span>
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
+                <Link href="/blog" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span className="flex items-center gap-1.5">
+                    <span>Engineering Blog</span>
+                    <span className="text-[9px] font-mono px-1 rounded bg-purple-500/20 text-purple-300">New</span>
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/agentic-ai-vs-chatbots" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Agentic AI vs Chatbots</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/blog/seo-in-the-age-of-generative-engines" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Generative Search (GEO)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/our-work" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Selected Work (Proof)</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/team" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Founding Team</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="https://www.linkedin.com/company/ashmyra" target="_blank" rel="noopener noreferrer" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Company LinkedIn</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Start a Conversation</span>
+                  <span>Selected Production Work</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Col 4 */}
+          {/* Col 4: Company & Trust */}
           <div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Security &amp; Legal</span>
+              <span>Company &amp; Trust</span>
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
+                <Link href="/team#about" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>About Ashmyra Studio</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/team#leadership" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Leadership &amp; Team</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact?intent=discovery" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Direct Discovery</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
+                </Link>
+              </li>
+              <li>
                 <Link href="/legal/privacy" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Privacy Policy</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/legal/terms" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Terms of Service</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/legal/security" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Security Architecture</span>
+                  <span>Privacy Policy &amp; Terms</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
                 </Link>
               </li>

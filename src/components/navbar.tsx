@@ -192,14 +192,14 @@ export function Navbar() {
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {MAIN_NAV.map((nav) => {
-                const hasItems = nav.items && nav.items.length > 0;
+                const isDropdown = Boolean(nav.items && nav.items.length > 0 && !nav.isDirectLink);
                 const open = activeDD === nav.title;
                 const isSectionActive =
                   nav.href === "/"
                     ? pathname === "/"
                     : pathname.startsWith(nav.href);
 
-                if (hasItems) {
+                if (isDropdown) {
                   return (
                     <div
                       key={nav.title}
@@ -217,6 +217,11 @@ export function Navbar() {
                         aria-expanded={open}
                       >
                         <span>{nav.title}</span>
+                        {nav.badge && (
+                          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 leading-none">
+                            {nav.badge}
+                          </span>
+                        )}
                         <ChevronDown
                           className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
                             open ? "rotate-180 text-indigo-400" : ""
@@ -228,15 +233,13 @@ export function Navbar() {
                       {open && (
                         <div
                           className={`absolute top-full pt-2.5 z-50 animate-fadeIn ${
-                            nav.title === "Products" || nav.title === "Services"
-                              ? "left-1/2 -translate-x-1/2 w-[620px]"
-                              : nav.title === "Solutions" || nav.title === "AI & Automation"
-                              ? "left-1/2 -translate-x-1/2 w-[520px]"
-                              : "right-0 w-[380px]"
+                            nav.title === "Products"
+                              ? "left-1/2 -translate-x-1/2 w-[540px]"
+                              : "right-0 w-[360px]"
                           }`}
                         >
                           <div
-                            className="rounded-2xl p-5 shadow-2xl"
+                            className="rounded-2xl p-4 sm:p-5 shadow-2xl"
                             style={{
                               background: "rgba(7, 9, 16, 0.98)",
                               border: "1px solid rgba(255, 255, 255, 0.1)",
@@ -248,16 +251,8 @@ export function Navbar() {
                             <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
                               <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
                                 {nav.title === "Products"
-                                  ? "Intelligent Software & Platforms"
-                                  : nav.title === "Solutions"
-                                  ? "Enterprise Business Solutions"
-                                  : nav.title === "AI & Automation"
-                                  ? "Autonomous Intelligence & Swarms"
-                                  : nav.title === "Services"
-                                  ? "Core Engineering Capabilities"
-                                  : nav.title === "Our Work"
-                                  ? "Production Systems & Proven Work"
-                                  : "Company & Leadership"}
+                                  ? "Autonomous Systems & Platforms"
+                                  : "Engineering Studio & Leadership"}
                               </span>
                               <Link
                                 href={nav.href}
@@ -272,8 +267,8 @@ export function Navbar() {
                             {/* Dropdown Items Grid */}
                             <div
                               className={`grid gap-1.5 ${
-                                nav.title === "Products" || nav.title === "Services"
-                                  ? "grid-cols-2"
+                                nav.title === "Products"
+                                  ? "grid-cols-1 sm:grid-cols-2"
                                   : "grid-cols-1"
                               }`}
                             >
@@ -300,7 +295,12 @@ export function Navbar() {
                                       </span>
                                       {item.demoUrl && (
                                         <span className="text-[9px] font-mono text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-1.5 py-0.2 rounded shrink-0">
-                                          Live Demo ↗
+                                          Demo ↗
+                                        </span>
+                                      )}
+                                      {item.badge && !item.demoUrl && (
+                                        <span className="text-[9px] font-mono text-indigo-400 bg-indigo-500/10 px-1.5 py-0.2 rounded shrink-0">
+                                          {item.badge}
                                         </span>
                                       )}
                                     </div>
@@ -313,6 +313,23 @@ export function Navbar() {
                                 </Link>
                               ))}
                             </div>
+
+                            {/* Products Bottom Banner */}
+                            {nav.title === "Products" && (
+                              <div className="mt-3 pt-3 border-t border-white/[0.07] px-1 flex items-center justify-between text-[11px] font-mono">
+                                <span className="text-neutral-400">
+                                  Want to test live production sandboxes?
+                                </span>
+                                <Link
+                                  href="/demos"
+                                  onClick={() => setActiveDD(null)}
+                                  className="text-cyan-400 hover:text-cyan-300 font-semibold flex items-center gap-1 transition-colors"
+                                >
+                                  <span>All 5 Live Demos</span>
+                                  <ArrowUpRight className="w-3 h-3" />
+                                </Link>
+                              </div>
+                            )}
                           </div>
                         </div>
                       )}
@@ -332,6 +349,11 @@ export function Navbar() {
                     }`}
                   >
                     <span>{nav.title}</span>
+                    {nav.badge && (
+                      <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-indigo-300 leading-none">
+                        {nav.badge}
+                      </span>
+                    )}
                   </Link>
                 );
               })}
@@ -340,14 +362,14 @@ export function Navbar() {
             {/* Right: CTA & Mobile Hamburger */}
             <div className="flex items-center gap-3">
               <Link
-                href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                href="/contact?intent=discovery"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2 rounded-xl text-xs sm:text-[13px] font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                   boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
                 }}
               >
-                <span>Let&apos;s Build Something</span>
+                <span>Book Discovery</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
@@ -377,10 +399,10 @@ export function Navbar() {
         >
           <div className="px-5 py-6 space-y-3 pb-24">
             {MAIN_NAV.map((nav) => {
-              const hasItems = nav.items && nav.items.length > 0;
+              const isDropdown = Boolean(nav.items && nav.items.length > 0 && !nav.isDirectLink);
               const isOpen = !!mobileSectionOpen[nav.title];
 
-              if (hasItems) {
+              if (isDropdown) {
                 return (
                   <div
                     key={nav.title}
@@ -390,7 +412,14 @@ export function Navbar() {
                       onClick={() => toggleMobileSection(nav.title)}
                       className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-neutral-200 hover:text-white transition-colors"
                     >
-                      <span>{nav.title}</span>
+                      <div className="flex items-center gap-2">
+                        <span>{nav.title}</span>
+                        {nav.badge && (
+                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300">
+                            {nav.badge}
+                          </span>
+                        )}
+                      </div>
                       <ChevronDown
                         className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
                           isOpen ? "rotate-180 text-indigo-400" : ""
@@ -433,7 +462,14 @@ export function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
                 >
-                  <span>{nav.title}</span>
+                  <div className="flex items-center gap-2">
+                    <span>{nav.title}</span>
+                    {nav.badge && (
+                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300">
+                        {nav.badge}
+                      </span>
+                    )}
+                  </div>
                   <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
                 </Link>
               );
@@ -442,14 +478,14 @@ export function Navbar() {
             {/* Mobile CTA */}
             <div className="pt-4">
               <Link
-                href="/contact"
+                href="/contact?intent=discovery"
                 onClick={() => setMobileOpen(false)}
                 className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                 }}
               >
-                <span>Let&apos;s Build Something</span>
+                <span>Book Technical Discovery</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>

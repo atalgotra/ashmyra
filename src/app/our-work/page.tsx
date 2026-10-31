@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CapabilityProof } from "@/components/capability-proof";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CASE_STUDY_PREVIEWS } from "@/data/resources";
 import { ArrowRight, CheckCircle2, Layers, Cpu, Database, ShieldCheck } from "lucide-react";
 
@@ -23,6 +24,11 @@ export default function OurWorkPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(99,102,241,0.09)_0%,transparent_70%)] pointer-events-none" />
         <div className="absolute inset-0 dot-bg opacity-30 pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto px-6">
+          <Breadcrumbs
+            items={[{ label: "Our Work" }]}
+            className="mb-6 justify-center"
+          />
+
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono tracking-widest text-indigo-300 uppercase mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
             Engineering Proof

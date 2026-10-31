@@ -4,12 +4,11 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { MAIN_NAV, NavItem } from "@/data/navigation";
+import { MAIN_NAV, NavSection } from "@/data/navigation";
 import {
   Menu,
   X,
   ChevronDown,
-  Sparkles,
   ArrowRight,
   Cpu,
   Search,
@@ -23,10 +22,7 @@ import {
   ExternalLink,
   ShieldCheck,
   Layers,
-  Mail,
-  MessageSquare,
-  Eye,
-  Activity,
+  Sparkles,
 } from "lucide-react";
 
 export function Navbar() {
@@ -34,23 +30,22 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
-  const [mobileDemosOpen, setMobileDemosOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [activeDD, setActiveDD] = useState<string | null>(null);
   const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
+    const onScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMobileOpen(false);
     setActiveDD(null);
     setMobileProductsOpen(false);
-    setMobileDemosOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -67,34 +62,19 @@ export function Navbar() {
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
     const t = title.toLowerCase();
-    if (t.includes("mailflow") || t.includes("email")) {
-      return <Mail className={cls} style={{ color: "#818cf8" }} />;
-    }
-    if (t.includes("prospect") || t.includes("lead")) {
-      return <Target className={cls} style={{ color: "#06b6d4" }} />;
-    }
-    if (t.includes("omnira")) {
-      return <MessageSquare className={cls} style={{ color: "#10b981" }} />;
-    }
-    if (t.includes("unveil")) {
-      return <Eye className={cls} style={{ color: "#f59e0b" }} />;
-    }
-    if (t.includes("veyrix")) {
-      return <Search className={cls} style={{ color: "#38bdf8" }} />;
-    }
     if (t.includes("seo") || t.includes("search") || t.includes("geo")) {
       return <Search className={cls} style={{ color: "#22d3ee" }} />;
     }
     if (t.includes("hrms") || t.includes("workforce") || t.includes("human")) {
       return <Users className={cls} style={{ color: "#10b981" }} />;
     }
-    if (t.includes("crm") || t.includes("project") || t.includes("target")) {
+    if (t.includes("crm") || t.includes("pipeline") || t.includes("target")) {
       return <Target className={cls} style={{ color: "#f43f5e" }} />;
     }
     if (t.includes("analytics") || t.includes("data")) {
       return <BarChart3 className={cls} style={{ color: "#a78bfa" }} />;
     }
-    if (t.includes("automation") || t.includes("orchestration")) {
+    if (t.includes("automation") || t.includes("orchestrator")) {
       return <Zap className={cls} style={{ color: "#fbbf24" }} />;
     }
     if (t.includes("web") || t.includes("platform")) {
@@ -109,35 +89,40 @@ export function Navbar() {
     return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
   };
 
+  const productsNav = MAIN_NAV.find((n) => n.title === "Products");
+  const servicesNav = MAIN_NAV.find((n) => n.title === "Services");
+
   return (
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 inset-x-0 z-50 transition-all duration-500"
+        className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
         style={{
           background: scrolled
-            ? "rgba(5, 6, 8, 0.96)"
-            : "rgba(5, 6, 8, 0.88)",
-          backdropFilter: "blur(20px) saturate(180%)",
-          WebkitBackdropFilter: "blur(20px) saturate(180%)",
-          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.1)" : "1px solid rgba(255,255,255,0.06)",
-          boxShadow: scrolled ? "0 8px 32px -8px rgba(0,0,0,0.7)" : "0 4px 20px -4px rgba(0,0,0,0.4)",
+            ? "rgba(5, 7, 12, 0.94)"
+            : "rgba(5, 7, 12, 0.82)",
+          backdropFilter: "blur(20px) saturate(160%)",
+          WebkitBackdropFilter: "blur(20px) saturate(160%)",
+          borderBottom: scrolled
+            ? "1px solid rgba(255, 255, 255, 0.08)"
+            : "1px solid rgba(255, 255, 255, 0.05)",
+          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.8)" : "none",
         }}
       >
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-[70px]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-[72px]">
 
             {/* Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl"
+              className="group flex items-center gap-3 focus:outline-none rounded-xl"
+              aria-label="Ashmyra Technologies Home"
             >
               <div
-                className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden p-1 transition-all duration-300 group-hover:scale-105 flex-shrink-0"
+                className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden p-1 transition-transform duration-300 group-hover:scale-105 shrink-0"
                 style={{
-                  background: "rgba(99,102,241,0.15)",
-                  border: "1px solid rgba(99,102,241,0.4)",
-                  boxShadow: "0 0 20px rgba(99,102,241,0.25)",
+                  background: "rgba(99, 102, 241, 0.12)",
+                  border: "1px solid rgba(99, 102, 241, 0.35)",
                 }}
               >
                 <Image
@@ -156,18 +141,23 @@ export function Navbar() {
                 >
                   ASHMYRA
                 </span>
-                <span className="text-[8.5px] tracking-[0.22em] text-indigo-400 uppercase font-mono mt-0.5">
+                <span className="text-[8.5px] tracking-[0.24em] text-neutral-400 uppercase font-mono mt-0.5">
                   Technologies
                 </span>
               </div>
             </Link>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-1 xl:gap-1.5">
+            <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
               {MAIN_NAV.map((nav) => {
-                // Dedicated Dropdown for Try Demo
-                if (nav.title === "Try Demo" && nav.items) {
-                  const open = activeDD === nav.title;
+                const hasItems = nav.items && nav.items.length > 0;
+                const open = activeDD === nav.title;
+                const isSectionActive =
+                  nav.href === "/"
+                    ? pathname === "/"
+                    : pathname.startsWith(nav.href);
+
+                if (hasItems) {
                   return (
                     <div
                       key={nav.title}
@@ -177,138 +167,10 @@ export function Navbar() {
                     >
                       <button
                         onClick={() => setActiveDD(open ? null : nav.title)}
-                        className={`flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
-                          open
-                            ? "text-white bg-white/[0.08]"
-                            : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
-                        }`}
-                        aria-expanded={open}
-                      >
-                        <span>{nav.title}</span>
-                        {nav.badge && (
-                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 uppercase tracking-wider font-bold border border-emerald-500/30 flex items-center gap-1">
-                            <span className="w-1 h-1 rounded-full bg-emerald-400 animate-pulse" />
-                            {nav.badge}
-                          </span>
-                        )}
-                        <ChevronDown
-                          className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
-                            open ? "rotate-180 text-emerald-400" : ""
-                          }`}
-                        />
-                      </button>
-
-                      {open && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[520px] z-50 animate-fadeIn">
-                          <div
-                            className="rounded-3xl p-5 shadow-2xl"
-                            style={{
-                              background: "#07090f",
-                              border: "1px solid rgba(16, 185, 129, 0.25)",
-                              backdropFilter: "blur(32px)",
-                              boxShadow: "0 24px 64px -12px rgba(0,0,0,0.95), 0 0 35px -10px rgba(16, 185, 129, 0.25)",
-                            }}
-                          >
-                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08] px-1">
-                              <div className="flex items-center gap-2">
-                                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                                <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-300 font-bold">
-                                  Live Production Applications
-                                </span>
-                              </div>
-                              <Link
-                                href="/products#try-demo"
-                                onClick={() => setActiveDD(null)}
-                                className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
-                              >
-                                <span>All Demos</span>
-                                <ArrowRight className="w-3 h-3" />
-                              </Link>
-                            </div>
-
-                            <div className="space-y-1.5">
-                              {nav.items.map((item) => (
-                                <a
-                                  key={item.title}
-                                  href={item.href}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  onClick={() => setActiveDD(null)}
-                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.06] transition-all group/demo border border-transparent hover:border-white/[0.08]"
-                                >
-                                  <div
-                                    className="p-2 rounded-lg mt-0.5 transition-all group-hover/demo:scale-105 flex-shrink-0"
-                                    style={{
-                                      background: "rgba(255,255,255,0.04)",
-                                      border: "1px solid rgba(255,255,255,0.08)",
-                                    }}
-                                  >
-                                    {getIcon(item.title)}
-                                  </div>
-                                  <div className="flex-1 min-w-0">
-                                    <div className="flex items-center justify-between">
-                                      <div className="flex items-center gap-1.5">
-                                        <span className="text-[13px] font-bold text-neutral-200 group-hover/demo:text-white transition-colors truncate">
-                                          {item.title}
-                                        </span>
-                                        {item.badge && (
-                                          <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-emerald-500/15 border border-emerald-500/25 text-emerald-300">
-                                            {item.badge}
-                                          </span>
-                                        )}
-                                      </div>
-                                      <ExternalLink className="w-3.5 h-3.5 text-neutral-500 group-hover/demo:text-emerald-400 transition-colors" />
-                                    </div>
-                                    {item.description && (
-                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">
-                                        {item.description}
-                                      </p>
-                                    )}
-                                  </div>
-                                </a>
-                              ))}
-                            </div>
-
-                            <div className="mt-3 pt-3 border-t border-white/[0.07] flex items-center justify-between text-[11px] font-mono text-neutral-400 px-1">
-                              <span className="text-emerald-400 flex items-center gap-1.5">
-                                <Activity className="w-3 h-3" />
-                                Real-Time Production Telemetry
-                              </span>
-                              <Link
-                                href="/products#try-demo"
-                                onClick={() => setActiveDD(null)}
-                                className="text-indigo-300 hover:text-white transition-colors flex items-center gap-1 font-semibold"
-                              >
-                                Deep Dive &amp; Specs →
-                              </Link>
-                            </div>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                }
-
-                // Dropdown for Products & Services
-                if (nav.items) {
-                  const open = activeDD === nav.title;
-                  const isSectionActive = pathname.startsWith("/products") || pathname.startsWith("/services");
-                  const products = nav.items.filter((item) => item.category === "product");
-                  const services = nav.items.filter((item) => item.category === "service");
-
-                  return (
-                    <div
-                      key={nav.title}
-                      className="relative"
-                      onMouseEnter={() => setActiveDD(nav.title)}
-                      onMouseLeave={() => setActiveDD(null)}
-                    >
-                      <button
-                        onClick={() => setActiveDD(open ? null : nav.title)}
-                        className={`flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
+                        className={`flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
                           open || isSectionActive
                             ? "text-white bg-white/[0.08]"
-                            : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
+                            : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
                         }`}
                         aria-expanded={open}
                       >
@@ -320,150 +182,61 @@ export function Navbar() {
                         />
                       </button>
 
-                      {/* Mega-menu dropdown */}
+                      {/* Dropdown Menu */}
                       {open && (
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[780px] z-50 animate-fadeIn">
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2.5 w-[560px] z-50 animate-fadeIn">
                           <div
-                            className="rounded-3xl p-6 shadow-2xl"
+                            className="rounded-2xl p-5 shadow-2xl"
                             style={{
-                              background: "#07090f",
-                              border: "1px solid rgba(255,255,255,0.12)",
-                              backdropFilter: "blur(32px)",
-                              boxShadow: "0 24px 64px -12px rgba(0,0,0,0.95), 0 0 0 1px rgba(99,102,241,0.25)",
+                              background: "rgba(7, 9, 16, 0.98)",
+                              border: "1px solid rgba(255, 255, 255, 0.1)",
+                              backdropFilter: "blur(30px)",
+                              boxShadow: "0 24px 60px -15px rgba(0,0,0,0.9)",
                             }}
                           >
-                            <div className="grid grid-cols-12 gap-6">
+                            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.07] px-1">
+                              <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-semibold">
+                                {nav.title === "Products" ? "Enterprise Software & AI Platforms" : "Engineering Capabilities"}
+                              </span>
+                              <Link
+                                href={nav.href}
+                                onClick={() => setActiveDD(null)}
+                                className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
+                              >
+                                <span>Overview</span>
+                                <ArrowRight className="w-3 h-3" />
+                              </Link>
+                            </div>
 
-                              {/* Left Column: Flagship Products (7 cols) */}
-                              <div className="col-span-7 pr-2 border-r border-white/[0.07]">
-                                <div className="flex items-center justify-between mb-3 px-2">
-                                  <span className="text-[10px] font-mono uppercase tracking-wider text-amber-400 font-bold">
-                                    Flagship AI &amp; SaaS Products
-                                  </span>
-                                  <Link
-                                    href="/products"
-                                    onClick={() => setActiveDD(null)}
-                                    className="text-[11px] font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
-                                  >
-                                    <span>All Products</span>
-                                    <ArrowRight className="w-3 h-3" />
-                                  </Link>
-                                </div>
-
-                                <div className="space-y-1">
-                                  {products.map((item) => (
-                                    <Link
-                                      key={item.title}
-                                      href={item.href}
-                                      onClick={() => setActiveDD(null)}
-                                      className="flex items-start gap-3 p-2 rounded-xl hover:bg-white/[0.05] transition-all group/item"
-                                    >
-                                      <div
-                                        className="p-2 rounded-lg mt-0.5 transition-all group-hover/item:scale-105 flex-shrink-0"
-                                        style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                                      >
-                                        {getIcon(item.title)}
-                                      </div>
-                                      <div className="flex-1 min-w-0">
-                                        <div className="flex items-center gap-1.5">
-                                          <span className="text-[12.5px] font-bold text-neutral-200 group-hover/item:text-white transition-colors truncate">
-                                            {item.title}
-                                          </span>
-                                          {item.badge && (
-                                            <span className="text-[9px] font-mono px-1.5 py-0.2 rounded bg-amber-500/15 border border-amber-500/20 text-amber-300">
-                                              {item.badge}
-                                            </span>
-                                          )}
-                                        </div>
-                                        {item.description && (
-                                          <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">
-                                            {item.description}
-                                          </p>
-                                        )}
-                                      </div>
-                                    </Link>
-                                  ))}
-                                </div>
-                              </div>
-
-                              {/* Right Column: Spotlight & Engineering Services (5 cols) */}
-                              <div className="col-span-5 space-y-4">
-                                {/* Featured Spotlight */}
-                                {nav.featured && (
-                                  <Link
-                                    href={nav.featured.href}
-                                    onClick={() => setActiveDD(null)}
-                                    className="block p-3.5 rounded-2xl group/feat transition-all duration-200 hover:scale-[1.01]"
+                            <div className="grid grid-cols-1 gap-1">
+                              {nav.items?.map((item) => (
+                                <Link
+                                  key={item.title}
+                                  href={item.href}
+                                  onClick={() => setActiveDD(null)}
+                                  className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-white/[0.05] transition-all group/item"
+                                >
+                                  <div
+                                    className="p-2 rounded-lg mt-0.5 transition-transform group-hover/item:scale-105 shrink-0"
                                     style={{
-                                      background: "linear-gradient(135deg, rgba(99,102,241,0.18), rgba(139,92,246,0.1))",
-                                      border: "1px solid rgba(99,102,241,0.35)",
+                                      background: "rgba(255,255,255,0.04)",
+                                      border: "1px solid rgba(255,255,255,0.07)",
                                     }}
                                   >
-                                    <div className="flex items-center gap-2 mb-1">
-                                      <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-                                      <span className="text-xs font-bold text-white">{nav.featured.title}</span>
-                                      <span className="ml-auto text-[9px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/25 text-indigo-300 uppercase font-bold tracking-wider">
-                                        Flagship
-                                      </span>
+                                    {getIcon(item.title)}
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <div className="text-[13px] font-semibold text-neutral-200 group-hover/item:text-white transition-colors truncate">
+                                      {item.title}
                                     </div>
-                                    <p className="text-[11px] text-neutral-300 leading-snug">
-                                      {nav.featured.desc}
-                                    </p>
-                                  </Link>
-                                )}
-
-                                {/* Engineering Services */}
-                                <div>
-                                  <div className="text-[10px] font-mono uppercase tracking-wider text-sky-400 font-bold mb-2 px-1">
-                                    Engineering Services
+                                    {item.description && (
+                                      <p className="text-[11px] text-neutral-400 mt-0.5 line-clamp-1">
+                                        {item.description}
+                                      </p>
+                                    )}
                                   </div>
-                                  <div className="space-y-1">
-                                    {services.map((item) => (
-                                      <Link
-                                        key={item.title}
-                                        href={item.href}
-                                        onClick={() => setActiveDD(null)}
-                                        className="flex items-start gap-2.5 p-2 rounded-xl hover:bg-white/[0.05] transition-all group/svc"
-                                      >
-                                        <div
-                                          className="p-1.5 rounded-lg mt-0.5 flex-shrink-0"
-                                          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}
-                                        >
-                                          {getIcon(item.title)}
-                                        </div>
-                                        <div className="flex-1 min-w-0">
-                                          <div className="flex items-center gap-1.5">
-                                            <span className="text-[12px] font-bold text-neutral-200 group-hover/svc:text-white transition-colors truncate">
-                                              {item.title}
-                                            </span>
-                                          </div>
-                                          {item.description && (
-                                            <p className="text-[10.5px] text-neutral-400 mt-0.5 line-clamp-1">
-                                              {item.description}
-                                            </p>
-                                          )}
-                                        </div>
-                                      </Link>
-                                    ))}
-                                  </div>
-                                </div>
-
-                                {/* Proof Trust Badge */}
-                                <div className="pt-2 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono text-neutral-400 px-1">
-                                  <span className="flex items-center gap-1 text-emerald-400">
-                                    <ShieldCheck className="w-3 h-3" />
-                                    100+ Deliveries
-                                  </span>
-                                  <Link
-                                    href="/services"
-                                    onClick={() => setActiveDD(null)}
-                                    className="text-indigo-300 hover:text-white transition-colors"
-                                  >
-                                    All Services →
-                                  </Link>
-                                </div>
-                              </div>
-
+                                </Link>
+                              ))}
                             </div>
                           </div>
                         </div>
@@ -472,53 +245,42 @@ export function Navbar() {
                   );
                 }
 
-                // Regular Top-Level Nav Links
-                const isItemActive =
-                  nav.href === "/"
-                    ? pathname === "/"
-                    : !nav.href.includes("#") && pathname === nav.href;
-
                 return (
                   <Link
                     key={nav.title}
                     href={nav.href}
                     onClick={() => setActiveDD(null)}
-                    className={`flex items-center gap-1.5 px-3.5 py-2 text-[13px] font-medium rounded-xl transition-all duration-200 ${
-                      isItemActive
+                    className={`px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
+                      isSectionActive
                         ? "text-white bg-white/[0.08]"
-                        : "text-neutral-300 hover:text-white hover:bg-white/[0.05]"
+                        : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
                     }`}
                   >
-                    <span>{nav.title}</span>
-                    {nav.badge && (
-                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 uppercase tracking-wider font-bold">
-                        {nav.badge}
-                      </span>
-                    )}
+                    {nav.title}
                   </Link>
                 );
               })}
             </nav>
 
-            {/* CTA + Mobile Menu Button */}
+            {/* Right: CTA & Mobile Hamburger */}
             <div className="flex items-center gap-3">
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.97]"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
-                  boxShadow: "0 0 0 1px rgba(99,102,241,0.5), 0 4px 20px -4px rgba(99,102,241,0.5)",
+                  boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
                 }}
               >
                 <span>Start a Conversation</span>
-                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
 
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-xl text-neutral-400 hover:text-white transition-colors"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)" }}
-                aria-label="Toggle menu"
+                className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white transition-colors"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+                aria-label="Toggle navigation menu"
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
@@ -531,273 +293,147 @@ export function Navbar() {
       {/* Mobile Navigation Drawer */}
       {mobileOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-40 flex flex-col pt-[72px]"
+          className="lg:hidden fixed inset-0 z-40 flex flex-col pt-20"
           style={{
-            background: "rgba(5, 6, 8, 0.98)",
+            background: "rgba(5, 7, 12, 0.98)",
             backdropFilter: "blur(24px)",
             WebkitBackdropFilter: "blur(24px)",
           }}
         >
-          {/* Ambient Lighting Blooms */}
-          <div className="absolute top-0 right-0 w-[75vw] h-[260px] pointer-events-none bg-[radial-gradient(ellipse_at_top_right,rgba(99,102,241,0.18),transparent_70%)]" />
-          <div className="absolute bottom-10 left-0 w-[60vw] h-[220px] pointer-events-none bg-[radial-gradient(ellipse_at_bottom_left,rgba(34,211,238,0.1),transparent_70%)]" />
+          <nav className="flex-1 overflow-y-auto px-5 py-6 space-y-2">
 
-          <nav className="relative z-10 flex-1 overflow-y-auto px-5 py-5 space-y-2.5">
-            {/* 01: Home */}
-            <Link
-              href="/"
-              onClick={() => setMobileOpen(false)}
-              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                pathname === "/"
-                  ? "text-white bg-indigo-500/15 border border-indigo-500/35 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
-                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-                  <Sparkles className="w-4 h-4" />
-                </div>
-                <span>Home</span>
-              </div>
-              <span className="text-[11px] text-neutral-500 font-mono">01</span>
-            </Link>
-
-            {/* 02: Our Team */}
-            <Link
-              href="/team"
-              onClick={() => setMobileOpen(false)}
-              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                pathname === "/team"
-                  ? "text-white bg-indigo-500/15 border border-indigo-500/35 shadow-[0_0_20px_rgba(99,102,241,0.2)]"
-                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
-              }`}
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-indigo-400">
-                  <Users className="w-4 h-4" />
-                </div>
-                <span>Our Team</span>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
-                Leadership
-              </span>
-            </Link>
-
-            {/* 03: Products & Services Accordion */}
-            <div className="rounded-2xl border border-white/[0.08] bg-white/[0.02] overflow-hidden transition-all">
+            {/* Products Accordion */}
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
               <button
                 type="button"
                 onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
-                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white hover:bg-white/[0.03] transition-colors"
+                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-                    <Bot className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="text-sm font-semibold text-white">Products &amp; Services</div>
-                    <div className="text-[11px] text-neutral-400 font-mono">10 AI &amp; Enterprise Solutions</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-purple-500/15 text-purple-300 border border-purple-500/25">
-                    {mobileProductsOpen ? "Hide" : "Explore"}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-neutral-400 transition-transform duration-300 ${
-                      mobileProductsOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
+                <span>Products</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-neutral-400 transition-transform ${
+                    mobileProductsOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-
               {mobileProductsOpen && (
-                <div className="px-3 pb-3 pt-1 space-y-3 border-t border-white/[0.06] bg-black/40">
-                  {/* Flagship Products */}
-                  <div>
-                    <div className="text-[10px] font-mono tracking-wider uppercase text-indigo-400 font-semibold px-2 py-1.5 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                      Flagship Products
-                    </div>
-                    <div className="space-y-1">
-                      {MAIN_NAV.find((n) => n.title === "Products & Services")?.items
-                        ?.filter((i) => i.category === "product")
-                        .map((prod) => (
-                          <Link
-                            key={prod.title}
-                            href={prod.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between p-2 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.05] transition-all"
-                          >
-                            <div className="flex items-center gap-2.5">
-                              {getIcon(prod.title)}
-                              <span className="font-medium text-neutral-200">{prod.title}</span>
-                            </div>
-                            {prod.badge && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-white/[0.05] text-neutral-400 border border-white/[0.06]">
-                                {prod.badge}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                    </div>
-                  </div>
-
-                  {/* Engineering Services */}
-                  <div className="pt-2 border-t border-white/[0.06]">
-                    <div className="text-[10px] font-mono tracking-wider uppercase text-cyan-400 font-semibold px-2 py-1.5 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                      Engineering Services
-                    </div>
-                    <div className="space-y-1">
-                      {MAIN_NAV.find((n) => n.title === "Products & Services")?.items
-                        ?.filter((i) => i.category === "service")
-                        .map((svc) => (
-                          <Link
-                            key={svc.title}
-                            href={svc.href}
-                            onClick={() => setMobileOpen(false)}
-                            className="flex items-center justify-between p-2 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.05] transition-all"
-                          >
-                            <div className="flex items-center gap-2.5">
-                              {getIcon(svc.title)}
-                              <span className="font-medium text-neutral-200">{svc.title}</span>
-                            </div>
-                            {svc.badge && (
-                              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">
-                                {svc.badge}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                    </div>
-                  </div>
+                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
+                  {productsNav?.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
+                    >
+                      <div className="font-medium text-white">{item.title}</div>
+                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
+                    </Link>
+                  ))}
+                  <Link
+                    href="/products"
+                    onClick={() => setMobileOpen(false)}
+                    className="block pt-2 text-xs font-mono text-indigo-300"
+                  >
+                    All Products →
+                  </Link>
                 </div>
               )}
             </div>
 
-            {/* 04: Try Demo Accordion */}
-            <div className="rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.03] overflow-hidden transition-all">
+            {/* Solutions */}
+            <Link
+              href="/solutions"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
+            >
+              <span>Solutions</span>
+              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
+            </Link>
+
+            {/* AI */}
+            <Link
+              href="/products/ai"
+              onClick={() => setMobileOpen(false)}
+              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
+            >
+              <span>AI</span>
+              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
+            </Link>
+
+            {/* Services Accordion */}
+            <div className="rounded-xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
               <button
                 type="button"
-                onClick={() => setMobileDemosOpen(!mobileDemosOpen)}
-                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white hover:bg-white/[0.03] transition-colors"
+                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                className="w-full flex items-center justify-between px-4 py-3.5 text-left text-sm font-semibold text-white"
               >
-                <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-xl bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                    <Zap className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm font-semibold text-white">Try Demo</span>
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                    </div>
-                    <div className="text-[11px] text-emerald-300/80 font-mono">4 Live Working Platforms</div>
-                  </div>
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/25">
-                    {mobileDemosOpen ? "Hide" : "Launch"}
-                  </span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-neutral-400 transition-transform duration-300 ${
-                      mobileDemosOpen ? "rotate-180" : ""
-                    }`}
-                  />
-                </div>
+                <span>Services</span>
+                <ChevronDown
+                  className={`w-4 h-4 text-neutral-400 transition-transform ${
+                    mobileServicesOpen ? "rotate-180" : ""
+                  }`}
+                />
               </button>
-
-              {mobileDemosOpen && (
-                <div className="px-3 pb-3 pt-1 space-y-2 border-t border-white/[0.06] bg-black/40">
-                  <div className="space-y-1">
-                    {[
-                      { title: "Ashmyra MailFlow", href: "https://mailflow.ashmyra.com/", desc: "Cold email & deliverability", badge: "Email AI" },
-                      { title: "Prospect IQ", href: "https://prospectiq.ashmyra.com/", desc: "B2B leads & ICP discovery", badge: "Leads" },
-                      { title: "Omnira", href: "https://omnira.ashmyra.com/", desc: "Omnichannel customer AI", badge: "Omni" },
-                      { title: "Ashmyra Unveil", href: "https://unveil.ashmyra.com/", desc: "GEO & brand search radar", badge: "GEO" },
-                      { title: "Veyrix", href: "https://veyrix.ashmyra.com/", desc: "Search intel & deep spider", badge: "Search" },
-                    ].map((demo) => (
-                      <a
-                        key={demo.title}
-                        href={demo.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setMobileOpen(false)}
-                        className="flex items-center justify-between p-2.5 rounded-xl text-xs text-neutral-300 hover:text-white hover:bg-white/[0.06] transition-all border border-transparent hover:border-white/[0.08]"
-                      >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          {getIcon(demo.title)}
-                          <div className="min-w-0">
-                            <div className="font-semibold text-neutral-200 truncate">{demo.title}</div>
-                            <div className="text-[10px] text-neutral-400 truncate">{demo.desc}</div>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                          <span className="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
-                            {demo.badge}
-                          </span>
-                          <ExternalLink className="w-3 h-3 text-neutral-500" />
-                        </div>
-                      </a>
-                    ))}
-                  </div>
-                  <div className="pt-2 border-t border-white/[0.06]">
+              {mobileServicesOpen && (
+                <div className="px-3 pb-3 space-y-1 border-t border-white/[0.06] pt-2">
+                  {servicesNav?.items?.map((item) => (
                     <Link
-                      href="/products#try-demo"
+                      key={item.title}
+                      href={item.href}
                       onClick={() => setMobileOpen(false)}
-                      className="flex items-center justify-center gap-1.5 py-2 text-xs font-mono text-indigo-300 hover:text-white transition-colors"
+                      className="block p-2 rounded-lg text-xs text-neutral-300 hover:text-white hover:bg-white/[0.04]"
                     >
-                      <span>Explore Demos &amp; Architecture</span>
-                      <ArrowRight className="w-3 h-3" />
+                      <div className="font-medium text-white">{item.title}</div>
+                      <div className="text-[11px] text-neutral-400 mt-0.5">{item.description}</div>
                     </Link>
-                  </div>
+                  ))}
+                  <Link
+                    href="/services"
+                    onClick={() => setMobileOpen(false)}
+                    className="block pt-2 text-xs font-mono text-indigo-300"
+                  >
+                    All Services →
+                  </Link>
                 </div>
               )}
             </div>
 
-            {/* 05: Our Work */}
+            {/* Work */}
             <Link
               href="/our-work"
               onClick={() => setMobileOpen(false)}
-              className={`flex items-center justify-between px-4 py-3.5 rounded-2xl text-sm font-semibold transition-all ${
-                pathname === "/our-work"
-                  ? "text-white bg-cyan-500/15 border border-cyan-500/35 shadow-[0_0_20px_rgba(34,211,238,0.2)]"
-                  : "text-neutral-300 hover:text-white bg-white/[0.03] border border-white/[0.07]"
-              }`}
+              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
             >
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
-                  <Layers className="w-4 h-4" />
-                </div>
-                <span>Our Work</span>
-              </div>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 border border-cyan-500/30">
-                Proof
-              </span>
+              <span>Work</span>
+              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
-          </nav>
 
-          {/* Bottom Action Drawer with Safe-Area Padding */}
-          <div className="relative z-10 p-5 border-t border-white/[0.08] bg-[#050608]/95 pb-[max(1.5rem,env(safe-area-inset-bottom))] space-y-3">
+            {/* Company */}
             <Link
-              href="/contact"
+              href="/team"
               onClick={() => setMobileOpen(false)}
-              className="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-2xl text-sm font-semibold text-white transition-all shadow-[0_8px_32px_-8px_rgba(99,102,241,0.6)]"
-              style={{
-                background: "linear-gradient(135deg, #6366f1, #818cf8)",
-              }}
+              className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
             >
-              <span>Start a Conversation</span>
-              <ArrowRight className="w-4 h-4" />
+              <span>Company</span>
+              <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
 
-            <div className="flex items-center justify-between text-[11px] font-mono text-neutral-500 px-2">
-              <span>Delhi NCR, India</span>
-              <a href="mailto:info@ashmyra.com" className="hover:text-indigo-400 transition-colors">
-                info@ashmyra.com
-              </a>
+            {/* CTA */}
+            <div className="pt-4">
+              <Link
+                href="/contact"
+                onClick={() => setMobileOpen(false)}
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white"
+                style={{
+                  background: "linear-gradient(135deg, #6366f1, #818cf8)",
+                }}
+              >
+                <span>Start a Conversation</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-          </div>
+
+          </nav>
         </div>
       )}
     </>

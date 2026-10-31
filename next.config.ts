@@ -18,6 +18,11 @@ const nextConfig: NextConfig = {
         destination: "/demos",
         permanent: true,
       },
+      {
+        source: "/work",
+        destination: "/our-work",
+        permanent: true,
+      },
     ];
   },
 };

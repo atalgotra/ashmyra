@@ -10,8 +10,8 @@ LIVE DEMOS: https://www.ashmyra.com/demos
 EMAIL: info@ashmyra.com
 PHONE: +91-9873746467
 
-FOUNDER: Ashish Talgotra (Founder & Lead AI Architect, 14+ years AI/data systems, LinkedIn: https://www.linkedin.com/in/atalgotra/, GitHub: https://github.com/atalgotra)
-CO-FOUNDER: Swati Arora (Co-Founder & Business Strategy)
+FOUNDER: Swati Arora
+AI ENGINEER / DATA SCIENTIST: Ashish Talgotra (Autonomous multi-agent systems, real-time data pipelines, LinkedIn: https://www.linkedin.com/in/atalgotra/, GitHub: https://github.com/atalgotra)
 HEAD OF IT & SOFTWARE: Prince Rehan (Head - IT & Software Development)
 
 LIVE PRODUCTION DEMOS:

@@ -16,17 +16,17 @@
 
 ## Executive Leadership
 
-**Founder & Lead AI Architect**: Ashish Talgotra
-- 14+ years of applied AI, distributed systems, and data engineering expertise
-- LinkedIn: https://www.linkedin.com/in/atalgotra/
-- GitHub: https://github.com/atalgotra
-- Core Specialization: Autonomous Agent Swarms, LLM Telemetry, High-Throughput Pipelines
-
-**Co-Founder & Business Strategy**: Swati Arora
+**Founder**: Swati Arora
 - Leads enterprise business operations, strategic partnerships, and global go-to-market
 
+**AI Engineer / Data Scientist**: Ashish Talgotra
+- Specializes in autonomous multi-agent systems, LLM orchestration, and high-throughput real-time data pipelines
+- LinkedIn: https://www.linkedin.com/in/atalgotra/
+- GitHub: https://github.com/atalgotra
+
 **Head - IT & Software Development**: Prince Rehan
-- Directs cloud systems architecture, enterprise infrastructure, and full-stack software delivery
+- Directs cloud systems architecture, enterprise infrastructure, and software delivery
+
 
 ## Mission & Architectural Philosophy
 

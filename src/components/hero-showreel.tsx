@@ -303,25 +303,33 @@ export function AshmyraHeroShowreel() {
           {/* ── Frosted-Glass Floating Media Dock (Bottom Right) ──────────── */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-black/60 hover:bg-black/80 border border-white/15 backdrop-blur-xl shadow-2xl transition-all"
+            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-black/65 hover:bg-black/85 border border-white/20 backdrop-blur-xl shadow-2xl transition-all"
           >
             {/* Audio Toggle */}
             <button
               onClick={toggleMute}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
+              className="relative p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
               aria-label={isMuted ? "Unmute showreel audio" : "Mute showreel audio"}
               title={isMuted ? "Unmute audio" : "Mute audio"}
             >
-              {isMuted ? <VolumeX className="w-3.5 h-3.5 text-neutral-400" /> : <Volume2 className="w-3.5 h-3.5 text-indigo-400" />}
+              {isMuted ? (
+                <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
+              ) : (
+                <>
+                  <Volume2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span className="absolute top-1 right-1 w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                </>
+              )}
             </button>
 
-            <span className="w-[1px] h-3.5 bg-white/15" />
+            <span className="w-[1px] h-3.5 bg-white/20" />
 
             {/* Prev */}
             <button
               onClick={handlePrev}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
-              aria-label="Previous clip"
+              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              aria-label="Previous capability"
+              title="Previous capability"
             >
               <ChevronLeft className="w-3.5 h-3.5" />
             </button>
@@ -329,8 +337,9 @@ export function AshmyraHeroShowreel() {
             {/* Pause / Play */}
             <button
               onClick={togglePlay}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-200 hover:text-white hover:bg-white/10 transition-colors"
-              aria-label={isPlaying ? "Pause" : "Play"}
+              className="p-1.5 sm:p-2 rounded-full text-neutral-200 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              aria-label={isPlaying ? "Pause playback" : "Resume playback"}
+              title={isPlaying ? "Pause playback" : "Resume playback"}
             >
               {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
             </button>
@@ -338,76 +347,90 @@ export function AshmyraHeroShowreel() {
             {/* Next */}
             <button
               onClick={handleNext}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 transition-colors"
-              aria-label="Next clip"
+              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              aria-label="Next capability"
+              title="Next capability"
             >
               <ChevronRight className="w-3.5 h-3.5" />
             </button>
           </div>
         </div>
 
-        {/* ── Slide Progress Bar ────────────────────────────────────────── */}
-        <div className="w-full h-1 bg-white/[0.06] relative overflow-hidden">
-          <div
-            className="h-full transition-all duration-75 ease-linear"
-            style={{
-              width: `${progress}%`,
-              background: `linear-gradient(90deg, ${currentClip.accent}, #ffffff)`,
-              boxShadow: `0 0 10px ${currentClip.accent}`,
-            }}
-          />
-        </div>
-
-        {/* ── Bottom 7-Segment Selector: ALL 7 VISIBLE WITHOUT SCROLLING ──── */}
+        {/* ── Bottom 7-Segment Expanding Accordion Selector ──────────────── */}
         <div
-          className="p-2 sm:p-2.5 border-t"
+          className="p-2 sm:p-2.5 border-t border-white/[0.08] backdrop-blur-md"
           style={{
-            borderColor: "rgba(255, 255, 255, 0.07)",
             background: "rgba(0, 0, 0, 0.45)",
           }}
         >
-          <div className="grid grid-cols-7 gap-1 sm:gap-1.5 w-full">
+          <div className="flex items-center gap-1.5 sm:gap-2 w-full">
             {SHOWREEL_CLIPS.map((clip, idx) => {
               const isActive = idx === currentIndex;
               return (
                 <button
                   key={clip.id}
                   onClick={() => goToSlide(idx)}
-                  className={`group relative flex flex-col items-center justify-center py-2 sm:py-2.5 px-1 rounded-xl transition-all duration-200 ${
+                  className={`group relative flex items-center justify-center py-2 sm:py-2.5 rounded-xl transition-all duration-300 ease-out select-none ${
                     isActive
-                      ? "bg-white/[0.12] text-white shadow-sm"
-                      : "bg-white/[0.02] hover:bg-white/[0.06] text-neutral-400 hover:text-neutral-200"
+                      ? "flex-[2.4] sm:flex-[2.8] px-2.5 sm:px-3 bg-white/[0.10] text-white shadow-lg overflow-hidden"
+                      : "flex-1 px-1 sm:px-2 bg-white/[0.02] hover:bg-white/[0.07] text-neutral-400 hover:text-neutral-200"
                   }`}
                   style={{
                     border: isActive
-                      ? `1px solid ${clip.accent}77`
-                      : "1px solid rgba(255, 255, 255, 0.05)",
+                      ? `1px solid ${clip.accent}88`
+                      : "1px solid rgba(255, 255, 255, 0.06)",
+                    boxShadow: isActive ? `0 0 20px -5px ${clip.accentGlow}` : "none",
                   }}
+                  aria-label={`Select showreel clip ${clip.num}: ${clip.title}`}
                 >
-                  {/* Number & Dot */}
-                  <div className="flex items-center gap-1 leading-none mb-0.5">
-                    <span
-                      className="w-1.5 h-1.5 rounded-full shrink-0"
-                      style={{
-                        background: isActive ? clip.accent : "rgba(255,255,255,0.2)",
-                      }}
-                    />
-                    <span className="text-[10px] sm:text-[11px] font-mono font-bold">
-                      {clip.num}
-                    </span>
+                  {/* Micro-Tooltip for Segments (visible on hover) */}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 whitespace-nowrap px-2.5 py-1 rounded-lg bg-neutral-900/95 border border-white/20 text-[10px] font-mono text-neutral-200 shadow-xl backdrop-blur-md -translate-y-1 group-hover:translate-y-0">
+                    <span className="font-bold text-white">{clip.num}</span> · {clip.shortLabel}
                   </div>
 
-                  {/* Short Label (Responsive) */}
-                  <span className="text-[9px] sm:text-[10px] font-mono uppercase tracking-tight truncate max-w-full hidden xs:inline">
-                    {clip.shortLabel}
-                  </span>
+                  {/* Button Content */}
+                  {isActive ? (
+                    /* Active Expanded Layout */
+                    <div className="flex items-center justify-center gap-1.5 leading-none w-full min-w-0">
+                      <span
+                        className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0 animate-pulse"
+                        style={{ background: clip.accent }}
+                      />
+                      <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-tight text-white shrink-0">
+                        {clip.num}
+                      </span>
+                      <span className="text-neutral-500 font-mono text-[9px] shrink-0">·</span>
+                      <span className="text-[9.5px] sm:text-[10.5px] font-mono font-semibold uppercase tracking-tight text-white truncate">
+                        {clip.shortLabel}
+                      </span>
+                    </div>
+                  ) : (
+                    /* Inactive Compact Layout */
+                    <div className="flex items-center justify-center gap-1 leading-none w-full">
+                      <span
+                        className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors group-hover:bg-white/60"
+                        style={{
+                          background: "rgba(255, 255, 255, 0.22)",
+                        }}
+                      />
+                      <span className="text-[10px] sm:text-[11px] font-mono font-medium">
+                        {clip.num}
+                      </span>
+                    </div>
+                  )}
 
-                  {/* Active segment bottom micro-glow */}
+                  {/* Active Segment Integrated Story Progress Bar */}
                   {isActive && (
-                    <div
-                      className="absolute bottom-0 inset-x-2 h-[2px] rounded-full"
-                      style={{ background: clip.accent, boxShadow: `0 0 8px ${clip.accent}` }}
-                    />
+                    <div className="absolute bottom-0 inset-x-0 h-[2.5px] bg-white/10 overflow-hidden rounded-b-xl">
+                      <div
+                        className="h-full transition-all duration-75 ease-linear"
+                        style={{
+                          width: `${progress}%`,
+                          background: `linear-gradient(90deg, ${clip.accent}, #ffffff)`,
+                          boxShadow: `0 0 10px ${clip.accent}`,
+                        }}
+                      />
+                    </div>
                   )}
                 </button>
               );

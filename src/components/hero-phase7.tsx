@@ -173,22 +173,36 @@ export function HeroPhase7() {
               </Link>
             </div>
 
-            {/* Three Concise Capability Labels */}
+            {/* Three Concise Capability Labels (Zero Truncation) */}
             <div
               ref={capabilitiesRef}
-              className="pt-6 border-t border-white/[0.08] grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 text-xs font-mono"
+              className="pt-6 border-t border-white/[0.08]"
             >
-              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
-                <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                <span className="text-neutral-300 font-medium truncate">Agentic AI</span>
+              <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-mono">
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+                  <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                  <span className="text-neutral-200 font-medium">Agentic AI Systems</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-cyan-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+                  <Database className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
+                  <span className="text-neutral-200 font-medium">Data Intelligence</span>
+                </div>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-purple-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">
+                  <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
+                  <span className="text-neutral-200 font-medium">Enterprise Software</span>
+                </div>
               </div>
-              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
-                <Database className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                <span className="text-neutral-300 font-medium truncate">Data Systems</span>
-              </div>
-              <div className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
-                <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                <span className="text-neutral-300 font-medium truncate">Enterprise SaaS</span>
+
+              {/* Enterprise Credibility Status Strip */}
+              <div className="mt-4 flex items-center gap-3 text-[11px] font-mono text-neutral-400">
+                <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  Production Deployed
+                </span>
+                <span className="text-neutral-600">·</span>
+                <span>Sub-100ms Agent Latency</span>
+                <span className="text-neutral-600 hidden xs:inline">·</span>
+                <span className="hidden xs:inline">Global Multi-Cloud</span>
               </div>
             </div>
 

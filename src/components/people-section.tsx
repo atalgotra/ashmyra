@@ -4,9 +4,6 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ShieldCheck,
-  Cpu,
-  Zap,
   ArrowUpRight,
   Terminal,
   Code2,
@@ -16,30 +13,6 @@ import {
 /* ─────────────────────────────────────────────────────────────────────────── */
 /*  Data                                                                      */
 /* ─────────────────────────────────────────────────────────────────────────── */
-
-const PRINCIPLES = [
-  {
-    icon: Cpu,
-    title: "Applied Intelligence Over Toys",
-    desc: "Zero speculative demos. Every system is engineered to integrate with live enterprise data layers, APIs, and operational workflows.",
-    accent: "#818cf8",
-    accentRgb: "129, 140, 248",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Deterministic Guardrails",
-    desc: "Autonomous multi-agent loops governed by strict schema validation, auditable execution traces, and human-in-the-loop controls.",
-    accent: "#22d3ee",
-    accentRgb: "34, 211, 238",
-  },
-  {
-    icon: Zap,
-    title: "Extreme Execution Velocity",
-    desc: "Engineering practitioners design and deploy architecture directly. We move platforms from specification to live production with speed.",
-    accent: "#a78bfa",
-    accentRgb: "167, 139, 250",
-  },
-];
 
 const LEADERS = [
   {
@@ -173,7 +146,7 @@ export function PeopleSection() {
         </div>
 
         {/* ── Leadership & Team Cards (Balanced 3-Column Grid) ─────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {LEADERS.map((leader) => {
             const FooterIcon = leader.FooterIcon;
             const isFounder = leader.num === "01";
@@ -334,49 +307,6 @@ export function PeopleSection() {
             );
           })}
         </div>
-
-        {/* ── Engineering Tenets ─────────────────────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
-          {PRINCIPLES.map((item) => {
-            const Icon = item.icon;
-            return (
-              <div
-                key={item.title}
-                className="group relative p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] hover:border-white/[0.16] transition-all duration-300 hover:-translate-y-1"
-              >
-                {/* Top Subtle Hairline */}
-                <div
-                  className="absolute top-0 inset-x-6 h-[1px] opacity-25 group-hover:opacity-80 transition-opacity"
-                  style={{
-                    background: `linear-gradient(90deg, transparent, ${item.accent}, transparent)`,
-                  }}
-                />
-
-                <div className="flex items-center gap-3.5 mb-3.5">
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110"
-                    style={{
-                      background: `rgba(${item.accentRgb}, 0.12)`,
-                      border: `1px solid rgba(${item.accentRgb}, 0.3)`,
-                    }}
-                  >
-                    <Icon className="w-5 h-5" style={{ color: item.accent }} />
-                  </div>
-                  <h4
-                    className="text-base font-bold text-white tracking-tight"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                  >
-                    {item.title}
-                  </h4>
-                </div>
-                <p className="text-xs sm:text-[13px] text-neutral-400 leading-relaxed font-sans">
-                  {item.desc}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
       </div>
     </section>
   );

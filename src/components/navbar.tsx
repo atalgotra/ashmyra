@@ -253,13 +253,18 @@ export function Navbar() {
                     key={nav.title}
                     href={nav.href}
                     onClick={() => setActiveDD(null)}
-                    className={`px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
+                    className={`inline-flex items-center gap-1.5 px-3.5 py-2 text-[13.5px] font-medium rounded-xl transition-all duration-200 ${
                       isSectionActive
                         ? "text-white bg-white/[0.08]"
                         : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
                     }`}
                   >
-                    {nav.title}
+                    <span>{nav.title}</span>
+                    {nav.badge && (
+                      <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 uppercase tracking-wider font-semibold">
+                        {nav.badge}
+                      </span>
+                    )}
                   </Link>
                 );
               })}
@@ -457,13 +462,18 @@ export function Navbar() {
               <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
 
-            {/* Company */}
+            {/* Our Team */}
             <Link
               href="/team"
               onClick={() => setMobileOpen(false)}
               className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08]"
             >
-              <span>Company</span>
+              <div className="flex items-center gap-2">
+                <span>Our Team</span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                  Leadership
+                </span>
+              </div>
               <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
             </Link>
 

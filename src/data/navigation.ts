@@ -8,6 +8,7 @@ export interface NavItem {
 export interface NavSection {
   title: string;
   href: string;
+  badge?: string;
   featured?: {
     title: string;
     desc: string;
@@ -149,7 +150,8 @@ export const MAIN_NAV: NavSection[] = [
     href: "/our-work",
   },
   {
-    title: "Company",
+    title: "Our Team",
     href: "/team",
+    badge: "Leadership",
   },
 ];

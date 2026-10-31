@@ -11,6 +11,7 @@ import {
   Layers,
   Terminal,
   Code2,
+  Heart,
 } from "lucide-react";
 
 /* ─────────────────────────────────────────────────────────────────────────── */
@@ -44,23 +45,6 @@ const PRINCIPLES = [
 const LEADERS = [
   {
     num: "01",
-    name: "Swati Arora",
-    title: "Founder",
-    roleSubtitle: "Business Strategy & Operations",
-    bio: "Leads executive leadership, commercial direction, and enterprise partnerships. Ensures every Ashmyra engagement delivers measurable business return, reliable execution, and sustainable operational acceleration.",
-    skills: ["Enterprise Strategy", "Commercial Scale", "Strategic Alliances", "Operations Leadership"],
-    accent: "#22d3ee",
-    accentRgb: "34,211,238",
-    photo: null,
-    photoPosition: "object-center",
-    linkedin: null,
-    monogram: "SA",
-    roleBadge: "Founder",
-    FooterIcon: Layers,
-    footerLabel: "Executive Leadership",
-  },
-  {
-    num: "02",
     name: "Ashish Talgotra",
     title: "AI Engineer / Data Scientist",
     roleSubtitle: "Systems & Data Architecture",
@@ -77,7 +61,41 @@ const LEADERS = [
     footerLabel: "AI & Data Architecture",
   },
   {
+    num: "02",
+    name: "Bella",
+    title: "Chief Happiness Officer",
+    roleSubtitle: "Morale & Stress De-escalation",
+    bio: "Head of office morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    skills: ["Morale Optimization", "Stress De-escalation", "Treat Auditing", "Zero-Bug Mascot"],
+    accent: "#fb7185",
+    accentRgb: "251,113,133",
+    photo: "/team/bella.png",
+    photoPosition: "object-top",
+    linkedin: null,
+    monogram: null,
+    roleBadge: "Office Pup 🐾",
+    FooterIcon: Heart,
+    footerLabel: "Chief Happiness & Morale",
+  },
+  {
     num: "03",
+    name: "Swati Arora",
+    title: "Founder",
+    roleSubtitle: "Business Strategy & Operations",
+    bio: "Leads executive leadership, commercial direction, and enterprise partnerships. Ensures every Ashmyra engagement delivers measurable business return, reliable execution, and sustainable operational acceleration.",
+    skills: ["Enterprise Strategy", "Commercial Scale", "Strategic Alliances", "Operations Leadership"],
+    accent: "#22d3ee",
+    accentRgb: "34,211,238",
+    photo: null,
+    photoPosition: "object-center",
+    linkedin: null,
+    monogram: "SA",
+    roleBadge: "Founder",
+    FooterIcon: Layers,
+    footerLabel: "Executive Leadership",
+  },
+  {
+    num: "04",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
@@ -124,7 +142,7 @@ export function PeopleSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-16 sm:pt-20 pb-20 sm:pb-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-16 sm:pt-20 pb-20 sm:pb-28">
 
         {/* ── Section Header ─────────────────────────────────────────────── */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 sm:mb-16">
@@ -158,8 +176,8 @@ export function PeopleSection() {
           </p>
         </div>
 
-        {/* ── Leadership Cards (3-Column Grid) ──────────────────────────── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 mb-12">
+        {/* ── Leadership & Team Cards (4-Column Grid) ─────────────────────── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {LEADERS.map((leader) => {
             const FooterIcon = leader.FooterIcon;
             return (
@@ -181,8 +199,8 @@ export function PeopleSection() {
                         src={leader.photo}
                         alt={leader.name}
                         fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={leader.num === "02"}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                        priority={leader.num === "01" || leader.num === "02"}
                         className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                       />
                       <div
@@ -253,10 +271,10 @@ export function PeopleSection() {
                 </div>
 
                 {/* Info Panel */}
-                <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
+                <div className="flex flex-col flex-1 px-5 sm:px-6 pb-6 pt-3">
                   <div className="mb-3">
                     <h3
-                      className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug"
+                      className="text-lg sm:text-xl font-bold text-white tracking-tight leading-snug"
                       style={{ fontFamily: "'Space Grotesk', sans-serif" }}
                     >
                       {leader.name}
@@ -272,7 +290,7 @@ export function PeopleSection() {
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-[12.5px] text-neutral-300 leading-relaxed font-sans mb-4 flex-1">
+                  <p className="text-xs text-neutral-300 leading-relaxed font-sans mb-4 flex-1">
                     {leader.bio}
                   </p>
 
@@ -281,7 +299,7 @@ export function PeopleSection() {
                     {leader.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2.5 py-1 rounded-md text-[10px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08]"
+                        className="px-2 py-0.5 rounded-md text-[10px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08]"
                       >
                         {skill}
                       </span>
@@ -303,13 +321,20 @@ export function PeopleSection() {
                         href={leader.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all shrink-0"
+                        className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all shrink-0"
                       >
                         <span>LinkedIn</span>
                         <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400" />
                       </Link>
                     ) : (
-                      <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-neutral-400 shrink-0">
+                      <span
+                        className="text-[10px] font-mono px-2 py-0.5 rounded shrink-0 font-medium"
+                        style={{
+                          color: leader.accent,
+                          background: `rgba(${leader.accentRgb}, 0.1)`,
+                          border: `1px solid rgba(${leader.accentRgb}, 0.22)`,
+                        }}
+                      >
                         {leader.roleBadge}
                       </span>
                     )}

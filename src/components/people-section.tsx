@@ -227,20 +227,6 @@ export function PeopleSection() {
                     }}
                   />
 
-                  {/* Top Left: Number Badge */}
-                  <div className="absolute top-4 left-4 z-10">
-                    <span
-                      className="text-[10px] font-mono font-semibold tracking-widest px-2.5 py-1 rounded-md"
-                      style={{
-                        color: leader.accent,
-                        background: "rgba(7, 9, 16, 0.8)",
-                        border: "1px solid rgba(255, 255, 255, 0.12)",
-                        backdropFilter: "blur(10px)",
-                      }}
-                    >
-                      {leader.num}
-                    </span>
-                  </div>
 
                   {/* Top Right: Role Badge */}
                   <div className="absolute top-4 right-4 z-10">

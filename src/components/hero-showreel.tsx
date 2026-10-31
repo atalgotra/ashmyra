@@ -237,7 +237,7 @@ export function AshmyraHeroShowreel() {
         {/* ── Main Cinematic Video Viewport (Full Bleed to Top Rounded Corners) ── */}
         <div
           onClick={togglePlay}
-          className="relative aspect-[16/10] sm:aspect-[16/9] w-full overflow-hidden bg-[#04060a] cursor-pointer group"
+          className="relative aspect-[16/9] w-full overflow-hidden bg-[#04060a] cursor-pointer group"
         >
           {/* Poster Fallback */}
           <Image
@@ -245,7 +245,7 @@ export function AshmyraHeroShowreel() {
             alt={currentClip.title}
             fill
             priority
-            sizes="(max-width: 1024px) 100vw, 58vw"
+            sizes="(max-width: 1024px) 100vw, 65vw"
             className="object-cover object-center pointer-events-none"
           />
 

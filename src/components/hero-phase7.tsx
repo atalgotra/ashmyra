@@ -68,7 +68,7 @@ export function HeroPhase7() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-[92vh] lg:min-h-screen bg-[#05070c] text-white flex flex-col justify-center pt-28 sm:pt-32 pb-16 lg:pb-24 overflow-hidden"
+      className="relative w-full min-h-screen lg:h-screen lg:max-h-screen bg-[#05070c] text-white flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8 overflow-hidden"
     >
       {/* ── Editorial Background Atmosphere ─────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -93,22 +93,22 @@ export function HeroPhase7() {
         <div className="absolute inset-0 dot-bg opacity-15" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 w-full">
-        {/* ── Two-Column Editorial Layout (Left ~43%, Right ~57%) ───────────── */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 xl:gap-16 items-center">
+      <div className="relative z-10 max-w-[1480px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
+        {/* ── Two-Column Editorial Layout (Left ~42%, Right ~58% for expansive video) ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
 
-          {/* ── Left Column (~43% on desktop: 5 cols / 12) ─────────────────── */}
+          {/* ── Left Column: Value Proposition & CTAs ──────────────────────── */}
           <div ref={leftColRef} className="lg:col-span-5 flex flex-col justify-center">
 
             {/* Eyebrow & Positioning Kicker */}
-            <div ref={eyebrowRef} className="mb-5">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 backdrop-blur-md mb-3 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
+            <div ref={eyebrowRef} className="mb-4">
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 backdrop-blur-md mb-2.5 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
                 <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
                 <span className="text-[11px] font-mono font-semibold tracking-[0.22em] text-indigo-300 uppercase">
                   AI • DATA • SOFTWARE • AUTOMATION
                 </span>
               </div>
-              <p className="text-[12.5px] font-mono text-neutral-400 tracking-wide">
+              <p className="text-[12px] font-mono text-neutral-400 tracking-wide">
                 We engineer intelligent autonomous systems that drive enterprise advantage.
               </p>
             </div>
@@ -116,7 +116,7 @@ export function HeroPhase7() {
             {/* Main Headline */}
             <h1
               ref={headlineRef}
-              className="text-4xl xs:text-5xl sm:text-6xl lg:text-[4rem] xl:text-[4.25rem] font-bold tracking-tight text-white leading-[1.04] mb-6"
+              className="text-4xl xs:text-5xl sm:text-6xl lg:text-[3.4rem] xl:text-[3.85rem] font-bold tracking-tight text-white leading-[1.05] mb-4 sm:mb-5"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               WE ENGINEER
@@ -137,7 +137,7 @@ export function HeroPhase7() {
             {/* Supporting Statement */}
             <p
               ref={copyRef}
-              className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-8 max-w-lg"
+              className="text-sm sm:text-base lg:text-[1.05rem] text-neutral-300 leading-relaxed font-sans mb-6 sm:mb-7 max-w-lg"
             >
               Agentic AI, intelligent software and data-driven systems engineered to solve real business problems.
             </p>
@@ -145,11 +145,11 @@ export function HeroPhase7() {
             {/* CTAs */}
             <div
               ref={ctaRef}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-10 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-6 sm:mb-7 w-full sm:w-auto"
             >
               <Link
                 href="/our-work"
-                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
+                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 style={{
                   background: "linear-gradient(135deg, #6366f1, #818cf8)",
                   boxShadow:
@@ -162,7 +162,7 @@ export function HeroPhase7() {
 
               <Link
                 href="/contact?intent=discovery"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-neutral-200 hover:text-white transition-all duration-300 hover:bg-white/[0.08] hover:border-white/25 text-center group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-neutral-200 hover:text-white transition-all duration-300 hover:bg-white/[0.08] hover:border-white/25 text-center group"
                 style={{
                   background: "rgba(255, 255, 255, 0.04)",
                   border: "1px solid rgba(255, 255, 255, 0.12)",
@@ -176,7 +176,7 @@ export function HeroPhase7() {
             {/* Three Concise Capability Labels (Zero Truncation) */}
             <div
               ref={capabilitiesRef}
-              className="pt-6 border-t border-white/[0.08]"
+              className="pt-5 border-t border-white/[0.08]"
             >
               <div className="flex flex-wrap items-center gap-2 sm:gap-2.5 text-xs font-mono">
                 <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] hover:border-indigo-500/40 hover:bg-white/[0.05] transition-all whitespace-nowrap">

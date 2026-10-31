@@ -42,6 +42,7 @@ next-env.d.ts
 
 # Raw video assets
 /Hero videos/
+/NewReel/
 
 # root-level scratch / draft assets (keep in public/ instead)
 /*.png

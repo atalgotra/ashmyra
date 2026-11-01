@@ -75,7 +75,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/03-crm-platforms.jpg",
     accent: "#f43f5e",
     accentGlow: "rgba(244, 63, 94, 0.25)",
-    href: "/products/crm",
+    href: "/capabilities/software-development",
     tags: ["Pipeline Telemetry", "Predictive Scoring", "Multi-Channel Attribution", "Event Automation"],
   },
   {
@@ -89,7 +89,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/04-enterprise-saas.jpg",
     accent: "#a78bfa",
     accentGlow: "rgba(167, 139, 250, 0.25)",
-    href: "/products/hrms",
+    href: "/capabilities/software-development",
     tags: ["Multi-Tenant SaaS", "Statutory Payroll", "Automated HRMS", "99.99% Uptime", "SOC2 Compliance"],
   },
   {
@@ -103,7 +103,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/05-agentic-ai.jpg",
     accent: "#22d3ee",
     accentGlow: "rgba(34, 211, 238, 0.25)",
-    href: "/products/ai",
+    href: "/capabilities/ai-development",
     tags: ["Multi-Agent Consensus", "Fine-Tuned LLMs", "Autonomous Tool Calling", "RAG Pipelines", "Audit Guardrails"],
   },
   {
@@ -117,7 +117,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/06-data-intelligence.jpg",
     accent: "#34d399",
     accentGlow: "rgba(52, 211, 153, 0.25)",
-    href: "/products/analytics",
+    href: "/capabilities/software-development",
     tags: ["Streaming Ingestion", "Golden Record Synthesis", "Vector Lakehouse", "Predictive ML", "Sub-second Queries"],
   },
   {

@@ -31,7 +31,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Productionizing custom LLMs, SLMs, vector indexing, and low-latency inference pipelines with deterministic guardrails.",
     icon: Cpu,
     accent: "#818cf8",
-    href: "/products/ai",
+    href: "/capabilities/ai-development",
   },
   {
     title: "DATA SCIENCE",
@@ -39,7 +39,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Statistical machine learning, anomaly detection, predictive forecasting, and unified enterprise golden-record lakes.",
     icon: Database,
     accent: "#22d3ee",
-    href: "/products/analytics",
+    href: "/capabilities/software-development",
   },
   {
     title: "AGENTIC AI",
@@ -47,7 +47,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Self-healing multi-agent swarms executing complex multi-system workflows without manual supervision.",
     icon: Bot,
     accent: "#a78bfa",
-    href: "/products/ai",
+    href: "/capabilities/ai-development",
   },
   {
     title: "ENTERPRISE SOFTWARE",
@@ -55,7 +55,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Mission-critical architectures engineered for 99.99% uptime, multi-tenant security, and automated statutory payroll.",
     icon: Layers,
     accent: "#38bdf8",
-    href: "/products/hrms",
+    href: "/capabilities/software-development",
   },
   {
     title: "WEB DEVELOPMENT",
@@ -87,7 +87,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Eliminating manual enterprise overhead through deterministic event buses, document parsing, and approval gates.",
     icon: Zap,
     accent: "#fbbf24",
-    href: "/products/automation",
+    href: "/capabilities/software-development",
   },
   {
     title: "CLOUD & INTEGRATIONS",

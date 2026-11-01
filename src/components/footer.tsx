@@ -210,7 +210,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/products/web" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                <Link href="/capabilities/web-apps" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>High-Performance 3D Web</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-cyan-400" />
                 </Link>

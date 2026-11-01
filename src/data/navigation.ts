@@ -135,7 +135,7 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "Multi-Agent Systems",
-            href: "/products/ai",
+            href: "/capabilities/ai-development",
             description: "Consensus-driven agent architectures collaborating across enterprise workflows.",
             category: "ai",
           },
@@ -153,7 +153,7 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "Intelligent Workflow Automation",
-            href: "/products/automation",
+            href: "/capabilities/ai-development",
             description: "Cognitive document intelligence, automated decision trees & exception routing.",
             category: "ai",
           },
@@ -229,7 +229,7 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "Analytics Systems",
-            href: "/products/analytics",
+            href: "/capabilities/software-development",
             description: "Executive intelligence dashboards, custom KPI telemetry & cohort analysis.",
             category: "service",
           },

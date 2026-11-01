@@ -101,10 +101,10 @@ export function ProductsNavigationStrip() {
           {/* Right Action Link */}
           <div className="hidden lg:flex items-center shrink-0">
             <a
-              href="#ecosystem"
+              href="#solutions"
               className="text-xs font-mono text-neutral-400 hover:text-cyan-300 transition-colors flex items-center gap-1 font-medium"
             >
-              <span>Ecosystem Architecture</span>
+              <span>Problem Architecture</span>
               <span>↓</span>
             </a>
           </div>

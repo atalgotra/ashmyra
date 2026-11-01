@@ -11,8 +11,6 @@ import {
   ExternalLink,
   CheckCircle2,
   Sparkles,
-  ShieldCheck,
-  Layers,
   Zap,
   Lock,
   Server,
@@ -295,75 +293,7 @@ export default function ProductsPage() {
       {/* ── 4. FEATURED PRODUCT EXPERIENCES: Interactive Friction vs. Solution Bento Grid ── */}
       <ProductsFrictionBento />
 
-      {/* ── 5. CONNECTED PRODUCT ECOSYSTEM ─────────────────────────────── */}
-      <section id="ecosystem" className="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="rounded-3xl p-8 sm:p-12 bg-gradient-to-br from-[#0a0e1c] via-[#070912] to-[#050608] border border-white/[0.1] relative overflow-hidden">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs text-cyan-300 font-mono mb-4">
-              <Layers className="w-3.5 h-3.5 text-cyan-400" />
-              <span>Modular Architecture Architecture</span>
-            </div>
-            <h2
-              className="text-2xl sm:text-4xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              Connected Product Ecosystem
-            </h2>
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-              Ashmyra platforms are designed as autonomous modular microservices. Deploy any individual engine or orchestrate them together with unified enterprise telemetry.
-            </p>
-          </div>
-
-          {/* Architecture Pipeline Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <span className="text-[10px] font-mono text-sky-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 01 · Search &amp; Spider Radar
-              </span>
-              <h4 className="text-base font-bold text-white mb-2">Veyrix</h4>
-              <p className="text-xs text-neutral-400 leading-relaxed">
-                Ingests technical site health, crawls deep regressions, and tracks generative AI search engine visibility across Perplexity and ChatGPT.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 02 · Audience &amp; Lead Pipeline
-              </span>
-              <h4 className="text-base font-bold text-white mb-2">Prospect IQ &amp; MailFlow</h4>
-              <p className="text-xs text-neutral-400 leading-relaxed">
-                Discovers target ICP contacts, enriches company tech stacks, and waterfalls email verification with deliverability-monitored cold outreach.
-              </p>
-            </div>
-
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <span className="text-[10px] font-mono text-amber-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 03 · Media &amp; Campaign Distribution
-              </span>
-              <h4 className="text-base font-bold text-white mb-2">Omnira &amp; Unveil</h4>
-              <p className="text-xs text-neutral-400 leading-relaxed">
-                Omnira coordinates multi-platform viral distribution while Unveil erases moving watermarks, noise, and unwanted objects from photo and video assets.
-              </p>
-            </div>
-          </div>
-
-          {/* Security & Deployment Notice */}
-          <div className="mt-10 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>All platforms deployable into Dedicated VPC, AWS GovCloud, or On-Premise Air-Gapped Clusters.</span>
-            </div>
-            <Link
-              href="/contact?intent=vpc"
-              className="text-white hover:text-cyan-300 font-semibold underline underline-offset-4 transition-colors shrink-0"
-            >
-              Discuss Dedicated VPC Deployment →
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. FINAL ENTERPRISE CALL-TO-ACTION ─────────────────────────── */}
+      {/* ── 5. FINAL ENTERPRISE CALL-TO-ACTION ─────────────────────────── */}
       <section className="pb-24 pt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="rounded-3xl p-10 sm:p-14 text-center bg-gradient-to-r from-indigo-950/40 via-cyan-950/30 to-indigo-950/40 border border-indigo-500/30 shadow-2xl relative overflow-hidden">
           <div className="max-w-2xl mx-auto space-y-4">

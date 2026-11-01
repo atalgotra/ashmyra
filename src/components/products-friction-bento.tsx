@@ -49,7 +49,7 @@ export function ProductsFrictionBento() {
   };
 
   return (
-    <section className="py-20 sm:py-24 bg-[#07090e] border-t border-white/[0.08] relative overflow-hidden">
+    <section id="solutions" className="py-20 sm:py-24 bg-[#07090e] border-t border-white/[0.08] relative overflow-hidden">
       {/* Subtle Ambient Radial Lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-indigo-500/10 rounded-full blur-[120px] pointer-events-none" />
 

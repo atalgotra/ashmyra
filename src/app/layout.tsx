@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { LayoutShell } from "@/components/layout-shell";
 import { SeoSchema } from "@/components/seo-schema";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
@@ -170,12 +171,34 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased dark`}
+      className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-[#050608] text-[#f1f5f9] selection:bg-indigo-500/30 selection:text-indigo-200">
-        <ScrollToTopOnMount />
-        <SeoSchema />
-        <LayoutShell>{children}</LayoutShell>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var saved = localStorage.getItem('ashmyra-theme');
+                  var validThemes = ['obsidian', 'gold', 'copper', 'platinum'];
+                  if (saved && validThemes.indexOf(saved) !== -1) {
+                    document.documentElement.setAttribute('data-theme', saved);
+                  } else {
+                    document.documentElement.setAttribute('data-theme', 'obsidian');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="min-h-full flex flex-col selection:bg-indigo-500/30 selection:text-indigo-200">
+        <ThemeProvider>
+          <ScrollToTopOnMount />
+          <SeoSchema />
+          <LayoutShell>{children}</LayoutShell>
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -6,6 +6,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { MAIN_NAV, NavSection, NavItem } from "@/data/navigation";
+import { ThemeSwitcher, MobileThemeSelector } from "@/components/theme-switcher";
 import {
   Menu,
   X,
@@ -234,11 +235,11 @@ export function Navbar() {
     <>
       <header
         ref={headerRef}
-        className="fixed top-0 inset-x-0 z-50 transition-all duration-300"
+        className="fixed top-0 inset-x-0 z-50 transition-all duration-300 backdrop-blur-md"
         style={{
-          backgroundColor: scrolled ? "#07090e" : "rgba(7, 9, 14, 0.96)",
-          borderBottom: "1px solid rgba(255, 255, 255, 0.08)",
-          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.85)" : "none",
+          backgroundColor: "var(--bg-header)",
+          borderBottom: "1px solid var(--border)",
+          boxShadow: scrolled ? "0 10px 30px -10px rgba(0,0,0,0.15)" : "none",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -324,8 +325,9 @@ export function Navbar() {
               })}
             </nav>
 
-            {/* Right Action: Primary CTA */}
-            <div className="flex items-center gap-3">
+            {/* Right Action: Theme Switcher & Primary CTA */}
+            <div className="flex items-center gap-2.5">
+              <ThemeSwitcher />
               <Link
                 href="/contact"
                 className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-indigo-600/25"
@@ -1036,8 +1038,13 @@ export function Navbar() {
               );
             })}
 
+            {/* Mobile Palette Theme Switcher */}
+            <div className="pt-3">
+              <MobileThemeSelector />
+            </div>
+
             {/* Mobile Primary CTA */}
-            <div className="pt-4">
+            <div className="pt-2">
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}

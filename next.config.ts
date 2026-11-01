@@ -33,6 +33,16 @@ const nextConfig: NextConfig = {
         destination: "/capabilities/:path*",
         permanent: true,
       },
+      {
+        source: "/resources",
+        destination: "/blog",
+        permanent: true,
+      },
+      {
+        source: "/resources/:slug",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
     ];
   },
 };

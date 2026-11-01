@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { PRODUCTS } from "@/data/products";
 import { SERVICES } from "@/data/services";
-import { ARTICLES } from "@/data/resources";
+import { BLOG_POSTS } from "@/data/blog";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://www.ashmyra.com";
@@ -12,11 +12,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/demos`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: `${baseUrl}/products`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
     { url: `${baseUrl}/contact`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/team`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/our-work`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/solutions`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/capabilities`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
-    { url: `${baseUrl}/resources`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/legal/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/legal/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
@@ -37,13 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Dynamic resource & technical articles
-  const articleRoutes: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
-    url: `${baseUrl}/resources/${a.slug}`,
+  // Dynamic blog post routes — high priority for search and GEO citations
+  const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((b) => ({
+    url: `${baseUrl}/blog/${b.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
-    priority: 0.8,
+    priority: 0.85,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...capabilityRoutes, ...articleRoutes];
+  return [...staticRoutes, ...productRoutes, ...capabilityRoutes, ...blogRoutes];
 }

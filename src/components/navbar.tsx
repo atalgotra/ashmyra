@@ -42,6 +42,7 @@ import {
   Building2,
   Compass,
   MessageSquare,
+  BookOpen,
 } from "lucide-react";
 
 export function Navbar() {
@@ -191,6 +192,12 @@ export function Navbar() {
     if (t.includes("case studies")) return <FileText className={cls} style={{ color: "#22d3ee" }} />;
     if (t.includes("engineering approach")) return <Compass className={cls} style={{ color: "#818cf8" }} />;
 
+    // Blog
+    if (t.includes("publication") || t.includes("blog") || t.includes("radar")) return <BookOpen className={cls} style={{ color: "#22d3ee" }} />;
+    if (t.includes("chatbots") || t.includes("agentic ai")) return <Bot className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("geo") || t.includes("generative engine")) return <Search className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("hr tech") || t.includes("workforce")) return <Users className={cls} style={{ color: "#a78bfa" }} />;
+
     // Company
     if (t.includes("about ashmyra") || t.includes("about")) return <Building2 className={cls} style={{ color: "#818cf8" }} />;
     if (t.includes("leadership")) return <Users className={cls} style={{ color: "#06b6d4" }} />;
@@ -214,6 +221,8 @@ export function Navbar() {
         return "880px";
       case "Our Work":
         return "640px";
+      case "Blog":
+        return "700px";
       case "Company":
         return "340px";
       default:
@@ -766,7 +775,72 @@ export function Navbar() {
               </div>
             )}
 
-            {/* 5. COMPANY MENU */}
+            {/* 5. BLOG MENU */}
+            {activeDD === "Blog" && (
+              <div>
+                {/* Header */}
+                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                      Engineering Blog &amp; Systems Radar
+                    </span>
+                  </div>
+                  <Link
+                    href="/blog"
+                    onClick={() => setActiveDD(null)}
+                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                  >
+                    <span>All Articles &amp; Radar</span>
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                  </Link>
+                </div>
+
+                {/* Items Grid */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {activeNavSection.items?.map((item) => (
+                    <Link
+                      key={item.title}
+                      href={item.href}
+                      onClick={() => setActiveDD(null)}
+                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                    >
+                      <div
+                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        style={{
+                          background: "rgba(255,255,255,0.03)",
+                          border: "1px solid rgba(255,255,255,0.08)",
+                        }}
+                      >
+                        {getIcon(item.title)}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
+                          {item.title}
+                        </span>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                          {item.description}
+                        </p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Footer Banner */}
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
+                  <span>Regular technical analyses on Agentic AI, GEO search, and enterprise engineering.</span>
+                  <Link
+                    href="/blog"
+                    onClick={() => setActiveDD(null)}
+                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                  >
+                    Explore Ashmyra Blog →
+                  </Link>
+                </div>
+              </div>
+            )}
+
+            {/* 6. COMPANY MENU */}
             {activeDD === "Company" && (
               <div>
                 {/* Header */}

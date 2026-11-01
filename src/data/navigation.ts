@@ -160,6 +160,32 @@ export const MAIN_NAV: NavSection[] = [
     ],
   },
   {
+    title: "Blog",
+    href: "/blog",
+    items: [
+      {
+        title: "All Publications & Radar",
+        href: "/blog",
+        description: "In-depth engineering perspectives, systems radar, and technical breakdowns.",
+      },
+      {
+        title: "Agentic AI vs Chatbots",
+        href: "/blog/agentic-ai-vs-chatbots",
+        description: "Why conversational bots fail and how autonomous agent swarms execute tasks.",
+      },
+      {
+        title: "Generative Engine Optimization (GEO)",
+        href: "/blog/seo-in-the-age-of-generative-engines",
+        description: "Ranking in ChatGPT, Perplexity, and Google AI Overviews.",
+      },
+      {
+        title: "Modernizing HR Tech",
+        href: "/blog/modernizing-workforce-tech-from-spreadsheets-to-ai",
+        description: "From disconnected spreadsheets to unified AI-native workforce automation.",
+      },
+    ],
+  },
+  {
     title: "Company",
     href: "/team",
     items: [

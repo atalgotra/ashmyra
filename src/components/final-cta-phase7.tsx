@@ -151,45 +151,51 @@ export function FinalCtaPhase7() {
               {/* 3 Practitioner Guarantees */}
               <div className="space-y-3 pt-6" style={{ borderTop: "1px solid var(--border)" }}>
                 <div
-                  className="flex items-start gap-3 p-3 rounded-xl"
+                  className="flex items-start gap-3 p-3 rounded-xl transition-all"
                   style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
                 >
                   <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0 mt-0.5 text-indigo-400">
                     <UserCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider" style={{ color: "var(--text)" }}>
                       Direct Practitioner Engagement
                     </div>
-                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                    <div className="text-xs mt-0.5 leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       Zero sales gatekeepers or agency bloat. You collaborate directly with principal systems architects.
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                <div
+                  className="flex items-start gap-3 p-3 rounded-xl transition-all"
+                  style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider" style={{ color: "var(--text)" }}>
                       Strict Mutual NDA Protection
                     </div>
-                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                    <div className="text-xs mt-0.5 leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       100% intellectual property protection with auditable data isolation for enterprise roadmaps.
                     </div>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+                <div
+                  className="flex items-start gap-3 p-3 rounded-xl transition-all"
+                  style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-0.5 text-emerald-400">
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider">
+                    <div className="text-xs font-mono font-bold uppercase tracking-wider" style={{ color: "var(--text)" }}>
                       24-Hour Feasibility Review
                     </div>
-                    <div className="text-xs text-neutral-400 mt-0.5 leading-relaxed">
+                    <div className="text-xs mt-0.5 leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       Receive structured technical feedback and system architecture feasibility within 24 business hours.
                     </div>
                   </div>
@@ -240,59 +246,65 @@ export function FinalCtaPhase7() {
           {/* Right Column: Executive Architecture Terminal */}
           <div className="lg:col-span-7">
             <div
-              className="group relative rounded-3xl p-7 sm:p-9 border border-white/[0.1] shadow-2xl overflow-hidden"
+              className="group relative rounded-3xl p-7 sm:p-9 border shadow-2xl overflow-hidden transition-all duration-300"
               style={{
-                background:
-                  "linear-gradient(160deg, rgba(14, 18, 30, 0.96) 0%, rgba(6, 8, 14, 0.99) 100%)",
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border)",
                 boxShadow:
-                  "0 25px 70px -15px rgba(0, 0, 0, 0.9), 0 0 45px -15px rgba(99, 102, 241, 0.2)",
+                  "0 25px 70px -15px rgba(0, 0, 0, 0.12), 0 0 45px -15px var(--border-glow)",
               }}
             >
               {/* Top Laser Accent Line */}
               <div
-                className="absolute top-0 inset-x-8 h-[1px] opacity-40 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                className="absolute top-0 inset-x-8 h-[1px] opacity-60 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
                 style={{
                   background:
-                    "linear-gradient(90deg, transparent, #818cf8, #22d3ee, transparent)",
+                    "linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent)",
                 }}
               />
 
               {/* Ambient Terminal Corner Bloom */}
               <div
                 className="absolute -top-16 -right-16 w-56 h-56 rounded-full blur-3xl opacity-20 pointer-events-none group-hover:opacity-35 transition-opacity"
-                style={{ background: "#818cf8" }}
+                style={{ background: "var(--accent)" }}
               />
 
               {/* Terminal Header Bar */}
-              <div className="flex items-center justify-between pb-4 mb-6 border-b border-white/[0.08]">
+              <div
+                className="flex items-center justify-between pb-4 mb-6 border-b transition-colors"
+                style={{ borderColor: "var(--border)" }}
+              >
                 <div className="flex items-center gap-2">
                   <div className="flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                   </div>
-                  <span className="text-[11px] font-mono font-semibold text-neutral-400 ml-2 tracking-wider">
+                  <span
+                    className="text-[11px] font-mono font-semibold ml-2 tracking-wider"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     SYS_ID: ASHMYRA_INGEST_V2.4
                   </span>
                 </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] font-mono text-emerald-400">
-                  <Lock className="w-3 h-3 text-emerald-400" />
+                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
+                  <Lock className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
                   <span>256-BIT TLS ENCRYPTED</span>
                 </div>
               </div>
 
               {submitted ? (
                 <div className="py-16 text-center space-y-4 animate-fadeIn">
-                  <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-400 shadow-[0_0_30px_rgba(16,185,129,0.25)]">
+                  <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto text-emerald-500 shadow-[0_0_30px_rgba(16,185,129,0.25)]">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3
-                    className="text-2xl sm:text-3xl font-bold text-white tracking-tight"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-2xl sm:text-3xl font-bold tracking-tight"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
                   >
                     Brief Transmitted Successfully
                   </h3>
-                  <p className="text-sm text-neutral-300 max-w-md mx-auto leading-relaxed">
+                  <p className="text-sm max-w-md mx-auto leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     Thank you. Your architecture brief has been delivered directly to
                     Ashish Talgotra and the senior engineering team. A principal engineer
                     will return technical feasibility within 24 hours.
@@ -309,7 +321,13 @@ export function FinalCtaPhase7() {
                         honeypot: "",
                       });
                     }}
-                    className="mt-6 px-5 py-2.5 rounded-xl text-xs font-mono font-semibold text-neutral-300 hover:text-white bg-white/[0.04] hover:bg-white/[0.08] border border-white/[0.1] transition-all"
+                    className="mt-6 px-5 py-2.5 rounded-xl text-xs font-mono font-semibold transition-all"
+                    style={{
+                      backgroundColor: "var(--theme-pill-bg)",
+                      borderColor: "var(--border)",
+                      color: "var(--text)",
+                      border: "1px solid var(--border)",
+                    }}
                   >
                     Submit Another Brief
                   </button>
@@ -330,14 +348,17 @@ export function FinalCtaPhase7() {
                   />
 
                   {errorMsg && (
-                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs font-mono">
+                    <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-mono">
                       {errorMsg}
                     </div>
                   )}
 
                   {/* Interactive Architecture Scope Selection */}
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-2.5 font-semibold">
+                    <label
+                      className="block text-[11px] font-mono uppercase tracking-wider mb-2.5 font-semibold"
+                      style={{ color: "var(--text)" }}
+                    >
                       System Architecture Scope *
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
@@ -350,14 +371,16 @@ export function FinalCtaPhase7() {
                             onClick={() =>
                               setFormData({ ...formData, requirement: pt.id })
                             }
-                            className={`px-3 py-2.5 rounded-xl text-xs font-mono font-medium text-left transition-all duration-200 border flex items-center gap-2 ${
-                              active
-                                ? "bg-indigo-600/25 border-indigo-400 text-white shadow-[0_0_15px_rgba(99,102,241,0.35)]"
-                                : "bg-white/[0.03] border-white/[0.08] text-neutral-400 hover:text-white hover:bg-white/[0.06] hover:border-white/20"
-                            }`}
+                            className="px-3 py-2.5 rounded-xl text-xs font-mono font-medium text-left transition-all duration-200 border flex items-center gap-2"
+                            style={{
+                              backgroundColor: active ? "var(--theme-pill-bg)" : "transparent",
+                              borderColor: active ? "var(--accent)" : "var(--border)",
+                              color: active ? "var(--accent)" : "var(--text-muted)",
+                              boxShadow: active ? "0 0 15px -3px var(--border-glow)" : "none",
+                            }}
                           >
                             <span>{pt.icon}</span>
-                            <span className="truncate">{pt.label}</span>
+                            <span className="truncate font-semibold">{pt.label}</span>
                           </button>
                         );
                       })}
@@ -367,7 +390,10 @@ export function FinalCtaPhase7() {
                   {/* Row 1: Name + Business Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                      <label
+                        className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
+                        style={{ color: "var(--text)" }}
+                      >
                         Your Name *
                       </label>
                       <input
@@ -378,12 +404,20 @@ export function FinalCtaPhase7() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="Alex Morgan"
-                        className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all placeholder:text-neutral-400"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
+                          color: "var(--text)",
+                        }}
                       />
                     </div>
 
                     <div>
-                      <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                      <label
+                        className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
+                        style={{ color: "var(--text)" }}
+                      >
                         Business Email *
                       </label>
                       <input
@@ -394,14 +428,22 @@ export function FinalCtaPhase7() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="alex@enterprise.com"
-                        className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all placeholder:text-neutral-400"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
+                          color: "var(--text)",
+                        }}
                       />
                     </div>
                   </div>
 
                   {/* Row 2: Company */}
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                    <label
+                      className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
+                      style={{ color: "var(--text)" }}
+                    >
                       Company / Organization Name
                     </label>
                     <input
@@ -411,13 +453,21 @@ export function FinalCtaPhase7() {
                         setFormData({ ...formData, company: e.target.value })
                       }
                       placeholder="Acme Global Inc. / Startup Studio"
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500"
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all placeholder:text-neutral-400"
+                      style={{
+                        backgroundColor: "var(--theme-pill-bg)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text)",
+                      }}
                     />
                   </div>
 
                   {/* Row 3: Project Description / Technical Brief */}
                   <div>
-                    <label className="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5 font-semibold">
+                    <label
+                      className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
+                      style={{ color: "var(--text)" }}
+                    >
                       Technical Problem / System Requirements *
                     </label>
                     <textarea
@@ -428,7 +478,12 @@ export function FinalCtaPhase7() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       placeholder="Describe the operational bottleneck, architecture objectives, or software platform you need engineered..."
-                      className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/[0.08] focus:border-indigo-500 focus:bg-white/[0.04] text-white text-sm outline-none transition-all placeholder:text-neutral-500 resize-none leading-relaxed"
+                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all placeholder:text-neutral-400 resize-none leading-relaxed"
+                      style={{
+                        backgroundColor: "var(--theme-pill-bg)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text)",
+                      }}
                     />
                   </div>
 
@@ -439,9 +494,9 @@ export function FinalCtaPhase7() {
                     className="w-full py-4 rounded-xl font-semibold text-sm sm:text-base text-white flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] disabled:opacity-60 shadow-xl group/cta"
                     style={{
                       background:
-                        "linear-gradient(135deg, #6366f1 0%, #4f46e5 50%, #06b6d4 100%)",
+                        "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)",
                       boxShadow:
-                        "0 0 0 1px rgba(99,102,241,0.4), 0 12px 30px -6px rgba(99,102,241,0.55)",
+                        "0 0 0 1px var(--border-glow), 0 12px 30px -6px var(--border-glow)",
                     }}
                   >
                     <span>
@@ -453,19 +508,22 @@ export function FinalCtaPhase7() {
                   </button>
 
                   {/* Security & Verification Footer */}
-                  <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-[11px] font-mono text-neutral-400">
+                  <div
+                    className="flex flex-wrap items-center justify-center gap-3 pt-2 text-[11px] font-mono"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     <span className="flex items-center gap-1.5">
-                      <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
+                      <ShieldCheck className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                       <span>Strict Mutual NDA</span>
                     </span>
                     <span>·</span>
                     <span className="flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                      <Clock className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                       <span>24h Architecture Review</span>
                     </span>
                     <span>·</span>
                     <span className="flex items-center gap-1.5">
-                      <Lock className="w-3.5 h-3.5 text-emerald-400" />
+                      <Lock className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                       <span>Zero Spam Guarantee</span>
                     </span>
                   </div>

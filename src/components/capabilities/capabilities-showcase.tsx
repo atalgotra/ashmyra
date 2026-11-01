@@ -55,7 +55,7 @@ export function CapabilitiesShowcase() {
   }, []);
 
   return (
-    <div ref={containerRef} className="space-y-24 sm:space-y-36 py-16 sm:py-24">
+    <div ref={containerRef} className="space-y-16 sm:space-y-24 py-12 sm:py-16">
 
       {/* ─────────────────────────────────────────────────────────────
           CAPABILITY 01 — CUSTOM SOFTWARE & SaaS ENGINEERING
@@ -63,7 +63,7 @@ export function CapabilitiesShowcase() {
          ───────────────────────────────────────────────────────────── */}
       <section
         id="software-saas"
-        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28"
+        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-36"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Content (7 cols) */}
@@ -201,7 +201,7 @@ export function CapabilitiesShowcase() {
          ───────────────────────────────────────────────────────────── */}
       <section
         id="agentic-ai"
-        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28"
+        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-36"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Visual Storytelling Multi-Agent Flow (5 cols on lg) */}
@@ -357,7 +357,7 @@ export function CapabilitiesShowcase() {
          ───────────────────────────────────────────────────────────── */}
       <section
         id="search-geo"
-        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28"
+        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-36"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Content (7 cols) */}
@@ -473,11 +473,11 @@ export function CapabilitiesShowcase() {
                   </div>
                   <div className="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                     <span className="text-white">Crawler Discovery</span>
-                    <span className="text-emerald-400">Zero Crawl Waste &bull; Sub-50ms TTFB</span>
+                    <span className="text-emerald-400">Optimized Crawl Budget &bull; Low-Latency TTFB</span>
                   </div>
                   <div className="p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                     <span className="text-white">Answer Synthesis</span>
-                    <span className="text-indigo-400">Deterministic Authority Data</span>
+                    <span className="text-indigo-400">Semantic Authority Data</span>
                   </div>
                 </div>
               </div>
@@ -492,7 +492,7 @@ export function CapabilitiesShowcase() {
          ───────────────────────────────────────────────────────────── */}
       <section
         id="web-digital"
-        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-28"
+        className="capability-block max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-36"
       >
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Visual Storytelling Web Performance Chassis (5 cols on lg) */}
@@ -504,7 +504,7 @@ export function CapabilitiesShowcase() {
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                   <span className="text-neutral-300 text-[11px]">web-surface.audit.metrics</span>
                 </div>
-                <span className="text-[10px] text-emerald-300">WCAG 2.2 AA</span>
+                <span className="text-[10px] text-emerald-300 font-mono">Targeting WCAG 2.2 AA</span>
               </div>
 
               {/* Video Player Asset */}
@@ -527,9 +527,9 @@ export function CapabilitiesShowcase() {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <Zap className="w-3.5 h-3.5 text-amber-400" />
-                    <span className="text-white font-semibold">Sub-Second Interaction</span>
+                    <span className="text-white font-semibold">Optimized Interaction Latency</span>
                   </div>
-                  <span className="text-emerald-400 font-bold">120Hz Smooth</span>
+                  <span className="text-emerald-400 font-bold">GPU-Accelerated</span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[11px]">
                   <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06]">
@@ -576,8 +576,8 @@ export function CapabilitiesShowcase() {
                   "Interactive 3D experiences & WebGL",
                   "GSAP animation & motion systems",
                   "Frontend architecture (Next.js / TS)",
-                  "Strict accessibility (WCAG 2.2 AA)",
-                  "Sub-second performance optimisation",
+                  "Accessibility-focused engineering, targeting WCAG 2.2 AA",
+                  "Core Web Vitals performance optimisation",
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200">
                     <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />

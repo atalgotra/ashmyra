@@ -197,7 +197,7 @@ export const CAPABILITIES_REGISTRY: CapabilityCategoryGroup[] = [
         id: "platform-modernisation",
         title: "Platform Modernisation",
         category: "Data & Platform Engineering",
-        shortDesc: "Monolith decoupling and zero-downtime database updates.",
+        shortDesc: "Monolith decoupling and planned database migrations.",
         iconName: "RefreshCw",
         destinationType: "anchor",
         href: "/capabilities#platform-modernisation",

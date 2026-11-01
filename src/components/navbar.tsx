@@ -131,7 +131,7 @@ export function Navbar() {
   const handleMouseLeave = () => {
     timeoutRef.current = setTimeout(() => {
       setActiveDD(null);
-    }, 180);
+    }, 240);
   };
 
   const toggleMobileSection = (title: string) => {
@@ -641,32 +641,28 @@ export function Navbar() {
                           </div>
 
                           {/* 6 Capability Items */}
-                          <div className="space-y-0.5">
+                          <div className="space-y-1">
                             {group.items.map((item) => (
                               <Link
                                 key={item.title}
                                 href={item.href}
                                 onClick={() => setActiveDD(null)}
-                                className="mega-menu-item flex items-start gap-2.5 px-2 py-1.5 rounded-lg hover:bg-white/[0.04] transition-all group/item"
+                                className="mega-menu-item flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-white/[0.04] transition-all group/item focus:outline-none focus:ring-1 focus:ring-cyan-400/40"
                               >
-                                <div
-                                  className="w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
-                                  style={{
-                                    background: "rgba(255,255,255,0.03)",
-                                  }}
-                                >
-                                  {getIcon(item.title)}
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <span className={`text-[12px] font-medium text-slate-200 ${hoverTitleColor} transition-colors block leading-tight truncate`}>
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                  <div
+                                    className="w-6 h-6 rounded flex items-center justify-center shrink-0 transition-transform group-hover/item:scale-105"
+                                    style={{
+                                      background: "rgba(255,255,255,0.03)",
+                                    }}
+                                  >
+                                    {getIcon(item.title)}
+                                  </div>
+                                  <span className={`text-[12.5px] font-medium text-slate-200 ${hoverTitleColor} transition-colors block truncate`}>
                                     {item.title}
                                   </span>
-                                  {item.description && (
-                                    <p className="text-[10.5px] text-slate-400 leading-tight group-hover/item:text-slate-300 transition-colors mt-0.5 font-light">
-                                      {item.description}
-                                    </p>
-                                  )}
                                 </div>
+                                <ArrowRight className="w-3 h-3 text-white/0 -translate-x-1 group-hover/item:text-white/40 group-hover/item:translate-x-0 transition-all shrink-0 ml-1.5" />
                               </Link>
                             ))}
                           </div>

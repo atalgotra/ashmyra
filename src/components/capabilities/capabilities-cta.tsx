@@ -10,7 +10,7 @@ export function CapabilitiesCTA() {
   return (
     <section 
       ref={containerRef}
-      className="relative py-28 sm:py-36 bg-[#030408] border-t border-white/[0.08] overflow-hidden"
+      className="relative py-18 sm:py-24 bg-[#030408] border-t border-white/[0.08] overflow-hidden"
     >
       {/* Background Architectural Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[350px] bg-gradient-to-r from-cyan-500/10 via-indigo-500/10 to-violet-500/10 blur-[120px] rounded-full pointer-events-none" />

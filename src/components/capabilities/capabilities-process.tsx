@@ -77,14 +77,14 @@ export function CapabilitiesProcess() {
     <section 
       id="engineering-process"
       ref={containerRef}
-      className="relative py-24 sm:py-32 bg-[#04060B] border-t border-white/[0.06] overflow-hidden scroll-mt-28"
+      className="relative py-16 sm:py-20 bg-[#04060B] border-t border-white/[0.06] overflow-hidden scroll-mt-36"
     >
       {/* Background Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.06),transparent_60%)] pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/[0.05] text-[11px] font-mono tracking-wider text-indigo-400 uppercase mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
             ENGINEERING LIFECYCLE

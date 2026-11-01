@@ -88,7 +88,7 @@ export function CapabilitiesTechFoundation() {
     <section 
       id="tech-foundation"
       ref={containerRef}
-      className="relative py-24 sm:py-32 bg-[#06080F] border-t border-white/[0.06] overflow-hidden scroll-mt-28"
+      className="relative py-16 sm:py-20 bg-[#06080F] border-t border-white/[0.06] overflow-hidden scroll-mt-36"
     >
       {/* Background Subtle Gradient & Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(14,165,233,0.05),transparent_70%)] pointer-events-none" />
@@ -96,7 +96,7 @@ export function CapabilitiesTechFoundation() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="max-w-3xl mb-16 sm:mb-20">
+        <div className="max-w-3xl mb-12 sm:mb-14">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/[0.05] text-[11px] font-mono tracking-wider text-cyan-400 uppercase mb-4">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
             ENGINEERING STACK & FOUNDATION

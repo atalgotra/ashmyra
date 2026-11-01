@@ -219,7 +219,10 @@ const ENGINEERING_PRINCIPLES = [
 
 export default function OurWorkPage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#030408] text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div
+      className="flex flex-col min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       <ScrollToTopOnMount />
 
       {/* ── PHASE 3: REPOSITIONED HERO SECTION ──────────────────────────────── */}

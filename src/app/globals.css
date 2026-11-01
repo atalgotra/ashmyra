@@ -207,22 +207,16 @@ body {
 [data-theme="gold"],
 [data-theme="copper"],
 [data-theme="platinum"] {
-  /* 1. Main Canvas & Section Backgrounds */
-  section,
-  main,
-  div[class*="min-h-screen"],
-  .bg-\[\#05070c\],
-  .bg-\[\#04060a\],
-  .bg-\[\#030408\],
-  .bg-\[\#050608\],
-  .bg-\[\#050609\],
-  .bg-\[\#07090e\],
-  .bg-\[\#07080d\],
-  .bg-\[\#05070e\],
-  .bg-\[\#06080e\],
-  .bg-\[\#05070a\],
-  .bg-\[\#05070B\],
-  .bg-\[\#0B0E17\],
+  /* 1. Main Canvas & Section Backgrounds (Case-insensitive match for all dark bg hex classes 02-07) */
+  section:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  main:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  div[class*="min-h-screen"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#02" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#03" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#04" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#05" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#06" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#07" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
   .bg-black\/60,
   .bg-black\/50,
   .bg-black\/40 {
@@ -230,15 +224,15 @@ body {
     color: var(--text) !important;
   }
 
-  /* 2. Elevated Cards, Modals, Panels & Surfaces */
-  .bg-\[\#080b15\],
-  .bg-\[\#090c16\],
-  .bg-\[\#0a0d16\],
-  .bg-\[\#080d1a\],
-  .bg-\[\#060810\],
-  .bg-\[\#08090d\],
-  .bg-\[\#090d16\],
-  .bg-\[\#101426\],
+  /* 2. Elevated Cards, Modals, Panels & Surfaces (Case-insensitive match for dark bg hex classes 08-11) */
+  [class*="bg-[#08" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#09" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#0a" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#0b" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#0c" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#0d" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#10" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#11" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
   .bg-neutral-900\/40,
   .bg-neutral-900\/50,
   .bg-neutral-900\/30,
@@ -249,14 +243,37 @@ body {
     color: var(--text) !important;
   }
 
+  /* 2b. Strip Dark Linear Gradients from Cards on Light Themes */
+  [class*="from-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="via-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="to-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-indigo-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-indigo-900"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-cyan-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-red-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-rose-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-amber-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-emerald-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-purple-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-orange-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-sky-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="to-neutral-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="to-neutral-900"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  .solution-cinematic-card {
+    background-image: none !important;
+    background-color: var(--bg-card) !important;
+    color: var(--text) !important;
+  }
+
   /* 3. Footer */
   footer,
-  .bg-\[\#030407\] {
+  [class*="bg-[#030407]" i] {
     background-color: var(--bg-footer) !important;
     color: var(--text) !important;
   }
 
   /* 4. Translucent Pills & Badges */
+  .bg-white\/\[0\.015\],
   .bg-white\/\[0\.02\],
   .bg-white\/\[0\.03\],
   .bg-white\/\[0\.04\],
@@ -289,13 +306,25 @@ body {
   }
 
   /* 5b. Cinema & Video Hardware Viewports Protection */
-  /* Ensures media players, video showcases, and dark device frames retain crisp white text */
+  /* Ensures media players, video showcases, and dark device frames retain crisp white text & dark chassis */
   .dark-media-chassis,
-  [data-dark-chassis="true"],
+  [data-dark-chassis="true"] {
+    background: #06080e !important;
+    color: #FFFFFF !important;
+  }
+
   .dark-media-chassis .text-white,
   [data-dark-chassis="true"] .text-white,
+  .dark-media-chassis h1,
+  [data-dark-chassis="true"] h1,
+  .dark-media-chassis h2,
   [data-dark-chassis="true"] h2,
-  [data-dark-chassis="true"] h3 {
+  .dark-media-chassis h3,
+  [data-dark-chassis="true"] h3,
+  .dark-media-chassis h4,
+  [data-dark-chassis="true"] h4,
+  .dark-media-chassis p,
+  [data-dark-chassis="true"] p {
     color: #FFFFFF !important;
   }
 
@@ -314,7 +343,15 @@ body {
     color: #94A3B8 !important;
   }
 
-  /* 6. Dynamic Headings (replacing hardcoded silver/white text gradients) */
+  /* 6. Dynamic Headings (replacing hardcoded silver/white text gradients on clip text) */
+  span.bg-clip-text,
+  h1.bg-clip-text,
+  h2.bg-clip-text,
+  h3.bg-clip-text,
+  .bg-clip-text[class*="from-white"],
+  .bg-clip-text[class*="from-neutral-100"],
+  .bg-clip-text[class*="from-slate-100"],
+  .bg-clip-text[class*="from-zinc-100"],
   [style*="linear-gradient(135deg, #ffffff"] {
     background: var(--hero-headline-gradient) !important;
     -webkit-background-clip: text !important;
@@ -322,21 +359,53 @@ body {
     -webkit-text-fill-color: transparent !important;
   }
 
-  /* 7. Borders & Dividers */
+  /* 7. Form Controls (Inputs, Selects, Textareas) */
+  input:not([type="submit"]):not([type="button"]):not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    background-color: var(--bg) !important;
+    color: var(--text) !important;
+    border-color: var(--border) !important;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--text-muted) !important;
+    opacity: 0.7;
+  }
+
+  select option {
+    background-color: var(--bg-card) !important;
+    color: var(--text) !important;
+  }
+
+  /* 8. Sticky Secondary Navigation Strips */
+  div[id="capabilities-overview"],
+  div[class*="sticky top-16"],
+  div[class*="sticky top-[72px]"] {
+    background-color: var(--bg-header) !important;
+    border-color: var(--border) !important;
+  }
+
+  /* 9. Borders & Dividers */
   .border-white\/\[0\.08\],
   .border-white\/\[0\.07\],
   .border-white\/\[0\.06\],
   .border-white\/\[0\.05\],
   .border-white\/\[0\.1\],
   .border-white\/\[0\.12\],
+  .border-white\/\[0\.14\],
   .border-white\/\[0\.15\],
+  .border-white\/\[0\.18\],
   .border-white\/10,
   .border-white\/20 {
     border-color: var(--border) !important;
   }
 
-  /* 8. Header & Navigation */
-  header {
+  /* 10. Header & Navigation (Scope explicitly to site navigation, not hero banners) */
+  header.fixed,
+  header:has(nav),
+  header.site-header {
     background-color: var(--bg-header) !important;
     border-bottom-color: var(--border) !important;
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;

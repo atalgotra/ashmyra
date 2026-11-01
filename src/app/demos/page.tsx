@@ -74,7 +74,10 @@ export default function DemosPage() {
   };
 
   return (
-    <div className="pt-28 pb-24 min-h-screen bg-[#04060a] text-white">
+    <div
+      className="pt-28 pb-24 min-h-screen"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       <ScrollToTopOnMount />
 
       {/* Structured Data */}

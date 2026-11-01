@@ -284,7 +284,7 @@ export function CaseStudyFeature({ data }: { data: CaseStudyData }) {
 
           {/* Column 2: Architectural Media / Video Viewport (lg:col-span-5) */}
           <div className="lg:col-span-5 space-y-3">
-            <div className="relative rounded-2xl overflow-hidden border border-white/[0.12] bg-[#070912] shadow-2xl group">
+            <div data-dark-chassis="true" className="dark-media-chassis relative rounded-2xl overflow-hidden border border-white/[0.12] bg-[#070912] shadow-2xl group">
               {/* Top window mock header */}
               <div className="flex items-center justify-between px-4 py-2.5 bg-black/60 border-b border-white/[0.08] backdrop-blur-sm">
                 <div className="flex items-center gap-1.5">

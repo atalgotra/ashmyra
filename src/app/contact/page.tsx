@@ -48,7 +48,10 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="pt-32 pb-24 min-h-screen">
+    <div
+      className="pt-32 pb-24 min-h-screen"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-16">
           {/* Breadcrumb Navigation Trail */}

@@ -647,10 +647,10 @@ export function ProductsCinematicHero() {
               }}
             />
 
-            {/* ── Hardware Terminal Frame ──── */}
             <div
               ref={cardRef}
-              className="relative w-full rounded-2xl border transition-all duration-300 overflow-hidden"
+              data-dark-chassis="true"
+              className="dark-media-chassis relative w-full rounded-2xl border transition-all duration-300 overflow-hidden"
               style={{
                 backgroundColor: "#0B0E17",
                 borderColor: `rgba(${activeProduct.accentRgb}, 0.35)`,

@@ -126,10 +126,11 @@ export default function ProductsPage() {
               <div
                 key={prod.id}
                 id={prod.id}
-                className="rounded-3xl p-7 sm:p-10 lg:p-12 relative overflow-hidden transition-all duration-300 border border-white/[0.08] hover:border-white/[0.18]"
+                className="rounded-3xl p-7 sm:p-10 lg:p-12 relative overflow-hidden transition-all duration-300 border"
                 style={{
-                  backgroundColor: "#07090E",
-                  boxShadow: `0 24px 60px -20px rgba(0,0,0,0.9), 0 0 40px -15px rgba(${prod.accentRgb}, 0.12)`,
+                  backgroundColor: "var(--bg-card)",
+                  borderColor: "var(--border)",
+                  boxShadow: `0 24px 60px -20px rgba(0,0,0,0.08), 0 0 40px -15px rgba(${prod.accentRgb}, 0.12)`,
                 }}
               >
                 {/* Ambient Top Line */}
@@ -141,7 +142,7 @@ export default function ProductsPage() {
                 />
 
                 {/* Top Identification Bar */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-white/[0.08]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b" style={{ borderColor: "var(--border)" }}>
                   <div className="flex items-center gap-4">
                     <div
                       className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
@@ -154,18 +155,25 @@ export default function ProductsPage() {
                     </div>
                     <div>
                       <div className="flex items-center gap-2.5 flex-wrap">
-                        <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                        <h3 className="text-2xl sm:text-3xl font-bold tracking-tight" style={{ color: "var(--text)" }}>
                           {prod.name}
                         </h3>
                         <span className="text-[10px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-2 py-0.5 rounded-full font-semibold flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                           Live Production
                         </span>
-                        <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08] text-neutral-400 font-mono">
+                        <span
+                          className="text-xs px-2.5 py-0.5 rounded-full border font-mono"
+                          style={{
+                            backgroundColor: "var(--theme-pill-bg)",
+                            borderColor: "var(--border)",
+                            color: "var(--text-muted)",
+                          }}
+                        >
                           {prod.category}
                         </span>
                       </div>
-                      <p className="text-xs sm:text-sm text-neutral-400 mt-1 font-medium">
+                      <p className="text-xs sm:text-sm mt-1 font-medium" style={{ color: "var(--text-muted)" }}>
                         {prod.tagline}
                       </p>
                     </div>

@@ -27,7 +27,10 @@ export const metadata: Metadata = {
 
 export default function CapabilitiesPage() {
   return (
-    <main className="min-h-screen bg-[#030408] text-white selection:bg-cyan-500/30 selection:text-cyan-200">
+    <main
+      className="min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       {/* Phase 3: Split-Layout Hero */}
       <CapabilitiesHero />
 

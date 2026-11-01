@@ -116,7 +116,10 @@ export default async function BlogPostPage({
   const otherPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
-    <article className="pt-32 pb-24 min-h-screen">
+    <article
+      className="pt-32 pb-24 min-h-screen"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       {/* Inject JSON-LD Structured Data */}
       <script
         type="application/ld+json"

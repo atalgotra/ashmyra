@@ -61,7 +61,8 @@ export function ProductWowPreview({
 
       {/* ── Main Showcase Window ─────────────────────────────────────── */}
       <div
-        className="relative rounded-3xl overflow-hidden glass-bright bg-[#06080e]"
+        data-dark-chassis="true"
+        className="dark-media-chassis relative rounded-3xl overflow-hidden glass-bright bg-[#06080e]"
         style={{
           border: "1px solid rgba(255, 255, 255, 0.14)",
           boxShadow: `0 30px 100px -20px rgba(0, 0, 0, 0.95), 0 0 50px -10px ${accentColor}25`,

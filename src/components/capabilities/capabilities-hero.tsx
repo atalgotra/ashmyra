@@ -137,7 +137,7 @@ export function CapabilitiesHero() {
 
           {/* Right Column (lg:col-span-6 / ~52%) — 3D Architecture Visual Chassis */}
           <div ref={rightColRef} className="lg:col-span-6">
-            <div className="relative rounded-3xl overflow-hidden border border-white/[0.14] bg-[#070b16] shadow-2xl shadow-indigo-950/40 group">
+            <div data-dark-chassis="true" className="dark-media-chassis relative rounded-3xl overflow-hidden border border-white/[0.14] bg-[#070b16] shadow-2xl shadow-indigo-950/40 group">
               {/* Terminal OS Titlebar */}
               <div className="flex items-center justify-between px-4 py-3 bg-[#0a0f1d] border-b border-white/[0.08] text-xs font-mono">
                 <div className="flex items-center gap-2">

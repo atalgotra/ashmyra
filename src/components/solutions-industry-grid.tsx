@@ -149,19 +149,28 @@ export function SolutionsIndustryGrid() {
           return (
             <div
               key={i}
-              className={`group relative p-7 rounded-3xl bg-[#080c18] border border-white/[0.14] ${meta.accentBorder} transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-2xl hover:-translate-y-1.5`}
+              className={`group relative p-7 rounded-3xl border ${meta.accentBorder} transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-2xl hover:-translate-y-1.5`}
+              style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border)",
+              }}
             >
-              {/* Background 3D Cybernetic Schematic with Vibrant High-Contrast Treatment */}
+              {/* Background 3D Cybernetic Schematic with Theme-Adaptive Contrast Treatment */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <Image
                   src={meta.image}
                   alt={`${ind.name} schematic architecture`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-60 sm:opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out brightness-105 contrast-110"
+                  className="object-cover opacity-20 dark:opacity-70 group-hover:opacity-35 dark:group-hover:opacity-90 transition-all duration-700 ease-out brightness-105 contrast-110"
                 />
-                {/* Refined Gradient Mask that keeps the 3D art vivid while ensuring text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-[#060812]/70 to-[#060812]/20" />
+                {/* Refined Theme Mask ensuring text readability */}
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: "linear-gradient(to top, var(--bg-card) 25%, transparent 85%)",
+                  }}
+                />
                 {/* Luminous Ambient Corner Glow matching sector color */}
                 <div
                   className={`absolute -top-10 -right-10 w-52 h-52 bg-gradient-to-br ${meta.accentGlow} to-transparent rounded-full blur-2xl opacity-40 group-hover:opacity-85 transition-opacity duration-500`}
@@ -172,27 +181,50 @@ export function SolutionsIndustryGrid() {
               <div className="relative z-10">
                 {/* Top Row: Icon + Index */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-11 h-11 rounded-2xl bg-[#0b1022]/90 border border-white/[0.18] backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-xl">
+                  <div
+                    className="w-11 h-11 rounded-2xl border backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-sm"
+                    style={{
+                      backgroundColor: "var(--theme-pill-bg)",
+                      borderColor: "var(--border)",
+                    }}
+                  >
                     {getIndustryIcon(i)}
                   </div>
-                  <span className="text-xs font-mono text-neutral-300 font-bold px-2.5 py-0.5 rounded-full bg-black/60 border border-white/[0.12] backdrop-blur-sm">
+                  <span
+                    className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full border backdrop-blur-sm"
+                    style={{
+                      backgroundColor: "var(--theme-pill-bg)",
+                      borderColor: "var(--border)",
+                      color: "var(--text)",
+                    }}
+                  >
                     0{i + 1}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2 transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                <h3
+                  className="text-xl font-bold mb-2 transition-colors"
+                  style={{ color: "var(--text)" }}
+                >
                   {ind.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed mb-5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] font-medium">
+                <p
+                  className="text-xs sm:text-sm leading-relaxed mb-5 font-medium"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {ind.desc}
                 </p>
-
-
               </div>
 
               {/* Bottom Tag & Direct Action Bar */}
-              <div className="relative z-10 pt-4 border-t border-white/[0.12] flex items-center justify-between text-xs bg-black/40 -mx-7 -mb-7 p-4 px-7 backdrop-blur-md">
+              <div
+                className="relative z-10 pt-4 border-t flex items-center justify-between text-xs -mx-7 -mb-7 p-4 px-7 backdrop-blur-md transition-colors"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  borderColor: "var(--border)",
+                }}
+              >
                 <span
                   className={`text-[10px] font-mono px-2.5 py-1 rounded-md border font-bold ${meta.badgeColor}`}
                 >
@@ -201,10 +233,11 @@ export function SolutionsIndustryGrid() {
 
                 <Link
                   href={`/contact?industry=${encodeURIComponent(ind.name)}`}
-                  className="text-white hover:text-cyan-300 transition-colors flex items-center gap-1.5 font-mono text-xs font-semibold group/link"
+                  className="transition-colors flex items-center gap-1.5 font-mono text-xs font-semibold group/link"
+                  style={{ color: "var(--text)" }}
                 >
                   <span>Architect</span>
-                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform text-cyan-400" />
+                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" style={{ color: "var(--accent)" }} />
                 </Link>
               </div>
             </div>

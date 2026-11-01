@@ -299,7 +299,11 @@ export function SolutionsCinematicShowcase() {
             <section
               key={sol.id}
               id={sol.id}
-              className="solution-cinematic-card scroll-mt-28 rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#090d19] via-[#070a12] to-[#04060a] border border-white/[0.08] relative overflow-hidden shadow-2xl transition-all duration-300"
+              className="solution-cinematic-card scroll-mt-28 rounded-3xl p-6 sm:p-10 lg:p-12 border relative overflow-hidden shadow-2xl transition-all duration-300"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                borderColor: "var(--border)",
+              }}
             >
               {/* Deep link alias anchors */}
               {sol.aliases?.map((alias) => (
@@ -336,15 +340,15 @@ export function SolutionsCinematicShowcase() {
                       <Sparkles className="w-3.5 h-3.5" />
                       <span>{sol.badge}</span>
                     </span>
-                    <span className="text-xs font-mono text-neutral-400">
+                    <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
                       {sol.targetAudience}
                     </span>
                   </div>
 
                   {/* Main Title */}
                   <h2
-                    className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
                   >
                     {sol.title}
                   </h2>
@@ -453,7 +457,10 @@ export function SolutionsCinematicShowcase() {
                     !isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div className="video-chassis group relative rounded-2xl p-2 sm:p-2.5 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-black/60 border border-white/[0.15] shadow-2xl overflow-hidden backdrop-blur-md">
+                  <div
+                    data-dark-chassis="true"
+                    className="dark-media-chassis video-chassis group relative rounded-2xl p-2 sm:p-2.5 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-black/60 border border-white/[0.15] shadow-2xl overflow-hidden backdrop-blur-md"
+                  >
                     {/* Simulated OS / Terminal Window Header */}
                     <div className="flex items-center justify-between px-3 py-2 bg-[#090c14]/90 rounded-t-xl border-b border-white/[0.08] mb-1">
                       <div className="flex items-center gap-1.5">

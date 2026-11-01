@@ -145,7 +145,7 @@ export function CapabilitiesShowcase() {
 
           {/* Right Column: Visual Storytelling Chassis (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl space-y-0">
+            <div data-dark-chassis="true" className="dark-media-chassis rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl space-y-0">
               {/* Titlebar */}
               <div className="px-4 py-2.5 bg-[#0a0f1d] border-b border-white/[0.08] flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-2">
@@ -206,7 +206,7 @@ export function CapabilitiesShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Visual Storytelling Multi-Agent Flow (5 cols on lg) */}
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <div className="rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
+            <div data-dark-chassis="true" className="dark-media-chassis rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
               {/* Titlebar */}
               <div className="px-4 py-2.5 bg-[#0a0f1d] border-b border-white/[0.08] flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-2">
@@ -435,7 +435,7 @@ export function CapabilitiesShowcase() {
 
           {/* Right Column: Semantic Knowledge Graph Chassis (5 cols) */}
           <div className="lg:col-span-5">
-            <div className="rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
+            <div data-dark-chassis="true" className="dark-media-chassis rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
               {/* Titlebar */}
               <div className="px-4 py-2.5 bg-[#0a0f1d] border-b border-white/[0.08] flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-2">
@@ -497,7 +497,7 @@ export function CapabilitiesShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Visual Storytelling Web Performance Chassis (5 cols on lg) */}
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <div className="rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
+            <div data-dark-chassis="true" className="dark-media-chassis rounded-3xl border border-white/[0.12] bg-[#070a14] overflow-hidden shadow-2xl">
               {/* Titlebar */}
               <div className="px-4 py-2.5 bg-[#0a0f1d] border-b border-white/[0.08] flex items-center justify-between text-xs font-mono">
                 <div className="flex items-center gap-2">

@@ -11,7 +11,6 @@ import {
   CheckCircle2,
   Sparkles,
   ShieldCheck,
-  Activity,
   Layers,
   Zap,
   Lock,
@@ -201,31 +200,15 @@ export default function ProductsPage() {
                       isReversed ? "lg:order-2" : "lg:order-1"
                     }`}
                   >
-                    <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-black/60 border border-white/[0.12] shadow-2xl group">
+                    <div className="relative aspect-[16/9] w-full rounded-2xl overflow-hidden bg-[#05070B] border border-white/[0.12] shadow-2xl group">
                       <Image
                         src={previewImage}
                         alt={`${prod.name} Production Interface`}
                         fill
                         sizes="(max-width: 1024px) 100vw, 600px"
-                        className="object-cover object-top transition-transform duration-700 group-hover:scale-[1.02]"
+                        className="object-contain transition-transform duration-700 group-hover:scale-[1.01]"
+                        priority={idx === 0}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent pointer-events-none" />
-
-                      {/* HUD Live Badge */}
-                      <div className="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between p-3 rounded-xl bg-black/75 backdrop-blur-md border border-white/10 text-xs">
-                        <div className="flex items-center gap-2 text-neutral-200">
-                          <Activity
-                            className="w-4 h-4"
-                            style={{ color: prod.accent }}
-                          />
-                          <span className="font-mono font-semibold text-white">
-                            {prod.name} Live Engine
-                          </span>
-                        </div>
-                        <span className="text-[10px] font-mono text-emerald-400">
-                          99.9% Uptime Verified
-                        </span>
-                      </div>
                     </div>
                   </div>
 

@@ -2,7 +2,6 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { 
   Mail, 
   MessageSquare, 
@@ -50,11 +49,6 @@ export default function ContactPage() {
   return (
     <div className="pt-32 pb-24 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Breadcrumbs
-          items={[{ label: "Direct Discovery" }]}
-          className="mb-8 justify-center"
-        />
-
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-4">
             <Sparkles className="w-3.5 h-3.5 text-indigo-400" />

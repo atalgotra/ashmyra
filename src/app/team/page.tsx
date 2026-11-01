@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import { PeopleSection } from "@/components/people-section";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Our Team | Ashmyra Technologies",
@@ -17,11 +16,6 @@ export default function TeamPage() {
       <div className="relative bg-[#050608] border-b border-white/[0.06] pt-28 pb-12 text-center">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_60%_at_50%_0%,rgba(99,102,241,0.1)_0%,transparent_70%)] pointer-events-none" />
         <div className="relative z-10 max-w-3xl mx-auto px-6">
-          <Breadcrumbs
-            items={[{ label: "Company", href: "/team" }, { label: "Leadership" }]}
-            className="mb-6 justify-center"
-          />
-
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-[10px] font-mono tracking-widest text-indigo-300 uppercase mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
             Leadership

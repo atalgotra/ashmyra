@@ -148,19 +148,14 @@ export const MAIN_NAV: NavSection[] = [
     href: "/our-work",
     items: [
       {
-        title: "Selected Projects",
-        href: "/our-work#selected-projects",
-        description: "Verified case studies spanning eCommerce, AI search, and enterprise platforms.",
-      },
-      {
         title: "Case Studies",
         href: "/our-work#case-studies",
-        description: "Technical deep-dives: architecture blueprints, performance gains, and business return.",
+        description: "Technical breakdowns of complex enterprise systems and production architectures.",
       },
       {
-        title: "Engineering Showcase",
-        href: "/our-work#showcase",
-        description: "Interactive breakdown of production platforms engineered and delivered.",
+        title: "Engineering Approach",
+        href: "/our-work#engineering-principles",
+        description: "Our architectural standards for workflow reliability, data integrity, and security.",
       },
     ],
   },

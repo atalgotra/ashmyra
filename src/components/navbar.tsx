@@ -188,9 +188,8 @@ export function Navbar() {
     if (t.includes("infrastructure")) return <Server className={cls} style={{ color: "#a78bfa" }} />;
 
     // Our Work
-    if (t.includes("selected projects")) return <Briefcase className={cls} style={{ color: "#38bdf8" }} />;
-    if (t.includes("case studies")) return <FileText className={cls} style={{ color: "#818cf8" }} />;
-    if (t.includes("showcase")) return <Terminal className={cls} style={{ color: "#10b981" }} />;
+    if (t.includes("case studies")) return <FileText className={cls} style={{ color: "#22d3ee" }} />;
+    if (t.includes("engineering approach")) return <Compass className={cls} style={{ color: "#818cf8" }} />;
 
     // Company
     if (t.includes("about ashmyra") || t.includes("about")) return <Building2 className={cls} style={{ color: "#818cf8" }} />;
@@ -708,17 +707,17 @@ export function Navbar() {
                 {/* Header */}
                 <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                     <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Production Systems &amp; Proven Work
+                      Engineering Case Studies &amp; Architecture
                     </span>
                   </div>
                   <Link
                     href="/our-work"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-emerald-400 hover:text-emerald-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
                   >
-                    <span>View All Deliverables</span>
+                    <span>Explore Our Work</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
@@ -742,7 +741,7 @@ export function Navbar() {
                         {getIcon(item.title)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[13px] font-semibold text-white group-hover/item:text-emerald-200 transition-colors block">
+                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
                           {item.title}
                         </span>
                         <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
@@ -755,13 +754,13 @@ export function Navbar() {
 
                 {/* Footer Banner */}
                 <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span>100% verified production systems delivered to international engineering standards.</span>
+                  <span>Architectural case studies and core engineering principles.</span>
                   <Link
                     href="/contact"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-emerald-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
                   >
-                    Discuss Your Project Scope →
+                    Start an Engineering Conversation →
                   </Link>
                 </div>
               </div>

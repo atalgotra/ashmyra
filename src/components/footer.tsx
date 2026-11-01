@@ -227,7 +227,7 @@ export function Footer() {
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
                 <Link href="/our-work" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Selected Work (Proof)</span>
+                  <span>Our Work (Case Studies)</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>
@@ -278,10 +278,10 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
-                  <span>Verified Security Standards</span>
-                </div>
+                <Link href="/our-work#engineering-principles" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Engineering Principles</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
+                </Link>
               </li>
             </ul>
           </div>
@@ -294,9 +294,9 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-cyan-400" />
-              <span>Production Infrastructure Monitored</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[11px]">
+              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+              <span>Intelligent Systems That Act</span>
             </div>
             <span className="hidden md:inline text-neutral-600">&bull;</span>
             <span className="hidden md:inline text-neutral-500">Engineered with Precision</span>

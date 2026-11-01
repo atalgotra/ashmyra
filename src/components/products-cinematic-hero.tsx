@@ -331,53 +331,53 @@ export function ProductsCinematicHero() {
           </div>
         );
 
-      // 4. Unveil — Generative Engine Optimization (GEO) Radar
+      // 4. Unveil — AI-Powered Photo & Video Editing Engine
       case "unveil":
         return (
           <div className="h-full flex flex-col justify-between p-3.5 sm:p-4 select-none font-sans text-xs">
-            {/* Top Status & GEO Score Badge */}
+            {/* Top Status & Queue Badge */}
             <div className="flex items-center justify-between pb-2 border-b border-white/[0.08]">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-                <span className="text-white font-semibold text-[12px]">Generative Engine Visibility (GEO)</span>
+                <span className="text-white font-semibold text-[12px]">AI Watermark &amp; Noise Eraser</span>
               </div>
               <span className="text-[10px] text-amber-300 bg-amber-500/15 border border-amber-500/30 px-2.5 py-0.5 rounded-full font-bold">
-                GEO Score: 96/100
+                Batch Multi-File Engine
               </span>
             </div>
 
-            {/* Visual AI Model Citation Leaderboard */}
+            {/* Active Media Clean Tasks Preview */}
             <div className="space-y-1.5 py-0.5">
               <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                  <span className="text-white font-medium">ChatGPT / GPT-4o</span>
-                  <span className="text-neutral-400 text-[9.5px]">· Top Recommendation</span>
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                  <span className="text-white font-medium truncate">campaign-reel.mp4 (4K)</span>
+                  <span className="text-neutral-400 text-[9.5px] truncate">· Moving Watermark Erased</span>
                 </div>
-                <span className="text-emerald-400 font-semibold text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded">
-                  Rank #1
+                <span className="text-emerald-400 font-semibold text-[10px] bg-emerald-500/10 px-2 py-0.5 rounded shrink-0">
+                  Cleaned
                 </span>
               </div>
 
               <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400" />
-                  <span className="text-white font-medium">Perplexity AI</span>
-                  <span className="text-neutral-400 text-[9.5px]">· 4 Direct Citations</span>
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 shrink-0" />
+                  <span className="text-white font-medium truncate">hero-portrait.png</span>
+                  <span className="text-neutral-400 text-[9.5px] truncate">· Background &amp; Noise Removed</span>
                 </div>
-                <span className="text-cyan-400 font-semibold text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded">
-                  Primary Source
+                <span className="text-cyan-400 font-semibold text-[10px] bg-cyan-500/10 px-2 py-0.5 rounded shrink-0">
+                  Transparent
                 </span>
               </div>
 
               <div className="flex items-center justify-between p-2 rounded-lg bg-white/[0.03] border border-white/[0.07] text-[10.5px]">
-                <div className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-indigo-400" />
-                  <span className="text-white font-medium">Google AI Overviews</span>
-                  <span className="text-neutral-400 text-[9.5px]">· Featured Entity Card</span>
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 shrink-0" />
+                  <span className="text-white font-medium truncate">event-footage.mov</span>
+                  <span className="text-neutral-400 text-[9.5px] truncate">· Unwanted Object &amp; Text Eraser</span>
                 </div>
-                <span className="text-indigo-400 font-semibold text-[10px] bg-indigo-500/10 px-2 py-0.5 rounded">
-                  Included
+                <span className="text-amber-400 font-semibold text-[10px] bg-amber-500/10 px-2 py-0.5 rounded shrink-0">
+                  Done (99.6%)
                 </span>
               </div>
             </div>
@@ -386,9 +386,9 @@ export function ProductsCinematicHero() {
             <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-[10.5px] text-neutral-400">
               <span className="flex items-center gap-1.5">
                 <Check className="w-3 h-3 text-emerald-400" />
-                <span>Automated Schema.org &amp; Entity Sync</span>
+                <span>Zero Artifacts · Moving Frame Inpainting</span>
               </span>
-              <span className="text-amber-400 font-medium">Daily AI Brand Audits</span>
+              <span className="text-amber-400 font-medium">MP4, MOV, PNG, JPG, WebP</span>
             </div>
           </div>
         );

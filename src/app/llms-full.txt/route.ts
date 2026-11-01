@@ -29,8 +29,8 @@ export async function GET() {
 
 ### 4. Ashmyra Unveil Architecture
 - Live Endpoint: https://unveil.ashmyra.com/
-- Generative Radar: Headless browser cluster executing real-time prompts against Perplexity, ChatGPT, and Google Gemini.
-- Schema Validator: Automated JSON-LD syntax and entity hierarchy validator detecting missing Wikidata / Wikipedia sameAs entity linkages.
+- Media Processing Engine: High-fidelity AI neural inpainting and segmentation for photos and videos.
+- Capabilities: Watermark and moving watermark removal across video frames, background and noise eraser, unwanted object removal, and multi-file batch processing (MP4, MOV, WebM, PNG, JPG).
 
 ### 5. Veyrix Search Intelligence Architecture
 - Live Endpoint: https://veyrix.ashmyra.com/

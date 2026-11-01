@@ -345,36 +345,36 @@ export default function ProductsPage() {
               </div>
             </div>
 
-            {/* Box 2: Search & GEO Telemetry */}
+            {/* Box 2: Search & Spider Forensics */}
             <div className="p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] flex flex-col justify-between">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center mb-5 text-sky-400">
                   <Search className="w-5 h-5" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">
-                  Search &amp; GEO Discovery Radar
+                  Search &amp; Spider Forensics
                 </h3>
                 <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                  Veyrix crawls website forensics with real-time GSC/GA4 synchronization; Unveil tracks brand citations across Perplexity, ChatGPT, and Gemini.
+                  Veyrix crawls website forensics with deep spider auditing, GSC/GA4 live telemetry, and AI citation radar across Perplexity, ChatGPT, and Gemini.
                 </p>
                 <div className="space-y-2 text-xs text-neutral-300 pt-2 border-t border-white/[0.06]">
                   <div className="flex items-center gap-2">
                     <span className="text-sky-400 font-mono">01.</span>
-                    <span>Deep spider crawler detecting render-blocking assets</span>
+                    <span>Deep spider crawler auditing 2,450+ URLs for 404s &amp; broken links</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sky-400 font-mono">02.</span>
-                    <span>GEO citation scoring across modern generative search</span>
+                    <span>Core Web Vitals HUD (LCP, CLS, INP) &amp; keyword cannibalization</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <span className="text-sky-400 font-mono">03.</span>
-                    <span>Automated Schema.org entity &amp; JSON-LD generation</span>
+                    <span>24/7 automated revenue safeguard &amp; instant regression alerts</span>
                   </div>
                 </div>
               </div>
 
               <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-sky-400">
-                <span>Veyrix + Unveil</span>
+                <span>Veyrix Intelligence</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </div>
             </div>
@@ -438,32 +438,32 @@ export default function ProductsPage() {
           {/* Architecture Pipeline Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
             <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
-              <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 01 · Discovery &amp; Search Radar
+              <span className="text-[10px] font-mono text-sky-400 uppercase tracking-wider block mb-2 font-semibold">
+                Phase 01 · Search &amp; Spider Radar
               </span>
-              <h4 className="text-base font-bold text-white mb-2">Unveil &amp; Veyrix</h4>
+              <h4 className="text-base font-bold text-white mb-2">Veyrix</h4>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Ingests technical site health, crawls regressions, and tracks generative AI search engine visibility across Perplexity and ChatGPT.
+                Ingests technical site health, crawls deep regressions, and tracks generative AI search engine visibility across Perplexity and ChatGPT.
               </p>
             </div>
 
             <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
               <span className="text-[10px] font-mono text-cyan-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 02 · Audience &amp; Intent Scoring
+                Phase 02 · Audience &amp; Lead Pipeline
               </span>
-              <h4 className="text-base font-bold text-white mb-2">Prospect IQ</h4>
+              <h4 className="text-base font-bold text-white mb-2">Prospect IQ &amp; MailFlow</h4>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Discovers target ICP contacts, enriches enterprise company tech stacks, and waterfalls email verification with zero bounce rate.
+                Discovers target ICP contacts, enriches company tech stacks, and waterfalls email verification with deliverability-monitored cold outreach.
               </p>
             </div>
 
-            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.03] border-white/[0.08]">
-              <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider block mb-2 font-semibold">
-                Phase 03 · Autonomous Execution
+            <div className="p-6 rounded-2xl bg-white/[0.03] border border-white/[0.08]">
+              <span className="text-[10px] font-mono text-amber-400 uppercase tracking-wider block mb-2 font-semibold">
+                Phase 03 · Media &amp; Campaign Distribution
               </span>
-              <h4 className="text-base font-bold text-white mb-2">MailFlow &amp; Omnira</h4>
+              <h4 className="text-base font-bold text-white mb-2">Omnira &amp; Unveil</h4>
               <p className="text-xs text-neutral-400 leading-relaxed">
-                Dispatches cold outreach across warmed inbox pools while autonomous agents publish viral content packages across social networks.
+                Omnira coordinates multi-platform viral distribution while Unveil erases moving watermarks, noise, and unwanted objects from photo and video assets.
               </p>
             </div>
           </div>

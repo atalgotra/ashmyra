@@ -136,7 +136,7 @@ export function SeoSchema() {
           "itemOffered": {
             "@type": "SoftwareApplication",
             "name": "Ashmyra Unveil",
-            "description": "Generative Engine Optimization (GEO) audit radar and LLM citation intelligence platform.",
+            "description": "AI-powered photo and video editing platform to remove watermarks, moving marks, background noise, and unwanted objects.",
             "applicationCategory": "BusinessApplication",
             "url": "https://unveil.ashmyra.com/"
           }
@@ -348,7 +348,7 @@ export function SeoSchema() {
         "name": "Where can I test working live demos of Ashmyra software?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Five systems are immediately accessible: Veyrix (search intelligence & deep spider forensics at https://veyrix.ashmyra.com/), Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (agentic AI social media manager for YouTube, LinkedIn, FB & IG at https://omnira.ashmyra.com/), and Ashmyra Unveil (generative search & GEO radar at https://unveil.ashmyra.com/)."
+          "text": "You can test live interactive production demos at https://www.ashmyra.com/demos. Five systems are immediately accessible: Veyrix (search intelligence & deep spider forensics at https://veyrix.ashmyra.com/), Ashmyra MailFlow (cold email warmup & automation at https://mailflow.ashmyra.com/), Prospect IQ (B2B lead intelligence at https://prospectiq.ashmyra.com/), Omnira (agentic AI social media manager for YouTube, LinkedIn, FB & IG at https://omnira.ashmyra.com/), and Ashmyra Unveil (AI photo & video watermark, noise and object removal at https://unveil.ashmyra.com/)."
         }
       },
       {

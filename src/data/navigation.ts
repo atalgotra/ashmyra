@@ -58,7 +58,7 @@ export const MAIN_NAV: NavSection[] = [
         title: "Unveil",
         href: "https://unveil.ashmyra.com/",
         demoUrl: "https://unveil.ashmyra.com/",
-        description: "Generative Engine Optimization (GEO) & brand search radar across LLMs.",
+        description: "AI photo & video editing — remove watermarks, moving marks & background noise.",
         badge: "Live",
         category: "product",
       },

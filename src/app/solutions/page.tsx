@@ -4,12 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { SolutionsCinematicShowcase } from "@/components/solutions-cinematic-showcase";
 import { SolutionsIndustryGrid } from "@/components/solutions-industry-grid";
-import { ArrowRight, Sparkles, ShieldCheck, Terminal, Cpu } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck, Terminal, Layers, Cloud } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Solutions | High-Velocity Startups, SMEs & Enterprise Teams",
+  title: "Ashmyra Solutions | Intelligent Solutions. Built for Your Business.",
   description:
-    "Explore how Ashmyra solves mission-critical business bottlenecks for Startups, SMEs, Enterprises, Sales, Marketing, Operations, and People teams with custom AI architectures.",
+    "Whether you're launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.",
   alternates: {
     canonical: "https://www.ashmyra.com/solutions",
   },
@@ -23,7 +23,7 @@ export default function SolutionsPage() {
       <div className="absolute top-64 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
 
       {/* ── 1. CINEMATIC FULL-WIDTH HERO WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
-      <header className="relative w-full min-h-[640px] sm:min-h-[740px] lg:min-h-[800px] flex flex-col justify-center items-center pt-32 pb-24 sm:pt-40 sm:pb-32 text-center overflow-hidden">
+      <header className="relative w-full min-h-[640px] sm:min-h-[720px] lg:min-h-[760px] flex flex-col justify-center items-center pt-32 pb-24 sm:pt-40 sm:pb-32 text-center overflow-hidden">
         {/* Full-bleed 3D Holographic Architecture Backdrop Image */}
         <div className="absolute inset-0 pointer-events-none z-0">
           <Image
@@ -46,35 +46,46 @@ export default function SolutionsPage() {
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[350px] bg-indigo-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/35 text-xs text-indigo-300 font-mono mb-6 shadow-lg backdrop-blur-md">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-300" />
-            <span>Targeted Business Outcomes</span>
+          {/* Badge: BUSINESS SOLUTIONS */}
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/35 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-blue-400 mb-6 shadow-lg backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-blue-400 fill-blue-400" />
+            <span>BUSINESS SOLUTIONS</span>
           </div>
 
+          {/* Main Title */}
           <h1
-            className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.15] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
             style={{ fontFamily: "'Space Grotesk', sans-serif" }}
           >
-            Solutions Built for Your Scale &amp; Team
+            Intelligent Solutions. Built for Your Business.
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-neutral-100 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] font-medium">
-            Whether you are launching an early-stage SaaS product, automating mid-market operations, or modernizing enterprise legacy infrastructure, Ashmyra provides targeted architecture backed by live production engines.
+          {/* Subtitle */}
+          <div
+            className="mt-3 text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-indigo-400 drop-shadow-[0_2px_12px_rgba(99,102,241,0.5)]"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            From Startup to Enterprise.
+          </div>
+
+          {/* Body Paragraph */}
+          <p className="mt-6 text-sm sm:text-base lg:text-lg text-neutral-200 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] font-normal">
+            Whether you&apos;re launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.
           </p>
 
-          {/* Quick Trust Badges */}
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span className="font-semibold text-white">7 Production Blueprints</span>
+          {/* 3 Metric Cards */}
+          <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl bg-[#080d1a]/85 border border-white/[0.12] backdrop-blur-md shadow-xl text-white">
+              <Layers className="w-5 h-5 text-cyan-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight">7 Solution Areas</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
-              <ShieldCheck className="w-4 h-4 text-cyan-400" />
-              <span>SOC2 &amp; Air-Gapped Ready</span>
+            <div className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl bg-[#080d1a]/85 border border-white/[0.12] backdrop-blur-md shadow-xl text-white">
+              <ShieldCheck className="w-5 h-5 text-cyan-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight">Security by Design</span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
-              <Cpu className="w-4 h-4 text-indigo-400" />
-              <span>Dedicated VPC &amp; Cloud Clusters</span>
+            <div className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl bg-[#080d1a]/85 border border-white/[0.12] backdrop-blur-md shadow-xl text-white">
+              <Cloud className="w-5 h-5 text-indigo-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight">Flexible Deployment</span>
             </div>
           </div>
         </div>

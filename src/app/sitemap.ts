@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${baseUrl}/team`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/our-work`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/solutions`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${baseUrl}/services`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
+    { url: `${baseUrl}/capabilities`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.85 },
     { url: `${baseUrl}/resources`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: `${baseUrl}/legal/privacy`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
     { url: `${baseUrl}/legal/terms`, lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
@@ -30,9 +30,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  // Dynamic service routes
-  const serviceRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
-    url: `${baseUrl}/services/${s.slug}`,
+  // Dynamic capabilities routes
+  const capabilityRoutes: MetadataRoute.Sitemap = SERVICES.map((s) => ({
+    url: `${baseUrl}/capabilities/${s.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
@@ -46,5 +46,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...serviceRoutes, ...articleRoutes];
+  return [...staticRoutes, ...productRoutes, ...capabilityRoutes, ...articleRoutes];
 }

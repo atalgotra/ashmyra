@@ -595,7 +595,7 @@ export function Navbar() {
                   <div className="flex items-center gap-2.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
                     <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Engineering Disciplines <span className="text-neutral-500">•</span> What Ashmyra Can Engineer
+                      Engineering Disciplines <span className="text-neutral-500">•</span> Systems Ashmyra Engineers
                     </span>
                   </div>
                   <Link
@@ -603,72 +603,104 @@ export function Navbar() {
                     onClick={() => setActiveDD(null)}
                     className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
                   >
-                    <span>Engineering Capabilities Overview</span>
+                    <span>Capabilities Overview</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>
 
                 {/* 3-Column Visual Groups */}
-                <div className="grid grid-cols-3 gap-6">
-                  {activeNavSection.groups?.map((group) => (
-                    <div key={group.groupTitle} className="space-y-1.5">
-                      <div className="flex items-center gap-2 pb-2 mb-1.5 border-b border-white/[0.06]">
-                        {group.groupTitle.includes("AI") ? (
-                          <Bot className="w-3.5 h-3.5 text-indigo-400" />
-                        ) : group.groupTitle.includes("Software") ? (
-                          <Code2 className="w-3.5 h-3.5 text-cyan-400" />
-                        ) : (
-                          <Database className="w-3.5 h-3.5 text-emerald-400" />
-                        )}
-                        <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                          {group.groupTitle}
-                        </span>
-                      </div>
+                <div className="grid grid-cols-3 gap-6 lg:gap-8">
+                  {activeNavSection.groups?.map((group) => {
+                    const isAi = group.groupTitle.includes("AI");
+                    const isSoftware = group.groupTitle.includes("Software");
+                    const accentColor = isAi ? "text-indigo-400" : isSoftware ? "text-cyan-400" : "text-emerald-400";
+                    const hoverTitleColor = isAi ? "group-hover/item:text-indigo-200" : isSoftware ? "group-hover/item:text-cyan-200" : "group-hover/item:text-emerald-200";
 
-                      <div className="space-y-1">
-                        {group.items.map((item) => (
-                          <Link
-                            key={item.title}
-                            href={item.href}
-                            onClick={() => setActiveDD(null)}
-                            className="mega-menu-item flex items-start gap-2.5 p-2 rounded-lg hover:bg-white/[0.04] border border-transparent hover:border-white/[0.06] transition-all group/item"
-                          >
-                            <div
-                              className="w-7 h-7 rounded-md flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
-                              style={{
-                                background: "rgba(255,255,255,0.03)",
-                                border: "1px solid rgba(255,255,255,0.08)",
-                              }}
-                            >
-                              {getIcon(item.title)}
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <span className="text-[12.5px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block leading-snug truncate">
-                                {item.title}
+                    return (
+                      <div key={group.groupTitle} className="flex flex-col justify-between">
+                        <div>
+                          {/* Column Header */}
+                          <div className="pb-2.5 mb-2.5 border-b border-white/[0.06]">
+                            <div className="flex items-center gap-2 mb-1">
+                              {isAi ? (
+                                <Bot className={`w-3.5 h-3.5 ${accentColor}`} />
+                              ) : isSoftware ? (
+                                <Code2 className={`w-3.5 h-3.5 ${accentColor}`} />
+                              ) : (
+                                <Database className={`w-3.5 h-3.5 ${accentColor}`} />
+                              )}
+                              <span className={`text-[11px] font-mono uppercase tracking-wider font-semibold ${accentColor}`}>
+                                {group.groupTitle}
                               </span>
-                              <p className="text-[11px] text-neutral-400 mt-0.5 leading-snug group-hover/item:text-neutral-300 transition-colors line-clamp-1">
-                                {item.description}
-                              </p>
                             </div>
-                          </Link>
-                        ))}
+                            {group.explanation && (
+                              <p className="text-[11px] text-slate-400 font-light leading-relaxed">
+                                {group.explanation}
+                              </p>
+                            )}
+                          </div>
+
+                          {/* 6 Capability Items */}
+                          <div className="space-y-0.5">
+                            {group.items.map((item) => (
+                              <Link
+                                key={item.title}
+                                href={item.href}
+                                onClick={() => setActiveDD(null)}
+                                className="mega-menu-item flex items-start gap-2.5 px-2 py-1.5 rounded-lg hover:bg-white/[0.04] transition-all group/item"
+                              >
+                                <div
+                                  className="w-6 h-6 rounded flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                                  style={{
+                                    background: "rgba(255,255,255,0.03)",
+                                  }}
+                                >
+                                  {getIcon(item.title)}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <span className={`text-[12px] font-medium text-slate-200 ${hoverTitleColor} transition-colors block leading-tight truncate`}>
+                                    {item.title}
+                                  </span>
+                                  {item.description && (
+                                    <p className="text-[10.5px] text-slate-400 leading-tight group-hover/item:text-slate-300 transition-colors mt-0.5 font-light">
+                                      {item.description}
+                                    </p>
+                                  )}
+                                </div>
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Category Overview Link */}
+                        {group.overviewHref && (
+                          <div className="pt-2 mt-2 border-t border-white/[0.06]">
+                            <Link
+                              href={group.overviewHref}
+                              onClick={() => setActiveDD(null)}
+                              className={`text-[11px] font-mono ${accentColor} hover:underline inline-flex items-center gap-1 font-medium transition-colors`}
+                            >
+                              <span>{group.overviewLabel || "Explore Category →"}</span>
+                            </Link>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
 
                 {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span className="flex items-center gap-1.5">
+                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-slate-400 px-1">
+                  <span className="flex items-center gap-1.5 font-light">
                     <Cpu className="w-3.5 h-3.5 text-cyan-400" />
-                    <span>Deterministic engineering practices with automated unit, integration, and load testing on every deliverable.</span>
+                    <span>Disciplined architecture, type-safe codebases, and observable production execution.</span>
                   </span>
                   <Link
                     href="/contact"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3 font-mono text-[11px]"
                   >
-                    Schedule Technical Discovery →
+                    Start an Engineering Conversation →
                   </Link>
                 </div>
               </div>
@@ -860,27 +892,55 @@ export function Navbar() {
                         </Link>
                         {/* Capabilities visual groups */}
                         {nav.groups ? (
-                          nav.groups.map((group) => (
-                            <div key={group.groupTitle} className="mb-3 last:mb-0">
-                              <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-400 font-semibold px-2.5 py-1 block">
-                                {group.groupTitle}
-                              </span>
-                              {group.items.map((item) => (
-                                <Link
-                                  key={item.title}
-                                  href={item.href}
-                                  onClick={() => setMobileOpen(false)}
-                                  className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
-                                >
-                                  <div className="flex items-center gap-2.5 min-w-0">
-                                    {getIcon(item.title)}
-                                    <span className="font-medium truncate">{item.title}</span>
-                                  </div>
-                                  <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
-                                </Link>
-                              ))}
-                            </div>
-                          ))
+                          nav.groups.map((group) => {
+                            const isAi = group.groupTitle.includes("AI");
+                            const isSoftware = group.groupTitle.includes("Software");
+                            const accentColor = isAi ? "text-indigo-400" : isSoftware ? "text-cyan-400" : "text-emerald-400";
+                            return (
+                              <div key={group.groupTitle} className="mb-4 last:mb-0 pb-3 border-b border-white/[0.04] last:border-b-0">
+                                <div className="px-2.5 py-1 mb-1">
+                                  <span className={`text-[10px] font-mono uppercase tracking-wider font-semibold block ${accentColor}`}>
+                                    {group.groupTitle}
+                                  </span>
+                                  {group.explanation && (
+                                    <p className="text-[10.5px] text-slate-400 font-light mt-0.5">
+                                      {group.explanation}
+                                    </p>
+                                  )}
+                                </div>
+                                <div className="space-y-0.5">
+                                  {group.items.map((item) => (
+                                    <Link
+                                      key={item.title}
+                                      href={item.href}
+                                      onClick={() => setMobileOpen(false)}
+                                      className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
+                                    >
+                                      <div className="flex items-center gap-2.5 min-w-0">
+                                        {getIcon(item.title)}
+                                        <div className="min-w-0">
+                                          <span className="font-medium truncate block">{item.title}</span>
+                                          {item.description && (
+                                            <span className="text-[10px] text-slate-400 font-light block truncate">{item.description}</span>
+                                          )}
+                                        </div>
+                                      </div>
+                                      <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0 ml-2" />
+                                    </Link>
+                                  ))}
+                                </div>
+                                {group.overviewHref && (
+                                  <Link
+                                    href={group.overviewHref}
+                                    onClick={() => setMobileOpen(false)}
+                                    className={`inline-flex items-center gap-1 text-[11px] font-mono ${accentColor} px-2.5 pt-1.5 font-medium`}
+                                  >
+                                    <span>{group.overviewLabel || "Explore Category →"}</span>
+                                  </Link>
+                                )}
+                              </div>
+                            );
+                          })
                         ) : (
                           nav.items?.map((item) => (
                             <Link

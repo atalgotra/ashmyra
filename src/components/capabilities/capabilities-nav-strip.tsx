@@ -40,10 +40,21 @@ export function CapabilitiesNavStrip() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Handle initial hash navigation on page load
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const hashId = window.location.hash.replace("#", "");
+      const timer = setTimeout(() => {
+        handleScrollTo(hashId);
+      }, 150);
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
   const handleScrollTo = (id: string) => {
     const el = document.getElementById(id);
     if (el) {
-      const navOffset = 95;
+      const navOffset = 130;
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - navOffset;
       window.scrollTo({

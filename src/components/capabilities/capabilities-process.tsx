@@ -75,8 +75,9 @@ export function CapabilitiesProcess() {
 
   return (
     <section 
+      id="engineering-process"
       ref={containerRef}
-      className="relative py-24 sm:py-32 bg-[#04060B] border-t border-white/[0.06] overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#04060B] border-t border-white/[0.06] overflow-hidden scroll-mt-28"
     >
       {/* Background Accent */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.06),transparent_60%)] pointer-events-none" />

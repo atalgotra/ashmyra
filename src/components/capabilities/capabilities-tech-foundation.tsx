@@ -42,7 +42,7 @@ const TECH_FOUNDATION: TechGroup[] = [
     category: "Services & APIs",
     icon: Server,
     badge: "Core Architecture",
-    description: "Modular microservices and monolithic backends engineered for strict concurrency, ACID compliance, and secure data isolation.",
+    description: "Modular microservices and monolithic backends engineered for strict concurrency, ACID transactional guarantees, and secure data isolation.",
     technologies: [
       { name: "Python & FastAPI", description: "Asynchronous microservices, high-throughput model endpoints & data APIs" },
       { name: "Node.js & TypeScript", description: "Event-driven microservices, real-time gateways & serverless functions" },
@@ -73,8 +73,8 @@ const TECH_FOUNDATION: TechGroup[] = [
     description: "Containerized deployments, deterministic CI/CD pipelines, and active observability foundations ensuring enterprise resilience.",
     technologies: [
       { name: "Data Pipelines", description: "ETL ingestion pipelines, scheduled batch transformations & event validation" },
-      { name: "Cloud Infrastructure", description: "Scalable compute, automated VPC routing & managed container services" },
-      { name: "Object Storage", description: "Encrypted asset buckets, signed access URLs & geo-distributed caching" },
+      { name: "Cloud Architecture & VPC", description: "Scalable compute, automated VPC routing & managed container services" },
+      { name: "Object Storage & Lakes", description: "Encrypted asset buckets, signed access URLs & geo-distributed caching" },
       { name: "Containers & Docker", description: "Deterministic container runtimes, multi-stage builds & health-check probes" },
       { name: "CI/CD & Observability", description: "Automated test runners, distributed tracing & proactive log monitoring" },
     ],
@@ -86,8 +86,9 @@ export function CapabilitiesTechFoundation() {
 
   return (
     <section 
+      id="tech-foundation"
       ref={containerRef}
-      className="relative py-24 sm:py-32 bg-[#06080F] border-t border-white/[0.06] overflow-hidden"
+      className="relative py-24 sm:py-32 bg-[#06080F] border-t border-white/[0.06] overflow-hidden scroll-mt-28"
     >
       {/* Background Subtle Gradient & Grid */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(14,165,233,0.05),transparent_70%)] pointer-events-none" />
@@ -112,10 +113,14 @@ export function CapabilitiesTechFoundation() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {TECH_FOUNDATION.map((item, index) => {
             const Icon = item.icon;
+            const isDataInfra = item.discipline.includes("DATA");
+            const cardId = isDataInfra ? "data-engineering" : undefined;
+
             return (
               <div
                 key={item.discipline}
-                className="group relative rounded-2xl border border-white/[0.08] bg-[#0A0D18]/90 hover:bg-[#0C1020] p-6 sm:p-8 transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/[0.03]"
+                id={cardId}
+                className="group relative rounded-2xl border border-white/[0.08] bg-[#0A0D18]/90 hover:bg-[#0C1020] p-6 sm:p-8 transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/[0.03] scroll-mt-28"
               >
                 {/* Header of Card */}
                 <div className="flex items-start justify-between gap-4 mb-6 pb-5 border-b border-white/[0.06]">
@@ -147,24 +152,33 @@ export function CapabilitiesTechFoundation() {
                   <div className="text-[10px] font-mono text-slate-300 uppercase tracking-wider mb-2">
                     Verified Capabilities
                   </div>
-                  {item.technologies.map((tech) => (
-                    <div
-                      key={tech.name}
-                      className="flex items-start justify-between gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] group-hover:border-white/[0.08] transition-colors"
-                    >
-                      <div className="flex items-start gap-2.5 min-w-0">
-                        <CheckCircle2 className="w-4 h-4 text-cyan-400/80 shrink-0 mt-0.5" />
-                        <div className="min-w-0">
-                          <span className="text-xs font-medium text-slate-200 block truncate">
-                            {tech.name}
-                          </span>
-                          <span className="text-[11px] text-slate-300 block truncate font-light">
-                            {tech.description}
-                          </span>
+                  {item.technologies.map((tech) => {
+                    let anchorId: string | undefined = undefined;
+                    if (tech.name.includes("Cloud Architecture")) anchorId = "cloud-architecture";
+                    else if (tech.name.includes("Data Pipelines")) anchorId = "data-pipelines";
+                    else if (tech.name.includes("CI/CD & Observability")) anchorId = "infrastructure-integration";
+                    else if (tech.name.includes("Analytics") || tech.name.includes("PostgreSQL")) anchorId = "analytics-systems";
+
+                    return (
+                      <div
+                        key={tech.name}
+                        id={anchorId}
+                        className={`flex items-start justify-between gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] group-hover:border-white/[0.08] transition-colors ${anchorId ? "scroll-mt-28" : ""}`}
+                      >
+                        <div className="flex items-start gap-2.5 min-w-0">
+                          <CheckCircle2 className="w-4 h-4 text-cyan-400/80 shrink-0 mt-0.5" />
+                          <div className="min-w-0">
+                            <span className="text-xs font-medium text-slate-200 block truncate">
+                              {tech.name}
+                            </span>
+                            <span className="text-[11px] text-slate-300 block truncate font-light">
+                              {tech.description}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             );

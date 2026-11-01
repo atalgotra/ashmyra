@@ -91,18 +91,22 @@ export function CapabilitiesShowcase() {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {[
-                  "Multi-tenant SaaS architecture",
-                  "Subscription and billing systems",
-                  "Role-based access control (RBAC)",
-                  "Enterprise application development",
-                  "Workflow automation & orchestration",
-                  "API and system integration",
-                  "Scalable backend engineering",
-                  "Data-driven application architecture",
+                  { text: "Multi-tenant SaaS architecture", id: "saas-architecture" },
+                  { text: "Subscription and billing systems" },
+                  { text: "Role-based access control (RBAC)" },
+                  { text: "Enterprise application development", id: "platform-modernisation" },
+                  { text: "Workflow automation & orchestration" },
+                  { text: "API and system integration", id: "api-integration" },
+                  { text: "Mobile & cross-platform engineering", id: "mobile-applications" },
+                  { text: "Scalable backend engineering" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200">
+                  <div 
+                    key={idx} 
+                    id={item.id}
+                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200 ${item.id ? "scroll-mt-28" : ""}`}
+                  >
                     <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <span>{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -227,24 +231,41 @@ export function CapabilitiesShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#070a14] via-transparent to-transparent" />
               </div>
 
-              {/* Animated Agent Execution Nodes */}
-              <div className="p-5 space-y-2.5 bg-[#070a14] border-t border-white/[0.06] text-xs font-mono">
-                <div className="flex items-center gap-2 text-purple-300 font-semibold mb-1">
-                  <Workflow className="w-3.5 h-3.5" />
-                  <span>Agentic Execution Pipeline</span>
+              {/* 6-Step Multi-Agent Execution Pipeline (Conceptual Architecture) */}
+              <div className="p-4 sm:p-5 space-y-2 bg-[#070a14] border-t border-white/[0.06] text-xs font-mono">
+                <div className="flex items-center justify-between text-purple-300 font-semibold mb-2">
+                  <div className="flex items-center gap-2">
+                    <Workflow className="w-3.5 h-3.5" />
+                    <span>Multi-Agent Execution Pipeline</span>
+                  </div>
+                  <span className="text-[9px] font-mono text-purple-400/80 bg-purple-500/10 px-2 py-0.5 rounded">
+                    Conceptual Topology
+                  </span>
                 </div>
                 <div className="space-y-1.5">
-                  <div className="p-2 rounded-lg bg-purple-950/20 border border-purple-500/20 flex items-center justify-between text-[11px]">
-                    <span className="text-white">01. Request Ingestion &amp; Plan</span>
-                    <span className="text-purple-400">Context Parser</span>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">01. Request</span>
+                    <span className="text-slate-400">Task Ingestion &amp; Intent Parsing</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-sky-950/20 border border-sky-500/20 flex items-center justify-between text-[11px]">
-                    <span className="text-white">02. Specialized Swarm Delegation</span>
-                    <span className="text-sky-400">Tool Calling &amp; RAG</span>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">02. Planning</span>
+                    <span className="text-purple-400">Context Decomposition &amp; DAG Router</span>
                   </div>
-                  <div className="p-2 rounded-lg bg-emerald-950/20 border border-emerald-500/20 flex items-center justify-between text-[11px]">
-                    <span className="text-white">03. Verification &amp; Guardrails</span>
-                    <span className="text-emerald-400">Human-In-The-Loop Signoff</span>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">03. Specialised Agents</span>
+                    <span className="text-indigo-400">Domain Swarms &amp; Tool Assignment</span>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">04. Tool Execution</span>
+                    <span className="text-sky-400">API Calls, DB Queries &amp; Vector RAG</span>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">05. Verification</span>
+                    <span className="text-amber-400">Guardrails &amp; Human-in-the-Loop</span>
+                  </div>
+                  <div className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between text-[11px]">
+                    <span className="text-white">06. Output</span>
+                    <span className="text-emerald-400">Deterministic Action &amp; Delivery</span>
                   </div>
                 </div>
               </div>
@@ -269,25 +290,29 @@ export function CapabilitiesShowcase() {
               We engineer AI systems that combine language models, business data, specialised tools and controlled workflows to perform meaningful business tasks.
             </p>
 
-            {/* Deliverables Checklist */}
+            {/* Deliverables Checklist with Anchor IDs */}
             <div className="pt-2">
               <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
                 Verified Engineering Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                 {[
-                  "Multi-agent orchestration",
-                  "Retrieval-Augmented Generation (RAG)",
-                  "Knowledge retrieval systems",
-                  "Tool calling and API execution",
-                  "AI workflow automation",
-                  "Domain-specific model integration",
-                  "Human-in-the-loop controls",
-                  "AI evaluation and guardrails",
+                  { text: "Multi-agent orchestration", id: "multi-agent" },
+                  { text: "Retrieval-Augmented Generation (RAG)", id: "rag-knowledge" },
+                  { text: "Knowledge retrieval systems" },
+                  { text: "Tool calling and API execution", id: "ai-integration" },
+                  { text: "AI workflow automation", id: "workflow-automation" },
+                  { text: "Domain-specific model integration" },
+                  { text: "Human-in-the-loop controls" },
+                  { text: "AI evaluation and guardrails", id: "ai-evaluation" },
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200">
+                  <div 
+                    key={idx} 
+                    id={item.id}
+                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200 ${item.id ? "scroll-mt-28" : ""}`}
+                  >
                     <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
-                    <span>{item}</span>
+                    <span>{item.text}</span>
                   </div>
                 ))}
               </div>

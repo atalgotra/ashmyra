@@ -58,16 +58,17 @@ export function CapabilitiesSelectedWork() {
 
   return (
     <section 
+      id="selected-work"
       ref={containerRef}
-      className="relative py-24 sm:py-32 bg-[#06080F] border-t border-white/[0.06] overflow-hidden"
+      className="relative py-20 sm:py-24 bg-[#06080F] border-t border-white/[0.06] overflow-hidden scroll-mt-28"
     >
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 sm:mb-20">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 sm:mb-16">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/[0.05] text-[11px] font-mono tracking-wider text-cyan-400 uppercase mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-              VERIFIED ENGAGEMENTS
+              APPROVED CASE STUDIES
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.15]">
               Selected Engineering Deployments.
@@ -99,9 +100,8 @@ export function CapabilitiesSelectedWork() {
                   <span className="text-[11px] font-mono uppercase tracking-wider text-cyan-400 bg-cyan-500/[0.08] px-2.5 py-1 rounded-md border border-cyan-500/20">
                     {project.discipline}
                   </span>
-                  <span className="text-[10px] font-mono text-slate-300 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/80" />
-                    Verified System
+                  <span className="text-[10px] font-mono text-slate-400">
+                    Client Deployment
                   </span>
                 </div>
 

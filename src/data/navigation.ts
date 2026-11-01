@@ -9,6 +9,10 @@ export interface NavItem {
 
 export interface NavGroup {
   groupTitle: string;
+  explanation?: string;
+  overviewHref?: string;
+  overviewLabel?: string;
+  accentColor?: string;
   items: NavItem[];
 }
 
@@ -24,6 +28,8 @@ export interface NavSection {
   items?: NavItem[];
   groups?: NavGroup[];
 }
+
+import { CAPABILITIES_REGISTRY } from "./capabilities-registry";
 
 export const MAIN_NAV: NavSection[] = [
   {
@@ -123,131 +129,19 @@ export const MAIN_NAV: NavSection[] = [
   {
     title: "Capabilities",
     href: "/capabilities",
-    groups: [
-      {
-        groupTitle: "AI & Intelligent Systems",
-        items: [
-          {
-            title: "Agentic AI Development",
-            href: "/capabilities/ai-development",
-            description: "Autonomous multi-agent swarms engineered for reasoning, tool use and execution.",
-            category: "ai",
-          },
-          {
-            title: "Multi-Agent Systems",
-            href: "/capabilities/ai-development",
-            description: "Consensus-driven agent architectures collaborating across enterprise workflows.",
-            category: "ai",
-          },
-          {
-            title: "RAG & Knowledge Systems",
-            href: "/capabilities/ai-development",
-            description: "Vector databases, semantic retrieval engines & deterministic context pipelines.",
-            category: "ai",
-          },
-          {
-            title: "AI Integration",
-            href: "/capabilities/ai-development",
-            description: "Production LLM and SLM orchestration embedded securely inside enterprise stacks.",
-            category: "ai",
-          },
-          {
-            title: "Intelligent Workflow Automation",
-            href: "/capabilities/ai-development",
-            description: "Cognitive document intelligence, automated decision trees & exception routing.",
-            category: "ai",
-          },
-          {
-            title: "AI Engineering & Evaluation",
-            href: "/capabilities/ai-development",
-            description: "Model fine-tuning, benchmark evaluations & deterministic guardrail layers.",
-            category: "ai",
-          },
-        ],
-      },
-      {
-        groupTitle: "Software & Product Engineering",
-        items: [
-          {
-            title: "SaaS Development",
-            href: "/capabilities/software-development",
-            description: "Full-cycle multi-tenant SaaS architecture, billing & subscription infrastructure.",
-            category: "service",
-          },
-          {
-            title: "Custom Software Development",
-            href: "/capabilities/software-development",
-            description: "Bespoke high-concurrency backend services built for mission-critical reliability.",
-            category: "service",
-          },
-          {
-            title: "Website Development",
-            href: "/capabilities/web-apps",
-            description: "Edge-rendered, high-performance Next.js web applications & design systems.",
-            category: "service",
-          },
-          {
-            title: "Mobile Application Development",
-            href: "/capabilities/software-development",
-            description: "Native iOS/Android and Flutter cross-platform mobile engineering.",
-            category: "service",
-          },
-          {
-            title: "API & System Integration",
-            href: "/capabilities/software-development",
-            description: "Cryptographic microservices, event-driven webhooks & legacy bridge APIs.",
-            category: "service",
-          },
-          {
-            title: "UI/UX & 3D Experiences",
-            href: "/capabilities/web-apps",
-            description: "Interactive WebGL, GSAP digital experiences & precision design token systems.",
-            category: "service",
-          },
-        ],
-      },
-      {
-        groupTitle: "Data & Platform Engineering",
-        items: [
-          {
-            title: "Data Engineering",
-            href: "/capabilities/software-development",
-            description: "Distributed streaming pipelines, lakehouse architectures & automated ETL.",
-            category: "service",
-          },
-          {
-            title: "Cloud Architecture",
-            href: "/capabilities/software-development",
-            description: "Containerized Kubernetes clusters, serverless computing & VPC governance.",
-            category: "service",
-          },
-          {
-            title: "Data Pipelines",
-            href: "/capabilities/software-development",
-            description: "High-throughput telemetry ingestion, schema evolution & real-time queues.",
-            category: "service",
-          },
-          {
-            title: "Analytics Systems",
-            href: "/capabilities/software-development",
-            description: "Executive intelligence dashboards, custom KPI telemetry & cohort analysis.",
-            category: "service",
-          },
-          {
-            title: "Platform Modernisation",
-            href: "/capabilities/software-development",
-            description: "Zero-downtime database migrations & monolith-to-microservice decouplings.",
-            category: "service",
-          },
-          {
-            title: "Infrastructure Integration",
-            href: "/capabilities/software-development",
-            description: "CI/CD automated testing gates, observability stacks & infrastructure as code.",
-            category: "service",
-          },
-        ],
-      },
-    ],
+    groups: CAPABILITIES_REGISTRY.map((group) => ({
+      groupTitle: group.groupTitle,
+      explanation: group.explanation,
+      overviewHref: group.overviewHref,
+      overviewLabel: group.overviewLabel,
+      accentColor: group.accentColor,
+      items: group.capabilities.map((c) => ({
+        title: c.title,
+        href: c.href,
+        description: c.shortDesc,
+        category: c.category === "AI & Intelligent Systems" ? "ai" : "service",
+      })),
+    })),
   },
   {
     title: "Our Work",

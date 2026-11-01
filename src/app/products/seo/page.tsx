@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra SEO | Real-Time GSC/GA4 Crawler & GEO Engine",
+  title: "Ashmyra SEO | GSC & GEO Search Engine",
   description:
     "SEO intelligence connecting directly to GSC & GA4 APIs. Real-time crawler, code-level fixes, cannibalization detection, Schema.org generator, and GEO readiness.",
   keywords: [
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     "PageRank Internal Linking Optimization",
   ],
   openGraph: {
-    title: "Ashmyra SEO | Real-Time GSC/GA4 API Sync & GEO Intelligence Platform",
+    title: "Ashmyra SEO | GSC & GEO Search Engine | Ashmyra",
     description:
-      "Full website technical audits with code-level fixes, keyword cannibalization detection, and GEO citation tracking at just ₹0.25 INR ($0.0025 USD) per page. Better than Semrush and Ahrefs.",
+      "Technical SEO audits with code fixes, keyword cannibalization detection, and GEO citation tracking at ₹0.25/page.",
     url: "https://www.ashmyra.com/products/seo",
     images: [{ url: "/products/seo/seo-geo-studio.jpg", width: 1200, height: 675, alt: "Ashmyra SEO & GEO Intelligence Suite" }],
   },

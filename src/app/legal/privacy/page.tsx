@@ -5,7 +5,7 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Ashmyra",
+  title: "Privacy Policy",
   description: "Ashmyra privacy policy, data protection commitments, and enterprise security architecture.",
   alternates: {
     canonical: "https://www.ashmyra.com/legal/privacy",

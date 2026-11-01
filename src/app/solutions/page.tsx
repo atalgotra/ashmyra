@@ -8,16 +8,16 @@ import { Breadcrumb } from "@/components/breadcrumb";
 import { ArrowRight, Sparkles, ShieldCheck, Terminal, Layers, Cloud } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Solutions | Intelligent Solutions Built for Your Business",
+  title: "Intelligent Business Solutions",
   description:
-    "Whether you're launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.",
+    "Engineering bespoke software and intelligent architectures aligned with your enterprise goals. From SaaS platforms to modern enterprise automation.",
   alternates: {
     canonical: "https://www.ashmyra.com/solutions",
   },
   openGraph: {
-    title: "Ashmyra Solutions | Intelligent Solutions Built for Your Business",
+    title: "Intelligent Business Solutions | Ashmyra",
     description:
-      "Whether you're launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.",
+      "Engineering bespoke software and intelligent architectures aligned with your enterprise goals. From SaaS platforms to modern enterprise automation.",
     url: "https://www.ashmyra.com/solutions",
   },
 };

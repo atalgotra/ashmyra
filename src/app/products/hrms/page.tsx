@@ -34,7 +34,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra HRMS | AI Workforce, Resume Parser & Payroll",
+  title: "Ashmyra HRMS | AI Workforce & Payroll",
   description:
     "Intelligent workforce system with AI resume parsing, proctored assessments, cross-department onboarding, and statutory payroll at 70% lower cost than Workday.",
   keywords: [
@@ -50,9 +50,9 @@ export const metadata: Metadata = {
     "BambooHR Alternative",
   ],
   openGraph: {
-    title: "Ashmyra HRMS | Intelligent Workforce Operating System",
+    title: "Ashmyra HRMS | AI Workforce & Payroll | Ashmyra",
     description:
-      "AI Resume Parser, live webcam-proctored assessments, automated cross-department exit clearance, and POSH compliance at 70% lower cost than legacy HR suites.",
+      "AI resume parser, proctored assessments, exit clearance, and POSH compliance at 70% lower cost than legacy HR suites.",
     url: "https://www.ashmyra.com/products/hrms",
     images: [{ url: "/wow/wow4-intelligent-workforce.png", width: 1200, height: 675, alt: "Ashmyra HRMS Platform Preview" }],
   },

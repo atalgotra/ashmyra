@@ -21,16 +21,16 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Live Demos | Veyrix, MailFlow, Prospect IQ, Omnira & Unveil",
+  title: "Live AI Software Demos",
   description:
-    "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, Omnira social media AI agent, MailFlow cold email automation, Prospect IQ B2B leads & Unveil AI photo/video watermark and noise removal. Instant sandbox access.",
+    "Experience live Ashmyra AI platforms in your browser: Veyrix, Omnira, MailFlow, Prospect IQ, and Unveil. Instant sandbox access.",
   alternates: {
     canonical: "https://www.ashmyra.com/demos",
   },
   openGraph: {
-    title: "Ashmyra Live Demos | Veyrix, MailFlow, Prospect IQ, Omnira & Unveil",
+    title: "Live AI Software Demos | Ashmyra",
     description:
-      "Test live Ashmyra AI platforms in your browser: Veyrix search intelligence, Omnira social media AI agent, MailFlow cold email automation, Prospect IQ B2B leads & Unveil AI photo/video watermark and noise removal. Instant sandbox access.",
+      "Experience live Ashmyra AI platforms in your browser: Veyrix, Omnira, MailFlow, Prospect IQ, and Unveil. Instant sandbox access.",
     url: "https://www.ashmyra.com/demos",
     images: [
       {

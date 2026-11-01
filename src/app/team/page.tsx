@@ -23,12 +23,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Our Team & Company | Ashmyra Technologies",
+  title: "Our Team & Company",
   description:
     "Engineering intelligence. Building what's next. Meet the team, mission, and engineering philosophy behind Ashmyra Technologies.",
   alternates: { canonical: "https://www.ashmyra.com/team" },
   openGraph: {
-    title: "Our Team & Company | Ashmyra Technologies",
+    title: "Our Team & Company | Ashmyra",
     description:
       "Engineering intelligence. Building what's next. Meet the team, mission, and engineering philosophy behind Ashmyra Technologies.",
     url: "https://www.ashmyra.com/team",

@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Modern Web & Enterprise Portal Engineering Services | Ashmyra",
+  title: "Enterprise Web & Digital Platforms",
   description:
     "Engineering high-performance web applications, enterprise portals, and conversion-optimized digital surfaces with Next.js, React, and TypeScript.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/web-apps",
   },
   openGraph: {
-    title: "Modern Web & Enterprise Portal Engineering Services | Ashmyra",
+    title: "Enterprise Web & Digital Platforms | Ashmyra",
     description:
       "Engineering high-performance web applications, enterprise portals, and conversion-optimized digital surfaces with Next.js, React, and TypeScript.",
     url: "https://www.ashmyra.com/capabilities/web-apps",

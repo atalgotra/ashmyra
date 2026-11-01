@@ -38,7 +38,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Analytics | Data Intelligence & RevOps Engine",
+  title: "Ashmyra Analytics | RevOps Intelligence",
   description:
     "Turn raw data into revenue intelligence with 24/7 collection, 4-layer deduplication, Golden Records, lead scoring, built-in calling CRM, and sales pipelines.",
   keywords: [
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
     "Data Quality Score",
   ],
   openGraph: {
-    title: "Ashmyra Analytics | Data Intelligence & Revenue Operations Platform",
+    title: "Ashmyra Analytics | RevOps Intelligence | Ashmyra",
     description:
-      "From Raw Data to Revenue — Automatically. Replace fragmented scrapers, spreadsheets, calling software, and CRMs with one continuous operating engine.",
+      "From raw data to revenue automatically with 24/7 collection, deduplication, Golden Records, and built-in sales CRM.",
     url: "https://www.ashmyra.com/products/analytics",
     images: [{ url: "/analytics/analytics-pipeline-engine.jpg", width: 1200, height: 675, alt: "Ashmyra Analytics Data-to-Revenue Engine" }],
   },

@@ -8,9 +8,9 @@ import { PeopleSection } from "@/components/people-section";
 import { FinalCtaPhase7 } from "@/components/final-cta-phase7";
 
 export const metadata: Metadata = {
-  title: "Ashmyra | We Engineer What's Next | AI, Data & Enterprise Software",
+  title: "Ashmyra | Intelligent Systems That Act",
   description:
-    "Ashmyra Technologies engineers autonomous multi-agent AI systems, real-time data intelligence platforms, and enterprise software designed to solve real business problems. Delhi NCR, India. Serving clients globally.",
+    "Ashmyra Technologies engineers autonomous multi-agent AI systems, real-time data intelligence platforms, and enterprise software. Serving clients globally.",
   keywords: [
     "Ashmyra",
     "Ashmyra Technologies",

@@ -7,19 +7,19 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/contact?*"],
       },
       // Googlebot full indexing
       {
         userAgent: "Googlebot",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/contact?*"],
       },
       // Bingbot & Bing AI / Copilot
       {
         userAgent: "Bingbot",
         allow: "/",
-        disallow: ["/api/"],
+        disallow: ["/api/", "/contact?*"],
       },
       // OpenAI ChatGPT crawler & SearchGPT crawler
       {

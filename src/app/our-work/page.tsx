@@ -20,12 +20,12 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Engineering Case Studies & Architecture | Ashmyra Technologies",
+  title: "Engineering Case Studies & Architecture",
   description:
     "Explore the architectures, intelligent systems and software engineering behind the solutions Ashmyra builds.",
   alternates: { canonical: "https://www.ashmyra.com/our-work" },
   openGraph: {
-    title: "Engineering Case Studies & Architecture | Ashmyra Technologies",
+    title: "Engineering Case Studies & Architecture | Ashmyra",
     description:
       "Explore the architectures, intelligent systems and software engineering behind the solutions Ashmyra builds.",
     url: "https://www.ashmyra.com/our-work",

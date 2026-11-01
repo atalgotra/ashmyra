@@ -32,7 +32,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra CRM | Project Intelligence & Workload Radar",
+  title: "Ashmyra CRM | Zero-Bloat Work Radar",
   description:
     "Built for teams tired of Jira overhead. Workspace hierarchy, AI workload heat graph, no-code workflows, unlimited users, and 70% lower total cost.",
   keywords: [
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     "One-Time Lifetime Project Management Plan",
   ],
   openGraph: {
-    title: "Ashmyra Work & Project Intelligence | Better Than Jira",
+    title: "Ashmyra CRM | Zero-Bloat Work Radar | Ashmyra",
     description:
-      "Zero tedious Jira stories or sprint ceremonies. Clean 3-tier hierarchy, real-time AI employee workload heatmaps, unlimited users*, and 70% lower cost + lifetime license.",
+      "Zero Jira bloat. Clean 3-tier hierarchy, real-time AI workload heatmaps, unlimited users, and 70% lower cost.",
     url: "https://www.ashmyra.com/products/crm",
     images: [{ url: "/wow/wow3-project-management.png", width: 1200, height: 675, alt: "Ashmyra Work & Project Intelligence Preview" }],
   },

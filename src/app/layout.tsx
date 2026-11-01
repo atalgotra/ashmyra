@@ -47,11 +47,11 @@ export const metadata: Metadata = {
     shortcut: "/favicon.ico",
   },
   title: {
-    default: "Ashmyra | AI-Native Technology Company | Intelligent Software & SaaS",
+    default: "Ashmyra | Intelligent Systems That Act",
     template: "%s | Ashmyra",
   },
   description:
-    "Ashmyra builds AI-powered software, SaaS platforms, autonomous agentic systems, and intelligent business solutions that help companies automate operations and scale without limits. AI agents that act. Data systems that decide. Software that evolves.",
+    "Ashmyra builds AI-native software, autonomous agentic systems, and enterprise SaaS platforms that act—not just assist. Engineered for scale and speed.",
   keywords: [
     "Ashmyra",
     "Ashmyra Technologies",

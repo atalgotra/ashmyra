@@ -24,9 +24,9 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Products | Intelligent Software Engineered for Real Business",
+  title: "Enterprise Software & AI Suites",
   description:
-    "Explore Ashmyra's suite of 5 live production software platforms: MailFlow, Prospect IQ, Omnira, Unveil, and Veyrix. Autonomous AI, search intelligence, and revenue infrastructure.",
+    "Explore Ashmyra's suite of 5 live production platforms: MailFlow, Prospect IQ, Omnira, Unveil, and Veyrix. Autonomous AI and revenue infrastructure.",
   keywords: [
     "Ashmyra Products",
     "MailFlow",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     "Search Intelligence Engine",
   ],
   openGraph: {
-    title: "Ashmyra Products | Intelligent Software Engineered for Real Business",
+    title: "Enterprise Software & AI Suites | Ashmyra",
     description:
-      "Explore Ashmyra's suite of 5 live production software platforms: MailFlow, Prospect IQ, Omnira, Unveil, and Veyrix.",
+      "Explore Ashmyra's suite of 5 live production platforms: MailFlow, Prospect IQ, Omnira, Unveil, and Veyrix.",
     url: "https://www.ashmyra.com/products",
     images: [
       {

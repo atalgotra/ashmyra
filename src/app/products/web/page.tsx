@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Web | Edge Performance & Digital Platforms",
+  title: "Ashmyra Web | Edge Digital Platforms",
   description:
     "Ultra-responsive Next.js, React and modern edge architecture engineered for maximum conversion, perfect Core Web Vitals, and global scalability.",
   keywords: [
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     "Core Web Vitals 100",
   ],
   openGraph: {
-    title: "Ashmyra Web | High-Performance Digital Platforms",
+    title: "Ashmyra Web | Edge Digital Platforms | Ashmyra",
     description:
       "World-class digital platforms engineered for conversion and speed with sub-second global edge delivery.",
     url: "https://www.ashmyra.com/products/web",

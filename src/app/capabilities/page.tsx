@@ -9,16 +9,16 @@ import { CapabilitiesProjectGallery } from "@/components/capabilities/capabiliti
 import { CapabilitiesCTA } from "@/components/capabilities/capabilities-cta";
 
 export const metadata: Metadata = {
-  title: "Engineering Capabilities | Ashmyra Technologies",
+  title: "Engineering Capabilities",
   description:
-    "We build intelligent systems that act. Explore Ashmyra Technologies' engineering capabilities across custom SaaS platforms, agentic AI systems, technical search & GEO, and high-performance web experiences.",
+    "We build intelligent systems that act. Explore Ashmyra's engineering capabilities across SaaS platforms, agentic AI, GEO search, and edge web apps.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities",
   },
   openGraph: {
-    title: "Engineering Capabilities | Ashmyra Technologies",
+    title: "Engineering Capabilities | Ashmyra",
     description:
-      "We build intelligent systems that act. Explore Ashmyra Technologies' engineering capabilities across custom SaaS platforms, agentic AI systems, technical search & GEO, and high-performance web experiences.",
+      "We build intelligent systems that act. Explore Ashmyra's engineering capabilities across SaaS platforms, agentic AI, GEO search, and edge web apps.",
     url: "https://www.ashmyra.com/capabilities",
     siteName: "Ashmyra Technologies",
     type: "website",

@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Agentic AI & Machine Learning Engineering Services | Ashmyra",
+  title: "Agentic AI & Machine Learning Systems",
   description:
     "Architecting autonomous AI agents, enterprise RAG pipelines, fine-tuned domain models, and intelligent business automations.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/ai-development",
   },
   openGraph: {
-    title: "Agentic AI & Machine Learning Engineering Services | Ashmyra",
+    title: "Agentic AI & Machine Learning Systems | Ashmyra",
     description:
       "Architecting autonomous AI agents, enterprise RAG pipelines, fine-tuned domain models, and intelligent business automations.",
     url: "https://www.ashmyra.com/capabilities/ai-development",

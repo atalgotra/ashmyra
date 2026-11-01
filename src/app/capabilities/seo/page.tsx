@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Search & Generative Engine Optimization (GEO) Services | Ashmyra",
+  title: "Search & Generative Engine Optimization",
   description:
     "Engineering maximum search visibility for both Google and AI answer engines like ChatGPT, Perplexity, and Gemini.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/seo",
   },
   openGraph: {
-    title: "Search & Generative Engine Optimization (GEO) Services | Ashmyra",
+    title: "Search & Generative Engine Optimization | Ashmyra",
     description:
       "Engineering maximum search visibility for both Google and AI answer engines like ChatGPT, Perplexity, and Gemini.",
     url: "https://www.ashmyra.com/capabilities/seo",

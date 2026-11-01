@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resources & Insights | AI Architecture & GEO Guides | Ashmyra",
+  title: "AI Architecture & GEO Insights",
   description:
     "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
   alternates: {
     canonical: "https://www.ashmyra.com/resources",
   },
   openGraph: {
-    title: "Resources & Insights | AI Architecture & GEO Guides | Ashmyra",
+    title: "AI Architecture & GEO Insights | Ashmyra",
     description:
       "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
     url: "https://www.ashmyra.com/resources",

@@ -15,14 +15,14 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Custom Software & SaaS Engineering Services | Ashmyra",
+  title: "Custom Software & SaaS Engineering",
   description:
     "End-to-end bespoke software engineering: multi-tenant SaaS architecture, cloud microservices, and mission-critical enterprise systems.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/software-development",
   },
   openGraph: {
-    title: "Custom Software & SaaS Engineering Services | Ashmyra",
+    title: "Custom Software & SaaS Engineering | Ashmyra",
     description:
       "End-to-end bespoke software engineering: multi-tenant SaaS architecture, cloud microservices, and mission-critical enterprise systems.",
     url: "https://www.ashmyra.com/capabilities/software-development",

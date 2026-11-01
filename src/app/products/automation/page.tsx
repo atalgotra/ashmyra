@@ -42,7 +42,7 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Automation | Enterprise Workflow Orchestration",
+  title: "Ashmyra Automation | Workflow Engine",
   description:
     "Build intelligent workflows connecting data, apps, and AI agents. Resilient orchestration, document intelligence, approval gates, and automated execution.",
   keywords: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     "workflow resilience",
   ],
   openGraph: {
-    title: "Ashmyra Automation | AI Workflow Automation & Orchestration",
+    title: "Ashmyra Automation | Workflow Engine | Ashmyra",
     description:
       "Connect data, applications, AI agents and people into resilient workflows that execute, decide, communicate, recover and escalate — automatically.",
     url: "https://www.ashmyra.com/products/automation",

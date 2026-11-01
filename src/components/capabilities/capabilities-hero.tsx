@@ -4,6 +4,7 @@ import React, { useRef, useEffect } from "react";
 import Link from "next/link";
 import { ArrowRight, Terminal, Cpu, Layers, Shield, Sparkles, ArrowDown } from "lucide-react";
 import gsap from "gsap";
+import { Breadcrumb } from "@/components/breadcrumb";
 
 export function CapabilitiesHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -68,6 +69,11 @@ export function CapabilitiesHero() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           {/* Left Column (lg:col-span-6 / ~48%) */}
           <div ref={leftColRef} className="lg:col-span-6 space-y-6">
+            {/* Breadcrumb Navigation Trail */}
+            <div>
+              <Breadcrumb items={[{ name: "Capabilities" }]} />
+            </div>
+
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-400/25 backdrop-blur-md shadow-sm">
               <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />

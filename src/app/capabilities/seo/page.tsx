@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Search, 
   ArrowRight, 
@@ -14,20 +15,51 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Search & Generative Engine Optimization (GEO) Services",
+  title: "Search & Generative Engine Optimization (GEO) Services | Ashmyra",
   description:
     "Engineering maximum search visibility for both Google and AI answer engines like ChatGPT, Perplexity, and Gemini.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/seo",
+  },
+  openGraph: {
+    title: "Search & Generative Engine Optimization (GEO) Services | Ashmyra",
+    description:
+      "Engineering maximum search visibility for both Google and AI answer engines like ChatGPT, Perplexity, and Gemini.",
+    url: "https://www.ashmyra.com/capabilities/seo",
   },
 };
 
 export default function SeoServicePage() {
   const service = SERVICES.find((s) => s.slug === "seo")!;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.shortDesc,
+    "provider": {
+      "@id": "https://www.ashmyra.com/#organization",
+    },
+    "serviceType": "Generative Engine Optimization & Search Intelligence",
+    "areaServed": "Worldwide",
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex justify-center">
+          <Breadcrumb
+            items={[
+              { name: "Capabilities", href: "/capabilities" },
+              { name: "Search & GEO" },
+            ]}
+          />
+        </div>
+
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/25 text-xs text-sky-300 font-mono mb-6">
             <Search className="w-3.5 h-3.5 text-sky-400" />

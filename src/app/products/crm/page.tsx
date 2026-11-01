@@ -5,6 +5,7 @@ import { PRODUCTS } from "@/data/products";
 import { ProductWowPreview } from "@/components/product-wow-preview";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
 import { WorkloadHeatGraph } from "@/components/workload-heat-graph";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Kanban, 
   ArrowRight, 
@@ -96,6 +97,16 @@ export default function AshmyraCrmPage() {
 
         {/* ── 01. Hero Header (Wider Width & Exactly 2 Clean Lines) ───── */}
         <div className="relative text-center max-w-6xl mx-auto mb-12">
+
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb
+              items={[
+                { name: "Products", href: "/products" },
+                { name: "Ashmyra CRM" },
+              ]}
+            />
+          </div>
 
           {/* Status & Real-Time Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">

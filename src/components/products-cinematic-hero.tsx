@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { DEMO_PRODUCTS, DemoProduct } from "@/data/demos";
 import {
   Mail,
@@ -489,6 +490,11 @@ export function ProductsCinematicHero() {
 
           {/* ── Left Column (~45%): DYNAMICALLY CYCLES IN SYNC (MailFlow -> Veyrix) ── */}
           <div ref={leftColRef} className="lg:col-span-5 space-y-3.5 text-left">
+            {/* Breadcrumb Navigation Trail */}
+            <div>
+              <Breadcrumb items={[{ name: "Products" }]} />
+            </div>
+
             {/* Dynamic Eyebrow showing Active Engine */}
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-[11px] font-sans tracking-wide">
               <span

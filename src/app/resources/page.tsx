@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ARTICLES, CASE_STUDY_PREVIEWS } from "@/data/resources";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Sparkles, 
   ArrowRight, 
@@ -14,11 +15,17 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Resources & Insights | AI Architecture & GEO Guides",
+  title: "Resources & Insights | AI Architecture & GEO Guides | Ashmyra",
   description:
     "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
   alternates: {
     canonical: "https://www.ashmyra.com/resources",
+  },
+  openGraph: {
+    title: "Resources & Insights | AI Architecture & GEO Guides | Ashmyra",
+    description:
+      "Technical guides, engineering perspectives, and architectural case studies on agentic AI, generative search (GEO), and modern workforce technology.",
+    url: "https://www.ashmyra.com/resources",
   },
 };
 
@@ -28,6 +35,11 @@ export default function ResourcesPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb items={[{ name: "Resources & Insights" }]} />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-4">
             <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
             <span>Knowledge Base &amp; Technical Perspectives</span>

@@ -1,7 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, FileText } from "lucide-react";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { FileText } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Terms of Service | Ashmyra",
@@ -16,13 +17,12 @@ export default function TermsPage() {
     <div className="pt-32 pb-24 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white font-mono"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Return to Ashmyra</span>
-          </Link>
+          <Breadcrumb
+            items={[
+              { name: "Legal", href: "/legal/terms" },
+              { name: "Terms of Service" },
+            ]}
+          />
         </div>
 
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 font-mono text-xs w-max mb-4">

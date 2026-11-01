@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
 import { CaseStudyFeature, type CaseStudyData } from "@/components/case-study-feature";
+import { Breadcrumb } from "@/components/breadcrumb";
 import {
   ArrowRight,
   Workflow,
@@ -23,6 +24,12 @@ export const metadata: Metadata = {
   description:
     "Explore the architectures, intelligent systems and software engineering behind the solutions Ashmyra builds.",
   alternates: { canonical: "https://www.ashmyra.com/our-work" },
+  openGraph: {
+    title: "Engineering Case Studies & Architecture | Ashmyra Technologies",
+    description:
+      "Explore the architectures, intelligent systems and software engineering behind the solutions Ashmyra builds.",
+    url: "https://www.ashmyra.com/our-work",
+  },
 };
 
 /* ── Verified Case Studies Data ─────────────────────────────────────────────── */
@@ -231,6 +238,11 @@ export default function OurWorkPage() {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb items={[{ name: "Our Work" }]} />
+          </div>
+
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-[11px] font-mono tracking-widest text-cyan-300 uppercase mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />

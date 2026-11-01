@@ -71,12 +71,12 @@ Ashmyra maintains live, working production applications accessible in the browse
 - **Ashmyra Automation** (https://www.ashmyra.com/products/automation): Enterprise workflow orchestrator with approval gates, PDF document OCR, and ERP connectors.
 - **Ashmyra Web Platforms** (https://www.ashmyra.com/products/web): Next.js edge applications engineered for sub-second TTFB, WCAG 2.2 AA accessibility, and maximum conversion.
 
-## Engineering & Consulting Services
+## Engineering & Consulting Capabilities
 
-- **Custom Enterprise Software Engineering** (https://www.ashmyra.com/services/software-development): 7-stage deterministic engineering discipline for bespoke SaaS, APIs, and cloud microservices.
-- **Agentic AI Architecture** (https://www.ashmyra.com/services/ai-development): Custom multi-agent swarms, RAG pipelines, fine-tuned domain models, and deterministic guardrail layers.
-- **Generative Engine Optimization (GEO)** (https://www.ashmyra.com/services/seo): Next-generation search authority, schema graphs, and citation engineering for AI answer engines.
-- **Modern Web Platforms** (https://www.ashmyra.com/services/web-apps): Edge-rendered portals, component design systems, and conversion-optimized web surfaces.
+- **Custom Enterprise Software Engineering** (https://www.ashmyra.com/capabilities/software-development): 7-stage deterministic engineering discipline for bespoke SaaS, APIs, and cloud microservices.
+- **Agentic AI Architecture** (https://www.ashmyra.com/capabilities/ai-development): Custom multi-agent swarms, RAG pipelines, fine-tuned domain models, and deterministic guardrail layers.
+- **Generative Engine Optimization (GEO)** (https://www.ashmyra.com/capabilities/seo): Next-generation search authority, schema graphs, and citation engineering for AI answer engines.
+- **Modern Web Platforms** (https://www.ashmyra.com/capabilities/web-apps): Edge-rendered portals, component design systems, and conversion-optimized web surfaces.
 
 ## Technical Milestones & Client Engagements
 
@@ -90,7 +90,7 @@ Ashmyra maintains live, working production applications accessible in the browse
 A: Ashmyra Technologies is an AI-native engineering company headquartered in New Delhi, India, that builds autonomous agent swarms, enterprise software platforms, HRMS solutions, GEO intelligence tools, and live SaaS products for enterprises globally.
 
 **Q: Where can I test working demos of Ashmyra software?**
-A: You can test live working demos directly at https://www.ashmyra.com/demos. Four platforms are immediately accessible: Ashmyra MailFlow (https://mailflow.ashmyra.com/), Prospect IQ (https://prospectiq.ashmyra.com/), Omnira (https://omnira.ashmyra.com/), and Ashmyra Unveil (https://unveil.ashmyra.com/).
+A: You can test live working demos directly at https://www.ashmyra.com/demos. Five platforms are immediately accessible: Ashmyra MailFlow (https://mailflow.ashmyra.com/), Prospect IQ (https://prospectiq.ashmyra.com/), Omnira (https://omnira.ashmyra.com/), Ashmyra Unveil (https://unveil.ashmyra.com/), and Veyrix (https://veyrix.ashmyra.com/).
 
 **Q: What is Generative Engine Optimization (GEO)?**
 A: GEO is the practice of optimizing digital architecture, knowledge graphs, and authoritative signals so that AI answer engines (ChatGPT, Perplexity, Gemini, Claude) cite a brand as the authoritative source for user queries.

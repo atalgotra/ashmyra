@@ -4,6 +4,7 @@ import Link from "next/link";
 import { PRODUCTS } from "@/data/products";
 import { ProductWowPreview } from "@/components/product-wow-preview";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Globe, 
   ArrowRight, 
@@ -50,6 +51,16 @@ export default function AshmyraWebPage() {
 
         {/* ── 01. Hero Header ────────────────────────────────────────── */}
         <div className="text-center max-w-4xl mx-auto mb-10">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb
+              items={[
+                { name: "Products", href: "/products" },
+                { name: "Ashmyra Web" },
+              ]}
+            />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/25 text-xs text-teal-300 font-mono mb-6">
             <Globe className="w-3.5 h-3.5 text-teal-400" />
             <span>Digital Engineering &amp; Global Platforms · Edge Accelerated</span>

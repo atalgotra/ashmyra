@@ -5,6 +5,7 @@ import Image from "next/image";
 import { PRODUCTS } from "@/data/products";
 import { ProductWowPreview } from "@/components/product-wow-preview";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Cpu, 
   ArrowRight, 
@@ -131,6 +132,16 @@ export default function AshmyraAiPage() {
 
         {/* ── 01. Hero Header ────────────────────────────────────────── */}
         <div className="relative text-center max-w-6xl mx-auto mb-12">
+
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb
+              items={[
+                { name: "Products", href: "/products" },
+                { name: "Ashmyra AI" },
+              ]}
+            />
+          </div>
 
           {/* Unified System Telemetry & Status Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">

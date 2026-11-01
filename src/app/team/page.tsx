@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
+import { Breadcrumb } from "@/components/breadcrumb";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -26,6 +27,12 @@ export const metadata: Metadata = {
   description:
     "Engineering intelligence. Building what's next. Meet the team, mission, and engineering philosophy behind Ashmyra Technologies.",
   alternates: { canonical: "https://www.ashmyra.com/team" },
+  openGraph: {
+    title: "Our Team & Company | Ashmyra Technologies",
+    description:
+      "Engineering intelligence. Building what's next. Meet the team, mission, and engineering philosophy behind Ashmyra Technologies.",
+    url: "https://www.ashmyra.com/team",
+  },
 };
 
 /* ── 02: Our Mission Pillars (3 Core Themes) ────────────────────────────── */
@@ -175,6 +182,11 @@ export default function TeamPage() {
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb items={[{ name: "Our Team & Company" }]} />
+          </div>
+
           {/* Eyebrow */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-[11px] font-mono tracking-widest text-cyan-300 uppercase mb-6">
             <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />

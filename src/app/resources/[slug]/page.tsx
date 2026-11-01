@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ARTICLES } from "@/data/resources";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { ArrowLeft, ArrowRight, Clock, Calendar, Share2, Sparkles } from "lucide-react";
 
 export async function generateStaticParams() {
@@ -77,51 +78,21 @@ export default async function ArticleDetailPage({
     "inLanguage": "en-US"
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.ashmyra.com"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Resources",
-        "item": "https://www.ashmyra.com/resources"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": article.title,
-        "item": `https://www.ashmyra.com/resources/${article.slug}`
-      }
-    ]
-  };
-
   return (
     <article className="pt-32 pb-24 min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Back link */}
+        {/* Breadcrumb Navigation Trail */}
         <div className="mb-8">
-          <Link
-            href="/resources"
-            className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white font-mono"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Resources</span>
-          </Link>
+          <Breadcrumb
+            items={[
+              { name: "Resources", href: "/resources" },
+              { name: article.title },
+            ]}
+          />
         </div>
 
         {/* Article Header */}

@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Code2, 
   ArrowRight, 
@@ -14,20 +15,51 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Custom Software & SaaS Engineering Services",
+  title: "Custom Software & SaaS Engineering Services | Ashmyra",
   description:
     "End-to-end bespoke software engineering: multi-tenant SaaS architecture, cloud microservices, and mission-critical enterprise systems.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/software-development",
+  },
+  openGraph: {
+    title: "Custom Software & SaaS Engineering Services | Ashmyra",
+    description:
+      "End-to-end bespoke software engineering: multi-tenant SaaS architecture, cloud microservices, and mission-critical enterprise systems.",
+    url: "https://www.ashmyra.com/capabilities/software-development",
   },
 };
 
 export default function SoftwareDevelopmentServicePage() {
   const service = SERVICES.find((s) => s.slug === "software-development")!;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.shortDesc,
+    "provider": {
+      "@id": "https://www.ashmyra.com/#organization",
+    },
+    "serviceType": "Enterprise Custom Software & SaaS Engineering",
+    "areaServed": "Worldwide",
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex justify-center">
+          <Breadcrumb
+            items={[
+              { name: "Capabilities", href: "/capabilities" },
+              { name: "Software Development" },
+            ]}
+          />
+        </div>
+
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-6">
             <Code2 className="w-3.5 h-3.5 text-indigo-400" />

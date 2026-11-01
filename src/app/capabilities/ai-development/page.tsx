@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Cpu, 
   ArrowRight, 
@@ -14,20 +15,51 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Agentic AI & Machine Learning Engineering Services",
+  title: "Agentic AI & Machine Learning Engineering Services | Ashmyra",
   description:
     "Architecting autonomous AI agents, enterprise RAG pipelines, fine-tuned domain models, and intelligent business automations.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/ai-development",
+  },
+  openGraph: {
+    title: "Agentic AI & Machine Learning Engineering Services | Ashmyra",
+    description:
+      "Architecting autonomous AI agents, enterprise RAG pipelines, fine-tuned domain models, and intelligent business automations.",
+    url: "https://www.ashmyra.com/capabilities/ai-development",
   },
 };
 
 export default function AiDevelopmentServicePage() {
   const service = SERVICES.find((s) => s.slug === "ai-development")!;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.shortDesc,
+    "provider": {
+      "@id": "https://www.ashmyra.com/#organization",
+    },
+    "serviceType": "Agentic AI & Machine Learning",
+    "areaServed": "Worldwide",
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex justify-center">
+          <Breadcrumb
+            items={[
+              { name: "Capabilities", href: "/capabilities" },
+              { name: "Agentic AI & ML" },
+            ]}
+          />
+        </div>
+
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/25 text-xs text-purple-300 font-mono mb-6">
             <Cpu className="w-3.5 h-3.5 text-purple-400" />

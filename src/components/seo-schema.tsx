@@ -70,7 +70,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "AI Engineer / Data Scientist",
+        "jobTitle": "Founder & AI Engineer / Data Scientist",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
@@ -83,6 +83,12 @@ export function SeoSchema() {
         "@id": "https://www.ashmyra.com/team#prince-rehan",
         "name": "Prince Rehan",
         "jobTitle": "Head - IT & Software Development"
+      },
+      {
+        "@type": "Person",
+        "@id": "https://www.ashmyra.com/team#bella",
+        "name": "Bella",
+        "jobTitle": "Chief Happiness Officer"
       }
     ],
     "knowsAbout": [
@@ -369,7 +375,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "AI Engineer / Data Scientist",
+        "jobTitle": "Founder & AI Engineer / Data Scientist",
         "worksFor": {
           "@id": "https://www.ashmyra.com/#organization"
         },
@@ -404,49 +410,21 @@ export function SeoSchema() {
           "Technical Systems Delivery",
           "Mission-Critical Architectures"
         ]
-      }
-    ]
-  };
-
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.ashmyra.com"
       },
       {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Live Demos",
-        "item": "https://www.ashmyra.com/demos"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Products",
-        "item": "https://www.ashmyra.com/products"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "Capabilities",
-        "item": "https://www.ashmyra.com/capabilities"
-      },
-      {
-        "@type": "ListItem",
-        "position": 5,
-        "name": "Team",
-        "item": "https://www.ashmyra.com/team"
-      },
-      {
-        "@type": "ListItem",
-        "position": 6,
-        "name": "Contact",
-        "item": "https://www.ashmyra.com/contact"
+        "@type": "Person",
+        "@id": "https://www.ashmyra.com/team#bella",
+        "name": "Bella",
+        "jobTitle": "Chief Happiness Officer",
+        "worksFor": {
+          "@id": "https://www.ashmyra.com/#organization"
+        },
+        "url": "https://www.ashmyra.com/team",
+        "image": "https://www.ashmyra.com/team/bella.png",
+        "knowsAbout": [
+          "Studio Morale",
+          "Team Happiness & Well-being"
+        ]
       }
     ]
   };
@@ -472,10 +450,6 @@ export function SeoSchema() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(leadershipSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
     </>
   );

@@ -6,6 +6,7 @@ import { AutomationEngineDemo } from "@/components/automation-engine-demo";
 import { WorkflowCanvasShowcase } from "@/components/workflow-canvas-showcase";
 import { AutomationBlueprints } from "@/components/automation-blueprints";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
+import { Breadcrumb } from "@/components/breadcrumb";
 import {
   Zap,
   ArrowRight,
@@ -137,6 +138,16 @@ export default function AshmyraAutomationPage() {
             01. HERO SECTION
         ══════════════════════════════════════════════════════════════ */}
         <div className="relative text-center max-w-6xl mx-auto mb-10">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb
+              items={[
+                { name: "Products", href: "/products" },
+                { name: "Ashmyra Automation" },
+              ]}
+            />
+          </div>
+
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-8">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-xs text-amber-300 font-mono backdrop-blur-sm">
               <Zap className="w-3.5 h-3.5 text-amber-400" />

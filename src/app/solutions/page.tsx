@@ -4,14 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { SolutionsCinematicShowcase } from "@/components/solutions-cinematic-showcase";
 import { SolutionsIndustryGrid } from "@/components/solutions-industry-grid";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { ArrowRight, Sparkles, ShieldCheck, Terminal, Layers, Cloud } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Solutions | Intelligent Solutions. Built for Your Business.",
+  title: "Ashmyra Solutions | Intelligent Solutions Built for Your Business",
   description:
     "Whether you're launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.",
   alternates: {
     canonical: "https://www.ashmyra.com/solutions",
+  },
+  openGraph: {
+    title: "Ashmyra Solutions | Intelligent Solutions Built for Your Business",
+    description:
+      "Whether you're launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.",
+    url: "https://www.ashmyra.com/solutions",
   },
 };
 
@@ -46,6 +53,11 @@ export default function SolutionsPage() {
         <div className="absolute top-1/2 left-1/4 w-[500px] h-[350px] bg-indigo-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb items={[{ name: "Solutions" }]} />
+          </div>
+
           {/* Badge: BUSINESS SOLUTIONS */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-950/60 border border-blue-500/35 text-[11px] sm:text-xs font-semibold uppercase tracking-wider text-blue-400 mb-6 shadow-lg backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-blue-400 fill-blue-400" />

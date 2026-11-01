@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SERVICES, ENGINEERING_PROCESS } from "@/data/services";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Globe, 
   ArrowRight, 
@@ -14,20 +15,51 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Modern Web & Enterprise Portal Engineering Services",
+  title: "Modern Web & Enterprise Portal Engineering Services | Ashmyra",
   description:
     "Engineering high-performance web applications, enterprise portals, and conversion-optimized digital surfaces with Next.js, React, and TypeScript.",
   alternates: {
     canonical: "https://www.ashmyra.com/capabilities/web-apps",
+  },
+  openGraph: {
+    title: "Modern Web & Enterprise Portal Engineering Services | Ashmyra",
+    description:
+      "Engineering high-performance web applications, enterprise portals, and conversion-optimized digital surfaces with Next.js, React, and TypeScript.",
+    url: "https://www.ashmyra.com/capabilities/web-apps",
   },
 };
 
 export default function WebAppsServicePage() {
   const service = SERVICES.find((s) => s.slug === "web-apps")!;
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": service.title,
+    "description": service.shortDesc,
+    "provider": {
+      "@id": "https://www.ashmyra.com/#organization",
+    },
+    "serviceType": "Modern Web & Enterprise Portal Engineering",
+    "areaServed": "Worldwide",
+  };
+
   return (
     <div className="pt-32 pb-24 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mb-8 flex justify-center">
+          <Breadcrumb
+            items={[
+              { name: "Capabilities", href: "/capabilities" },
+              { name: "Web Applications" },
+            ]}
+          />
+        </div>
+
         <div className="text-center max-w-4xl mx-auto mb-20">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300 font-mono mb-6">
             <Globe className="w-3.5 h-3.5 text-emerald-400" />

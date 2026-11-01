@@ -1,7 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowLeft, ShieldCheck } from "lucide-react";
+import { Breadcrumb } from "@/components/breadcrumb";
+import { ShieldCheck } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Privacy Policy | Ashmyra",
@@ -16,13 +17,12 @@ export default function PrivacyPage() {
     <div className="pt-32 pb-24 min-h-screen">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-1.5 text-xs text-neutral-400 hover:text-white font-mono"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Return to Ashmyra</span>
-          </Link>
+          <Breadcrumb
+            items={[
+              { name: "Legal", href: "/legal/privacy" },
+              { name: "Privacy Policy" },
+            ]}
+          />
         </div>
 
         <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 font-mono text-xs w-max mb-4">

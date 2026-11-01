@@ -6,6 +6,7 @@ import { PRODUCTS } from "@/data/products";
 import { ProductWowPreview } from "@/components/product-wow-preview";
 import { FreelancerTrustBanner } from "@/components/freelancer-trust-banner";
 import { AnalyticsPipelineVisualizer } from "@/components/analytics-pipeline-visualizer";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   TrendingUp, 
   ArrowRight, 
@@ -104,6 +105,16 @@ export default function AshmyraAnalyticsPage() {
 
         {/* ── 01. Hero Header (Wider Width & Exactly 2 Clean Lines) ───── */}
         <div className="relative text-center max-w-6xl mx-auto mb-12">
+
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb
+              items={[
+                { name: "Products", href: "/products" },
+                { name: "Ashmyra Analytics" },
+              ]}
+            />
+          </div>
 
           {/* Status & Feature Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-8">

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { DEMO_PRODUCTS, DemoProduct } from "@/data/demos";
 import { TryDemoSection } from "@/components/try-demo-section";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
+import { Breadcrumb } from "@/components/breadcrumb";
 import { 
   Sparkles, 
   ArrowRight, 
@@ -72,25 +73,6 @@ export default function DemosPage() {
     })),
   };
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.ashmyra.com",
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Demos",
-        "item": "https://www.ashmyra.com/demos",
-      },
-    ],
-  };
-
   return (
     <div className="pt-28 pb-24 min-h-screen bg-[#04060a] text-white">
       <ScrollToTopOnMount />
@@ -100,15 +82,16 @@ export default function DemosPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(demosSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
 
       {/* Hero Header */}
       <div className="relative overflow-hidden pt-12 pb-16 text-center border-b border-white/[0.06]">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(99,102,241,0.15)_0%,transparent_70%)] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Breadcrumb Navigation Trail */}
+          <div className="mb-6 flex justify-center">
+            <Breadcrumb items={[{ name: "Live Demos" }]} />
+          </div>
+
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs text-emerald-300 font-mono mb-6">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>Interactive Production Sandboxes</span>

@@ -278,9 +278,9 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <div className="flex items-center gap-1.5 text-xs font-mono text-emerald-400/90 pt-1">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>Enterprise SLA Grade</span>
+                <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 pt-1">
+                  <ShieldCheck className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>Verified Security Standards</span>
                 </div>
               </li>
             </ul>
@@ -294,9 +294,9 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-[11px]">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>All Systems Operational &bull; 99.99% Uptime</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[11px]">
+              <span className="w-2 h-2 rounded-full bg-cyan-400" />
+              <span>Production Infrastructure Monitored</span>
             </div>
             <span className="hidden md:inline text-neutral-600">&bull;</span>
             <span className="hidden md:inline text-neutral-500">Engineered with Precision</span>

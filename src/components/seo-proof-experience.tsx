@@ -38,7 +38,7 @@ const WORKFLOW_STEPS = [
     desc: "Autonomous crawler parsing DOM trees, asset waterfalls, and HTTP status codes in sub-50ms cycles.",
     pages: [
       { url: "/home", status: 200, time: "42ms", domSize: "28KB" },
-      { url: "/services", status: 200, time: "64ms", domSize: "36KB" },
+      { url: "/capabilities", status: 200, time: "64ms", domSize: "36KB" },
       { url: "/team", status: 200, time: "38ms", domSize: "22KB" },
       { url: "/blog/seo-audit", status: 200, time: "85ms", domSize: "54KB" },
       { url: "/products/agentic-ai", status: 200, time: "52ms", domSize: "44KB" },
@@ -453,7 +453,7 @@ export function SeoProofExperience() {
                 <div className="w-12 h-12 rounded-full bg-sky-600/30 border-2 border-sky-400 flex items-center justify-center text-white font-mono font-bold text-xs shadow-[0_0_20px_rgba(56,189,248,0.5)]">
                   78
                 </div>
-                <span className="text-[11px] font-mono text-white mt-1">/services/seo</span>
+                <span className="text-[11px] font-mono text-white mt-1">/capabilities/seo</span>
                 <span className="text-[9px] text-sky-300 font-mono">Active Hub</span>
               </div>
 
@@ -471,7 +471,7 @@ export function SeoProofExperience() {
                 <div className="w-11 h-11 rounded-full bg-sky-600/30 border-2 border-sky-400 flex items-center justify-center text-white font-mono text-xs">
                   71
                 </div>
-                <span className="text-[11px] font-mono text-white mt-1">/services/seo</span>
+                <span className="text-[11px] font-mono text-white mt-1">/capabilities/seo</span>
                 <span className="text-[9px] text-sky-300 font-mono">Source Node</span>
               </div>
 
@@ -498,7 +498,7 @@ export function SeoProofExperience() {
                 <Sparkles className="w-4 h-4 text-sky-400" />
                 <span className="text-neutral-400">Ashmyra Engine Recommends:</span>
                 <span className="text-white font-semibold">
-                  &ldquo;Add contextual link from /services/seo &rarr; /seo-audit&rdquo;
+                  &ldquo;Add contextual link from /capabilities/seo &rarr; /seo-audit&rdquo;
                 </span>
               </div>
               <div className={`text-[11px] font-bold px-3 py-1 rounded-full ${

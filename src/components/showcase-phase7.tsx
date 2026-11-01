@@ -85,7 +85,7 @@ const SLIDES: SlideItem[] = [
     title: "Custom AI & Bespoke Software Engineering",
     description: "If an off-the-shelf solution does not exist, our engineering team architects and builds it from the ground up.",
     image: "/wow/wow7-engineering-playground.png",
-    href: "/services/software-development",
+    href: "/capabilities/software-development",
     accent: "#c084fc",
   },
 ];

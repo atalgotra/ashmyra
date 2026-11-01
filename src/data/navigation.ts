@@ -122,14 +122,14 @@ export const MAIN_NAV: NavSection[] = [
   },
   {
     title: "Capabilities",
-    href: "/services",
+    href: "/capabilities",
     groups: [
       {
         groupTitle: "AI & Intelligent Systems",
         items: [
           {
             title: "Agentic AI Development",
-            href: "/services/ai-development",
+            href: "/capabilities/ai-development",
             description: "Autonomous multi-agent swarms engineered for reasoning, tool use and execution.",
             category: "ai",
           },
@@ -141,13 +141,13 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "RAG & Knowledge Systems",
-            href: "/services/ai-development",
+            href: "/capabilities/ai-development",
             description: "Vector databases, semantic retrieval engines & deterministic context pipelines.",
             category: "ai",
           },
           {
             title: "AI Integration",
-            href: "/services/ai-development",
+            href: "/capabilities/ai-development",
             description: "Production LLM and SLM orchestration embedded securely inside enterprise stacks.",
             category: "ai",
           },
@@ -159,7 +159,7 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "AI Engineering & Evaluation",
-            href: "/services/ai-development",
+            href: "/capabilities/ai-development",
             description: "Model fine-tuning, benchmark evaluations & deterministic guardrail layers.",
             category: "ai",
           },
@@ -170,37 +170,37 @@ export const MAIN_NAV: NavSection[] = [
         items: [
           {
             title: "SaaS Development",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Full-cycle multi-tenant SaaS architecture, billing & subscription infrastructure.",
             category: "service",
           },
           {
             title: "Custom Software Development",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Bespoke high-concurrency backend services built for mission-critical reliability.",
             category: "service",
           },
           {
             title: "Website Development",
-            href: "/services/web-apps",
+            href: "/capabilities/web-apps",
             description: "Edge-rendered, high-performance Next.js web applications & design systems.",
             category: "service",
           },
           {
             title: "Mobile Application Development",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Native iOS/Android and Flutter cross-platform mobile engineering.",
             category: "service",
           },
           {
             title: "API & System Integration",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Cryptographic microservices, event-driven webhooks & legacy bridge APIs.",
             category: "service",
           },
           {
             title: "UI/UX & 3D Experiences",
-            href: "/services/web-apps",
+            href: "/capabilities/web-apps",
             description: "Interactive WebGL, GSAP digital experiences & precision design token systems.",
             category: "service",
           },
@@ -211,19 +211,19 @@ export const MAIN_NAV: NavSection[] = [
         items: [
           {
             title: "Data Engineering",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Distributed streaming pipelines, lakehouse architectures & automated ETL.",
             category: "service",
           },
           {
             title: "Cloud Architecture",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Containerized Kubernetes clusters, serverless computing & VPC governance.",
             category: "service",
           },
           {
             title: "Data Pipelines",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "High-throughput telemetry ingestion, schema evolution & real-time queues.",
             category: "service",
           },
@@ -235,13 +235,13 @@ export const MAIN_NAV: NavSection[] = [
           },
           {
             title: "Platform Modernisation",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "Zero-downtime database migrations & monolith-to-microservice decouplings.",
             category: "service",
           },
           {
             title: "Infrastructure Integration",
-            href: "/services/software-development",
+            href: "/capabilities/software-development",
             description: "CI/CD automated testing gates, observability stacks & infrastructure as code.",
             category: "service",
           },

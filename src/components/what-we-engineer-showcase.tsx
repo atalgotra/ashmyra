@@ -47,7 +47,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/01-digital-experiences.jpg",
     accent: "#818cf8",
     accentGlow: "rgba(129, 140, 248, 0.25)",
-    href: "/services/web-apps",
+    href: "/capabilities/web-apps",
     tags: ["WebGL / Three.js", "GSAP Motion", "Next.js App Router", "GEO Optimization", "Sub-second LCP"],
   },
   {
@@ -61,7 +61,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/02-mobile-applications.jpg",
     accent: "#38bdf8",
     accentGlow: "rgba(56, 189, 248, 0.25)",
-    href: "/services/software-development",
+    href: "/capabilities/software-development",
     tags: ["iOS / Swift", "Android / Kotlin", "Flutter", "120Hz Haptics", "Offline Sync"],
   },
   {
@@ -131,7 +131,7 @@ export const CAPABILITIES: EngineerCapability[] = [
     posterSrc: "/videos/capabilities/07-software-ecosystems.jpg",
     accent: "#fbbf24",
     accentGlow: "rgba(251, 191, 36, 0.25)",
-    href: "/services/software-development",
+    href: "/capabilities/software-development",
     tags: ["Distributed Systems", "Kubernetes / Cloud", "gRPC / REST Mesh", "Zero-Downtime CI/CD", "High Concurrency"],
   },
 ];

@@ -23,6 +23,16 @@ const nextConfig: NextConfig = {
         destination: "/our-work",
         permanent: true,
       },
+      {
+        source: "/services",
+        destination: "/capabilities",
+        permanent: true,
+      },
+      {
+        source: "/services/:path*",
+        destination: "/capabilities/:path*",
+        permanent: true,
+      },
     ];
   },
 };

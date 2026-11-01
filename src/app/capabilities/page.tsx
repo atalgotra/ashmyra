@@ -15,15 +15,15 @@ import {
 } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Ashmyra Engineering Services | 7-Stage Agile Lifecycle",
+  title: "Ashmyra Engineering Capabilities | 7-Stage Agile Lifecycle",
   description:
     "Ashmyra partners with enterprises to architect, design, build, and scale custom software, Agentic AI, high-volume APIs, and generative search systems.",
   alternates: {
-    canonical: "https://www.ashmyra.com/services",
+    canonical: "https://www.ashmyra.com/capabilities",
   },
 };
 
-export default function ServicesPage() {
+export default function CapabilitiesPage() {
   const getServiceIcon = (slug: string) => {
     switch (slug) {
       case "software-development":
@@ -99,7 +99,7 @@ export default function ServicesPage() {
 
                   <div className="pt-2 flex flex-wrap gap-3">
                     <Link
-                      href={`/services/${service.slug}`}
+                      href={`/capabilities/${service.slug}`}
                       className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/25 transition-all"
                     >
                       <span>Explore {service.title}</span>

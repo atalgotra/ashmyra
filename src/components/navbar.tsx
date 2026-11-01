@@ -599,11 +599,11 @@ export function Navbar() {
                     </span>
                   </div>
                   <Link
-                    href="/services"
+                    href="/capabilities"
                     onClick={() => setActiveDD(null)}
                     className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
                   >
-                    <span>Engineering Services Overview</span>
+                    <span>Engineering Capabilities Overview</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
                   </Link>
                 </div>

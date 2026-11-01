@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Engineering maximum search visibility for both Google and AI answer engines like ChatGPT, Perplexity, and Gemini.",
   alternates: {
-    canonical: "https://www.ashmyra.com/services/seo",
+    canonical: "https://www.ashmyra.com/capabilities/seo",
   },
 };
 

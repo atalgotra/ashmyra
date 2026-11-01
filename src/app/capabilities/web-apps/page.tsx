@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   description:
     "Engineering high-performance web applications, enterprise portals, and conversion-optimized digital surfaces with Next.js, React, and TypeScript.",
   alternates: {
-    canonical: "https://www.ashmyra.com/services/web-apps",
+    canonical: "https://www.ashmyra.com/capabilities/web-apps",
   },
 };
 

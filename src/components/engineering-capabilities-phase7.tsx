@@ -63,7 +63,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Ultra-fast server-rendered React applications with accessible design systems and Generative Engine Optimization (GEO).",
     icon: Globe,
     accent: "#34d399",
-    href: "/services/web-apps",
+    href: "/capabilities/web-apps",
   },
   {
     title: "MOBILE ENGINEERING",
@@ -71,7 +71,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "High-performance mobile architectures designed for fluid 120Hz gesture interaction and offline-first cloud sync.",
     icon: Smartphone,
     accent: "#f43f5e",
-    href: "/services/software-development",
+    href: "/capabilities/software-development",
   },
   {
     title: "3D / GSAP",
@@ -79,7 +79,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Studio-grade WebGL shaders, Three.js kinetic scenes, and GSAP ScrollTrigger timelines creating immersive digital distinction.",
     icon: Palette,
     accent: "#ec4899",
-    href: "/services/web-apps",
+    href: "/capabilities/web-apps",
   },
   {
     title: "AUTOMATION",
@@ -95,7 +95,7 @@ export const TECHNICAL_PILLARS: TechCapabilityPillar[] = [
     description: "Kubernetes orchestration, serverless edge networks, secure gRPC/REST APIs, and continuous delivery pipelines.",
     icon: Cloud,
     accent: "#60a5fa",
-    href: "/services/software-development",
+    href: "/capabilities/software-development",
   },
 ];
 

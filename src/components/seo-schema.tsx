@@ -433,8 +433,8 @@ export function SeoSchema() {
       {
         "@type": "ListItem",
         "position": 4,
-        "name": "Services",
-        "item": "https://www.ashmyra.com/services"
+        "name": "Capabilities",
+        "item": "https://www.ashmyra.com/capabilities"
       },
       {
         "@type": "ListItem",

@@ -70,7 +70,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & Lead AI Architect",
+        "jobTitle": "AI Engineer / Data Scientist",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
@@ -332,7 +332,7 @@ export function SeoSchema() {
         "name": "Who leads Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Ashmyra Technologies was founded by Ashish Talgotra (Founder & Lead AI Architect), with Prince Rehan serving as Head - IT & Software Development. The engineering leadership brings over a decade of hands-on expertise building autonomous AI agent swarms, distributed data platforms, and enterprise software systems at scale."
+          "text": "The engineering team at Ashmyra Technologies is driven by Ashish Talgotra (AI Engineer / Data Scientist) and Prince Rehan (Head - IT & Software Development). The technical team brings hands-on expertise building autonomous AI systems, distributed data platforms, and enterprise software at scale."
         }
       },
       {
@@ -369,7 +369,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & Lead AI Architect",
+        "jobTitle": "AI Engineer / Data Scientist",
         "worksFor": {
           "@id": "https://www.ashmyra.com/#organization"
         },

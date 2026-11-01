@@ -19,14 +19,14 @@ const LEADERS = [
   {
     num: "01",
     name: "Ashish Talgotra",
-    title: "Founder & Lead AI Architect",
-    roleSubtitle: "Systems, Data & Agentic Architecture",
-    bio: "Architects autonomous multi-agent swarms, distributed data pipelines, and deep intelligence layers. Leads Ashmyra from engineering conception to production scale, converting complex enterprise bottlenecks into deterministic, mission-critical software engines.",
+    title: "AI Engineer / Data Scientist",
+    roleSubtitle: "Systems, Data & Intelligent Architecture",
+    bio: "Specializes in AI engineering, data science, intelligent software systems, automation and technical architecture. Focuses on architecting autonomous multi-agent pipelines and resilient software engines that execute reliably in production.",
     skills: [
-      "Agent Swarm Architecture",
-      "LLM Orchestration",
-      "Real-Time Data Pipelines",
-      "Distributed Systems",
+      "AI Engineering",
+      "Data Science",
+      "Multi-Agent Systems",
+      "Technical Architecture",
     ],
     accent: "#818cf8",
     accentRgb: "129, 140, 248",
@@ -34,21 +34,21 @@ const LEADERS = [
     monogram: null,
     photoPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
-    roleBadge: "Founder & Architect",
+    roleBadge: "AI & Data Architecture",
     FooterIcon: Terminal,
-    footerLabel: "Founder & Chief Architect",
+    footerLabel: "AI & Systems Engineering",
   },
   {
     num: "02",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
-    bio: "Directs enterprise cloud infrastructure, software development lifecycles, and technical delivery. Oversees resilient cloud systems, deployment pipelines, and high-concurrency architectures that power operations at scale.",
+    bio: "Directs enterprise software engineering, technology development and technical execution. Oversees resilient cloud systems, deployment pipelines and high-concurrency architectures that power operations at scale.",
     skills: [
-      "Cloud Architecture",
       "Software Engineering",
+      "Cloud Architecture",
+      "Technical Execution",
       "System Resilience",
-      "Technical Delivery",
     ],
     accent: "#a78bfa",
     accentRgb: "168, 85, 247",
@@ -56,21 +56,21 @@ const LEADERS = [
     monogram: null,
     photoPosition: "object-top",
     linkedin: null,
-    roleBadge: "Head of IT & Systems",
+    roleBadge: "Head of IT & Software",
     FooterIcon: Code2,
-    footerLabel: "Software & Cloud Systems",
+    footerLabel: "IT & Software Development",
   },
   {
     num: "03",
     name: "Bella",
-    title: "Chief Happiness Officer 🐾",
-    roleSubtitle: "Morale & Stress De-escalation",
-    bio: "Head of studio morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    title: "Chief Happiness Officer",
+    roleSubtitle: "Studio Morale & Well-being",
+    bio: "Keeping spirits high, bringing a little joy to the everyday, and reminding us that great work deserves a happy workplace.",
     skills: [
       "Morale Optimization",
       "Stress De-escalation",
-      "Treat Auditing",
-      "Zero-Bug Mascot",
+      "Team Well-being",
+      "Happy Workplace",
     ],
     accent: "#fb7185",
     accentRgb: "251, 113, 133",
@@ -78,9 +78,9 @@ const LEADERS = [
     monogram: null,
     photoPosition: "object-top",
     linkedin: null,
-    roleBadge: "Office Pup 🐾",
+    roleBadge: "Chief Happiness Officer",
     FooterIcon: Heart,
-    footerLabel: "Chief Happiness & Morale",
+    footerLabel: "Chief Happiness Officer",
   },
 ] as const;
 
@@ -156,7 +156,7 @@ export function PeopleSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {LEADERS.map((leader) => {
             const FooterIcon = leader.FooterIcon;
-            const isFounder = leader.num === "01";
+            const isBella = leader.num === "03";
 
             return (
               <div
@@ -164,13 +164,14 @@ export function PeopleSection() {
                 className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
                 style={{
                   minHeight: "560px",
-                  background:
-                    "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
-                  border: isFounder
-                    ? `1px solid rgba(${leader.accentRgb}, 0.35)`
+                  background: isBella
+                    ? "linear-gradient(165deg, rgba(20, 13, 24, 0.95) 0%, rgba(10, 7, 14, 0.98) 100%)"
+                    : "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
+                  border: isBella
+                    ? "1px solid rgba(251, 113, 133, 0.22)"
                     : "1px solid rgba(255, 255, 255, 0.08)",
-                  boxShadow: isFounder
-                    ? `0 20px 60px -20px rgba(0, 0, 0, 0.85), 0 0 50px -15px rgba(${leader.accentRgb}, 0.2)`
+                  boxShadow: isBella
+                    ? "0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 40px -20px rgba(251, 113, 133, 0.12)"
                     : "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
                 }}
               >
@@ -195,7 +196,7 @@ export function PeopleSection() {
                     alt={leader.name}
                     fill
                     sizes="(max-width: 768px) 100vw, 33vw"
-                    priority={isFounder}
+                    priority={leader.num === "01" || leader.num === "02"}
                     className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                   />
                   {/* Cinematic Bottom Gradient Fade */}
@@ -213,7 +214,7 @@ export function PeopleSection() {
                     <div
                       className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
                       style={{
-                        background: "rgba(5, 7, 12, 0.92)",
+                        background: isBella ? "rgba(18, 10, 20, 0.92)" : "rgba(5, 7, 12, 0.92)",
                         border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
                         backdropFilter: "blur(12px)",
                       }}

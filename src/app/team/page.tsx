@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://www.ashmyra.com/team" },
 };
 
-/* ── 02: Our Mission Pillars ─────────────────────────────────────────────────── */
+/* ── 02: Our Mission Pillars (3 Core Themes) ────────────────────────────── */
 const MISSION_PILLARS = [
   {
     icon: Bot,
@@ -47,18 +47,6 @@ const MISSION_PILLARS = [
     title: "Data-Driven Systems",
     desc: "Resilient streaming queues, idempotent worker pipelines, and low-latency storage layers ensuring transaction integrity across distributed systems.",
     tag: "Data Infrastructure",
-  },
-  {
-    icon: Workflow,
-    title: "Business Automation",
-    desc: "Resilient integration fabrics synchronizing disparate legacy ERPs, CRMs, and operational software without brittle point-to-point scripts.",
-    tag: "Process Orchestration",
-  },
-  {
-    icon: ShieldCheck,
-    title: "Enterprise Engineering",
-    desc: "Production-grade reliability, strict security isolation boundaries, and high-concurrency architectures built to execute at scale.",
-    tag: "Enterprise Architecture",
   },
 ];
 
@@ -95,14 +83,14 @@ const TEAM_MEMBERS = [
   {
     num: "01",
     name: "Ashish Talgotra",
-    title: "Founder & Lead AI Architect",
-    roleSubtitle: "Systems, Data & Agentic Architecture",
-    bio: "Architects autonomous multi-agent swarms, distributed data pipelines, and deep intelligence layers. Leads Ashmyra from engineering conception to production scale, converting complex enterprise bottlenecks into deterministic, mission-critical software engines.",
+    title: "AI Engineer / Data Scientist",
+    roleSubtitle: "Systems, Data & Intelligent Architecture",
+    bio: "Specializes in AI engineering, data science, intelligent software systems, automation and technical architecture. Focuses on architecting autonomous multi-agent pipelines and resilient software engines that execute reliably in production.",
     skills: [
-      "Agent Swarm Architecture",
-      "LLM Orchestration",
-      "Real-Time Data Pipelines",
-      "Distributed Systems",
+      "AI Engineering",
+      "Data Science",
+      "Multi-Agent Systems",
+      "Technical Architecture",
     ],
     accent: "#818cf8",
     accentRgb: "129, 140, 248",
@@ -110,21 +98,21 @@ const TEAM_MEMBERS = [
     monogram: null,
     photoPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
-    roleBadge: "Founder & Architect",
+    roleBadge: "AI & Data Architecture",
     FooterIcon: Terminal,
-    footerLabel: "Founder & Chief Architect",
+    footerLabel: "AI & Systems Engineering",
   },
   {
     num: "02",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
-    bio: "Directs enterprise cloud infrastructure, software development lifecycles, and technical delivery. Oversees resilient cloud systems, deployment pipelines, and high-concurrency architectures that power operations at scale.",
+    bio: "Directs enterprise software engineering, technology development and technical execution. Oversees resilient cloud systems, deployment pipelines and high-concurrency architectures that power operations at scale.",
     skills: [
-      "Cloud Architecture",
       "Software Engineering",
+      "Cloud Architecture",
+      "Technical Execution",
       "System Resilience",
-      "Technical Delivery",
     ],
     accent: "#a78bfa",
     accentRgb: "168, 85, 247",
@@ -132,21 +120,21 @@ const TEAM_MEMBERS = [
     monogram: null,
     photoPosition: "object-top",
     linkedin: null,
-    roleBadge: "Head of IT & Systems",
+    roleBadge: "Head of IT & Software",
     FooterIcon: Code2,
-    footerLabel: "Software & Cloud Systems",
+    footerLabel: "IT & Software Development",
   },
   {
     num: "03",
     name: "Bella",
-    title: "Chief Happiness Officer 🐾",
-    roleSubtitle: "Morale & Stress De-escalation",
-    bio: "Head of studio morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    title: "Chief Happiness Officer",
+    roleSubtitle: "Studio Morale & Well-being",
+    bio: "Keeping spirits high, bringing a little joy to the everyday, and reminding us that great work deserves a happy workplace.",
     skills: [
       "Morale Optimization",
       "Stress De-escalation",
-      "Treat Auditing",
-      "Zero-Bug Mascot",
+      "Team Well-being",
+      "Happy Workplace",
     ],
     accent: "#fb7185",
     accentRgb: "251, 113, 133",
@@ -154,9 +142,9 @@ const TEAM_MEMBERS = [
     monogram: null,
     photoPosition: "object-top",
     linkedin: null,
-    roleBadge: "Office Pup 🐾",
+    roleBadge: "Chief Happiness Officer",
     FooterIcon: Heart,
-    footerLabel: "Chief Happiness & Morale",
+    footerLabel: "Chief Happiness Officer",
   },
 ] as const;
 
@@ -172,7 +160,7 @@ export default function TeamPage() {
       <div id="approach" className="sr-only" aria-hidden="true" />
 
       {/* ── SECTION 01 — COMPANY INTRODUCTION ──────────────────────────────── */}
-      <section className="relative pt-32 pb-20 sm:pt-40 sm:pb-24 border-b border-white/[0.06] overflow-hidden">
+      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-14 border-b border-white/[0.06] overflow-hidden">
         {/* Ambient lighting & dot background */}
         <div className="absolute inset-0 pointer-events-none">
           <div
@@ -206,7 +194,7 @@ export default function TeamPage() {
           </h1>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto mb-10 font-sans">
+          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto mb-8 font-sans">
             Ashmyra Technologies engineers intelligent software, AI-driven systems and digital
             platforms designed around real business challenges.
           </p>
@@ -264,14 +252,14 @@ export default function TeamPage() {
               <span className="text-cyan-300">It Should Act.</span>
             </h2>
             <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
-              The first wave of enterprise AI focused on passive conversational answers. Ashmyra
-              engineers intelligent systems that bridge reasoning and deterministic operational execution—moving
-              data, executing tasks, and powering business automation with precision.
+              At Ashmyra, we engineer intelligent systems that connect reasoning, business data and
+              software workflows — helping organisations move beyond passive digital experiences
+              towards purposeful execution.
             </p>
           </div>
 
-          {/* 5 Mission Pillars Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 3 Mission Pillars Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {MISSION_PILLARS.map((pillar) => {
               const Icon = pillar.icon;
               return (
@@ -388,7 +376,7 @@ export default function TeamPage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {TEAM_MEMBERS.map((leader) => {
               const FooterIcon = leader.FooterIcon;
-              const isFounder = leader.num === "01";
+              const isBella = leader.num === "03";
 
               return (
                 <div
@@ -396,10 +384,15 @@ export default function TeamPage() {
                   className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
                   style={{
                     minHeight: "560px",
-                    background:
-                      "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
-                    border: `1px solid rgba(255, 255, 255, 0.08)`,
-                    boxShadow: "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
+                    background: isBella
+                      ? "linear-gradient(165deg, rgba(20, 13, 24, 0.95) 0%, rgba(10, 7, 14, 0.98) 100%)"
+                      : "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
+                    border: isBella
+                      ? "1px solid rgba(251, 113, 133, 0.22)"
+                      : "1px solid rgba(255, 255, 255, 0.08)",
+                    boxShadow: isBella
+                      ? "0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 40px -20px rgba(251, 113, 133, 0.12)"
+                      : "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
                   }}
                 >
                   {/* Top Glowing Laser Hairline */}
@@ -423,7 +416,7 @@ export default function TeamPage() {
                       alt={leader.name}
                       fill
                       sizes="(max-width: 768px) 100vw, 33vw"
-                      priority={isFounder}
+                      priority={leader.num === "01" || leader.num === "02"}
                       className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                     />
 
@@ -441,7 +434,7 @@ export default function TeamPage() {
                       <div
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
                         style={{
-                          background: "rgba(5, 7, 12, 0.92)",
+                          background: isBella ? "rgba(18, 10, 20, 0.92)" : "rgba(5, 7, 12, 0.92)",
                           border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
                           backdropFilter: "blur(12px)",
                         }}
@@ -561,12 +554,12 @@ export default function TeamPage() {
                 className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
                 style={{ fontFamily: "'Space Grotesk', sans-serif" }}
               >
-                Build What Comes Next.
+                Want to Build What&apos;s Next With Us?
               </h2>
 
               <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
-                Interested in engineering intelligent systems and meaningful digital products? Connect
-                with Ashmyra.
+                We&apos;re always interested in connecting with people who care about thoughtful
+                engineering, intelligent systems and meaningful technology.
               </p>
 
               <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
@@ -574,7 +567,7 @@ export default function TeamPage() {
                   href="/contact?intent=careers"
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs shadow-lg shadow-cyan-500/25 transition-all group"
                 >
-                  <span>Explore Opportunities</span>
+                  <span>Connect With Ashmyra</span>
                   <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link

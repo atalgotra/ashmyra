@@ -1,6 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { SolutionsCinematicShowcase } from "@/components/solutions-cinematic-showcase";
 import { SolutionsIndustryGrid } from "@/components/solutions-industry-grid";
 import { ArrowRight, Sparkles, ShieldCheck, Terminal, Cpu } from "lucide-react";
@@ -21,57 +22,59 @@ export default function SolutionsPage() {
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-indigo-600/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-64 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* ── 1. CINEMATIC HERO HEADER WITH AMBIENT NEURAL VIDEO BACKDROP ── */}
-      <header className="relative pt-12 pb-16 sm:pb-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden rounded-3xl">
-        {/* Ambient Neural Network Video Loop with Radial Vignette */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10 [mask-image:radial-gradient(ellipse_at_center,black_45%,transparent_80%)]">
-          <video
-            src="/videos/hero/v02-intelligence.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="metadata"
-            className="w-full h-full object-cover opacity-60 mix-blend-screen scale-110"
+      {/* ── 1. CINEMATIC HERO HEADER WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
+      <header className="relative pt-16 pb-20 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden rounded-3xl border border-white/[0.08] shadow-2xl bg-[#04060a]">
+        {/* 3D Holographic Architecture Backdrop Image */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+          <Image
+            src="/solutions-hero.jpg"
+            alt="Ashmyra Solutions Holographic Architecture Blueprint"
+            fill
+            priority
+            sizes="(max-width: 1280px) 100vw, 1280px"
+            className="object-cover object-center opacity-85 sm:opacity-90 scale-105"
           />
-          {/* Deep dark vignette and glowing gradient spotlight */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#04060a]/50 via-transparent to-[#04060a]" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.2)_0%,transparent_70%)]" />
+          {/* Deep dark gradient scrim for crystal-clear readability & seamless edge fading */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#04060a]/80 via-[#04060a]/50 to-[#04060a]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/85 via-transparent to-[#04060a]/85" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(4,6,10,0.35)_0%,rgba(4,6,10,0.85)_100%)]" />
         </div>
 
-        {/* Ambient Radial Glow Lighting */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-indigo-500/20 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/3 left-1/4 w-[300px] h-[300px] bg-cyan-500/15 rounded-full blur-[120px] pointer-events-none" />
+        {/* Ambient Radial Lighting Accents */}
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-cyan-500/15 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 left-1/4 w-[400px] h-[300px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none" />
 
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/15 border border-indigo-500/30 text-xs text-indigo-300 font-mono mb-6 shadow-sm backdrop-blur-md">
-          <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
-          <span>Targeted Business Outcomes</span>
-        </div>
-
-        <h1
-          className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] drop-shadow-[0_4px_24px_rgba(0,0,0,0.9)]"
-          style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-        >
-          Solutions Built for Your Scale &amp; Team
-        </h1>
-
-        <p className="mt-6 text-base sm:text-lg text-neutral-200 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] font-medium">
-          Whether you are launching an early-stage SaaS product, automating mid-market operations, or modernizing enterprise legacy infrastructure, Ashmyra provides targeted architecture backed by live production engines.
-        </p>
-
-        {/* Quick Trust Badges */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-md shadow-lg text-neutral-200">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="font-semibold text-white">7 Production Blueprints</span>
+        <div className="relative z-10">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/35 text-xs text-indigo-300 font-mono mb-6 shadow-lg backdrop-blur-md">
+            <Sparkles className="w-3.5 h-3.5 text-indigo-300" />
+            <span>Targeted Business Outcomes</span>
           </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-md shadow-lg text-neutral-200">
-            <ShieldCheck className="w-4 h-4 text-cyan-400" />
-            <span>SOC2 &amp; Air-Gapped Ready</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/[0.12] backdrop-blur-md shadow-lg text-neutral-200">
-            <Cpu className="w-4 h-4 text-indigo-400" />
-            <span>Dedicated VPC &amp; Cloud Clusters</span>
+
+          <h1
+            className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white max-w-4xl mx-auto leading-[1.1] drop-shadow-[0_4px_24px_rgba(0,0,0,0.95)]"
+            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+          >
+            Solutions Built for Your Scale &amp; Team
+          </h1>
+
+          <p className="mt-6 text-base sm:text-lg text-neutral-100 leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.95)] font-medium">
+            Whether you are launching an early-stage SaaS product, automating mid-market operations, or modernizing enterprise legacy infrastructure, Ashmyra provides targeted architecture backed by live production engines.
+          </p>
+
+          {/* Quick Trust Badges */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span className="font-semibold text-white">7 Production Blueprints</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
+              <ShieldCheck className="w-4 h-4 text-cyan-400" />
+              <span>SOC2 &amp; Air-Gapped Ready</span>
+            </div>
+            <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#080c1a]/85 border border-white/[0.16] backdrop-blur-md shadow-xl text-neutral-100">
+              <Cpu className="w-4 h-4 text-indigo-400" />
+              <span>Dedicated VPC &amp; Cloud Clusters</span>
+            </div>
           </div>
         </div>
       </header>

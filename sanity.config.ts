@@ -7,7 +7,7 @@ export default defineConfig({
   basePath: "/studio",
   name: "ashmyra_studio",
   title: "Ashmyra Editorial Studio",
-  projectId: projectId || "mock-project-id",
+  projectId: projectId || "zqxl7z7v",
   dataset: dataset || "production",
   schema: {
     types: [postType],

@@ -1,10 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Space_Grotesk, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { LayoutShell } from "@/components/layout-shell";
 import { SeoSchema } from "@/components/seo-schema";
-import { CustomCursor } from "@/components/custom-cursor";
 import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
 
 const inter = Inter({
@@ -176,21 +174,8 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-[#050608] text-[#f1f5f9] selection:bg-indigo-500/30 selection:text-indigo-200">
         <ScrollToTopOnMount />
-        <CustomCursor />
         <SeoSchema />
-        {/* Skip to Content for Accessibility */}
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg shadow-lg"
-        >
-          Skip to main content
-        </a>
-
-        <Navbar />
-        <main id="main-content" className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <Footer />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );

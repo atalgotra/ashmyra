@@ -256,7 +256,7 @@ export function Footer() {
           <div>
             <div className="text-xs font-mono font-bold uppercase tracking-wider text-white mb-4 flex items-center gap-2">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-              <span>Security &amp; Legal</span>
+              <span>Legal &amp; Policies</span>
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
@@ -268,12 +268,6 @@ export function Footer() {
               <li>
                 <Link href="/legal/terms" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Terms of Service</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/legal/security" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Security Architecture</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
                 </Link>
               </li>

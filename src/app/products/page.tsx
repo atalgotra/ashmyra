@@ -63,11 +63,11 @@ export const metadata: Metadata = {
 };
 
 const PRODUCT_IMAGE_MAP: Record<string, string> = {
-  mailflow: "/wow/wow6-workplace-communication.png",
-  prospectiq: "/wow/wow3-project-management.png",
-  omnira: "/wow/wow1-social-intelligence.png",
-  unveil: "/wow/wow5-data-intelligence.png",
-  veyrix: "/wow/wow2-seo-intelligence.png",
+  mailflow: "/products/mailflow.png",
+  prospectiq: "/products/prospectiq.png",
+  omnira: "/products/omnira.png",
+  unveil: "/products/unveil.png",
+  veyrix: "/products/veyrix.png",
 };
 
 export default function ProductsPage() {

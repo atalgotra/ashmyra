@@ -330,10 +330,10 @@ export function Navbar() {
               <ThemeSwitcher />
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-indigo-600/25"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1, #818cf8)",
-                  boxShadow: "0 0 0 1px rgba(99,102,241,0.4), 0 4px 16px -2px rgba(99,102,241,0.4)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+                  boxShadow: "0 0 0 1px var(--border-glow), 0 4px 16px -2px var(--border-glow)",
                 }}
               >
                 <span>Let&apos;s Talk</span>
@@ -376,11 +376,12 @@ export function Navbar() {
         >
           <div
             ref={menuCardRef}
-            className="pointer-events-auto w-full rounded-2xl p-6 sm:p-7 relative overflow-hidden text-white"
+            className="pointer-events-auto w-full rounded-2xl p-6 sm:p-7 relative overflow-hidden transition-colors duration-300"
             style={{
-              backgroundColor: "#0B0E17",
-              border: "1px solid rgba(255, 255, 255, 0.12)",
-              boxShadow: "0 24px 60px -15px rgba(0,0,0,0.95), 0 0 35px -10px rgba(99,102,241,0.12)",
+              backgroundColor: "var(--theme-popover-bg)",
+              color: "var(--text)",
+              border: "1px solid var(--theme-popover-border)",
+              boxShadow: "0 24px 60px -15px rgba(0,0,0,0.35), 0 0 35px -10px var(--border-glow)",
               maxWidth: getMenuMaxWidth(activeDD),
             }}
             role="menu"

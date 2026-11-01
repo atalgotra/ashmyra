@@ -35,6 +35,8 @@
   --theme-popover-bg: #0B0E17;
   --theme-popover-border: rgba(255, 255, 255, 0.12);
 
+  --hero-headline-gradient: linear-gradient(135deg, #ffffff 0%, #cbd5e1 55%, #818cf8 100%);
+
   --font-sans: var(--font-inter), system-ui, sans-serif;
   --font-display: var(--font-space-grotesk), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
@@ -47,9 +49,9 @@
 
   --bg:            #FAF7F2;
   --bg-raised:     #F3ECE1;
-  --bg-card:       rgba(255, 255, 255, 0.92);
-  --bg-glass:      rgba(255, 255, 255, 0.85);
-  --bg-header:     rgba(250, 247, 242, 0.94);
+  --bg-card:       rgba(255, 255, 255, 0.94);
+  --bg-glass:      rgba(255, 255, 255, 0.88);
+  --bg-header:     rgba(250, 247, 242, 0.96);
   --bg-footer:     #EBE3D5;
 
   --border:        rgba(197, 160, 89, 0.28);
@@ -71,6 +73,8 @@
   --theme-pill-border: rgba(197, 160, 89, 0.35);
   --theme-popover-bg: #FFFFFF;
   --theme-popover-border: rgba(197, 160, 89, 0.35);
+
+  --hero-headline-gradient: linear-gradient(135deg, #1A1510 0%, #B8860B 50%, #D4AF37 100%);
 }
 
 /* 3. Brushed Copper & Desert Bronze (Warm Earthy Metallic) */
@@ -80,9 +84,9 @@
 
   --bg:            #F7F3EE;
   --bg-raised:     #EDE4D8;
-  --bg-card:       rgba(255, 255, 255, 0.92);
-  --bg-glass:      rgba(255, 255, 255, 0.85);
-  --bg-header:     rgba(247, 243, 238, 0.94);
+  --bg-card:       rgba(255, 255, 255, 0.94);
+  --bg-glass:      rgba(255, 255, 255, 0.88);
+  --bg-header:     rgba(247, 243, 238, 0.96);
   --bg-footer:     #E4D7C8;
 
   --border:        rgba(200, 109, 81, 0.25);
@@ -104,6 +108,8 @@
   --theme-pill-border: rgba(200, 109, 81, 0.32);
   --theme-popover-bg: #FFFFFF;
   --theme-popover-border: rgba(200, 109, 81, 0.35);
+
+  --hero-headline-gradient: linear-gradient(135deg, #241C18 0%, #C86D51 50%, #D98268 100%);
 }
 
 /* 4. Platinum Titanium (Ultra-Modern Minimal Light) */
@@ -113,9 +119,9 @@
 
   --bg:            #FAFAFC;
   --bg-raised:     #F1F3F8;
-  --bg-card:       rgba(255, 255, 255, 0.94);
-  --bg-glass:      rgba(255, 255, 255, 0.88);
-  --bg-header:     rgba(250, 250, 252, 0.94);
+  --bg-card:       rgba(255, 255, 255, 0.96);
+  --bg-glass:      rgba(255, 255, 255, 0.90);
+  --bg-header:     rgba(250, 250, 252, 0.96);
   --bg-footer:     #E9EDF5;
 
   --border:        rgba(15, 23, 42, 0.12);
@@ -137,6 +143,8 @@
   --theme-pill-border: rgba(15, 23, 42, 0.15);
   --theme-popover-bg: #FFFFFF;
   --theme-popover-border: rgba(15, 23, 42, 0.15);
+
+  --hero-headline-gradient: linear-gradient(135deg, #0F172A 0%, #2563EB 50%, #06B6D4 100%);
 }
 
 /* ── Base ───────────────────────────────────────────────────────────────────── */
@@ -199,22 +207,38 @@ body {
 [data-theme="gold"],
 [data-theme="copper"],
 [data-theme="platinum"] {
-  /* Override hardcoded dark background utilities */
+  /* 1. Main Canvas & Section Backgrounds */
+  section,
+  main,
+  div[class*="min-h-screen"],
+  .bg-\[\#05070c\],
+  .bg-\[\#04060a\],
+  .bg-\[\#030408\],
   .bg-\[\#050608\],
   .bg-\[\#050609\],
   .bg-\[\#07090e\],
   .bg-\[\#07080d\],
+  .bg-\[\#05070e\],
+  .bg-\[\#06080e\],
+  .bg-\[\#05070a\],
+  .bg-\[\#05070B\],
   .bg-\[\#0B0E17\],
   .bg-black\/60,
   .bg-black\/50,
   .bg-black\/40 {
     background-color: var(--bg) !important;
+    color: var(--text) !important;
   }
 
-  .bg-\[\#030407\] {
-    background-color: var(--bg-footer) !important;
-  }
-
+  /* 2. Elevated Cards, Modals, Panels & Surfaces */
+  .bg-\[\#080b15\],
+  .bg-\[\#090c16\],
+  .bg-\[\#0a0d16\],
+  .bg-\[\#080d1a\],
+  .bg-\[\#060810\],
+  .bg-\[\#08090d\],
+  .bg-\[\#090d16\],
+  .bg-\[\#101426\],
   .bg-neutral-900\/40,
   .bg-neutral-900\/50,
   .bg-neutral-900\/30,
@@ -222,9 +246,33 @@ body {
   .bg-neutral-950,
   .bg-neutral-900 {
     background-color: var(--bg-card) !important;
+    color: var(--text) !important;
   }
 
-  /* Override hardcoded text colors for high contrast */
+  /* 3. Footer */
+  footer,
+  .bg-\[\#030407\] {
+    background-color: var(--bg-footer) !important;
+    color: var(--text) !important;
+  }
+
+  /* 4. Translucent Pills & Badges */
+  .bg-white\/\[0\.02\],
+  .bg-white\/\[0\.03\],
+  .bg-white\/\[0\.04\],
+  .bg-white\/\[0\.05\] {
+    background-color: var(--theme-pill-bg) !important;
+    border-color: var(--border) !important;
+  }
+
+  .bg-white\/\[0\.08\],
+  .bg-white\/\[0\.06\],
+  .bg-white\/10 {
+    background-color: var(--bg-card) !important;
+    border-color: var(--border) !important;
+  }
+
+  /* 5. High-Contrast Typography */
   .text-white {
     color: var(--text) !important;
   }
@@ -240,24 +288,35 @@ body {
     color: var(--text-muted) !important;
   }
 
-  /* Override hardcoded border colors */
+  /* 6. Dynamic Headings (replacing hardcoded silver/white text gradients) */
+  [style*="linear-gradient(135deg, #ffffff"] {
+    background: var(--hero-headline-gradient) !important;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+  }
+
+  /* 7. Borders & Dividers */
   .border-white\/\[0\.08\],
   .border-white\/\[0\.07\],
   .border-white\/\[0\.06\],
   .border-white\/\[0\.05\],
   .border-white\/\[0\.1\],
-  .border-white\/10 {
+  .border-white\/\[0\.12\],
+  .border-white\/\[0\.15\],
+  .border-white\/10,
+  .border-white\/20 {
     border-color: var(--border) !important;
   }
 
-  /* Header elevation in light themes */
+  /* 8. Header & Navigation */
   header {
     background-color: var(--bg-header) !important;
     border-bottom-color: var(--border) !important;
     box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05) !important;
   }
 
-  /* Dropdown card container */
+  /* 9. Dropdown Menu Items */
   .mega-menu-item {
     color: var(--text) !important;
   }
@@ -266,7 +325,7 @@ body {
     background-color: rgba(0, 0, 0, 0.04) !important;
   }
 
-  /* Cards hover lift */
+  /* 10. Cards Hover Lift */
   .card-lift:hover {
     box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--border-strong) !important;
   }

@@ -68,7 +68,8 @@ export function HeroPhase7() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen lg:h-screen lg:max-h-screen bg-[#05070c] text-white flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8 overflow-hidden"
+      className="relative w-full min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8 overflow-hidden transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
     >
       {/* ── Editorial Background Atmosphere ─────────────────────────────────── */}
       <div className="absolute inset-0 pointer-events-none">
@@ -102,13 +103,19 @@ export function HeroPhase7() {
 
             {/* Eyebrow & Positioning Kicker */}
             <div ref={eyebrowRef} className="mb-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 backdrop-blur-md mb-2.5 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] text-indigo-300 uppercase">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md mb-2.5 shadow-sm transition-colors duration-300"
+                style={{
+                  background: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--accent)" }} />
+                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: "var(--accent)" }}>
                   AI • DATA • SOFTWARE • AUTOMATION
                 </span>
               </div>
-              <p className="text-[12px] font-mono text-neutral-400 tracking-wide">
+              <p className="text-[12px] font-mono tracking-wide" style={{ color: "var(--text-muted)" }}>
                 We engineer intelligent autonomous systems that drive enterprise advantage.
               </p>
             </div>
@@ -116,15 +123,14 @@ export function HeroPhase7() {
             {/* Main Headline */}
             <h1
               ref={headlineRef}
-              className="text-4xl xs:text-5xl sm:text-6xl lg:text-[3.4rem] xl:text-[3.85rem] font-bold tracking-tight text-white leading-[1.05] mb-4 sm:mb-5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-4xl xs:text-5xl sm:text-6xl lg:text-[3.4rem] xl:text-[3.85rem] font-bold tracking-tight leading-[1.05] mb-4 sm:mb-5 transition-colors duration-300"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               WE ENGINEER
               <br />
               <span
                 style={{
-                  background:
-                    "linear-gradient(135deg, #ffffff 0%, #cbd5e1 55%, #818cf8 100%)",
+                  background: "var(--hero-headline-gradient)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -137,7 +143,8 @@ export function HeroPhase7() {
             {/* Supporting Statement */}
             <p
               ref={copyRef}
-              className="text-sm sm:text-base lg:text-[1.05rem] text-neutral-300 leading-relaxed font-sans mb-6 sm:mb-7 max-w-lg"
+              className="text-sm sm:text-base lg:text-[1.05rem] leading-relaxed font-sans mb-6 sm:mb-7 max-w-lg transition-colors duration-300"
+              style={{ color: "var(--text-muted)" }}
             >
               Agentic AI, intelligent software and data-driven systems engineered to solve real business problems.
             </p>
@@ -151,9 +158,9 @@ export function HeroPhase7() {
                 href="/our-work"
                 className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1, #818cf8)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
                   boxShadow:
-                    "0 0 0 1px rgba(99, 102, 241, 0.45), 0 8px 24px -6px rgba(99, 102, 241, 0.5)",
+                    "0 0 0 1px var(--border-glow), 0 8px 24px -6px var(--border-glow)",
                 }}
               >
                 <span>Explore Our Work</span>
@@ -162,36 +169,44 @@ export function HeroPhase7() {
 
               <Link
                 href="/contact?intent=discovery"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-neutral-200 hover:text-white transition-all duration-300 hover:bg-white/[0.08] hover:border-white/25 text-center group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-center group hover:scale-[1.02] active:scale-[0.98]"
                 style={{
-                  background: "rgba(255, 255, 255, 0.04)",
-                  border: "1px solid rgba(255, 255, 255, 0.12)",
+                  background: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                  color: "var(--text)",
                 }}
               >
                 <span>Book Technical Discovery</span>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-white group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-inherit group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 
             {/* Unified Executive Capability Ribbon (Single Cohesive Row) */}
             <div
               ref={capabilitiesRef}
-              className="pt-5 border-t border-white/[0.08]"
+              className="pt-5"
+              style={{ borderTop: "1px solid var(--border)" }}
             >
-              <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl bg-white/[0.03] border border-white/[0.08] backdrop-blur-md shadow-sm">
+              <div
+                className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl backdrop-blur-md shadow-sm transition-colors duration-300"
+                style={{
+                  background: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
+              >
                 <div className="flex items-center gap-2 text-xs font-mono">
-                  <Cpu className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
-                  <span className="text-neutral-200 font-medium">Agentic AI</span>
+                  <Cpu className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent)" }} />
+                  <span className="font-medium" style={{ color: "var(--text)" }}>Agentic AI</span>
                 </div>
-                <span className="w-1 h-1 rounded-full bg-neutral-600 hidden sm:inline shrink-0" />
+                <span className="w-1 h-1 rounded-full hidden sm:inline shrink-0" style={{ backgroundColor: "var(--border-strong)" }} />
                 <div className="flex items-center gap-2 text-xs font-mono">
-                  <Database className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
-                  <span className="text-neutral-200 font-medium">Data Intelligence</span>
+                  <Database className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-cyan)" }} />
+                  <span className="font-medium" style={{ color: "var(--text)" }}>Data Intelligence</span>
                 </div>
-                <span className="w-1 h-1 rounded-full bg-neutral-600 hidden sm:inline shrink-0" />
+                <span className="w-1 h-1 rounded-full hidden sm:inline shrink-0" style={{ backgroundColor: "var(--border-strong)" }} />
                 <div className="flex items-center gap-2 text-xs font-mono">
-                  <Layers className="w-3.5 h-3.5 text-purple-400 shrink-0" />
-                  <span className="text-neutral-200 font-medium">Enterprise Software</span>
+                  <Layers className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-violet)" }} />
+                  <span className="font-medium" style={{ color: "var(--text)" }}>Enterprise Software</span>
                 </div>
               </div>
             </div>

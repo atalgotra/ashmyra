@@ -41,7 +41,12 @@ export function TryDemoSection() {
   return (
     <section
       id="try-demo"
-      className="relative py-20 sm:py-28 overflow-hidden bg-[#04060a] border-t border-white/[0.08]"
+      className="relative py-20 sm:py-28 overflow-hidden border-t transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--bg)",
+        borderColor: "var(--border)",
+        color: "var(--text)",
+      }}
     >
       {/* Background Ambient Glows */}
       <div
@@ -85,14 +90,14 @@ export function TryDemoSection() {
           </div>
 
           <h2
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12] mb-5"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.12] mb-5 transition-colors duration-300"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
           >
             Try Our Working Demos.{" "}
             <span
               style={{
                 background:
-                  "linear-gradient(135deg, #818cf8 0%, #38bdf8 50%, #34d399 100%)",
+                  "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent-emerald) 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -102,7 +107,7 @@ export function TryDemoSection() {
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
+          <p className="text-sm sm:text-base leading-relaxed transition-colors duration-300" style={{ color: "var(--text-muted)" }}>
             Test live Ashmyra platforms right now in your browser. Every system
             is connected to live infrastructure, autonomous agent pipelines,
             and real-time data engines.

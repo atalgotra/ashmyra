@@ -95,8 +95,12 @@ export function PeopleSection() {
     <section
       ref={sectionRef}
       id="people"
-      className="relative bg-[#05070c] overflow-hidden"
-      style={{ borderTop: "1px solid rgba(255, 255, 255, 0.06)" }}
+      className="relative overflow-hidden transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--bg)",
+        borderTop: "1px solid var(--border)",
+        color: "var(--text)",
+      }}
     >
       <div id="founders" className="sr-only" aria-hidden="true" />
       <div id="about" className="sr-only" aria-hidden="true" />
@@ -122,20 +126,19 @@ export function PeopleSection() {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 sm:mb-16">
           <div>
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-              <span className="text-[11px] font-mono font-semibold tracking-wider text-indigo-400 uppercase">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+              <span className="text-[11px] font-mono font-semibold tracking-wider uppercase" style={{ color: "var(--accent)" }}>
                 Leadership &amp; Technical Foundation
               </span>
             </div>
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight transition-colors duration-300"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Engineered by practitioners who{" "}
               <span
                 style={{
-                  background:
-                    "linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%)",
+                  background: "var(--hero-headline-gradient)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -145,7 +148,7 @@ export function PeopleSection() {
               </span>
             </h2>
           </div>
-          <p className="text-sm sm:text-base text-neutral-400 font-sans max-w-xl leading-relaxed lg:text-right">
+          <p className="text-sm sm:text-base font-sans max-w-xl leading-relaxed lg:text-right transition-colors duration-300" style={{ color: "var(--text-muted)" }}>
             Ashmyra brings together software engineering discipline, applied
             artificial intelligence, and enterprise systems expertise to deliver
             robust, scalable technology solutions.

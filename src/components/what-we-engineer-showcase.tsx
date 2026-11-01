@@ -228,7 +228,12 @@ export function WhatWeEngineerShowcase() {
     <section
       ref={sectionRef}
       id="what-we-engineer"
-      className="relative w-full bg-[#05070c] text-white py-16 sm:py-20 lg:py-24 border-t border-white/[0.06]"
+      className="relative w-full py-16 sm:py-20 lg:py-24 border-t transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--bg)",
+        borderColor: "var(--border)",
+        color: "var(--text)",
+      }}
     >
       {/* Dynamic Background Atmosphere */}
       <div
@@ -249,7 +254,7 @@ export function WhatWeEngineerShowcase() {
               className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
               style={{ background: current.accent }}
             />
-            <span className="text-[11px] font-mono tracking-[0.24em] text-indigo-400 uppercase font-semibold">
+            <span className="text-[11px] font-mono tracking-[0.24em] uppercase font-semibold" style={{ color: "var(--accent)" }}>
               CAPABILITY PORTFOLIO
             </span>
           </div>
@@ -257,12 +262,12 @@ export function WhatWeEngineerShowcase() {
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
             <div>
               <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.08]"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08] transition-colors duration-300"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
               >
                 WHAT WE ENGINEER.
               </h2>
-              <p className="text-base sm:text-lg text-neutral-400 mt-2 max-w-xl font-sans">
+              <p className="text-base sm:text-lg mt-2 max-w-xl font-sans" style={{ color: "var(--text-muted)" }}>
                 From intelligent agents to complete enterprise platforms.
               </p>
             </div>

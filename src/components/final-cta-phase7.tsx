@@ -85,7 +85,12 @@ export function FinalCtaPhase7() {
   return (
     <section
       id="contact-experience"
-      className="relative bg-[#05070c] py-24 sm:py-28 lg:py-32 overflow-hidden text-white border-t border-white/[0.06]"
+      className="relative py-24 sm:py-28 lg:py-32 overflow-hidden border-t transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--bg)",
+        borderColor: "var(--border)",
+        color: "var(--text)",
+      }}
     >
       {/* Background radial atmosphere */}
       <div className="absolute inset-0 pointer-events-none">
@@ -107,21 +112,27 @@ export function FinalCtaPhase7() {
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
               {/* Executive Glowing Eyebrow */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-[11px] font-mono tracking-widest text-indigo-300 uppercase mb-6 shadow-[0_0_20px_rgba(99,102,241,0.15)]">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <div
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase mb-6 shadow-sm"
+                style={{
+                  background: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                  color: "var(--accent)",
+                }}
+              >
+                <span className="w-2 h-2 rounded-full animate-pulse" style={{ backgroundColor: "var(--accent-emerald)" }} />
                 <span>Direct Founder Access · Technical Discovery</span>
               </div>
 
               <h2
-                className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight text-white leading-[1.05] mb-6"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-4xl sm:text-5xl lg:text-[3.75rem] font-bold tracking-tight leading-[1.05] mb-6 transition-colors duration-300"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
               >
                 WHAT SHOULD WE
                 <br />
                 <span
                   style={{
-                    background:
-                      "linear-gradient(135deg, #ffffff 0%, #cbd5e1 40%, #818cf8 80%, #38bdf8 100%)",
+                    background: "var(--hero-headline-gradient)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
@@ -131,15 +142,18 @@ export function FinalCtaPhase7() {
                 </span>
               </h2>
 
-              <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans mb-8">
+              <p className="text-base sm:text-lg leading-relaxed font-sans mb-8 transition-colors duration-300" style={{ color: "var(--text-muted)" }}>
                 Bring us your operational bottleneck or bold product vision. Speak
                 directly with engineering practitioners who architect and deploy systems
                 into production.
               </p>
 
               {/* 3 Practitioner Guarantees */}
-              <div className="space-y-3 pt-6 border-t border-white/[0.08]">
-                <div className="flex items-start gap-3 p-3 rounded-xl bg-white/[0.02] border border-white/[0.05]">
+              <div className="space-y-3 pt-6" style={{ borderTop: "1px solid var(--border)" }}>
+                <div
+                  className="flex items-start gap-3 p-3 rounded-xl"
+                  style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
+                >
                   <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0 mt-0.5 text-indigo-400">
                     <UserCheck className="w-4 h-4" />
                   </div>
@@ -184,7 +198,10 @@ export function FinalCtaPhase7() {
             </div>
 
             {/* Direct Founder Channel Badge */}
-            <div className="mt-8 p-4 rounded-2xl bg-gradient-to-r from-indigo-950/40 via-slate-900/40 to-indigo-950/30 border border-indigo-500/25 backdrop-blur-md flex items-center gap-4 shadow-lg">
+            <div
+              className="mt-8 p-4 rounded-2xl border backdrop-blur-md flex items-center gap-4 shadow-sm"
+              style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border)" }}
+            >
               <div className="relative w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-indigo-400/40 shadow-inner">
                 <Image
                   src="/team/ashish-talgotra.jpg"
@@ -194,22 +211,27 @@ export function FinalCtaPhase7() {
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <div className="text-[10px] font-mono font-semibold text-emerald-400 uppercase tracking-widest flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <div className="text-[10px] font-mono font-semibold uppercase tracking-widest flex items-center gap-1.5" style={{ color: "var(--accent-emerald)" }}>
+                  <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--accent-emerald)" }} />
                   <span>Direct Founder Channel</span>
                 </div>
-                <div className="text-sm font-bold text-white tracking-tight truncate">
+                <div className="text-sm font-bold tracking-tight truncate" style={{ color: "var(--text)" }}>
                   Ashish Talgotra
                 </div>
-                <div className="text-xs text-neutral-400 truncate">
+                <div className="text-xs truncate" style={{ color: "var(--text-muted)" }}>
                   Founder &amp; Lead AI Architect · Personal Technical Review
                 </div>
               </div>
               <a
                 href="mailto:info@ashmyra.com"
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.1] text-xs font-mono text-neutral-200 hover:text-white transition-all shrink-0"
+                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-mono transition-all shrink-0 hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  borderColor: "var(--border)",
+                  color: "var(--text)",
+                }}
               >
-                <Mail className="w-3.5 h-3.5 text-indigo-400" />
+                <Mail className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                 <span>Email</span>
               </a>
             </div>

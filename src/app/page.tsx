@@ -44,7 +44,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col min-h-screen bg-[#05070c] selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div
+      className="flex flex-col min-h-screen selection:bg-indigo-500/30 selection:text-indigo-200"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
 
       {/* 01 — HERO: Two-column editorial layout (~43% left, ~57% right: Cinematic Ashmyra Showreel) */}
       <HeroPhase7 />

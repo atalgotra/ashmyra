@@ -42,7 +42,14 @@ export function BrandIntroPhase7() {
   ];
 
   return (
-    <section className="relative bg-[#07090e] border-t border-b border-white/[0.06] overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section
+      className="relative border-t border-b overflow-hidden py-16 sm:py-20 lg:py-24 transition-colors duration-300"
+      style={{
+        backgroundColor: "var(--bg)",
+        borderColor: "var(--border)",
+        color: "var(--text)",
+      }}
+    >
       {/* Subtle ambient lighting backdrop */}
       <div className="absolute inset-0 pointer-events-none">
         <div
@@ -63,23 +70,29 @@ export function BrandIntroPhase7() {
           <div className="lg:col-span-5 flex flex-col justify-center">
             {/* Glowing Eyebrow Pill */}
             <div className="mb-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 backdrop-blur-md shadow-[0_0_20px_rgba(99,102,241,0.12)]">
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse" />
-                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] text-indigo-300 uppercase">
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full backdrop-blur-md shadow-sm"
+                style={{
+                  background: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--accent)" }} />
+                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: "var(--accent)" }}>
                   Engineering Discipline
                 </span>
               </div>
             </div>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.08] mb-5"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.08] mb-5 transition-colors duration-300"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Engineering practitioners.{" "}
               <span
                 style={{
                   background:
-                    "linear-gradient(135deg, #818cf8 0%, #22d3ee 100%)",
+                    "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent-cyan) 100%)",
                   WebkitBackgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   backgroundClip: "text",
@@ -89,17 +102,25 @@ export function BrandIntroPhase7() {
               </span>
             </h2>
 
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans mb-7 max-w-lg">
+            <p
+              className="text-sm sm:text-base leading-relaxed font-sans mb-7 max-w-lg transition-colors duration-300"
+              style={{ color: "var(--text-muted)" }}
+            >
               Ashmyra is built by software engineers and data practitioners who focus on real-world execution. We architect and deploy autonomous AI agents, enterprise software platforms, and high-concurrency systems that solve fundamental operational bottlenecks.
             </p>
 
             <div>
               <Link
                 href="/team"
-                className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold text-neutral-200 hover:text-white bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] hover:border-indigo-500/40 transition-all duration-300 shadow-sm"
+                className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
+                style={{
+                  background: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                  color: "var(--text)",
+                }}
               >
                 <span>Meet the Leadership Team</span>
-                <ArrowRight className="w-3.5 h-3.5 text-indigo-400 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" style={{ color: "var(--accent)" }} />
               </Link>
             </div>
           </div>
@@ -111,9 +132,10 @@ export function BrandIntroPhase7() {
               return (
                 <div
                   key={item.title}
-                  className="group relative p-6 rounded-2xl bg-white/[0.025] hover:bg-white/[0.05] border border-white/[0.08] hover:border-white/[0.16] transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-lg"
+                  className="group relative p-6 rounded-2xl border transition-all duration-300 flex flex-col justify-between overflow-hidden shadow-md hover:-translate-y-1"
                   style={{
-                    boxShadow: "0 20px 40px -15px rgba(0, 0, 0, 0.7)",
+                    backgroundColor: "var(--bg-card)",
+                    borderColor: "var(--border)",
                   }}
                 >
                   {/* Top glowing accent highlight on hover */}
@@ -143,18 +165,24 @@ export function BrandIntroPhase7() {
                     </div>
 
                     <h3
-                      className="text-base font-bold text-white mb-2 tracking-tight group-hover:text-white transition-colors"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-base font-bold mb-2 tracking-tight transition-colors"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
                     >
                       {item.title}
                     </h3>
-                    <p className="text-xs text-neutral-400 leading-relaxed font-sans">
+                    <p
+                      className="text-xs leading-relaxed font-sans"
+                      style={{ color: "var(--text-muted)" }}
+                    >
                       {item.desc}
                     </p>
                   </div>
 
                   {/* Technical Proof Telemetry Tag */}
-                  <div className="mt-5 pt-3.5 border-t border-white/[0.06] flex items-center justify-between text-[10px] font-mono">
+                  <div
+                    className="mt-5 pt-3.5 flex items-center justify-between text-[10px] font-mono"
+                    style={{ borderTop: "1px solid var(--border)" }}
+                  >
                     <span className="flex items-center gap-1.5" style={{ color: item.accent }}>
                       <span
                         className="w-1.5 h-1.5 rounded-full animate-pulse"

@@ -101,36 +101,56 @@ export default function SolutionsPage() {
       <SolutionsIndustryGrid />
 
       {/* ── 4. FINAL ARCHITECTURAL CONSULTATION CALL-TO-ACTION ─────── */}
-      <section className="pb-20 pt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="rounded-3xl p-10 sm:p-14 text-center bg-gradient-to-r from-indigo-950/40 via-cyan-950/30 to-indigo-950/40 border border-indigo-500/30 shadow-2xl relative overflow-hidden">
-          <div className="max-w-2xl mx-auto space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.1] text-xs font-mono text-cyan-300">
+      <section className="pb-24 pt-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="rounded-3xl p-10 sm:p-16 lg:p-20 text-center relative overflow-hidden border border-indigo-500/30 shadow-[0_0_60px_rgba(99,102,241,0.15)] bg-[#04060a]">
+          {/* 3D Blueprint Background Image */}
+          <div className="absolute inset-0 pointer-events-none z-0">
+            <Image
+              src="/solutions-cta.jpg"
+              alt="Ashmyra Architectural Blueprint Consultation Nexus"
+              fill
+              quality={95}
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              className="object-cover object-center opacity-45 sm:opacity-55 scale-105"
+            />
+            {/* Scrim gradients for contrast and seamless edge blending */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#04060a] via-[#04060a]/60 to-[#04060a]/90" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/80 via-transparent to-[#04060a]/80" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(99,102,241,0.15)_0%,transparent_70%)]" />
+          </div>
+
+          {/* Ambient Corner Lighting Accents */}
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-indigo-500/25 rounded-full blur-[140px] pointer-events-none z-0" />
+          <div className="absolute -bottom-24 right-1/4 w-[400px] h-[250px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
+
+          <div className="relative z-10 max-w-2xl mx-auto space-y-5">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-xs font-mono text-cyan-300 backdrop-blur-md shadow-lg">
               <Terminal className="w-3.5 h-3.5" />
               <span>Architectural Blueprint Review</span>
             </div>
 
             <h3
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight"
+              className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]"
               style={{ fontFamily: "'Space Grotesk', sans-serif" }}
             >
               Discuss Your Specific Operational Requirements
             </h3>
 
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-200 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
               Our principal systems engineers will review your existing manual workflows, data silos, and technical bottlenecks, delivering an architectural blueprint tailored to your company scale.
             </p>
 
             <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-xl shadow-indigo-600/30 transition-all hover:translate-x-0.5"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm shadow-xl shadow-indigo-600/30 transition-all hover:translate-x-0.5"
               >
                 <span>Request Architecture Consultation</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/products"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.09] text-neutral-300 hover:text-white font-semibold text-xs border border-white/[0.1] transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.06] hover:bg-white/[0.12] text-neutral-200 hover:text-white font-semibold text-xs sm:text-sm border border-white/[0.15] backdrop-blur-md transition-all"
               >
                 <span>Explore Live Platforms</span>
               </Link>

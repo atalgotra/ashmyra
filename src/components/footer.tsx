@@ -233,7 +233,7 @@ export function Footer() {
               </li>
               <li>
                 <Link href="/team" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Founding Team</span>
+                  <span>Our Team</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>

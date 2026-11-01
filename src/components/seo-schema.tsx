@@ -68,9 +68,15 @@ export function SeoSchema() {
     "founder": [
       {
         "@type": "Person",
+        "@id": "https://www.ashmyra.com/team#swati-arora",
+        "name": "Swati Arora",
+        "jobTitle": "Founder"
+      },
+      {
+        "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & Lead AI Architect",
+        "jobTitle": "AI Engineer / Data Scientist",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
@@ -367,9 +373,24 @@ export function SeoSchema() {
     "@graph": [
       {
         "@type": "Person",
+        "@id": "https://www.ashmyra.com/team#swati-arora",
+        "name": "Swati Arora",
+        "jobTitle": "Founder",
+        "worksFor": {
+          "@id": "https://www.ashmyra.com/#organization"
+        },
+        "url": "https://www.ashmyra.com/team",
+        "knowsAbout": [
+          "Enterprise Business Strategy",
+          "Commercial Scale & Alliances",
+          "Operations Leadership"
+        ]
+      },
+      {
+        "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & Lead AI Architect",
+        "jobTitle": "AI Engineer / Data Scientist",
         "worksFor": {
           "@id": "https://www.ashmyra.com/#organization"
         },

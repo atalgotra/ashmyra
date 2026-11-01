@@ -164,29 +164,9 @@ export const MAIN_NAV: NavSection[] = [
     href: "/team",
     items: [
       {
-        title: "About Ashmyra",
-        href: "/team#about",
-        description: "Engineering practitioners dedicated to high-velocity, real-world software delivery.",
-      },
-      {
-        title: "Leadership",
-        href: "/team#leadership",
-        description: "Executive and engineering leads steering technical strategy and commercial execution.",
-      },
-      {
-        title: "Engineering Approach",
-        href: "/team#approach",
-        description: "Rigorous engineering standards, deterministic testing, and zero-compromise execution.",
-      },
-      {
-        title: "Contact",
-        href: "/contact",
-        description: "Direct engineering discovery: discuss technical scope, timelines, and deliverables.",
-      },
-      {
-        title: "Careers",
-        href: "/contact?intent=careers",
-        description: "Join our core team building autonomous intelligence and next-generation software.",
+        title: "Our Team",
+        href: "/team",
+        description: "Founding leadership, engineering philosophy, and the people building Ashmyra.",
       },
     ],
   },

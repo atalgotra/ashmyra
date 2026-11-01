@@ -215,7 +215,7 @@ export function Navbar() {
       case "Our Work":
         return "640px";
       case "Company":
-        return "640px";
+        return "340px";
       default:
         return "720px";
     }
@@ -770,25 +770,25 @@ export function Navbar() {
             {activeDD === "Company" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2.5">
+                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08]">
+                  <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
                     <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Company &amp; Engineering Culture
+                      Ashmyra Technologies
                     </span>
                   </div>
                   <Link
                     href="/team"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors font-semibold"
                   >
-                    <span>Company Overview</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                    <span>View Team</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
-                {/* Items */}
-                <div className="grid grid-cols-2 gap-2.5">
+                {/* Single Item: Our Team */}
+                <div className="space-y-2">
                   {activeNavSection.items?.map((item) => (
                     <Link
                       key={item.title}
@@ -803,7 +803,7 @@ export function Navbar() {
                           border: "1px solid rgba(255,255,255,0.08)",
                         }}
                       >
-                        {getIcon(item.title)}
+                        <Users className="w-4 h-4 text-indigo-400" />
                       </div>
                       <div className="flex-1 min-w-0">
                         <span className="text-[13px] font-semibold text-white group-hover/item:text-indigo-200 transition-colors block">
@@ -815,21 +815,6 @@ export function Navbar() {
                       </div>
                     </Link>
                   ))}
-                </div>
-
-                {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span className="flex items-center gap-1.5">
-                    <Building2 className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>Founded by senior practitioners. Based in Delhi NCR, serving clients globally.</span>
-                  </span>
-                  <Link
-                    href="/contact"
-                    onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-indigo-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
-                  >
-                    Get in Touch →
-                  </Link>
                 </div>
               </div>
             )}

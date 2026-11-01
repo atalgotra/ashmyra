@@ -58,13 +58,6 @@ export default function SolutionsPage() {
         </div>
       </header>
 
-      {/* Backwards-Compatible Navigation Anchor Targets */}
-      <div id="revenue-growth" className="sr-only" aria-hidden="true" />
-      <div id="business-operations" className="sr-only" aria-hidden="true" />
-      <div id="workforce-enterprise" className="sr-only" aria-hidden="true" />
-      <div id="data-intelligence" className="sr-only" aria-hidden="true" />
-      <div id="digital-modernisation" className="sr-only" aria-hidden="true" />
-
       {/* ── 2. DUAL-COLUMN GSAP VIDEO SHOWCASE (OPTION B) ─────────── */}
       <SolutionsCinematicShowcase />
 

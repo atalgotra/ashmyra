@@ -6,6 +6,7 @@ export interface SolutionMetric {
 
 export interface SolutionItem {
   id: string;
+  aliases?: string[];
   category: "role" | "company-stage" | "industry";
   categoryLabel: string;
   title: string;
@@ -29,10 +30,11 @@ export interface SolutionItem {
 
 export const SOLUTIONS: SolutionItem[] = [
   {
-    id: "startups",
+    id: "digital-modernisation",
+    aliases: ["startups"],
     category: "company-stage",
     categoryLabel: "By Company Scale",
-    title: "High-Velocity Startups",
+    title: "Digital Modernisation & Startup Scale",
     targetAudience: "Seed to Series B Founders & Technical Leaders",
     badge: "Scale Rapidly",
     accentColor: "indigo",
@@ -59,12 +61,13 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "smes",
+    id: "business-operations",
+    aliases: ["smes"],
     category: "company-stage",
     categoryLabel: "By Company Scale",
-    title: "Growing SMEs",
+    title: "Business Operations & Automation",
     targetAudience: "Growing Companies & Mid-Market Operations",
-    badge: "Modernize Operations",
+    badge: "Connected Operations",
     accentColor: "cyan",
     videoUrl: "/videos/solutions/smes.mp4",
     problemTitle: "The Operational Silo Bottleneck",
@@ -89,10 +92,11 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "enterprises",
+    id: "enterprise-security",
+    aliases: ["enterprises"],
     category: "company-stage",
     categoryLabel: "By Company Scale",
-    title: "Large Enterprises",
+    title: "Enterprise Architecture & Security",
     targetAudience: "Chief Technology Officers & Enterprise Architects",
     badge: "Security & Scale",
     accentColor: "sky",
@@ -119,12 +123,13 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "sales",
+    id: "revenue-growth",
+    aliases: ["sales", "revenue-intelligence"],
     category: "role",
     categoryLabel: "By Functional Team",
-    title: "Sales & Revenue Operations",
+    title: "Revenue & Sales Intelligence",
     targetAudience: "CROs, Sales Directors & RevOps Leads",
-    badge: "Revenue Intelligence",
+    badge: "Revenue Velocity",
     accentColor: "rose",
     videoUrl: "/videos/solutions/sales.mp4",
     problemTitle: "The Stalled Pipeline & Data Lag",
@@ -149,12 +154,13 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "marketing",
+    id: "growth-intelligence",
+    aliases: ["marketing"],
     category: "role",
     categoryLabel: "By Functional Team",
-    title: "Marketing & Growth Teams",
+    title: "Generative Search & Growth Intelligence",
     targetAudience: "CMOs, Growth Leads & SEO Managers",
-    badge: "Generative Search Visibility",
+    badge: "GEO Visibility",
     accentColor: "violet",
     videoUrl: "/videos/solutions/marketing.mp4",
     problemTitle: "The Generative AI Visibility Blindspot",
@@ -179,12 +185,13 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "operations",
+    id: "autonomous-logistics",
+    aliases: ["operations"],
     category: "role",
     categoryLabel: "By Functional Team",
-    title: "Operations & Logistics Teams",
+    title: "Autonomous Logistics & Workflows",
     targetAudience: "COOs, Operations VPs & Process Managers",
-    badge: "Autonomous Workflows",
+    badge: "Autonomous Ops",
     accentColor: "amber",
     videoUrl: "/videos/solutions/operations.mp4",
     problemTitle: "The Manual Paperwork & Verification Latency",
@@ -209,10 +216,11 @@ export const SOLUTIONS: SolutionItem[] = [
     ],
   },
   {
-    id: "hr-teams",
+    id: "workforce-enterprise",
+    aliases: ["hr-teams"],
     category: "role",
     categoryLabel: "By Functional Team",
-    title: "HR & People Teams",
+    title: "Workforce & Enterprise Management",
     targetAudience: "Chief People Officers, HR Directors & People Ops",
     badge: "Workforce Efficiency",
     accentColor: "emerald",

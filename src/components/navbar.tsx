@@ -154,11 +154,13 @@ export function Navbar() {
     if (t.includes("veyrix")) return <Search className={cls} style={{ color: "#38bdf8" }} />;
 
     // Solutions
-    if (t.includes("revenue") || t.includes("growth")) return <TrendingUp className={cls} style={{ color: "#06b6d4" }} />;
-    if (t.includes("operations") || t.includes("automation")) return <Zap className={cls} style={{ color: "#fbbf24" }} />;
     if (t.includes("workforce") || t.includes("enterprise management")) return <Users className={cls} style={{ color: "#a78bfa" }} />;
-    if (t.includes("data & decision") || t.includes("decision intelligence")) return <BarChart3 className={cls} style={{ color: "#38bdf8" }} />;
-    if (t.includes("modernisation") || t.includes("modernization")) return <Layers className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("business operations") || t.includes("automation")) return <Zap className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("revenue") || t.includes("sales")) return <TrendingUp className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("generative search") || t.includes("search & growth")) return <Search className={cls} style={{ color: "#38bdf8" }} />;
+    if (t.includes("logistics") || t.includes("autonomous logistics")) return <Workflow className={cls} style={{ color: "#10b981" }} />;
+    if (t.includes("enterprise architecture") || t.includes("security")) return <ShieldCheck className={cls} style={{ color: "#60a5fa" }} />;
+    if (t.includes("modernisation") || t.includes("modernization") || t.includes("startups")) return <Layers className={cls} style={{ color: "#818cf8" }} />;
     if (t.includes("consultation") || t.includes("scoping")) return <ShieldCheck className={cls} style={{ color: "#6366f1" }} />;
 
     // Capabilities - AI & Intelligent Systems

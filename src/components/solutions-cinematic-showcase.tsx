@@ -32,13 +32,13 @@ export function SolutionsCinematicShowcase() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<"all" | "company-stage" | "role">("all");
   const [playingStates, setPlayingStates] = useState<Record<string, boolean>>({
-    startups: true,
-    smes: true,
-    enterprises: true,
-    sales: true,
-    marketing: true,
-    operations: true,
-    "hr-teams": true,
+    "digital-modernisation": true,
+    "business-operations": true,
+    "enterprise-security": true,
+    "revenue-growth": true,
+    "growth-intelligence": true,
+    "autonomous-logistics": true,
+    "workforce-enterprise": true,
   });
 
   const videoRefs = useRef<Record<string, HTMLVideoElement | null>>({});
@@ -55,6 +55,40 @@ export function SolutionsCinematicShowcase() {
       }
     }
   };
+
+  const scrollToSolution = (id: string) => {
+    // If the card is in a category currently filtered out, switch to 'all' so it exists in DOM
+    const targetSol = SOLUTIONS.find((s) => s.id === id || s.aliases?.includes(id));
+    if (targetSol && activeCategory !== "all" && targetSol.category !== activeCategory) {
+      setActiveCategory("all");
+    }
+
+    setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        const topOffset = 100;
+        const elementPosition = el.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 120);
+  };
+
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace("#", "");
+      if (hash) {
+        scrollToSolution(hash);
+      }
+    };
+
+    handleHash();
+    window.addEventListener("hashchange", handleHash);
+    return () => window.removeEventListener("hashchange", handleHash);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -175,16 +209,24 @@ export function SolutionsCinematicShowcase() {
     }
   };
 
-  const scrollToSolution = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const topOffset = 100;
-      const elementPosition = el.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+  const getShortName = (id: string) => {
+    switch (id) {
+      case "digital-modernisation":
+        return "Modernisation";
+      case "business-operations":
+        return "Operations";
+      case "enterprise-security":
+        return "Security & Scale";
+      case "revenue-growth":
+        return "Revenue Ops";
+      case "growth-intelligence":
+        return "GEO Search";
+      case "autonomous-logistics":
+        return "Logistics";
+      case "workforce-enterprise":
+        return "Workforce";
+      default:
+        return id;
     }
   };
 
@@ -239,7 +281,7 @@ export function SolutionsCinematicShowcase() {
                   onClick={() => scrollToSolution(sol.id)}
                   className="px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium text-neutral-400 hover:text-cyan-300 hover:bg-white/[0.05] transition-all shrink-0"
                 >
-                  #{sol.title.split(" ")[0]}
+                  #{getShortName(sol.id)}
                 </button>
               ))}
             </div>
@@ -259,6 +301,15 @@ export function SolutionsCinematicShowcase() {
               id={sol.id}
               className="solution-cinematic-card scroll-mt-28 rounded-3xl p-6 sm:p-10 lg:p-12 bg-gradient-to-br from-[#090d19] via-[#070a12] to-[#04060a] border border-white/[0.08] relative overflow-hidden shadow-2xl transition-all duration-300"
             >
+              {/* Deep link alias anchors */}
+              {sol.aliases?.map((alias) => (
+                <span
+                  key={alias}
+                  id={alias}
+                  className="scroll-mt-28 block h-0 w-0 pointer-events-none"
+                  aria-hidden="true"
+                />
+              ))}
               {/* Subtle ambient lighting spot behind video */}
               <div
                 className={`absolute top-0 ${

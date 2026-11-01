@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { BLOG_POSTS } from "@/data/blog";
+import { BLOG_POSTS, fetchAllBlogPosts } from "@/data/blog";
 import {
   BookOpen,
   ArrowRight,
@@ -37,9 +37,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
-  const featuredPost = BLOG_POSTS[0];
-  const regularPosts = BLOG_POSTS.slice(1);
+export default async function BlogIndexPage() {
+  const posts = await fetchAllBlogPosts();
+  const featuredPost = posts[0];
+  const regularPosts = posts.slice(1);
 
   return (
     <div className="pt-32 pb-24 min-h-screen">

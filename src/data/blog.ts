@@ -184,6 +184,69 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ];
 
+import { client } from "@/sanity/client";
+import { isSanityConfigured } from "@/sanity/env";
+
+export async function fetchAllBlogPosts(): Promise<BlogPost[]> {
+  if (isSanityConfigured && client) {
+    try {
+      const sanityPosts = await client.fetch<any[]>(
+        `*[_type == "post"] | order(publishedAt desc) {
+          "slug": slug.current,
+          title,
+          metaTitle,
+          metaDesc,
+          "bannerImage": bannerImage.asset->url,
+          "bannerAlt": bannerImage.alt,
+          category,
+          readTime,
+          publishedAt,
+          "updatedAt": _updatedAt,
+          author,
+          summary,
+          tags,
+          sections
+        }`
+      );
+      if (sanityPosts && sanityPosts.length > 0) {
+        return sanityPosts.map((p) => ({
+          slug: p.slug,
+          title: p.title,
+          metaTitle: p.metaTitle || p.title,
+          metaDesc: p.metaDesc || p.summary,
+          bannerImage: p.bannerImage || "/brand/ashmyra-og-image.png",
+          bannerAlt: p.bannerAlt || p.title,
+          category: p.category || "Agentic AI",
+          readTime: p.readTime || "5 min read",
+          date: p.publishedAt
+            ? new Date(p.publishedAt).toLocaleDateString("en-US", {
+                month: "short",
+                year: "numeric",
+              })
+            : "Recent",
+          publishedAt: p.publishedAt || new Date().toISOString(),
+          updatedAt: p.updatedAt || new Date().toISOString(),
+          author: p.author || {
+            name: "Ashish Talgotra",
+            role: "Founder & AI Engineer",
+          },
+          summary: p.summary || "",
+          sections: p.sections || [],
+          tags: p.tags || [],
+        }));
+      }
+    } catch (err) {
+      console.warn("Sanity fetch error, falling back to static posts", err);
+    }
+  }
+  return BLOG_POSTS;
+}
+
+export async function fetchBlogPostBySlug(slug: string): Promise<BlogPost | undefined> {
+  const posts = await fetchAllBlogPosts();
+  return posts.find((p) => p.slug === slug);
+}
+
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   return BLOG_POSTS.find((p) => p.slug === slug);
 }

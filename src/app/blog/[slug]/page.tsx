@@ -4,7 +4,13 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { BLOG_POSTS, getBlogPostBySlug, getAllBlogSlugs } from "@/data/blog";
+import {
+  BLOG_POSTS,
+  getBlogPostBySlug,
+  getAllBlogSlugs,
+  fetchBlogPostBySlug,
+  fetchAllBlogPosts,
+} from "@/data/blog";
 import {
   ArrowLeft,
   ArrowRight,
@@ -29,7 +35,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = await fetchBlogPostBySlug(slug);
   if (!post) return {};
 
   return {
@@ -66,7 +72,7 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
+  const post = await fetchBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
@@ -106,7 +112,8 @@ export default async function BlogPostPage({
     },
   };
 
-  const otherPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
+  const allPosts = await fetchAllBlogPosts();
+  const otherPosts = allPosts.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
     <article className="pt-32 pb-24 min-h-screen">

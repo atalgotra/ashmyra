@@ -63,10 +63,10 @@ export const metadata: Metadata = {
 
 const PRODUCT_IMAGE_MAP: Record<string, string> = {
   mailflow: "/products/mailflow.png",
-  prospectiq: "/products/prospectiq.png",
+  prospectiq: "/products/prospectiq-widescreen.png",
   omnira: "/products/omnira.png",
-  unveil: "/products/unveil.png",
-  veyrix: "/products/veyrix.png",
+  unveil: "/products/unveil-widescreen.png",
+  veyrix: "/products/veyrix-widescreen.png",
 };
 
 export default function ProductsPage() {

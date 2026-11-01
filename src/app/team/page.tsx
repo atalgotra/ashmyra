@@ -18,6 +18,7 @@ import {
   Users,
   Database,
   Bot,
+  Heart,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -93,32 +94,10 @@ const PHILOSOPHY_PRINCIPLES = [
 const TEAM_MEMBERS = [
   {
     num: "01",
-    name: "Swati Arora",
-    title: "Founder",
-    roleSubtitle: "Business Strategy & Operations",
-    bio: "Directs executive leadership, commercial direction, and enterprise partnerships. Ensures every Ashmyra engagement delivers measurable business return, reliable execution, and sustainable operational acceleration.",
-    skills: [
-      "Enterprise Strategy",
-      "Commercial Scale",
-      "Strategic Alliances",
-      "Operations Leadership",
-    ],
-    accent: "#22d3ee",
-    accentRgb: "34, 211, 238",
-    photo: null,
-    monogram: "SA",
-    photoPosition: "object-center",
-    linkedin: null,
-    roleBadge: "Founder",
-    FooterIcon: Layers,
-    footerLabel: "Executive Leadership",
-  },
-  {
-    num: "02",
     name: "Ashish Talgotra",
-    title: "AI Engineer / Data Scientist",
-    roleSubtitle: "Systems & Data Architecture",
-    bio: "Architects autonomous multi-agent systems, real-time data pipelines, and deep intelligence layers. Focuses on converting complex enterprise bottlenecks into deterministic, scalable software engines that execute reliably in production.",
+    title: "Founder & Lead AI Architect",
+    roleSubtitle: "Systems, Data & Agentic Architecture",
+    bio: "Architects autonomous multi-agent swarms, distributed data pipelines, and deep intelligence layers. Leads Ashmyra from engineering conception to production scale, converting complex enterprise bottlenecks into deterministic, mission-critical software engines.",
     skills: [
       "Agent Swarm Architecture",
       "LLM Orchestration",
@@ -131,12 +110,12 @@ const TEAM_MEMBERS = [
     monogram: null,
     photoPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
-    roleBadge: "AI & Data Architecture",
+    roleBadge: "Founder & Architect",
     FooterIcon: Terminal,
-    footerLabel: "Systems & Intelligence",
+    footerLabel: "Founder & Chief Architect",
   },
   {
-    num: "03",
+    num: "02",
     name: "Prince Rehan",
     title: "Head — IT & Software Development",
     roleSubtitle: "Infrastructure & Engineering Execution",
@@ -156,6 +135,28 @@ const TEAM_MEMBERS = [
     roleBadge: "Head of IT & Systems",
     FooterIcon: Code2,
     footerLabel: "Software & Cloud Systems",
+  },
+  {
+    num: "03",
+    name: "Bella",
+    title: "Chief Happiness Officer 🐾",
+    roleSubtitle: "Morale & Stress De-escalation",
+    bio: "Head of studio morale, belly rubs, and high-frequency tail wagging. Specializes in de-escalating debugging stress, supervising late-night deployments, and keeping team productivity and dopamine at all-time highs.",
+    skills: [
+      "Morale Optimization",
+      "Stress De-escalation",
+      "Treat Auditing",
+      "Zero-Bug Mascot",
+    ],
+    accent: "#fb7185",
+    accentRgb: "251, 113, 133",
+    photo: "/team/bella.png",
+    monogram: null,
+    photoPosition: "object-top",
+    linkedin: null,
+    roleBadge: "Office Pup 🐾",
+    FooterIcon: Heart,
+    footerLabel: "Chief Happiness & Morale",
   },
 ] as const;
 
@@ -417,42 +418,14 @@ export default function TeamPage() {
 
                   {/* Portrait Area */}
                   <div className="relative overflow-hidden shrink-0" style={{ height: "310px" }}>
-                    {leader.photo ? (
-                      <Image
-                        src={leader.photo}
-                        alt={leader.name}
-                        fill
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={isFounder}
-                        className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
-                      />
-                    ) : (
-                      <div
-                        className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden"
-                        style={{
-                          background: `radial-gradient(ellipse at 50% 40%, rgba(${leader.accentRgb}, 0.22) 0%, rgba(7, 9, 16, 0.98) 75%)`,
-                        }}
-                      >
-                        <div
-                          className="w-28 h-28 rounded-3xl flex items-center justify-center border shadow-2xl transition-transform duration-700 group-hover:scale-105"
-                          style={{
-                            background: `rgba(${leader.accentRgb}, 0.12)`,
-                            borderColor: `rgba(${leader.accentRgb}, 0.35)`,
-                            boxShadow: `0 0 35px -5px rgba(${leader.accentRgb}, 0.3)`,
-                          }}
-                        >
-                          <span
-                            className="text-4xl font-bold tracking-wider text-white"
-                            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-                          >
-                            {leader.monogram}
-                          </span>
-                        </div>
-                        <span className="text-[11px] font-mono tracking-widest text-cyan-300/80 uppercase mt-4">
-                          Executive Leadership
-                        </span>
-                      </div>
-                    )}
+                    <Image
+                      src={leader.photo}
+                      alt={leader.name}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      priority={isFounder}
+                      className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
+                    />
 
                     {/* Cinematic Bottom Gradient Fade */}
                     <div

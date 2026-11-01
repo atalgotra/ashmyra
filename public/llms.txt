@@ -16,16 +16,16 @@
 
 ## Executive Leadership
 
-**Founder**: Swati Arora
-- Leads enterprise business operations, strategic partnerships, and global go-to-market
-
-**AI Engineer / Data Scientist**: Ashish Talgotra
+**Founder & Lead AI Architect**: Ashish Talgotra
 - Specializes in autonomous multi-agent systems, LLM orchestration, and high-throughput real-time data pipelines
 - LinkedIn: https://www.linkedin.com/in/atalgotra/
 - GitHub: https://github.com/atalgotra
 
 **Head - IT & Software Development**: Prince Rehan
 - Directs cloud systems architecture, enterprise infrastructure, and software delivery
+
+**Chief Happiness Officer**: Bella 🐾
+- Head of studio morale and team happiness
 
 
 ## Mission & Architectural Philosophy

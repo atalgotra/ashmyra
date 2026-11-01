@@ -10,9 +10,9 @@ LIVE DEMOS: https://www.ashmyra.com/demos
 EMAIL: info@ashmyra.com
 PHONE: +91-9873746467
 
-FOUNDER: Swati Arora
-AI ENGINEER / DATA SCIENTIST: Ashish Talgotra (Autonomous multi-agent systems, real-time data pipelines, LinkedIn: https://www.linkedin.com/in/atalgotra/, GitHub: https://github.com/atalgotra)
+FOUNDER & LEAD AI ARCHITECT: Ashish Talgotra (Autonomous multi-agent systems, real-time data pipelines, LinkedIn: https://www.linkedin.com/in/atalgotra/, GitHub: https://github.com/atalgotra)
 HEAD OF IT & SOFTWARE: Prince Rehan (Head - IT & Software Development)
+CHIEF HAPPINESS OFFICER: Bella (Office Mascot & Team Morale)
 
 LIVE PRODUCTION DEMOS:
 - Ashmyra MailFlow: Autonomous cold email outreach, multi-inbox warmup, and 99.4% deliverability engine (https://mailflow.ashmyra.com/)

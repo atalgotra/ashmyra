@@ -5,7 +5,6 @@ import { CapabilitiesNavStrip } from "@/components/capabilities/capabilities-nav
 import { CapabilitiesShowcase } from "@/components/capabilities/capabilities-showcase";
 import { CapabilitiesTechFoundation } from "@/components/capabilities/capabilities-tech-foundation";
 import { CapabilitiesProcess } from "@/components/capabilities/capabilities-process";
-import { CapabilitiesSelectedWork } from "@/components/capabilities/capabilities-selected-work";
 import { CapabilitiesCTA } from "@/components/capabilities/capabilities-cta";
 
 export const metadata: Metadata = {
@@ -42,9 +41,6 @@ export default function CapabilitiesPage() {
 
       {/* Phase 9: 6-Stage Engineering Process Lifecycle */}
       <CapabilitiesProcess />
-
-      {/* Phase 10: Selected Engineering Work (Verified Deployments) */}
-      <CapabilitiesSelectedWork />
 
       {/* Phase 11: Final Conversion CTA */}
       <CapabilitiesCTA />

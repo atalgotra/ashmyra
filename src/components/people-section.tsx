@@ -167,15 +167,11 @@ export function PeopleSection() {
                 className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
                 style={{
                   minHeight: "560px",
-                  background: isBella
-                    ? "linear-gradient(165deg, rgba(20, 13, 24, 0.95) 0%, rgba(10, 7, 14, 0.98) 100%)"
-                    : "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
+                  backgroundColor: "var(--bg-card)",
                   border: isBella
-                    ? "1px solid rgba(251, 113, 133, 0.22)"
-                    : "1px solid rgba(255, 255, 255, 0.08)",
-                  boxShadow: isBella
-                    ? "0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 40px -20px rgba(251, 113, 133, 0.12)"
-                    : "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
+                    ? `1px solid rgba(251, 113, 133, 0.35)`
+                    : `1px solid rgba(${leader.accentRgb}, 0.28)`,
+                  boxShadow: "0 20px 50px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--border)",
                 }}
               >
                 {/* Top Glowing Laser Hairline */}
@@ -202,22 +198,21 @@ export function PeopleSection() {
                     priority={leader.num === "01" || leader.num === "02"}
                     className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                   />
-                  {/* Cinematic Bottom Gradient Fade */}
+                  {/* Cinematic Bottom Gradient Fade to Active Card Background */}
                   <div
                     className="absolute inset-0 pointer-events-none"
                     style={{
                       background:
-                        "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(7,9,16,0.3) 55%, rgba(7,9,16,0.98) 100%)",
+                        "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 45%, var(--bg-card) 100%)",
                     }}
                   />
-
 
                   {/* Top Right: High-Contrast Role Badge */}
                   <div className="absolute top-4 right-4 z-10">
                     <div
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-md"
                       style={{
-                        background: isBella ? "rgba(18, 10, 20, 0.92)" : "rgba(5, 7, 12, 0.92)",
+                        background: "rgba(0, 0, 0, 0.75)",
                         border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
                         backdropFilter: "blur(12px)",
                       }}
@@ -237,8 +232,8 @@ export function PeopleSection() {
                 <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
                   <div className="mb-3">
                     <h3
-                      className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-white transition-colors"
-                      style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                      className="text-xl sm:text-2xl font-bold tracking-tight leading-snug transition-colors"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
                     >
                       {leader.name}
                     </h3>
@@ -248,12 +243,12 @@ export function PeopleSection() {
                     >
                       {leader.title}
                     </div>
-                    <div className="text-[11px] font-mono text-neutral-400 mt-0.5">
+                    <div className="text-[11px] font-mono mt-0.5" style={{ color: "var(--text-muted)" }}>
                       {leader.roleSubtitle}
                     </div>
                   </div>
 
-                  <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed font-sans mb-5 flex-1">
+                  <p className="text-xs sm:text-[13px] leading-relaxed font-sans mb-5 flex-1" style={{ color: "var(--text-muted)" }}>
                     {leader.bio}
                   </p>
 
@@ -262,7 +257,12 @@ export function PeopleSection() {
                     {leader.skills.map((skill) => (
                       <span
                         key={skill}
-                        className="px-2.5 py-1 rounded-md text-[10.5px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] transition-colors"
+                        className="px-2.5 py-1 rounded-md text-[10.5px] font-mono border transition-colors"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          borderColor: "var(--border)",
+                          color: "var(--text)",
+                        }}
                       >
                         {skill}
                       </span>
@@ -272,9 +272,9 @@ export function PeopleSection() {
                   {/* Footer */}
                   <div
                     className="pt-4 flex items-center justify-between gap-2 mt-auto"
-                    style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}
+                    style={{ borderTop: "1px solid var(--border)" }}
                   >
-                    <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 truncate min-w-0">
+                    <div className="flex items-center gap-1.5 text-xs font-mono truncate min-w-0" style={{ color: "var(--text-muted)" }}>
                       <FooterIcon
                         className="w-3.5 h-3.5 shrink-0"
                         style={{ color: leader.accent }}

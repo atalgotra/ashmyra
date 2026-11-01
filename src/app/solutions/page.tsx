@@ -23,26 +23,27 @@ export default function SolutionsPage() {
       <div className="absolute top-64 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
 
       {/* ── 1. CINEMATIC HERO HEADER WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
-      <header className="relative pt-16 pb-20 sm:pb-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden rounded-3xl border border-white/[0.08] shadow-2xl bg-[#04060a]">
+      <header className="relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-center items-center py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden rounded-3xl border border-white/[0.12] shadow-2xl bg-black">
         {/* 3D Holographic Architecture Backdrop Image */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
+        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
           <Image
             src="/solutions-hero.jpg"
             alt="Ashmyra Solutions Holographic Architecture Blueprint"
             fill
             priority
+            quality={95}
             sizes="(max-width: 1280px) 100vw, 1280px"
-            className="object-cover object-center opacity-85 sm:opacity-90 scale-105"
+            className="object-cover object-center scale-105"
           />
-          {/* Deep dark gradient scrim for crystal-clear readability & seamless edge fading */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#04060a]/80 via-[#04060a]/50 to-[#04060a]" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/85 via-transparent to-[#04060a]/85" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(4,6,10,0.35)_0%,rgba(4,6,10,0.85)_100%)]" />
+          {/* Edge vignette and text readability scrim - allows glowing holographic core to shine through brightly */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#04060a] via-transparent to-[#04060a]/70" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/70 via-transparent to-[#04060a]/70" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(4,6,10,0.4)_0%,transparent_50%,rgba(4,6,10,0.85)_100%)]" />
         </div>
 
         {/* Ambient Radial Lighting Accents */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-cyan-500/15 rounded-full blur-[140px] pointer-events-none" />
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[300px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-cyan-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/4 w-[400px] h-[300px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
 
         <div className="relative z-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/35 text-xs text-indigo-300 font-mono mb-6 shadow-lg backdrop-blur-md">

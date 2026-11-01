@@ -124,10 +124,7 @@ export default function SolutionsPage() {
           <div className="absolute -bottom-24 right-1/4 w-[400px] h-[250px] bg-cyan-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
 
           <div className="relative z-10 max-w-2xl mx-auto space-y-5">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.06] border border-white/[0.12] text-xs font-mono text-cyan-300 backdrop-blur-md shadow-lg">
-              <Terminal className="w-3.5 h-3.5" />
-              <span>Architectural Blueprint Review</span>
-            </div>
+
 
             <h3
               className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.9)]"

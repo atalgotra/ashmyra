@@ -28,7 +28,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-amber-500/50",
     accentGlow: "from-amber-500/25",
     tag: "Document AI & Automated OCR",
-    sla: "400ms OCR // Zero Data Loss",
     badgeColor: "text-amber-300 bg-amber-500/10 border-amber-500/25",
   },
   {
@@ -37,7 +36,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-sky-500/50",
     accentGlow: "from-sky-500/25",
     tag: "LMS & Lifecycle Telemetry",
-    sla: "Adaptive AI // Real-Time Grading",
     badgeColor: "text-sky-300 bg-sky-500/10 border-sky-500/25",
   },
   {
@@ -46,7 +44,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-rose-500/50",
     accentGlow: "from-rose-500/25",
     tag: "HIPAA Compliance & Rostering",
-    sla: "HIPAA Enclave // 256-bit KMS",
     badgeColor: "text-rose-300 bg-rose-500/10 border-rose-500/25",
   },
   {
@@ -55,7 +52,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-emerald-500/50",
     accentGlow: "from-emerald-500/25",
     tag: "Omnichannel Sync & AI Agents",
-    sla: "10k Req/s // Zero Cart Drop",
     badgeColor: "text-emerald-300 bg-emerald-500/10 border-emerald-500/25",
   },
   {
@@ -64,7 +60,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-indigo-500/50",
     accentGlow: "from-indigo-500/25",
     tag: "Time Vaults & CRM Pipelines",
-    sla: "Automated Invoicing // CRM Sync",
     badgeColor: "text-indigo-300 bg-indigo-500/10 border-indigo-500/25",
   },
   {
@@ -73,7 +68,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-cyan-500/50",
     accentGlow: "from-cyan-500/25",
     tag: "Preventive Telemetry & IoT",
-    sla: "Sub-5ms IoT // Edge Gateway",
     badgeColor: "text-cyan-300 bg-cyan-500/10 border-cyan-500/25",
   },
   {
@@ -82,7 +76,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-purple-500/50",
     accentGlow: "from-purple-500/25",
     tag: "KYC & Anomaly Radar",
-    sla: "SOC2 Ready // Immutable Ledger",
     badgeColor: "text-purple-300 bg-purple-500/10 border-purple-500/25",
   },
   {
@@ -91,7 +84,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-blue-500/50",
     accentGlow: "from-blue-500/25",
     tag: "Listing Syndication & Leases",
-    sla: "Auto-Lease // Real-time MLS",
     badgeColor: "text-blue-300 bg-blue-500/10 border-blue-500/25",
   },
   {
@@ -100,7 +92,6 @@ const INDUSTRY_METADATA = [
     accentBorder: "group-hover:border-teal-500/50",
     accentGlow: "from-teal-500/25",
     tag: "Multi-Tenant SaaS Stack",
-    sla: "K8s Pods // Zero-Downtime CI/CD",
     badgeColor: "text-teal-300 bg-teal-500/10 border-teal-500/25",
   },
 ];
@@ -197,13 +188,7 @@ export function SolutionsIndustryGrid() {
                   {ind.desc}
                 </p>
 
-                {/* SLA & Engineering Credential Badge */}
-                <div className="mb-4">
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/75 border border-white/[0.15] text-[10.5px] font-mono text-white shadow-lg backdrop-blur-md">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
-                    <span>{meta.sla}</span>
-                  </div>
-                </div>
+
               </div>
 
               {/* Bottom Tag & Direct Action Bar */}

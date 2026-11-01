@@ -5,6 +5,7 @@ import Image from "next/image";
 import { DEMO_PRODUCTS, DemoProduct } from "@/data/demos";
 import { ProductsCinematicHero } from "@/components/products-cinematic-hero";
 import { ProductsNavigationStrip } from "@/components/products-navigation-strip";
+import { ProductsFrictionBento } from "@/components/products-friction-bento";
 import {
   ArrowRight,
   ExternalLink,
@@ -291,130 +292,8 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* ── 4. FEATURED PRODUCT EXPERIENCES: Problem & Workflow Mapping ── */}
-      <section className="py-20 bg-[#07090e] border-t border-white/[0.08]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-4">
-              <Workflow className="w-3.5 h-3.5 text-indigo-400" />
-              <span>Operational Problem Architecture</span>
-            </div>
-            <h2
-              className="text-3xl sm:text-4xl font-bold text-white mb-4"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
-            >
-              How Our Platforms Solve Core Business Friction
-            </h2>
-            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed">
-              Real software engineering targets deterministic business bottlenecks: customer acquisition latency, manual data scraping, and domain visibility.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {/* Box 1: Outbound & Revenue Engine */}
-            <div className="p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center mb-5 text-cyan-400">
-                  <Target className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Outbound Revenue Engine
-                </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                  Prospect IQ identifies verified decision-maker emails with waterfall verification; MailFlow executes warm multi-mailbox sequences with zero spam-folder risk.
-                </p>
-                <div className="space-y-2 text-xs text-neutral-300 pt-2 border-t border-white/[0.06]">
-                  <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 font-mono">01.</span>
-                    <span>Waterfall email verification across 50M+ B2B records</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 font-mono">02.</span>
-                    <span>Dynamic multi-inbox rotation &amp; automated warmup</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-cyan-400 font-mono">03.</span>
-                    <span>99.4% deliverability guarantee to primary inboxes</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-cyan-400">
-                <span>Prospect IQ + MailFlow</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Box 2: Search & Spider Forensics */}
-            <div className="p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-sky-500/10 border border-sky-500/30 flex items-center justify-center mb-5 text-sky-400">
-                  <Search className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Search &amp; Spider Forensics
-                </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                  Veyrix crawls website forensics with deep spider auditing, GSC/GA4 live telemetry, and AI citation radar across Perplexity, ChatGPT, and Gemini.
-                </p>
-                <div className="space-y-2 text-xs text-neutral-300 pt-2 border-t border-white/[0.06]">
-                  <div className="flex items-center gap-2">
-                    <span className="text-sky-400 font-mono">01.</span>
-                    <span>Deep spider crawler auditing 2,450+ URLs for 404s &amp; broken links</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sky-400 font-mono">02.</span>
-                    <span>Core Web Vitals HUD (LCP, CLS, INP) &amp; keyword cannibalization</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-sky-400 font-mono">03.</span>
-                    <span>24/7 automated revenue safeguard &amp; instant regression alerts</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-sky-400">
-                <span>Veyrix Intelligence</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-
-            {/* Box 3: Autonomous Media Swarm */}
-            <div className="p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] flex flex-col justify-between">
-              <div>
-                <div className="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mb-5 text-emerald-400">
-                  <Share2 className="w-5 h-5" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">
-                  Autonomous Multi-Channel Swarm
-                </h3>
-                <p className="text-xs text-neutral-400 leading-relaxed mb-4">
-                  Omnira acts like a 7–8 person creative agency: continuously tracking competitor viral trends, producing full asset packages, and managing cross-channel dispatch.
-                </p>
-                <div className="space-y-2 text-xs text-neutral-300 pt-2 border-t border-white/[0.06]">
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-mono">01.</span>
-                    <span>Cross-platform agents (YouTube, LinkedIn, FB, IG)</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-mono">02.</span>
-                    <span>End-to-end timed reel scripts &amp; carousel slide decks</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-emerald-400 font-mono">03.</span>
-                    <span>1-click human-in-the-loop clearance gate</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center justify-between text-xs font-mono text-emerald-400">
-                <span>Omnira Platform</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── 4. FEATURED PRODUCT EXPERIENCES: Interactive Friction vs. Solution Bento Grid ── */}
+      <ProductsFrictionBento />
 
       {/* ── 5. CONNECTED PRODUCT ECOSYSTEM ─────────────────────────────── */}
       <section id="ecosystem" className="py-20 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">

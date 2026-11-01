@@ -17,35 +17,35 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <div className="pt-28 pb-20 min-h-screen bg-[#04060a] relative overflow-hidden">
+    <div className="pb-20 min-h-screen bg-[#04060a] relative overflow-hidden">
       {/* Ambient Radial Glow Lighting */}
       <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[450px] bg-indigo-600/10 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute top-64 right-10 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none" />
 
-      {/* ── 1. CINEMATIC HERO HEADER WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
-      <header className="relative min-h-[580px] sm:min-h-[640px] flex flex-col justify-center items-center py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center overflow-hidden rounded-3xl border border-white/[0.12] shadow-2xl bg-black">
-        {/* 3D Holographic Architecture Backdrop Image */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+      {/* ── 1. CINEMATIC FULL-WIDTH HERO WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
+      <header className="relative w-full min-h-[640px] sm:min-h-[740px] lg:min-h-[800px] flex flex-col justify-center items-center pt-32 pb-24 sm:pt-40 sm:pb-32 text-center overflow-hidden">
+        {/* Full-bleed 3D Holographic Architecture Backdrop Image */}
+        <div className="absolute inset-0 pointer-events-none z-0">
           <Image
             src="/solutions-hero.jpg"
             alt="Ashmyra Solutions Holographic Architecture Blueprint"
             fill
             priority
             quality={95}
-            sizes="(max-width: 1280px) 100vw, 1280px"
+            sizes="100vw"
             className="object-cover object-center scale-105"
           />
-          {/* Edge vignette and text readability scrim - allows glowing holographic core to shine through brightly */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#04060a] via-transparent to-[#04060a]/70" />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/70 via-transparent to-[#04060a]/70" />
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(4,6,10,0.4)_0%,transparent_50%,rgba(4,6,10,0.85)_100%)]" />
+          {/* Subtle multi-directional scrim for seamless edge blend & crystal-clear text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#04060a]/90 via-transparent to-[#04060a]" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#04060a]/75 via-transparent to-[#04060a]/75" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(4,6,10,0.3)_0%,transparent_50%,rgba(4,6,10,0.85)_100%)]" />
         </div>
 
         {/* Ambient Radial Lighting Accents */}
-        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-cyan-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
-        <div className="absolute top-1/2 left-1/4 w-[400px] h-[300px] bg-indigo-500/20 rounded-full blur-[120px] pointer-events-none z-0" />
+        <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-cyan-500/20 rounded-full blur-[160px] pointer-events-none z-0" />
+        <div className="absolute top-1/2 left-1/4 w-[500px] h-[350px] bg-indigo-500/20 rounded-full blur-[140px] pointer-events-none z-0" />
 
-        <div className="relative z-10">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/20 border border-indigo-400/35 text-xs text-indigo-300 font-mono mb-6 shadow-lg backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5 text-indigo-300" />
             <span>Targeted Business Outcomes</span>
@@ -78,6 +78,9 @@ export default function SolutionsPage() {
             </div>
           </div>
         </div>
+
+        {/* Soft bottom edge transition to next section */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#04060a] to-transparent pointer-events-none z-10" />
       </header>
 
       {/* ── 2. DUAL-COLUMN GSAP VIDEO SHOWCASE (OPTION B) ─────────── */}

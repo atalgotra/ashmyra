@@ -158,22 +158,22 @@ export function SolutionsIndustryGrid() {
           return (
             <div
               key={i}
-              className={`group relative p-7 rounded-3xl bg-[#06080f] border border-white/[0.08] ${meta.accentBorder} transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-2xl hover:-translate-y-1`}
+              className={`group relative p-7 rounded-3xl bg-[#080c18] border border-white/[0.14] ${meta.accentBorder} transition-all duration-500 flex flex-col justify-between overflow-hidden shadow-2xl hover:-translate-y-1.5`}
             >
-              {/* Background 3D Cybernetic Schematic with Gradient Mask */}
+              {/* Background 3D Cybernetic Schematic with Vibrant High-Contrast Treatment */}
               <div className="absolute inset-0 overflow-hidden pointer-events-none">
                 <Image
                   src={meta.image}
                   alt={`${ind.name} schematic architecture`}
                   fill
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 ease-out"
+                  className="object-cover opacity-60 sm:opacity-70 group-hover:opacity-90 group-hover:scale-105 transition-all duration-700 ease-out brightness-105 contrast-110"
                 />
-                {/* Dark Gradient Overlay for Maximum Readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#06080f] via-[#06080f]/80 to-[#06080f]/35" />
-                {/* Ambient Top-Right Radial Glow Flare */}
+                {/* Refined Gradient Mask that keeps the 3D art vivid while ensuring text readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060812] via-[#060812]/70 to-[#060812]/20" />
+                {/* Luminous Ambient Corner Glow matching sector color */}
                 <div
-                  className={`absolute -top-12 -right-12 w-48 h-48 bg-gradient-to-br ${meta.accentGlow} to-transparent rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                  className={`absolute -top-10 -right-10 w-52 h-52 bg-gradient-to-br ${meta.accentGlow} to-transparent rounded-full blur-2xl opacity-40 group-hover:opacity-85 transition-opacity duration-500`}
                 />
               </div>
 
@@ -181,45 +181,45 @@ export function SolutionsIndustryGrid() {
               <div className="relative z-10">
                 {/* Top Row: Icon + Index */}
                 <div className="flex items-center justify-between mb-5">
-                  <div className="w-11 h-11 rounded-2xl bg-[#090d19]/90 border border-white/[0.12] backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-lg">
+                  <div className="w-11 h-11 rounded-2xl bg-[#0b1022]/90 border border-white/[0.18] backdrop-blur-md flex items-center justify-center group-hover:scale-105 transition-transform shadow-xl">
                     {getIndustryIcon(i)}
                   </div>
-                  <span className="text-xs font-mono text-neutral-400 font-semibold px-2 py-0.5 rounded-full bg-white/[0.04] border border-white/[0.08]">
+                  <span className="text-xs font-mono text-neutral-300 font-bold px-2.5 py-0.5 rounded-full bg-black/60 border border-white/[0.12] backdrop-blur-sm">
                     0{i + 1}
                   </span>
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl font-bold text-white mb-2 transition-colors">
+                <h3 className="text-xl font-bold text-white mb-2 transition-colors drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
                   {ind.name}
                 </h3>
-                <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed mb-5">
+                <p className="text-xs sm:text-sm text-neutral-200 leading-relaxed mb-5 drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] font-medium">
                   {ind.desc}
                 </p>
 
                 {/* SLA & Engineering Credential Badge */}
                 <div className="mb-4">
-                  <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/60 border border-white/[0.1] text-[10px] font-mono text-neutral-300 backdrop-blur-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-black/75 border border-white/[0.15] text-[10.5px] font-mono text-white shadow-lg backdrop-blur-md">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0" />
                     <span>{meta.sla}</span>
                   </div>
                 </div>
               </div>
 
-              {/* Bottom Tag & Direct Action */}
-              <div className="relative z-10 pt-4 border-t border-white/[0.08] flex items-center justify-between text-xs">
+              {/* Bottom Tag & Direct Action Bar */}
+              <div className="relative z-10 pt-4 border-t border-white/[0.12] flex items-center justify-between text-xs bg-black/40 -mx-7 -mb-7 p-4 px-7 backdrop-blur-md">
                 <span
-                  className={`text-[10px] font-mono px-2.5 py-1 rounded-md border font-medium ${meta.badgeColor}`}
+                  className={`text-[10px] font-mono px-2.5 py-1 rounded-md border font-bold ${meta.badgeColor}`}
                 >
                   {meta.tag}
                 </span>
 
                 <Link
                   href={`/contact?industry=${encodeURIComponent(ind.name)}`}
-                  className="text-neutral-300 hover:text-white transition-colors flex items-center gap-1 font-mono text-xs font-semibold group/link"
+                  className="text-white hover:text-cyan-300 transition-colors flex items-center gap-1.5 font-mono text-xs font-semibold group/link"
                 >
                   <span>Architect</span>
-                  <ArrowUpRight className="w-3.5 h-3.5 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform text-cyan-400" />
+                  <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform text-cyan-400" />
                 </Link>
               </div>
             </div>

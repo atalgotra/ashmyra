@@ -227,7 +227,8 @@ export function AshmyraHeroShowreel() {
       {/* ── Main Showreel Hardware Canvas ─────────────────────────────────── */}
       <div
         ref={containerRef}
-        className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-700 select-none"
+        data-dark-chassis="true"
+        className="dark-media-chassis relative w-full rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-700 select-none"
         style={{
           background: "linear-gradient(160deg, rgba(12, 16, 28, 0.97) 0%, rgba(5, 7, 12, 0.99) 100%)",
           border: "1px solid rgba(255, 255, 255, 0.12)",
@@ -262,12 +263,12 @@ export function AshmyraHeroShowreel() {
             className="relative z-10 w-full h-full object-cover object-center transition-transform duration-700"
           />
 
-          {/* Cinematic Vignette Overlay */}
+          {/* Cinematic Vignette Overlay (Ensures razor-sharp text contrast regardless of video content) */}
           <div
             className="absolute inset-0 z-20 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to top, rgba(4, 6, 10, 0.75) 0%, transparent 28%), linear-gradient(to bottom, rgba(4, 6, 10, 0.3) 0%, transparent 15%)",
+                "linear-gradient(to top, rgba(4, 6, 10, 0.92) 0%, rgba(4, 6, 10, 0.45) 26%, transparent 55%), linear-gradient(to bottom, rgba(4, 6, 10, 0.4) 0%, transparent 20%)",
             }}
           />
 
@@ -281,20 +282,27 @@ export function AshmyraHeroShowreel() {
                 className="text-[9.5px] sm:text-[10px] font-mono font-bold tracking-widest px-2 py-0.5 rounded-md"
                 style={{
                   color: currentClip.accent,
-                  background: "rgba(0, 0, 0, 0.75)",
-                  border: `1px solid ${currentClip.accent}55`,
+                  background: "rgba(0, 0, 0, 0.8)",
+                  border: `1px solid ${currentClip.accent}66`,
                   backdropFilter: "blur(10px)",
                 }}
               >
                 SHOWCASE {currentClip.indexStr}
               </span>
-              <span className="text-[10px] sm:text-[11px] font-mono tracking-wider text-neutral-300 font-medium hidden sm:inline drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+              <span
+                className="text-[10px] sm:text-[11px] font-mono tracking-wider font-medium hidden sm:inline"
+                style={{ color: "#E2E8F0", textShadow: "0 2px 8px rgba(0,0,0,0.9)" }}
+              >
                 · {currentClip.category}
               </span>
             </div>
             <h2
-              className="text-base sm:text-2xl font-bold tracking-tight text-white drop-shadow-md truncate"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-base sm:text-2xl font-bold tracking-tight truncate"
+              style={{
+                fontFamily: "'Space Grotesk', sans-serif",
+                color: "#FFFFFF",
+                textShadow: "0 2px 14px rgba(0,0,0,0.95), 0 0 24px rgba(0,0,0,0.85)",
+              }}
             >
               {currentClip.title}
             </h2>
@@ -303,12 +311,13 @@ export function AshmyraHeroShowreel() {
           {/* ── Frosted-Glass Floating Media Dock (Bottom Right) ──────────── */}
           <div
             onClick={(e) => e.stopPropagation()}
-            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-black/65 hover:bg-black/85 border border-white/20 backdrop-blur-xl shadow-2xl transition-all"
+            className="absolute bottom-4 right-4 sm:bottom-6 sm:right-6 z-30 flex items-center gap-1 sm:gap-1.5 p-1 sm:p-1.5 rounded-full bg-black/75 hover:bg-black/90 border border-white/20 backdrop-blur-xl shadow-2xl transition-all"
           >
             {/* Audio Toggle */}
             <button
               onClick={toggleMute}
               className="relative p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              style={{ color: "#E2E8F0" }}
               aria-label={isMuted ? "Unmute showreel audio" : "Mute showreel audio"}
               title={isMuted ? "Unmute audio" : "Mute audio"}
             >
@@ -327,7 +336,8 @@ export function AshmyraHeroShowreel() {
             {/* Prev */}
             <button
               onClick={handlePrev}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all"
+              style={{ color: "#E2E8F0" }}
               aria-label="Previous capability"
               title="Previous capability"
             >
@@ -337,7 +347,8 @@ export function AshmyraHeroShowreel() {
             {/* Pause / Play */}
             <button
               onClick={togglePlay}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-200 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all"
+              style={{ color: "#FFFFFF" }}
               aria-label={isPlaying ? "Pause playback" : "Resume playback"}
               title={isPlaying ? "Pause playback" : "Resume playback"}
             >
@@ -347,7 +358,8 @@ export function AshmyraHeroShowreel() {
             {/* Next */}
             <button
               onClick={handleNext}
-              className="p-1.5 sm:p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 active:scale-95 transition-all"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all"
+              style={{ color: "#E2E8F0" }}
               aria-label="Next capability"
               title="Next capability"
             >
@@ -360,7 +372,7 @@ export function AshmyraHeroShowreel() {
         <div
           className="p-2 sm:p-2.5 border-t border-white/[0.08] backdrop-blur-md"
           style={{
-            background: "rgba(0, 0, 0, 0.45)",
+            background: "rgba(0, 0, 0, 0.65)",
           }}
         >
           <div className="flex items-center gap-1.5 sm:gap-2 w-full">
@@ -372,20 +384,20 @@ export function AshmyraHeroShowreel() {
                   onClick={() => goToSlide(idx)}
                   className={`group relative flex items-center justify-center py-2 sm:py-2.5 rounded-xl transition-all duration-300 ease-out select-none ${
                     isActive
-                      ? "flex-[2.4] sm:flex-[2.8] px-2.5 sm:px-3 bg-white/[0.10] text-white shadow-lg overflow-hidden"
-                      : "flex-1 px-1 sm:px-2 bg-white/[0.02] hover:bg-white/[0.07] text-neutral-400 hover:text-neutral-200"
+                      ? "flex-[2.4] sm:flex-[2.8] px-2.5 sm:px-3 bg-white/[0.12] shadow-lg overflow-hidden"
+                      : "flex-1 px-1 sm:px-2 bg-white/[0.03] hover:bg-white/[0.08]"
                   }`}
                   style={{
                     border: isActive
                       ? `1px solid ${clip.accent}88`
-                      : "1px solid rgba(255, 255, 255, 0.06)",
+                      : "1px solid rgba(255, 255, 255, 0.08)",
                     boxShadow: isActive ? `0 0 20px -5px ${clip.accentGlow}` : "none",
                   }}
                   aria-label={`Select showreel clip ${clip.num}: ${clip.title}`}
                 >
                   {/* Micro-Tooltip for Segments (visible on hover) */}
-                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 whitespace-nowrap px-2.5 py-1 rounded-lg bg-neutral-900/95 border border-white/20 text-[10px] font-mono text-neutral-200 shadow-xl backdrop-blur-md -translate-y-1 group-hover:translate-y-0">
-                    <span className="font-bold text-white">{clip.num}</span> · {clip.shortLabel}
+                  <div className="absolute -top-10 left-1/2 -translate-x-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-200 z-50 whitespace-nowrap px-2.5 py-1 rounded-lg bg-neutral-900/95 border border-white/20 text-[10px] font-mono shadow-xl backdrop-blur-md -translate-y-1 group-hover:translate-y-0" style={{ color: "#FFFFFF" }}>
+                    <span className="font-bold" style={{ color: "#FFFFFF" }}>{clip.num}</span> · {clip.shortLabel}
                   </div>
 
                   {/* Button Content */}
@@ -396,11 +408,11 @@ export function AshmyraHeroShowreel() {
                         className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full shrink-0 animate-pulse"
                         style={{ background: clip.accent }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-tight text-white shrink-0">
+                      <span className="text-[10px] sm:text-[11px] font-mono font-bold tracking-tight shrink-0" style={{ color: "#FFFFFF" }}>
                         {clip.num}
                       </span>
-                      <span className="text-neutral-500 font-mono text-[9px] shrink-0">·</span>
-                      <span className="text-[9.5px] sm:text-[10.5px] font-mono font-semibold uppercase tracking-tight text-white truncate">
+                      <span className="font-mono text-[9px] shrink-0" style={{ color: "#94A3B8" }}>·</span>
+                      <span className="text-[9.5px] sm:text-[10.5px] font-mono font-semibold uppercase tracking-tight truncate" style={{ color: "#FFFFFF" }}>
                         {clip.shortLabel}
                       </span>
                     </div>
@@ -410,10 +422,10 @@ export function AshmyraHeroShowreel() {
                       <span
                         className="w-1.5 h-1.5 rounded-full shrink-0 transition-colors group-hover:bg-white/60"
                         style={{
-                          background: "rgba(255, 255, 255, 0.22)",
+                          background: "rgba(255, 255, 255, 0.3)",
                         }}
                       />
-                      <span className="text-[10px] sm:text-[11px] font-mono font-medium">
+                      <span className="text-[10px] sm:text-[11px] font-mono font-medium" style={{ color: "#94A3B8" }}>
                         {clip.num}
                       </span>
                     </div>

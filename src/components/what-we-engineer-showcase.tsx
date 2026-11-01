@@ -414,7 +414,8 @@ export function WhatWeEngineerShowcase() {
 
             {/* Hardware Chassis */}
             <div
-              className="relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 select-none"
+              data-dark-chassis="true"
+              className="dark-media-chassis relative w-full rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl transition-all duration-700 select-none"
               style={{
                 background:
                   "linear-gradient(160deg, rgba(12, 16, 28, 0.96) 0%, rgba(5, 7, 12, 0.98) 100%)",
@@ -449,29 +450,33 @@ export function WhatWeEngineerShowcase() {
                   className="relative z-10 w-full h-full object-cover object-center transition-transform duration-700"
                 />
 
-                {/* Cinematic Vignette */}
+                {/* Cinematic Vignette (Ensures razor-sharp text contrast regardless of video content) */}
                 <div
                   className="absolute inset-0 z-20 pointer-events-none"
                   style={{
                     background:
-                      "linear-gradient(to top, rgba(4, 6, 10, 0.75) 0%, transparent 28%), linear-gradient(to bottom, rgba(4, 6, 10, 0.3) 0%, transparent 15%)",
+                      "linear-gradient(to top, rgba(4, 6, 10, 0.92) 0%, rgba(4, 6, 10, 0.45) 26%, transparent 55%), linear-gradient(to bottom, rgba(4, 6, 10, 0.4) 0%, transparent 20%)",
                   }}
                 />
 
                 {/* Bottom Left Label */}
                 <div className="absolute bottom-4 left-5 z-30 pointer-events-none max-w-[65%]">
                   <span
-                    className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-md bg-black/70 border backdrop-blur-md inline-block mb-1.5"
+                    className="text-[10px] font-mono font-bold tracking-widest px-2.5 py-1 rounded-md bg-black/80 border backdrop-blur-md inline-block mb-1.5"
                     style={{
                       color: current.accent,
-                      borderColor: `${current.accent}55`,
+                      borderColor: `${current.accent}66`,
                     }}
                   >
                     {current.subtitle}
                   </span>
                   <h3
-                    className="text-lg sm:text-2xl font-bold tracking-tight text-white drop-shadow-md truncate"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-lg sm:text-2xl font-bold tracking-tight truncate"
+                    style={{
+                      fontFamily: "'Space Grotesk', sans-serif",
+                      color: "#FFFFFF",
+                      textShadow: "0 2px 14px rgba(0,0,0,0.95), 0 0 24px rgba(0,0,0,0.85)",
+                    }}
                   >
                     {current.title}
                   </h3>

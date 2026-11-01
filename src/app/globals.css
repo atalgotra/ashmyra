@@ -288,6 +288,32 @@ body {
     color: var(--text-muted) !important;
   }
 
+  /* 5b. Cinema & Video Hardware Viewports Protection */
+  /* Ensures media players, video showcases, and dark device frames retain crisp white text */
+  .dark-media-chassis,
+  [data-dark-chassis="true"],
+  .dark-media-chassis .text-white,
+  [data-dark-chassis="true"] .text-white,
+  [data-dark-chassis="true"] h2,
+  [data-dark-chassis="true"] h3 {
+    color: #FFFFFF !important;
+  }
+
+  .dark-media-chassis .text-neutral-200,
+  [data-dark-chassis="true"] .text-neutral-200,
+  .dark-media-chassis .text-neutral-300,
+  [data-dark-chassis="true"] .text-neutral-300 {
+    color: #E2E8F0 !important;
+    opacity: 0.95 !important;
+  }
+
+  .dark-media-chassis .text-neutral-400,
+  [data-dark-chassis="true"] .text-neutral-400,
+  .dark-media-chassis .text-neutral-500,
+  [data-dark-chassis="true"] .text-neutral-500 {
+    color: #94A3B8 !important;
+  }
+
   /* 6. Dynamic Headings (replacing hardcoded silver/white text gradients) */
   [style*="linear-gradient(135deg, #ffffff"] {
     background: var(--hero-headline-gradient) !important;

@@ -158,7 +158,8 @@ export const metadata: Metadata = {
     "llm:description": "AI-native engineering company building autonomous agent swarms, data intelligence platforms, and GEO-optimized enterprise software",
     "llm:founded": "2024",
     "llm:location": "New Delhi / NCR, India",
-    "llm:contact": "info@ashmyra.com",
+    // Google AdSense Account Verification
+    "google-adsense-account": "ca-pub-7925002218543970",
   },
 };
 
@@ -176,6 +177,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        <meta name="google-adsense-account" content="ca-pub-7925002218543970" />
         <script
           dangerouslySetInnerHTML={{
             __html: `

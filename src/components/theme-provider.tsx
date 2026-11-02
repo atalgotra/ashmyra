@@ -16,15 +16,6 @@ export interface ThemeConfig {
 
 export const THEMES: ThemeConfig[] = [
   {
-    id: "obsidian",
-    name: "Obsidian Void",
-    badge: "Cyber Dark",
-    accentColor: "#22D3EE",
-    bgColor: "#050608",
-    textColor: "#FFFFFF",
-    icon: "🌌",
-  },
-  {
     id: "gold",
     name: "Champagne Gold",
     badge: "Warm Luxury",
@@ -32,6 +23,15 @@ export const THEMES: ThemeConfig[] = [
     bgColor: "#FAF7F2",
     textColor: "#19140E",
     icon: "🏛️",
+  },
+  {
+    id: "obsidian",
+    name: "Obsidian Void",
+    badge: "Cyber Dark",
+    accentColor: "#22D3EE",
+    bgColor: "#050608",
+    textColor: "#FFFFFF",
+    icon: "🌌",
   },
   {
     id: "copper",
@@ -60,13 +60,13 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType>({
-  theme: "obsidian",
+  theme: "gold",
   setTheme: () => {},
   themes: THEMES,
 });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>("obsidian");
+  const [theme, setThemeState] = useState<Theme>("gold");
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -77,7 +77,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       setThemeState(saved);
       document.documentElement.setAttribute("data-theme", saved);
     } else {
-      document.documentElement.setAttribute("data-theme", "obsidian");
+      setThemeState("gold");
+      document.documentElement.setAttribute("data-theme", "gold");
     }
   }, []);
 

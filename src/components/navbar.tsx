@@ -200,11 +200,12 @@ export function Navbar() {
     if (t.includes("hr tech") || t.includes("workforce")) return <Users className={cls} style={{ color: "#a78bfa" }} />;
 
     // Company
+    if (t.includes("team") || t.includes("leadership")) return <Users className={cls} style={{ color: "#818cf8" }} />;
+    if (t.includes("philosophy") || t.includes("approach")) return <Compass className={cls} style={{ color: "#fbbf24" }} />;
+    if (t.includes("mission") || t.includes("pillars")) return <Target className={cls} style={{ color: "#06b6d4" }} />;
+    if (t.includes("careers") || t.includes("culture") || t.includes("join")) return <Sparkles className={cls} style={{ color: "#ec4899" }} />;
     if (t.includes("about ashmyra") || t.includes("about")) return <Building2 className={cls} style={{ color: "#818cf8" }} />;
-    if (t.includes("leadership")) return <Users className={cls} style={{ color: "#06b6d4" }} />;
-    if (t.includes("engineering approach") || t.includes("approach")) return <Compass className={cls} style={{ color: "#fbbf24" }} />;
     if (t.includes("contact")) return <MessageSquare className={cls} style={{ color: "#38bdf8" }} />;
-    if (t.includes("careers")) return <Sparkles className={cls} style={{ color: "#ec4899" }} />;
 
     return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
   };
@@ -225,7 +226,7 @@ export function Navbar() {
       case "Blog":
         return "700px";
       case "Company":
-        return "340px";
+        return "580px";
       default:
         return "720px";
     }
@@ -287,6 +288,10 @@ export function Navbar() {
               aria-label="Main Navigation"
             >
               {MAIN_NAV.map((nav) => {
+                const hasDropdown = Boolean(
+                  (nav.items && nav.items.length > 0) ||
+                  (nav.groups && nav.groups.length > 0)
+                );
                 const open = activeDD === nav.title;
                 const isSectionActive =
                   nav.href === "/"
@@ -297,8 +302,10 @@ export function Navbar() {
                   <div
                     key={nav.title}
                     className="relative"
-                    onMouseEnter={() => handleMouseEnter(nav.title)}
-                    onMouseLeave={handleMouseLeave}
+                    onMouseEnter={() => {
+                      if (hasDropdown) handleMouseEnter(nav.title);
+                    }}
+                    onMouseLeave={hasDropdown ? handleMouseLeave : undefined}
                   >
                     <Link
                       href={nav.href}
@@ -308,17 +315,19 @@ export function Navbar() {
                           ? "text-white bg-white/[0.08]"
                           : "text-neutral-300 hover:text-white hover:bg-white/[0.04]"
                       }`}
-                      aria-haspopup="true"
-                      aria-expanded={open}
+                      aria-haspopup={hasDropdown ? "true" : undefined}
+                      aria-expanded={hasDropdown ? open : undefined}
                       role="menuitem"
                     >
                       <span>{nav.title}</span>
-                      <ChevronDown
-                        className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
-                          open ? "rotate-180 text-cyan-400" : ""
-                        }`}
-                        aria-hidden="true"
-                      />
+                      {hasDropdown && (
+                        <ChevronDown
+                          className={`w-3.5 h-3.5 text-neutral-400 transition-transform duration-200 ${
+                            open ? "rotate-180 text-cyan-400" : ""
+                          }`}
+                          aria-hidden="true"
+                        />
+                      )}
                     </Link>
                   </div>
                 );
@@ -847,11 +856,11 @@ export function Navbar() {
             {activeDD === "Company" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08]">
+                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-white/[0.08]">
                   <div className="flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
                     <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Ashmyra Technologies
+                      Ashmyra Technologies <span className="text-neutral-500">•</span> Leadership &amp; Engineering Culture
                     </span>
                   </div>
                   <Link
@@ -859,13 +868,13 @@ export function Navbar() {
                     onClick={() => setActiveDD(null)}
                     className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors font-semibold"
                   >
-                    <span>View Team</span>
+                    <span>View All Team</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
-                {/* Single Item: Our Team */}
-                <div className="space-y-2">
+                {/* 2-Column Grid: 4 items (Team, Philosophy, Mission, Careers) */}
+                <div className="grid grid-cols-2 gap-2.5">
                   {activeNavSection.items?.map((item) => (
                     <Link
                       key={item.title}
@@ -880,13 +889,20 @@ export function Navbar() {
                           border: "1px solid rgba(255,255,255,0.08)",
                         }}
                       >
-                        <Users className="w-4 h-4 text-indigo-400" />
+                        {getIcon(item.title)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[13px] font-semibold text-white group-hover/item:text-indigo-200 transition-colors block">
-                          {item.title}
-                        </span>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                        <div className="flex items-center justify-between gap-1.5">
+                          <span className="text-[13px] font-semibold text-white group-hover/item:text-indigo-200 transition-colors truncate">
+                            {item.title}
+                          </span>
+                          {item.badge && (
+                            <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium shrink-0">
+                              {item.badge}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors line-clamp-2">
                           {item.description}
                         </p>
                       </div>

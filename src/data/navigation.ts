@@ -33,6 +33,10 @@ import { CAPABILITIES_REGISTRY } from "./capabilities-registry";
 
 export const MAIN_NAV: NavSection[] = [
   {
+    title: "Home",
+    href: "/",
+  },
+  {
     title: "Products",
     href: "/products",
     items: [
@@ -190,9 +194,29 @@ export const MAIN_NAV: NavSection[] = [
     href: "/team",
     items: [
       {
-        title: "Our Team",
+        title: "Our Team & Leadership",
         href: "/team",
-        description: "Founding leadership, engineering philosophy, and the people building Ashmyra.",
+        description: "Founding architects, engineering leadership, and the people behind Ashmyra.",
+        category: "company",
+      },
+      {
+        title: "Engineering Philosophy",
+        href: "/team#philosophy",
+        description: "Core principles guiding our architectural rigor, deterministic code, and resilience.",
+        category: "company",
+      },
+      {
+        title: "Mission & Pillars",
+        href: "/team#mission",
+        description: "Agentic AI, intelligent systems, and scalable data infrastructure.",
+        category: "company",
+      },
+      {
+        title: "Careers & Culture",
+        href: "/team#careers",
+        description: "Explore opportunities to engineer cutting-edge systems with our senior team.",
+        badge: "Hiring",
+        category: "company",
       },
     ],
   },

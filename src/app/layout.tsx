@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#07090e",
+  themeColor: "#FAF7F2",
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
@@ -170,6 +170,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-theme="gold"
       data-scroll-behavior="smooth"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} h-full antialiased`}
       suppressHydrationWarning
@@ -181,11 +182,11 @@ export default function RootLayout({
               (function() {
                 try {
                   var saved = localStorage.getItem('ashmyra-theme');
-                  var validThemes = ['obsidian', 'gold', 'copper', 'platinum'];
+                  var validThemes = ['gold', 'obsidian', 'copper', 'platinum'];
                   if (saved && validThemes.indexOf(saved) !== -1) {
                     document.documentElement.setAttribute('data-theme', saved);
                   } else {
-                    document.documentElement.setAttribute('data-theme', 'obsidian');
+                    document.documentElement.setAttribute('data-theme', 'gold');
                   }
                 } catch (e) {}
               })();

@@ -33,10 +33,6 @@ import { CAPABILITIES_REGISTRY } from "./capabilities-registry";
 
 export const MAIN_NAV: NavSection[] = [
   {
-    title: "Home",
-    href: "/",
-  },
-  {
     title: "Products",
     href: "/products",
     items: [

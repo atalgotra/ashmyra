@@ -249,33 +249,52 @@ export function Navbar() {
             {/* Ashmyra Brand Logo */}
             <Link
               href="/"
-              className="group flex items-center gap-3 focus:outline-none rounded-xl"
-              aria-label="Ashmyra Technologies Home"
+              className="group relative flex items-center gap-3 sm:gap-3.5 focus:outline-none rounded-xl py-1 transition-all duration-300"
+              title="Ashmyra Technologies — Return to Home"
+              aria-label="Ashmyra Technologies — Return to Home"
             >
+              {/* Ambient Hover Backglow */}
               <div
-                className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-xl overflow-hidden p-1 transition-transform duration-300 group-hover:scale-105 shrink-0"
+                className="absolute -inset-2 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none blur-lg"
                 style={{
-                  background: "rgba(99, 102, 241, 0.12)",
-                  border: "1px solid rgba(99, 102, 241, 0.35)",
+                  background: "radial-gradient(circle, var(--accent) 0%, transparent 70%)",
+                }}
+              />
+
+              <div
+                className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-2xl overflow-hidden p-1.5 transition-all duration-300 group-hover:scale-105 shrink-0 shadow-sm"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  border: "1px solid var(--border-strong)",
+                  boxShadow: "0 4px 14px -3px var(--border-glow)",
                 }}
               >
                 <Image
                   src="/brand/ashmyra-icon.png"
-                  alt="Ashmyra"
-                  width={40}
-                  height={40}
+                  alt="Ashmyra Technologies"
+                  width={48}
+                  height={48}
                   priority
                   className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col leading-none">
                 <span
-                  className="text-[17px] sm:text-[19px] font-bold tracking-tight text-white group-hover:text-indigo-200 transition-colors"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-[20px] sm:text-[22px] font-extrabold tracking-tight transition-colors duration-200"
+                  style={{
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    color: "var(--text)",
+                    letterSpacing: "-0.03em",
+                  }}
                 >
                   ASHMYRA
                 </span>
-                <span className="text-[8.5px] tracking-[0.24em] text-neutral-400 uppercase font-mono mt-0.5">
+                <span
+                  className="text-[9.5px] sm:text-[10px] tracking-[0.28em] uppercase font-mono font-bold mt-1 transition-colors duration-200"
+                  style={{
+                    color: "var(--text-muted)",
+                  }}
+                >
                   Technologies
                 </span>
               </div>

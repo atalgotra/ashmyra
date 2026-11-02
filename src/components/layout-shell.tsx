@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { CustomCursor } from "@/components/custom-cursor";
+import { ThemeDiscoveryToast } from "@/components/theme-discovery-toast";
 
 export function LayoutShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
@@ -18,6 +19,8 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
   return (
     <>
       <CustomCursor />
+      {/* Interactive Theme Engine Onboarding Toast */}
+      <ThemeDiscoveryToast />
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"

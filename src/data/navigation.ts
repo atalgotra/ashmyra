@@ -41,7 +41,7 @@ export const MAIN_NAV: NavSection[] = [
         href: "https://mailflow.ashmyra.com/",
         demoUrl: "https://mailflow.ashmyra.com/",
         description: "Autonomous cold email warmup, mailbox rotation & deliverability engine.",
-        badge: "Live",
+        badge: "Email Deliverability",
         category: "product",
       },
       {
@@ -49,7 +49,7 @@ export const MAIN_NAV: NavSection[] = [
         href: "https://prospectiq.ashmyra.com/",
         demoUrl: "https://prospectiq.ashmyra.com/",
         description: "B2B lead intelligence, waterfall contact scraping & ICP scoring platform.",
-        badge: "Live",
+        badge: "B2B Intelligence",
         category: "product",
       },
       {
@@ -57,7 +57,7 @@ export const MAIN_NAV: NavSection[] = [
         href: "https://omnira.ashmyra.com/",
         demoUrl: "https://omnira.ashmyra.com/",
         description: "Agentic AI social media manager for YouTube, LinkedIn, FB & Instagram.",
-        badge: "Live",
+        badge: "Social AI Swarms",
         category: "product",
       },
       {
@@ -65,7 +65,7 @@ export const MAIN_NAV: NavSection[] = [
         href: "https://unveil.ashmyra.com/",
         demoUrl: "https://unveil.ashmyra.com/",
         description: "AI photo & video editing — remove watermarks, moving marks & background noise.",
-        badge: "Live",
+        badge: "Computer Vision",
         category: "product",
       },
       {
@@ -73,7 +73,7 @@ export const MAIN_NAV: NavSection[] = [
         href: "https://veyrix.ashmyra.com/",
         demoUrl: "https://veyrix.ashmyra.com/",
         description: "Search intelligence, deep spider crawler forensics & GSC/GA4 telemetry.",
-        badge: "Live",
+        badge: "Search Forensics",
         category: "product",
       },
     ],

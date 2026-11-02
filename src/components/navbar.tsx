@@ -143,6 +143,71 @@ export function Navbar() {
     }));
   };
 
+  // Rich metadata for products (icons, squircle styling, badges, taglines)
+  const getProductMeta = (title: string) => {
+    const cls = "w-5 h-5";
+    const t = title.toLowerCase();
+
+    if (t.includes("mailflow")) {
+      return {
+        icon: <Mail className={cls} style={{ color: "#818cf8" }} />,
+        bgColor: "rgba(129, 140, 248, 0.12)",
+        borderColor: "rgba(129, 140, 248, 0.28)",
+        badgeBg: "rgba(129, 140, 248, 0.10)",
+        badgeColor: "#818cf8",
+        badgeBorder: "rgba(129, 140, 248, 0.25)",
+        pillText: "Email Deliverability",
+        liveLabel: "Mail Engine",
+      };
+    }
+    if (t.includes("prospect")) {
+      return {
+        icon: <Target className={cls} style={{ color: "#06b6d4" }} />,
+        bgColor: "rgba(6, 182, 212, 0.12)",
+        borderColor: "rgba(6, 182, 212, 0.28)",
+        badgeBg: "rgba(6, 182, 212, 0.10)",
+        badgeColor: "#06b6d4",
+        badgeBorder: "rgba(6, 182, 212, 0.25)",
+        pillText: "B2B Intelligence",
+        liveLabel: "Scraper IQ",
+      };
+    }
+    if (t.includes("omnira")) {
+      return {
+        icon: <Share2 className={cls} style={{ color: "#10b981" }} />,
+        bgColor: "rgba(16, 185, 129, 0.12)",
+        borderColor: "rgba(16, 185, 129, 0.28)",
+        badgeBg: "rgba(16, 185, 129, 0.10)",
+        badgeColor: "#10b981",
+        badgeBorder: "rgba(16, 185, 129, 0.25)",
+        pillText: "Social AI Swarms",
+        liveLabel: "Swarm AI",
+      };
+    }
+    if (t.includes("unveil")) {
+      return {
+        icon: <Eye className={cls} style={{ color: "#f59e0b" }} />,
+        bgColor: "rgba(245, 158, 11, 0.12)",
+        borderColor: "rgba(245, 158, 11, 0.28)",
+        badgeBg: "rgba(245, 158, 11, 0.10)",
+        badgeColor: "#f59e0b",
+        badgeBorder: "rgba(245, 158, 11, 0.25)",
+        pillText: "Computer Vision",
+        liveLabel: "Vision Model",
+      };
+    }
+    return {
+      icon: <Search className={cls} style={{ color: "#38bdf8" }} />,
+      bgColor: "rgba(56, 189, 248, 0.12)",
+      borderColor: "rgba(56, 189, 248, 0.28)",
+      badgeBg: "rgba(56, 189, 248, 0.10)",
+      badgeColor: "#38bdf8",
+      badgeBorder: "rgba(56, 189, 248, 0.25)",
+      pillText: "Search Forensics",
+      liveLabel: "Audit Engine",
+    };
+  };
+
   // Consistent icon resolver across all navigation categories
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
@@ -218,7 +283,7 @@ export function Navbar() {
       case "Capabilities":
         return "1160px";
       case "Products":
-        return "920px";
+        return "1020px";
       case "Solutions":
         return "880px";
       case "Our Work":
@@ -419,115 +484,355 @@ export function Navbar() {
             {activeDD === "Products" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
+                <div
+                  className="flex items-center justify-between pb-3.5 mb-4"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
                   <div className="flex items-center gap-2.5">
                     <span className="flex h-2 w-2 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
                     </span>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Verified Production Platforms <span className="text-neutral-500">•</span> 5 Live AI Systems
+                    <span
+                      className="text-[11px] font-mono uppercase tracking-wider font-semibold"
+                      style={{ color: "var(--text-muted)" }}
+                    >
+                      Verified Production Platforms <span className="opacity-40">•</span> 5 Live AI Systems
                     </span>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-3">
                     <Link
                       href="/products"
                       onClick={() => setActiveDD(null)}
-                      className="text-[11px] font-mono text-neutral-300 hover:text-white flex items-center gap-1.5 transition-colors font-semibold group/sub"
+                      className="text-[11px] font-mono flex items-center gap-1.5 transition-colors font-semibold group/sub"
+                      style={{ color: "var(--text)" }}
                     >
                       <span>Explore All Products</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover/sub:translate-x-0.5 transition-transform" />
                     </Link>
-                    <span className="text-neutral-600">|</span>
+                    <span style={{ color: "var(--border-strong)" }}>|</span>
                     <Link
                       href="/demos"
                       onClick={() => setActiveDD(null)}
-                      className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                      className="text-[11px] font-mono flex items-center gap-1.5 transition-colors font-semibold group/all"
+                      style={{ color: "var(--accent)" }}
                     >
-                      <span>Live Sandboxes</span>
+                      <span>Interactive Sandboxes</span>
                       <ExternalLink className="w-3.5 h-3.5" />
                     </Link>
                   </div>
                 </div>
 
-                {/* Grid: 5 Live Products + 1 Interactive Sandboxes Card */}
-                <div className="grid grid-cols-2 gap-2.5">
-                  {activeNavSection.items?.map((item) => (
+                {/* Main Split Grid: 7 Cols Left (Products Grid) + 5 Cols Right (Interactive Sandboxes Showcase) */}
+                <div className="grid grid-cols-12 gap-4">
+                  {/* Left Column: 5 Products in 2-col arrangement + Custom Enterprise Deployment Card */}
+                  <div className="col-span-7 grid grid-cols-2 gap-2.5">
+                    {activeNavSection.items?.map((item) => {
+                      const meta = getProductMeta(item.title);
+                      return (
+                        <Link
+                          key={item.title}
+                          href={item.href}
+                          onClick={() => setActiveDD(null)}
+                          className="group/item flex flex-col justify-between p-3 rounded-xl transition-all duration-200"
+                          style={{
+                            backgroundColor: "var(--bg-card)",
+                            border: "1px solid var(--border)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border-strong)";
+                            e.currentTarget.style.backgroundColor = "var(--bg-card-hover)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border)";
+                            e.currentTarget.style.backgroundColor = "var(--bg-card)";
+                          }}
+                        >
+                          <div>
+                            <div className="flex items-center justify-between mb-2">
+                              <div
+                                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-105"
+                                style={{
+                                  backgroundColor: meta.bgColor,
+                                  border: `1px solid ${meta.borderColor}`,
+                                }}
+                              >
+                                {meta.icon}
+                              </div>
+                              <span
+                                className="text-[10px] font-mono px-2 py-0.5 rounded-full font-medium"
+                                style={{
+                                  backgroundColor: meta.badgeBg,
+                                  color: meta.badgeColor,
+                                  border: `1px solid ${meta.badgeBorder}`,
+                                }}
+                              >
+                                {item.badge || meta.pillText}
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1.5">
+                              <span
+                                className="text-[13px] font-semibold transition-colors"
+                                style={{ color: "var(--text)" }}
+                              >
+                                {item.title}
+                              </span>
+                              <ExternalLink
+                                className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all"
+                                style={{ color: "var(--accent)" }}
+                              />
+                            </div>
+                            <p
+                              className="text-[11.5px] mt-1 leading-snug line-clamp-2"
+                              style={{ color: "var(--text-muted)" }}
+                            >
+                              {item.description}
+                            </p>
+                          </div>
+                        </Link>
+                      );
+                    })}
+
+                    {/* 6th Slot: Enterprise VPC & Deployment Card */}
                     <Link
-                      key={item.title}
-                      href={item.href}
+                      href="/contact"
                       onClick={() => setActiveDD(null)}
-                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                      className="group/custom flex flex-col justify-between p-3 rounded-xl transition-all duration-200"
+                      style={{
+                        backgroundColor: "var(--theme-pill-bg)",
+                        border: "1px dashed var(--border-strong)",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.borderColor = "var(--accent)";
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.borderColor = "var(--border-strong)";
+                      }}
                     >
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
-                        style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                        }}
-                      >
-                        {getIcon(item.title)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-1">
-                          <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors truncate">
-                            {item.title}
-                          </span>
-                          <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium shrink-0 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                            Live ↗
+                      <div>
+                        <div className="flex items-center justify-between mb-2">
+                          <div
+                            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                            style={{
+                              backgroundColor: "var(--theme-pill-bg)",
+                              border: "1px solid var(--border)",
+                            }}
+                          >
+                            <Terminal className="w-4 h-4" style={{ color: "var(--accent)" }} />
+                          </div>
+                          <span
+                            className="text-[10px] font-mono px-2 py-0.5 rounded-full font-medium"
+                            style={{
+                              backgroundColor: "var(--bg-card)",
+                              color: "var(--text-muted)",
+                              border: "1px solid var(--border)",
+                            }}
+                          >
+                            Custom Build
                           </span>
                         </div>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
-                          {item.description}
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[13px] font-semibold" style={{ color: "var(--text)" }}>
+                            Custom AI Engine
+                          </span>
+                          <ArrowRight className="w-3 h-3 group-hover/custom:translate-x-0.5 transition-transform" style={{ color: "var(--accent)" }} />
+                        </div>
+                        <p className="text-[11.5px] mt-1 leading-snug" style={{ color: "var(--text-muted)" }}>
+                          Proprietary models and private agents engineered specifically for your enterprise stack.
                         </p>
                       </div>
                     </Link>
-                  ))}
+                  </div>
 
-                  {/* 6th Card: Interactive Live Sandboxes Quick Access */}
-                  <Link
-                    href="/demos"
-                    onClick={() => setActiveDD(null)}
-                    className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl bg-gradient-to-br from-indigo-950/40 to-cyan-950/30 border border-cyan-500/20 hover:border-cyan-500/40 transition-all group/sandbox"
+                  {/* Right Column: Featured Interactive Live Sandboxes Showcase */}
+                  <div
+                    className="col-span-5 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden"
+                    style={{
+                      background: "linear-gradient(145deg, var(--bg-card) 0%, var(--theme-pill-bg) 100%)",
+                      border: "1px solid var(--border-strong)",
+                    }}
                   >
+                    {/* Ambient Glow */}
                     <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
-                      style={{
-                        background: "rgba(6, 182, 212, 0.15)",
-                        border: "1px solid rgba(6, 182, 212, 0.35)",
-                      }}
-                    >
-                      <Sparkles className="w-4 h-4 text-cyan-400" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-1">
-                        <span className="text-[13px] font-semibold text-white group-hover/sandbox:text-cyan-300 transition-colors truncate">
-                          Interactive Live Sandboxes
+                      className="absolute -top-12 -right-12 w-32 h-32 rounded-full pointer-events-none blur-2xl opacity-20"
+                      style={{ background: "var(--accent)" }}
+                    />
+
+                    <div>
+                      {/* Top Pill */}
+                      <div className="flex items-center justify-between mb-2.5">
+                        <span
+                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold"
+                          style={{
+                            backgroundColor: "var(--theme-pill-bg)",
+                            color: "var(--accent)",
+                            border: "1px solid var(--border-glow)",
+                          }}
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Zero-Setup Runtime
                         </span>
-                        <span className="text-[9px] font-mono text-cyan-300 bg-cyan-500/20 border border-cyan-500/35 px-1.5 py-0.5 rounded font-medium shrink-0">
-                          Production ➔
+                        <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>
+                          Real-time
                         </span>
                       </div>
-                      <p className="text-[11.5px] text-neutral-300 mt-1 leading-snug">
-                        Test all 5 platforms live with real workloads directly in your browser. Instant access, zero signup.
+
+                      <h4 className="text-[14px] font-bold" style={{ color: "var(--text)" }}>
+                        Interactive Live Sandboxes
+                      </h4>
+                      <p className="text-[11.5px] mt-1 leading-snug" style={{ color: "var(--text-muted)" }}>
+                        Test and interact with all 5 platforms live with real workloads in your browser before committing.
                       </p>
+
+                      {/* Quick Interactive Launch Row Items */}
+                      <div className="mt-3.5 space-y-2">
+                        <a
+                          href="https://mailflow.ashmyra.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/demo flex items-center justify-between p-2 rounded-lg transition-all"
+                          style={{
+                            backgroundColor: "var(--bg-card)",
+                            border: "1px solid var(--border)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border-strong)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border)";
+                          }}
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <div
+                              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                              style={{ backgroundColor: "rgba(129, 140, 248, 0.15)" }}
+                            >
+                              <Mail className="w-3.5 h-3.5" style={{ color: "#818cf8" }} />
+                            </div>
+                            <div className="truncate">
+                              <span className="text-[12px] font-semibold block leading-tight truncate" style={{ color: "var(--text)" }}>
+                                MailFlow Simulation
+                              </span>
+                              <span className="text-[10px] block font-mono" style={{ color: "var(--text-muted)" }}>
+                                Warmup & DNS health checks
+                              </span>
+                            </div>
+                          </div>
+                          <span
+                            className="text-[10px] font-mono px-2 py-0.5 rounded font-medium flex items-center gap-1 shrink-0 ml-2 group-hover/demo:scale-105 transition-transform"
+                            style={{
+                              backgroundColor: "var(--theme-pill-bg)",
+                              color: "var(--accent)",
+                              border: "1px solid var(--border)",
+                            }}
+                          >
+                            Launch <ExternalLink className="w-2.5 h-2.5" />
+                          </span>
+                        </a>
+
+                        <a
+                          href="https://prospectiq.ashmyra.com/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/demo flex items-center justify-between p-2 rounded-lg transition-all"
+                          style={{
+                            backgroundColor: "var(--bg-card)",
+                            border: "1px solid var(--border)",
+                          }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border-strong)";
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.borderColor = "var(--border)";
+                          }}
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            <div
+                              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
+                              style={{ backgroundColor: "rgba(6, 182, 212, 0.15)" }}
+                            >
+                              <Target className="w-3.5 h-3.5" style={{ color: "#06b6d4" }} />
+                            </div>
+                            <div className="truncate">
+                              <span className="text-[12px] font-semibold block leading-tight truncate" style={{ color: "var(--text)" }}>
+                                Prospect IQ Waterfall
+                              </span>
+                              <span className="text-[10px] block font-mono" style={{ color: "var(--text-muted)" }}>
+                                Live ICP scraping pipeline
+                              </span>
+                            </div>
+                          </div>
+                          <span
+                            className="text-[10px] font-mono px-2 py-0.5 rounded font-medium flex items-center gap-1 shrink-0 ml-2 group-hover/demo:scale-105 transition-transform"
+                            style={{
+                              backgroundColor: "var(--theme-pill-bg)",
+                              color: "var(--accent)",
+                              border: "1px solid var(--border)",
+                            }}
+                          >
+                            Launch <ExternalLink className="w-2.5 h-2.5" />
+                          </span>
+                        </a>
+                      </div>
                     </div>
-                  </Link>
+
+                    {/* Bottom CTA Button */}
+                    <div className="mt-4 pt-3" style={{ borderTop: "1px solid var(--border)" }}>
+                      <Link
+                        href="/demos"
+                        onClick={() => setActiveDD(null)}
+                        className="w-full py-2 px-3 rounded-xl text-center text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm group/btn"
+                        style={{
+                          backgroundColor: "var(--accent)",
+                          color: "var(--accent-foreground, #000)",
+                        }}
+                      >
+                        <span>Explore All 5 Demos</span>
+                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
 
-                {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span className="flex items-center gap-1.5">
-                    <ShieldCheck className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>All platforms deployable into Dedicated VPC, AWS GovCloud, or On-Premise Air-Gapped Clusters.</span>
-                  </span>
+                {/* Footer Command Bar */}
+                <div
+                  className="mt-4 pt-3.5 flex items-center justify-between text-[11px] px-1"
+                  style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
+                >
+                  <div className="flex items-center gap-4">
+                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>SOC2 Type II Ready</span>
+                    </span>
+                    <span className="opacity-30">•</span>
+                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
+                      <Server className="w-3.5 h-3.5 text-cyan-400" />
+                      <span>Dedicated VPC / GovCloud</span>
+                    </span>
+                    <span className="opacity-30">•</span>
+                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
+                      <Cpu className="w-3.5 h-3.5 text-indigo-400" />
+                      <span>Air-Gapped Bare Metal</span>
+                    </span>
+                  </div>
                   <Link
                     href="/contact"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                    className="group/scoping flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-all"
+                    style={{
+                      backgroundColor: "var(--theme-pill-bg)",
+                      color: "var(--text)",
+                      border: "1px solid var(--border-strong)",
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = "var(--accent)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = "var(--border-strong)";
+                    }}
                   >
-                    Schedule Architecture Discovery →
+                    <span>Schedule Technical Scoping</span>
+                    <ArrowRight className="w-3 h-3 group-hover/scoping:translate-x-0.5 transition-transform" style={{ color: "var(--accent)" }} />
                   </Link>
                 </div>
               </div>

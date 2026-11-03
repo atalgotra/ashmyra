@@ -14,8 +14,8 @@ export function BrandIntroPhase7() {
       desc: "Every system connects directly to live enterprise data, databases, and operational APIs. Zero toy demonstrations.",
       telemetryLabel: "Telemetry",
       telemetryVal: "200 OK · 38ms",
-      accent: "#818cf8",
-      accentGlow: "rgba(129, 140, 248, 0.25)",
+      accent: "#4338ca",
+      accentGlow: "rgba(67, 56, 202, 0.25)",
     },
     {
       num: "02",
@@ -25,8 +25,8 @@ export function BrandIntroPhase7() {
       desc: "Autonomous reasoning backed by strict schema enforcement, auditable traces, and human-in-the-loop controls.",
       telemetryLabel: "Type Schema",
       telemetryVal: "100% Auditable",
-      accent: "#22d3ee",
-      accentGlow: "rgba(34, 211, 238, 0.25)",
+      accent: "#0284c7",
+      accentGlow: "rgba(2, 132, 199, 0.25)",
     },
     {
       num: "03",
@@ -36,8 +36,8 @@ export function BrandIntroPhase7() {
       desc: "Direct engineering leadership moves systems from blueprint to live production with speed and precision.",
       telemetryLabel: "Partner Direct",
       telemetryVal: "Zero Agency Lag",
-      accent: "#a78bfa",
-      accentGlow: "rgba(167, 139, 250, 0.25)",
+      accent: "#7c3aed",
+      accentGlow: "rgba(124, 58, 237, 0.25)",
     },
   ];
 
@@ -111,7 +111,7 @@ export function BrandIntroPhase7() {
 
             <div>
               <Link
-                href="/team"
+                href="/team#team"
                 className="group inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold transition-all duration-300 shadow-sm hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "var(--theme-pill-bg)",
@@ -159,7 +159,10 @@ export function BrandIntroPhase7() {
                       >
                         <Icon className="w-4 h-4" style={{ color: item.accent }} />
                       </div>
-                      <span className="text-[10px] font-mono tracking-widest text-neutral-500 group-hover:text-neutral-400 transition-colors">
+                      <span
+                        className="text-[10px] font-mono tracking-widest font-semibold transition-colors"
+                        style={{ color: "var(--text-subtle)" }}
+                      >
                         {item.num} // {item.tag}
                       </span>
                     </div>
@@ -183,14 +186,14 @@ export function BrandIntroPhase7() {
                     className="mt-5 pt-3.5 flex items-center justify-between text-[10px] font-mono"
                     style={{ borderTop: "1px solid var(--border)" }}
                   >
-                    <span className="flex items-center gap-1.5" style={{ color: item.accent }}>
+                    <span className="flex items-center gap-1.5 font-bold tracking-wide" style={{ color: item.accent }}>
                       <span
-                        className="w-1.5 h-1.5 rounded-full animate-pulse"
+                        className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
                         style={{ background: item.accent }}
                       />
                       {item.telemetryLabel}
                     </span>
-                    <span className="text-neutral-500 font-medium">
+                    <span className="font-semibold" style={{ color: "var(--text)" }}>
                       {item.telemetryVal}
                     </span>
                   </div>

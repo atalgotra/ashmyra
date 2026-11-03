@@ -85,18 +85,18 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="bg-[#0a0d16] border border-emerald-500/30 rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-2xl animate-in zoom-in-95 duration-200">
-        <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center mx-auto mb-6 text-emerald-400">
+      <div className="rounded-3xl p-8 sm:p-12 text-center max-w-xl mx-auto shadow-2xl animate-in zoom-in-95 duration-200" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+        <div className="w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6" style={{ backgroundColor: "rgba(5, 150, 105, 0.1)", border: "1px solid rgba(5, 150, 105, 0.3)", color: "#059669" }}>
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h3 className="text-2xl font-bold text-white mb-2">Message Transmitted</h3>
-        <p className="text-sm text-neutral-300 mb-6 leading-relaxed">
-          Thank you, <span className="text-white font-medium">{formData.name}</span>. An Ashmyra solutions architect will review your project requirements and connect with you at <span className="text-indigo-300 font-mono">{formData.email}</span> within one business day.
+        <h3 className="text-2xl font-bold mb-2" style={{ color: "var(--text)" }}>Message Transmitted</h3>
+        <p className="text-sm mb-6 leading-relaxed" style={{ color: "var(--text-muted)" }}>
+          Thank you, <span className="font-semibold" style={{ color: "var(--text)" }}>{formData.name}</span>. An Ashmyra solutions architect will review your project requirements and connect with you at <span className="font-mono font-semibold" style={{ color: "var(--accent, #4f46e5)" }}>{formData.email}</span> within one business day.
         </p>
-        <div className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] text-xs text-neutral-400 font-mono text-left mb-6">
-          <p><strong className="text-white">Selected Scope:</strong> {formData.requirement}</p>
-          <p><strong className="text-white">Company:</strong> {formData.company || "Direct Inquiry"}</p>
-          <p><strong className="text-white">Estimated Timeline:</strong> {formData.timeline}</p>
+        <div className="p-4 rounded-xl text-xs font-mono text-left mb-6" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text-muted)" }}>
+          <p><strong style={{ color: "var(--text)" }}>Selected Scope:</strong> {formData.requirement}</p>
+          <p><strong style={{ color: "var(--text)" }}>Company:</strong> {formData.company || "Direct Inquiry"}</p>
+          <p><strong style={{ color: "var(--text)" }}>Estimated Timeline:</strong> {formData.timeline}</p>
         </div>
         <button
           onClick={() => {
@@ -114,7 +114,8 @@ export function ContactForm() {
               honeypot: "",
             });
           }}
-          className="text-xs text-indigo-400 hover:text-indigo-300 underline font-medium"
+          className="text-xs underline font-semibold transition-colors"
+          style={{ color: "var(--accent, #4f46e5)" }}
         >
           Submit another inquiry
         </button>
@@ -122,10 +123,16 @@ export function ContactForm() {
     );
   }
 
+  const inputStyle = {
+    backgroundColor: "var(--bg)",
+    border: "1px solid var(--border)",
+    color: "var(--text)",
+  };
+
   return (
-    <div className="bg-[#0a0d16] border border-white/[0.08] rounded-3xl p-6 sm:p-10 shadow-2xl relative">
+    <div className="rounded-3xl p-6 sm:p-10 shadow-2xl relative" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
       {/* Background radial accent */}
-      <div className="absolute top-0 right-0 w-72 h-72 bg-indigo-500/5 blur-[80px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-72 h-72 opacity-30 blur-[80px] pointer-events-none" style={{ backgroundColor: "var(--accent, #4f46e5)" }} />
 
       <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
         {/* Honeypot field (hidden from human visitors) */}
@@ -141,7 +148,7 @@ export function ContactForm() {
         </div>
 
         {errorMsg && (
-          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-300 text-xs">
+          <div className="p-3.5 rounded-xl bg-rose-500/10 border border-rose-500/30 text-rose-500 text-xs font-medium">
             {errorMsg}
           </div>
         )}
@@ -149,9 +156,9 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Name */}
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5 flex items-center gap-1.5">
-              <User className="w-3.5 h-3.5 text-neutral-500" />
-              Full Name <span className="text-indigo-400">*</span>
+            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+              <User className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
+              Full Name <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
             </label>
             <input
               type="text"
@@ -159,14 +166,15 @@ export function ContactForm() {
               placeholder="e.g. Alex Mercer"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             />
           </div>
 
           {/* Company */}
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5 flex items-center gap-1.5">
-              <Building2 className="w-3.5 h-3.5 text-neutral-500" />
+            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+              <Building2 className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Company Name
             </label>
             <input
@@ -174,7 +182,8 @@ export function ContactForm() {
               placeholder="e.g. Acme Technologies"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             />
           </div>
         </div>
@@ -182,9 +191,9 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Work Email */}
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5 flex items-center gap-1.5">
-              <Mail className="w-3.5 h-3.5 text-neutral-500" />
-              Work Email <span className="text-indigo-400">*</span>
+            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+              <Mail className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
+              Work Email <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
             </label>
             <input
               type="email"
@@ -192,14 +201,15 @@ export function ContactForm() {
               placeholder="alex@company.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             />
           </div>
 
           {/* Phone */}
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5 flex items-center gap-1.5">
-              <Phone className="w-3.5 h-3.5 text-neutral-500" />
+            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+              <Phone className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Phone / WhatsApp
             </label>
             <input
@@ -207,7 +217,8 @@ export function ContactForm() {
               placeholder="+1 (555) 000-0000"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             />
           </div>
         </div>
@@ -215,13 +226,14 @@ export function ContactForm() {
         {/* Company Size & Requirement Dropdown */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5">
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Company Size
             </label>
             <select
               value={formData.companySize}
               onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             >
               <option value="1-10 employees">1 - 10 employees (Early stage)</option>
               <option value="11-50 employees">11 - 50 employees (Growing team)</option>
@@ -232,13 +244,14 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5">
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Primary Focus Area
             </label>
             <select
               value={formData.requirement}
               onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             >
               <option value="AI / Agentic AI Systems">AI / Agentic AI Systems</option>
               <option value="Ashmyra SEO Intelligence">Ashmyra SEO Intelligence</option>
@@ -255,13 +268,14 @@ export function ContactForm() {
         {/* Budget & Timeline */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5">
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Anticipated Investment Range
             </label>
             <select
               value={formData.budgetRange}
               onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             >
               <option value="Under $10k">Under $10,000 (Scoping / Audit)</option>
               <option value="$10k - $25k">$10,000 - $25,000</option>
@@ -272,13 +286,14 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-medium text-neutral-300 mb-1.5">
+            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Desired Timeline
             </label>
             <select
               value={formData.timeline}
               onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
-              className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white focus:outline-none focus:border-indigo-500 transition-colors"
+              className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
+              style={inputStyle}
             >
               <option value="Immediate (< 1 month)">Immediate (&lt; 1 month)</option>
               <option value="1 - 3 months">1 - 3 months</option>
@@ -290,9 +305,9 @@ export function ContactForm() {
 
         {/* Message */}
         <div>
-          <label className="block text-xs font-medium text-neutral-300 mb-1.5 flex items-center gap-1.5">
-            <MessageSquare className="w-3.5 h-3.5 text-neutral-500" />
-            Project Objectives &amp; Requirements <span className="text-indigo-400">*</span>
+          <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+            <MessageSquare className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
+            Project Objectives &amp; Requirements <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
           </label>
           <textarea
             required
@@ -300,7 +315,8 @@ export function ContactForm() {
             placeholder="Tell us what you are looking to build or automate, current bottlenecks, or specific systems to connect..."
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full bg-[#07090e] border border-white/[0.08] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-indigo-500 transition-colors resize-y"
+            className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors resize-y"
+            style={inputStyle}
           />
         </div>
 
@@ -309,20 +325,21 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white bg-indigo-600 hover:bg-indigo-500 active:bg-indigo-700 disabled:opacity-50 px-8 py-3.5 rounded-xl shadow-xl shadow-indigo-600/30 transition-all hover:scale-[1.01]"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-3.5 rounded-xl shadow-xl transition-all hover:scale-[1.01]"
+            style={{ backgroundColor: "var(--accent, #4f46e5)" }}
           >
             <span>{isSubmitting ? "Transmitting Requirements..." : "Start a Conversation"}</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
 
-        <div className="flex flex-wrap items-center justify-between gap-2 pt-4 border-t border-white/[0.06] text-xs text-neutral-500">
-          <span className="flex items-center gap-1.5">
-            <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
+        <div className="flex flex-wrap items-center justify-between gap-2 pt-4 text-xs" style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}>
+          <span className="flex items-center gap-1.5 font-medium">
+            <ShieldCheck className="w-3.5 h-3.5" style={{ color: "var(--accent-emerald, #059669)" }} />
             Non-Disclosure &amp; strict confidentiality guaranteed.
           </span>
-          <span className="flex items-center gap-1.5">
-            <Clock className="w-3.5 h-3.5 text-indigo-400" />
+          <span className="flex items-center gap-1.5 font-medium">
+            <Clock className="w-3.5 h-3.5" style={{ color: "var(--accent, #4f46e5)" }} />
             Average response time: &lt; 24 hours.
           </span>
         </div>

@@ -171,10 +171,10 @@ export function HeroPhase6() {
                 <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
               </Link>
               <a
-                href="/our-work"
+                href="/demos"
                 className="inline-flex items-center justify-center gap-1.5 px-4 py-3 sm:py-2.5 rounded-xl font-medium text-sm text-neutral-400 hover:text-white glass-bright transition-all duration-300 hover:scale-[1.02] whitespace-nowrap text-center"
               >
-                Our Work
+                Live Demos
               </a>
             </div>
 

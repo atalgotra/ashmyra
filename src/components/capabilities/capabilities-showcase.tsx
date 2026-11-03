@@ -68,25 +68,25 @@ export function CapabilitiesShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Content (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs font-mono text-indigo-300">
-              <Code2 className="w-3.5 h-3.5 text-indigo-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
+              <Code2 className="w-3.5 h-3.5" style={{ color: "var(--accent, #4f46e5)" }} />
               <span>CAPABILITY 01 &bull; APPLICATION ARCHITECTURE</span>
             </div>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Software Built Around the Way Your Business Works.
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
+            <p className="text-base sm:text-lg leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               We design and engineer custom software products and SaaS platforms that bring business processes, users and systems together.
             </p>
 
             {/* Deliverables Checklist (Phase 7: Clean 2-column list) */}
             <div className="pt-2">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <h3 className="text-xs font-mono uppercase tracking-wider mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Verified Engineering Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -103,9 +103,10 @@ export function CapabilitiesShowcase() {
                   <div 
                     key={idx} 
                     id={item.id}
-                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200 ${item.id ? "scroll-mt-28" : ""}`}
+                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] font-medium ${item.id ? "scroll-mt-28" : ""}`}
+                    style={{ color: "var(--text)" }}
                   >
-                    <CheckCircle2 className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "var(--accent, #4f46e5)" }} />
                     <span>{item.text}</span>
                   </div>
                 ))}
@@ -113,8 +114,8 @@ export function CapabilitiesShowcase() {
             </div>
 
             {/* 3 Use Cases */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-3">
+            <div className="pt-4" style={{ borderTop: "1px solid var(--border)" }}>
+              <span className="text-xs font-mono uppercase tracking-wider block mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Representative Deployments
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -123,9 +124,9 @@ export function CapabilitiesShowcase() {
                   { title: "Internal Operations", desc: "Unified dashboards consolidating legacy databases and operational silos." },
                   { title: "Custom Enterprise Apps", desc: "High-concurrency business applications with strict audit-trail integrity." },
                 ].map((uc, i) => (
-                  <div key={i} className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.07] space-y-1">
-                    <div className="text-xs font-bold text-white">{uc.title}</div>
-                    <div className="text-[11px] text-neutral-400 leading-relaxed">{uc.desc}</div>
+                  <div key={i} className="p-3.5 rounded-xl space-y-1 transition-all" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                    <div className="text-xs font-bold" style={{ color: "var(--text)" }}>{uc.title}</div>
+                    <div className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>{uc.desc}</div>
                   </div>
                 ))}
               </div>
@@ -135,7 +136,8 @@ export function CapabilitiesShowcase() {
             <div className="pt-2">
               <Link
                 href="/capabilities/software-development"
-                className="inline-flex items-center gap-2 text-xs font-mono text-indigo-400 hover:text-indigo-300 font-semibold group/link"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold group/link hover:underline"
+                style={{ color: "var(--accent, #4f46e5)" }}
               >
                 <span>Explore Technical SaaS Architecture Scope</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
@@ -274,25 +276,25 @@ export function CapabilitiesShowcase() {
 
           {/* Right Column: Content (7 cols on lg) */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/25 text-xs font-mono text-purple-300">
-              <Bot className="w-3.5 h-3.5 text-purple-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold" style={{ backgroundColor: "rgba(124, 58, 237, 0.1)", border: "1px solid var(--border)", color: "#7c3aed" }}>
+              <Bot className="w-3.5 h-3.5" style={{ color: "#7c3aed" }} />
               <span>CAPABILITY 02 &bull; COGNITIVE ARCHITECTURE</span>
             </div>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Beyond Chatbots. Into Intelligent Execution.
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
+            <p className="text-base sm:text-lg leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               We engineer AI systems that combine language models, business data, specialised tools and controlled workflows to perform meaningful business tasks.
             </p>
 
             {/* Deliverables Checklist with Anchor IDs */}
             <div className="pt-2">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <h3 className="text-xs font-mono uppercase tracking-wider mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Verified Engineering Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -309,9 +311,10 @@ export function CapabilitiesShowcase() {
                   <div 
                     key={idx} 
                     id={item.id}
-                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200 ${item.id ? "scroll-mt-28" : ""}`}
+                    className={`flex items-start gap-2.5 text-xs sm:text-[13px] font-medium ${item.id ? "scroll-mt-28" : ""}`}
+                    style={{ color: "var(--text)" }}
                   >
-                    <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#7c3aed" }} />
                     <span>{item.text}</span>
                   </div>
                 ))}
@@ -319,8 +322,8 @@ export function CapabilitiesShowcase() {
             </div>
 
             {/* 3 Use Cases */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-3">
+            <div className="pt-4" style={{ borderTop: "1px solid var(--border)" }}>
+              <span className="text-xs font-mono uppercase tracking-wider block mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Representative Deployments
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -329,9 +332,9 @@ export function CapabilitiesShowcase() {
                   { title: "Knowledge Retrieval", desc: "Private RAG pipelines answering complex queries across internal document lakes." },
                   { title: "Intelligent Data Analysis", desc: "Proactive agents monitoring database anomaly thresholds in real time." },
                 ].map((uc, i) => (
-                  <div key={i} className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.07] space-y-1">
-                    <div className="text-xs font-bold text-white">{uc.title}</div>
-                    <div className="text-[11px] text-neutral-400 leading-relaxed">{uc.desc}</div>
+                  <div key={i} className="p-3.5 rounded-xl space-y-1 transition-all" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                    <div className="text-xs font-bold" style={{ color: "var(--text)" }}>{uc.title}</div>
+                    <div className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>{uc.desc}</div>
                   </div>
                 ))}
               </div>
@@ -341,7 +344,8 @@ export function CapabilitiesShowcase() {
             <div className="pt-2">
               <Link
                 href="/capabilities/ai-development"
-                className="inline-flex items-center gap-2 text-xs font-mono text-purple-400 hover:text-purple-300 font-semibold group/link"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold group/link hover:underline"
+                style={{ color: "#7c3aed" }}
               >
                 <span>Explore Agentic AI Engineering Scope</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
@@ -362,25 +366,25 @@ export function CapabilitiesShowcase() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           {/* Left Column: Content (7 cols) */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/25 text-xs font-mono text-sky-300">
-              <Search className="w-3.5 h-3.5 text-sky-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold" style={{ backgroundColor: "rgba(2, 132, 199, 0.1)", border: "1px solid var(--border)", color: "#0284c7" }}>
+              <Search className="w-3.5 h-3.5" style={{ color: "#0284c7" }} />
               <span>CAPABILITY 03 &bull; SEARCH &amp; DISCOVERY</span>
             </div>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Engineering Visibility for the Next Era of Search.
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
+            <p className="text-base sm:text-lg leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               We engineer technical search foundations, structured digital experiences and AI discovery strategies that help businesses improve how their information is understood and discovered.
             </p>
 
             {/* Deliverables Checklist */}
             <div className="pt-2">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <h3 className="text-xs font-mono uppercase tracking-wider mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Verified Engineering Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -394,8 +398,8 @@ export function CapabilitiesShowcase() {
                   "Content architecture & clustering",
                   "Competitor & search visibility analysis",
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200">
-                    <CheckCircle2 className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] font-medium" style={{ color: "var(--text)" }}>
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#0284c7" }} />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -403,8 +407,8 @@ export function CapabilitiesShowcase() {
             </div>
 
             {/* 3 Use Cases */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-3">
+            <div className="pt-4" style={{ borderTop: "1px solid var(--border)" }}>
+              <span className="text-xs font-mono uppercase tracking-wider block mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Representative Deployments
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -413,9 +417,9 @@ export function CapabilitiesShowcase() {
                   { title: "Semantic Content Architecture", desc: "Topic clustering and entity mapping structured for search engine crawlers." },
                   { title: "AI Search Visibility Strategy", desc: "Formatting facts and authority signals for generative synthesis models." },
                 ].map((uc, i) => (
-                  <div key={i} className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.07] space-y-1">
-                    <div className="text-xs font-bold text-white">{uc.title}</div>
-                    <div className="text-[11px] text-neutral-400 leading-relaxed">{uc.desc}</div>
+                  <div key={i} className="p-3.5 rounded-xl space-y-1 transition-all" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                    <div className="text-xs font-bold" style={{ color: "var(--text)" }}>{uc.title}</div>
+                    <div className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>{uc.desc}</div>
                   </div>
                 ))}
               </div>
@@ -425,7 +429,8 @@ export function CapabilitiesShowcase() {
             <div className="pt-2">
               <Link
                 href="/capabilities/seo"
-                className="inline-flex items-center gap-2 text-xs font-mono text-sky-400 hover:text-sky-300 font-semibold group/link"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold group/link hover:underline"
+                style={{ color: "#0284c7" }}
               >
                 <span>Explore Technical SEO &amp; GEO Architecture Scope</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />
@@ -547,25 +552,25 @@ export function CapabilitiesShowcase() {
 
           {/* Right Column: Content (7 cols on lg) */}
           <div className="lg:col-span-7 space-y-6 order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-xs font-mono text-emerald-300">
-              <Globe className="w-3.5 h-3.5 text-emerald-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold" style={{ backgroundColor: "rgba(5, 150, 105, 0.1)", border: "1px solid var(--border)", color: "#059669" }}>
+              <Globe className="w-3.5 h-3.5" style={{ color: "#059669" }} />
               <span>CAPABILITY 04 &bull; DIGITAL SURFACES</span>
             </div>
 
             <h2
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15]"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Digital Experiences That Perform as Well as They Look.
             </h2>
 
-            <p className="text-base sm:text-lg text-neutral-300 leading-relaxed font-sans">
+            <p className="text-base sm:text-lg leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               We design and engineer modern digital experiences, enterprise portals and high-performance web applications with thoughtful UX and robust engineering foundations.
             </p>
 
             {/* Deliverables Checklist */}
             <div className="pt-2">
-              <h3 className="text-xs font-mono uppercase tracking-wider text-neutral-400 mb-3">
+              <h3 className="text-xs font-mono uppercase tracking-wider mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Verified Engineering Capabilities
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -579,8 +584,8 @@ export function CapabilitiesShowcase() {
                   "Accessibility-focused engineering, targeting WCAG 2.2 AA",
                   "Core Web Vitals performance optimisation",
                 ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] text-neutral-200">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-[13px] font-medium" style={{ color: "var(--text)" }}>
+                    <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#059669" }} />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -588,8 +593,8 @@ export function CapabilitiesShowcase() {
             </div>
 
             {/* 3 Use Cases */}
-            <div className="pt-4 border-t border-white/[0.08]">
-              <span className="text-xs font-mono uppercase tracking-wider text-neutral-400 block mb-3">
+            <div className="pt-4" style={{ borderTop: "1px solid var(--border)" }}>
+              <span className="text-xs font-mono uppercase tracking-wider block mb-3 font-semibold" style={{ color: "var(--text-muted)" }}>
                 Representative Deployments
               </span>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -598,9 +603,9 @@ export function CapabilitiesShowcase() {
                   { title: "Customer & Partner Portals", desc: "Authenticated self-service dashboards with granular permission controls." },
                   { title: "Interactive Digital Experiences", desc: "Three.js and GSAP visual storytelling designed for modern web engagement." },
                 ].map((uc, i) => (
-                  <div key={i} className="p-3.5 rounded-xl bg-white/[0.025] border border-white/[0.07] space-y-1">
-                    <div className="text-xs font-bold text-white">{uc.title}</div>
-                    <div className="text-[11px] text-neutral-400 leading-relaxed">{uc.desc}</div>
+                  <div key={i} className="p-3.5 rounded-xl space-y-1 transition-all" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+                    <div className="text-xs font-bold" style={{ color: "var(--text)" }}>{uc.title}</div>
+                    <div className="text-[11px] leading-relaxed" style={{ color: "var(--text-muted)" }}>{uc.desc}</div>
                   </div>
                 ))}
               </div>
@@ -610,7 +615,8 @@ export function CapabilitiesShowcase() {
             <div className="pt-2">
               <Link
                 href="/capabilities/web-apps"
-                className="inline-flex items-center gap-2 text-xs font-mono text-emerald-400 hover:text-emerald-300 font-semibold group/link"
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold group/link hover:underline"
+                style={{ color: "#059669" }}
               >
                 <span>Explore Modern Web &amp; Portal Scope</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover/link:translate-x-1 transition-transform" />

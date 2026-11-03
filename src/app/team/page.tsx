@@ -2,7 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { ScrollToTopOnMount } from "@/components/scroll-to-top-on-mount";
+import { TeamScrollHandler } from "@/components/team-scroll-handler";
 import { Breadcrumb } from "@/components/breadcrumb";
 import {
   ArrowRight,
@@ -90,7 +90,7 @@ const TEAM_MEMBERS = [
   {
     num: "01",
     name: "Ashish Talgotra",
-    title: "AI Engineer / Data Scientist",
+    title: "Founder | AI Architect & Data Scientist",
     roleSubtitle: "Systems, Data & Intelligent Architecture",
     bio: "Specializes in AI engineering, data science, intelligent software systems, automation and technical architecture. Focuses on architecting autonomous multi-agent pipelines and resilient software engines that execute reliably in production.",
     skills: [
@@ -99,13 +99,13 @@ const TEAM_MEMBERS = [
       "Multi-Agent Systems",
       "Technical Architecture",
     ],
-    accent: "#818cf8",
-    accentRgb: "129, 140, 248",
+    accent: "#4f46e5",
+    accentRgb: "79, 70, 229",
     photo: "/team/ashish-talgotra.jpg",
     monogram: null,
     photoPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
-    roleBadge: "AI & Data Architecture",
+    roleBadge: "Founder | AI Architect & Data Scientist",
     FooterIcon: Terminal,
     footerLabel: "AI & Systems Engineering",
   },
@@ -121,8 +121,8 @@ const TEAM_MEMBERS = [
       "Technical Execution",
       "System Resilience",
     ],
-    accent: "#a78bfa",
-    accentRgb: "168, 85, 247",
+    accent: "#7c3aed",
+    accentRgb: "124, 58, 237",
     photo: "/team/prince-rehan.jpg",
     monogram: null,
     photoPosition: "object-top",
@@ -143,8 +143,8 @@ const TEAM_MEMBERS = [
       "Team Well-being",
       "Happy Workplace",
     ],
-    accent: "#fb7185",
-    accentRgb: "251, 113, 133",
+    accent: "#e11d48",
+    accentRgb: "225, 29, 72",
     photo: "/team/bella.png",
     monogram: null,
     photoPosition: "object-top",
@@ -161,7 +161,7 @@ export default function TeamPage() {
       className="flex flex-col min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200"
       style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
     >
-      <ScrollToTopOnMount />
+      <TeamScrollHandler />
 
       {/* Legacy navigation anchor aliases */}
       <div id="about" className="sr-only" aria-hidden="true" />
@@ -170,18 +170,21 @@ export default function TeamPage() {
       <div id="approach" className="sr-only" aria-hidden="true" />
 
       {/* ── SECTION 01 — COMPANY INTRODUCTION ──────────────────────────────── */}
-      <section className="relative pt-28 pb-12 sm:pt-36 sm:pb-14 border-b border-white/[0.06] overflow-hidden">
+      <section
+        className="relative pt-28 pb-12 sm:pt-36 sm:pb-14 border-b overflow-hidden transition-colors"
+        style={{ borderColor: "var(--border)" }}
+      >
         {/* Ambient lighting & dot background */}
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute top-0 left-1/2 -translate-x-1/2 w-[85vw] h-[380px]"
             style={{
               background:
-                "radial-gradient(ellipse 65% 55% at 50% 0%, rgba(99,102,241,0.15) 0%, rgba(34,211,238,0.06) 45%, transparent 75%)",
+                "radial-gradient(ellipse 65% 55% at 50% 0%, rgba(99,102,241,0.08) 0%, rgba(34,211,238,0.04) 45%, transparent 75%)",
               filter: "blur(60px)",
             }}
           />
-          <div className="absolute inset-0 dot-bg opacity-30" />
+          <div className="absolute inset-0 dot-bg opacity-15" />
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 sm:px-8 text-center">
@@ -191,25 +194,39 @@ export default function TeamPage() {
           </div>
 
           {/* Eyebrow */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-[11px] font-mono tracking-widest text-cyan-300 uppercase mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            <span>ABOUT ASHMYRA TECHNOLOGIES</span>
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-[11px] font-mono tracking-widest uppercase mb-6 shadow-sm"
+            style={{
+              backgroundColor: "var(--theme-pill-bg)",
+              border: "1px solid var(--theme-pill-border)",
+              color: "var(--accent)",
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "var(--accent)" }} />
+            <span className="font-semibold">ABOUT ASHMYRA TECHNOLOGIES</span>
           </div>
 
           {/* Headline */}
           <h1
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-[1.15] mb-6"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.15] mb-6"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
           >
             Engineering Intelligence.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-indigo-200">
+            <span
+              style={{
+                background: "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 50%, var(--accent-cyan) 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
               Building What&apos;s Next.
             </span>
           </h1>
 
           {/* Supporting Copy */}
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed max-w-2xl mx-auto mb-8 font-sans">
+          <p className="text-base sm:text-lg leading-relaxed max-w-2xl mx-auto mb-8 font-sans" style={{ color: "var(--text-muted)" }}>
             Ashmyra Technologies engineers intelligent software, AI-driven systems and digital
             platforms designed around real business challenges.
           </p>
@@ -218,28 +235,48 @@ export default function TeamPage() {
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a
               href="#mission"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-neutral-300 hover:text-white font-mono text-xs border border-white/[0.08] hover:border-white/[0.15] transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs transition-all shadow-sm hover:scale-[1.02]"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+              }}
             >
               <span>Our Mission</span>
-              <ArrowRight className="w-3 h-3 text-cyan-400" />
+              <ArrowRight className="w-3 h-3" style={{ color: "var(--accent)" }} />
             </a>
             <a
               href="#philosophy"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-neutral-300 hover:text-white font-mono text-xs border border-white/[0.08] hover:border-white/[0.15] transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs transition-all shadow-sm hover:scale-[1.02]"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+              }}
             >
               <span>Engineering Philosophy</span>
-              <ArrowRight className="w-3 h-3 text-indigo-400" />
+              <ArrowRight className="w-3 h-3" style={{ color: "var(--accent)" }} />
             </a>
             <a
               href="#team"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-neutral-300 hover:text-white font-mono text-xs border border-white/[0.08] hover:border-white/[0.15] transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs transition-all shadow-sm hover:scale-[1.02]"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+              }}
             >
               <span>Meet the Team</span>
-              <ArrowRight className="w-3 h-3 text-cyan-400" />
+              <ArrowRight className="w-3 h-3" style={{ color: "var(--accent)" }} />
             </a>
             <a
               href="#careers"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 hover:text-cyan-200 font-mono text-xs border border-cyan-500/30 transition-all"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl font-mono text-xs transition-all shadow-sm hover:scale-[1.02] font-semibold"
+              style={{
+                backgroundColor: "var(--theme-pill-bg)",
+                border: "1px solid var(--theme-pill-border)",
+                color: "var(--accent)",
+              }}
             >
               <span>Join Us</span>
               <ArrowRight className="w-3 h-3" />
@@ -251,22 +288,26 @@ export default function TeamPage() {
       {/* ── SECTION 02 — OUR MISSION ────────────────────────────────────────── */}
       <section
         id="mission"
-        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-24 border-b border-white/[0.06] bg-[#05070e]"
+        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-24 border-b transition-colors"
+        style={{ backgroundColor: "var(--bg)", borderColor: "var(--border)" }}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="max-w-3xl mb-12 sm:mb-16">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-400 font-semibold block mb-2">
+            <span
+              className="text-[11px] font-mono uppercase tracking-widest font-semibold block mb-2"
+              style={{ color: "var(--accent)" }}
+            >
               OUR MISSION
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-bold text-white tracking-tight leading-snug mb-4"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl font-bold tracking-tight leading-snug mb-4"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Technology Should Do More Than Respond.
               <br />
-              <span className="text-cyan-300">It Should Act.</span>
+              <span style={{ color: "var(--accent)" }}>It Should Act.</span>
             </h2>
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               At Ashmyra, we engineer intelligent systems that connect reasoning, business data and
               software workflows — helping organisations move beyond passive digital experiences
               towards purposeful execution.
@@ -280,23 +321,47 @@ export default function TeamPage() {
               return (
                 <div
                   key={pillar.title}
-                  className="p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-cyan-500/30 transition-all flex flex-col justify-between group"
+                  className="p-6 sm:p-7 rounded-2xl transition-all flex flex-col justify-between group shadow-sm hover:scale-[1.01]"
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
                   <div className="space-y-4">
                     <div className="flex items-center justify-between">
-                      <div className="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 group-hover:scale-105 transition-transform">
+                      <div
+                        className="w-10 h-10 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
+                          color: "var(--accent)",
+                        }}
+                      >
                         <Icon className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] font-mono uppercase tracking-wider text-neutral-500 bg-white/[0.03] px-2 py-0.5 rounded border border-white/[0.05]">
+                      <span
+                        className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded border"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          borderColor: "var(--border)",
+                          color: "var(--text-muted)",
+                        }}
+                      >
                         {pillar.tag}
                       </span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-cyan-200 transition-colors">
+                    <h3
+                      className="text-lg font-bold transition-colors"
+                      style={{ color: "var(--text)" }}
+                    >
                       {pillar.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                    <p
+                      className="text-xs sm:text-sm leading-relaxed font-sans"
+                      style={{ color: "var(--text-muted)" }}
+                    >
                       {pillar.desc}
                     </p>
                   </div>
@@ -310,20 +375,24 @@ export default function TeamPage() {
       {/* ── SECTION 03 — OUR ENGINEERING PHILOSOPHY ─────────────────────────── */}
       <section
         id="philosophy"
-        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-24 border-b border-white/[0.06]"
+        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-24 border-b transition-colors"
+        style={{ borderColor: "var(--border)" }}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
           <div className="max-w-3xl mb-12 sm:mb-16">
-            <span className="text-[11px] font-mono uppercase tracking-widest text-indigo-400 font-semibold block mb-2">
+            <span
+              className="text-[11px] font-mono uppercase tracking-widest font-bold block mb-2"
+              style={{ color: "var(--accent)" }}
+            >
               OUR ENGINEERING PHILOSOPHY
             </span>
             <h2
-              className="text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-3xl sm:text-4xl font-bold tracking-tight mb-4"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Built on Thoughtful Engineering.
             </h2>
-            <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+            <p className="text-sm sm:text-base leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
               Four core principles guiding every architectural decision, data contract, and
               production deployment at Ashmyra.
             </p>
@@ -336,21 +405,28 @@ export default function TeamPage() {
               return (
                 <div
                   key={principle.num}
-                  className="relative p-6 sm:p-7 rounded-2xl bg-white/[0.02] border border-white/[0.07] hover:border-indigo-500/35 transition-all flex flex-col justify-between group"
+                  className="relative p-6 sm:p-7 rounded-2xl transition-all flex flex-col justify-between group shadow-sm hover:scale-[1.01]"
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
                   <div className="space-y-4">
-                    <div className="flex items-center justify-between pb-3 border-b border-white/[0.06]">
-                      <span className="text-xs font-mono font-bold text-indigo-400">
+                    <div className="flex items-center justify-between pb-3" style={{ borderBottom: "1px solid var(--border)" }}>
+                      <span className="text-xs font-mono font-bold" style={{ color: "var(--accent)" }}>
                         {principle.num}
                       </span>
-                      <Icon className="w-4 h-4 text-neutral-400 group-hover:text-indigo-400 transition-colors" />
+                      <Icon className="w-4 h-4 transition-colors" style={{ color: "var(--accent)" }} />
                     </div>
 
-                    <h3 className="text-base font-bold text-white group-hover:text-indigo-200 transition-colors">
+                    <h3
+                      className="text-base font-bold transition-colors"
+                      style={{ color: "var(--text)" }}
+                    >
                       {principle.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed font-sans">
+                    <p className="text-xs sm:text-sm leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
                       {principle.desc}
                     </p>
                   </div>
@@ -364,24 +440,32 @@ export default function TeamPage() {
       {/* ── SECTION 04 — MEET THE TEAM ──────────────────────────────────────── */}
       <section
         id="team"
-        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-28 border-b border-white/[0.06] bg-[#05070c]"
+        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-28 border-b transition-colors"
+        style={{ backgroundColor: "var(--bg)", borderColor: "var(--border)" }}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           {/* Section Header */}
           <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-14 sm:mb-16">
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-mono text-cyan-300 mb-3">
-                <Users className="w-3.5 h-3.5 text-cyan-400" />
+              <div
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono mb-3"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                  color: "var(--accent)",
+                }}
+              >
+                <Users className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                 <span>Leadership &amp; Technical Foundation</span>
               </div>
               <h2
-                className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
               >
                 The People Behind the Architecture.
               </h2>
             </div>
-            <p className="text-sm sm:text-base text-neutral-400 font-sans max-w-xl leading-relaxed lg:text-right">
+            <p className="text-sm sm:text-base font-sans max-w-xl leading-relaxed lg:text-right" style={{ color: "var(--text-muted)" }}>
               Engineered by practitioners who bring together software engineering discipline, applied
               artificial intelligence, and enterprise systems expertise to deliver robust solutions.
             </p>
@@ -399,15 +483,11 @@ export default function TeamPage() {
                   className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
                   style={{
                     minHeight: "560px",
-                    background: isBella
-                      ? "linear-gradient(165deg, rgba(20, 13, 24, 0.95) 0%, rgba(10, 7, 14, 0.98) 100%)"
-                      : "linear-gradient(165deg, rgba(13, 16, 28, 0.95) 0%, rgba(7, 9, 16, 0.98) 100%)",
+                    backgroundColor: "var(--bg-card)",
                     border: isBella
-                      ? "1px solid rgba(251, 113, 133, 0.22)"
-                      : "1px solid rgba(255, 255, 255, 0.08)",
-                    boxShadow: isBella
-                      ? "0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 40px -20px rgba(251, 113, 133, 0.12)"
-                      : "0 20px 50px -15px rgba(0, 0, 0, 0.8)",
+                      ? "1px solid rgba(225, 29, 72, 0.35)"
+                      : `1px solid rgba(${leader.accentRgb}, 0.28)`,
+                    boxShadow: "0 20px 50px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--border)",
                   }}
                 >
                   {/* Top Glowing Laser Hairline */}
@@ -435,22 +515,22 @@ export default function TeamPage() {
                       className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                     />
 
-                    {/* Cinematic Bottom Gradient Fade */}
+                    {/* Cinematic Bottom Gradient Fade to Active Card Background */}
                     <div
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(7,9,16,0.3) 55%, rgba(7,9,16,0.98) 100%)",
+                          "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 45%, var(--bg-card) 100%)",
                       }}
                     />
 
-                    {/* Top Right: Role Badge */}
+                    {/* Top Right: High-Contrast Role Badge */}
                     <div className="absolute top-4 right-4 z-10">
                       <div
-                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-[0_4px_16px_rgba(0,0,0,0.7)]"
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-md transition-colors"
                         style={{
-                          background: isBella ? "rgba(18, 10, 20, 0.92)" : "rgba(5, 7, 12, 0.92)",
-                          border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
+                          backgroundColor: "var(--bg-card)",
+                          border: `1px solid rgba(${leader.accentRgb}, 0.45)`,
                           backdropFilter: "blur(12px)",
                         }}
                       >
@@ -458,7 +538,10 @@ export default function TeamPage() {
                           className="w-1.5 h-1.5 rounded-full shrink-0 shadow-[0_0_8px_currentColor]"
                           style={{ background: leader.accent, color: leader.accent }}
                         />
-                        <span className="text-[11px] font-mono font-bold tracking-wider text-white uppercase">
+                        <span
+                          className="text-[11px] font-mono font-bold tracking-wider uppercase"
+                          style={{ color: "var(--text)" }}
+                        >
                           {leader.roleBadge}
                         </span>
                       </div>
@@ -469,8 +552,8 @@ export default function TeamPage() {
                   <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
                     <div className="mb-3">
                       <h3
-                        className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug group-hover:text-white transition-colors"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="text-xl sm:text-2xl font-bold tracking-tight leading-snug transition-colors"
+                        style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
                       >
                         {leader.name}
                       </h3>
@@ -480,12 +563,12 @@ export default function TeamPage() {
                       >
                         {leader.title}
                       </div>
-                      <div className="text-[11px] font-mono text-neutral-400 mt-0.5">
+                      <div className="text-[11px] font-mono mt-0.5" style={{ color: "var(--text-muted)" }}>
                         {leader.roleSubtitle}
                       </div>
                     </div>
 
-                    <p className="text-xs sm:text-[13px] text-neutral-300 leading-relaxed font-sans mb-5 flex-1">
+                    <p className="text-xs sm:text-[13px] leading-relaxed font-sans mb-5 flex-1" style={{ color: "var(--text-muted)" }}>
                       {leader.bio}
                     </p>
 
@@ -494,7 +577,12 @@ export default function TeamPage() {
                       {leader.skills.map((skill) => (
                         <span
                           key={skill}
-                          className="px-2.5 py-1 rounded-md text-[10.5px] font-mono text-neutral-300 bg-white/[0.04] border border-white/[0.08] hover:border-white/[0.2] transition-colors"
+                          className="px-2.5 py-1 rounded-md text-[10.5px] font-mono border transition-colors"
+                          style={{
+                            backgroundColor: "var(--theme-pill-bg)",
+                            borderColor: "var(--border)",
+                            color: "var(--text)",
+                          }}
                         >
                           {skill}
                         </span>
@@ -504,9 +592,9 @@ export default function TeamPage() {
                     {/* Footer */}
                     <div
                       className="pt-4 flex items-center justify-between gap-2 mt-auto"
-                      style={{ borderTop: "1px solid rgba(255, 255, 255, 0.08)" }}
+                      style={{ borderTop: "1px solid var(--border)" }}
                     >
-                      <div className="flex items-center gap-1.5 text-xs font-mono text-neutral-400 truncate min-w-0">
+                      <div className="flex items-center gap-1.5 text-xs font-mono truncate min-w-0" style={{ color: "var(--text-muted)" }}>
                         <FooterIcon
                           className="w-3.5 h-3.5 shrink-0"
                           style={{ color: leader.accent }}
@@ -519,10 +607,15 @@ export default function TeamPage() {
                           href={leader.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold text-neutral-200 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] transition-all shrink-0 hover:scale-105"
+                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold transition-all shrink-0 hover:scale-105"
+                          style={{
+                            backgroundColor: "var(--theme-pill-bg)",
+                            border: "1px solid var(--theme-pill-border)",
+                            color: "var(--text)",
+                          }}
                         >
                           <span>LinkedIn</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400" />
+                          <ArrowUpRight className="w-3.5 h-3.5" style={{ color: leader.accent }} />
                         </Link>
                       ) : (
                         <span
@@ -554,25 +647,44 @@ export default function TeamPage() {
       </section>
 
       {/* ── SECTION 05 — JOIN ASHMYRA (COMPACT CAREERS CTA) ─────────────────── */}
-      <section id="careers" className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-28">
+      <section
+        id="careers"
+        className="scroll-mt-28 lg:scroll-mt-36 relative py-20 sm:py-28 transition-colors"
+        style={{ backgroundColor: "var(--bg)" }}
+      >
         <div className="max-w-5xl mx-auto px-6 sm:px-8">
-          <div className="relative rounded-3xl p-8 sm:p-12 lg:p-16 bg-gradient-to-b from-indigo-950/30 via-white/[0.02] to-transparent border border-indigo-500/30 text-center overflow-hidden">
+          <div
+            className="relative rounded-3xl p-8 sm:p-12 lg:p-16 text-center overflow-hidden shadow-sm"
+            style={{
+              backgroundColor: "var(--bg-card)",
+              border: "1px solid var(--border)",
+            }}
+          >
             {/* Ambient subtle bloom */}
-            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-indigo-500/10 blur-3xl pointer-events-none" />
+            <div
+              className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 blur-3xl pointer-events-none opacity-20"
+              style={{ backgroundColor: "var(--accent)" }}
+            />
 
             <div className="relative z-10 max-w-2xl mx-auto space-y-6">
-              <span className="text-[11px] font-mono uppercase tracking-widest text-cyan-400 font-semibold block">
+              <span
+                className="text-[11px] font-mono uppercase tracking-widest font-semibold block"
+                style={{ color: "var(--accent)" }}
+              >
                 CAREERS &amp; TALENT
               </span>
 
               <h2
-                className="text-3xl sm:text-4xl font-bold text-white tracking-tight"
-                style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                className="text-3xl sm:text-4xl font-bold tracking-tight"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
               >
                 Want to Build What&apos;s Next With Us?
               </h2>
 
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+              <p
+                className="text-sm sm:text-base leading-relaxed font-sans"
+                style={{ color: "var(--text-muted)" }}
+              >
                 We&apos;re always interested in connecting with people who care about thoughtful
                 engineering, intelligent systems and meaningful technology.
               </p>
@@ -580,14 +692,23 @@ export default function TeamPage() {
               <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
                 <Link
                   href="/contact?intent=careers"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-black font-semibold text-xs shadow-lg shadow-cyan-500/25 transition-all group"
+                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-xs transition-all shadow-md hover:scale-[1.02] group"
+                  style={{
+                    backgroundColor: "var(--accent)",
+                    color: "#FFFFFF",
+                  }}
                 >
-                  <span>Connect With Ashmyra</span>
-                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+                  <span className="text-white font-bold">Connect With Ashmyra</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-neutral-200 hover:text-white font-medium text-xs border border-white/[0.08] hover:border-white/[0.15] transition-all"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-medium text-xs border transition-all hover:scale-[1.02]"
+                  style={{
+                    backgroundColor: "var(--theme-pill-bg)",
+                    borderColor: "var(--theme-pill-border)",
+                    color: "var(--text)",
+                  }}
                 >
                   <span>Start an Engineering Conversation</span>
                 </Link>

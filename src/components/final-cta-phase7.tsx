@@ -154,7 +154,14 @@ export function FinalCtaPhase7() {
                   className="flex items-start gap-3 p-3 rounded-xl transition-all"
                   style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-indigo-500/15 border border-indigo-500/30 flex items-center justify-center shrink-0 mt-0.5 text-indigo-400">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                    style={{
+                      background: "rgba(79, 70, 229, 0.15)",
+                      border: "1px solid rgba(79, 70, 229, 0.35)",
+                      color: "#4f46e5",
+                    }}
+                  >
                     <UserCheck className="w-4 h-4" />
                   </div>
                   <div>
@@ -171,7 +178,14 @@ export function FinalCtaPhase7() {
                   className="flex items-start gap-3 p-3 rounded-xl transition-all"
                   style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-cyan-500/15 border border-cyan-500/30 flex items-center justify-center shrink-0 mt-0.5 text-cyan-400">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                    style={{
+                      background: "rgba(2, 132, 199, 0.15)",
+                      border: "1px solid rgba(2, 132, 199, 0.35)",
+                      color: "#0284c7",
+                    }}
+                  >
                     <ShieldCheck className="w-4 h-4" />
                   </div>
                   <div>
@@ -188,7 +202,14 @@ export function FinalCtaPhase7() {
                   className="flex items-start gap-3 p-3 rounded-xl transition-all"
                   style={{ background: "var(--theme-pill-bg)", border: "1px solid var(--border)" }}
                 >
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center shrink-0 mt-0.5 text-emerald-400">
+                  <div
+                    className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                    style={{
+                      background: "rgba(5, 150, 105, 0.15)",
+                      border: "1px solid rgba(5, 150, 105, 0.35)",
+                      color: "#059669",
+                    }}
+                  >
                     <Clock className="w-4 h-4" />
                   </div>
                   <div>
@@ -269,29 +290,6 @@ export function FinalCtaPhase7() {
                 style={{ background: "var(--accent)" }}
               />
 
-              {/* Terminal Header Bar */}
-              <div
-                className="flex items-center justify-between pb-4 mb-6 border-b transition-colors"
-                style={{ borderColor: "var(--border)" }}
-              >
-                <div className="flex items-center gap-2">
-                  <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                  </div>
-                  <span
-                    className="text-[11px] font-mono font-semibold ml-2 tracking-wider"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    SYS_ID: ASHMYRA_INGEST_V2.4
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold">
-                  <Lock className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
-                  <span>256-BIT TLS ENCRYPTED</span>
-                </div>
-              </div>
 
               {submitted ? (
                 <div className="py-16 text-center space-y-4 animate-fadeIn">

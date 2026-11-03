@@ -30,8 +30,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/01-digital-experiences.mp4",
     posterSrc: "/videos/showreel/01-digital-experiences.jpg",
     duration: 6,
-    accent: "#818cf8",
-    accentGlow: "rgba(129, 140, 248, 0.35)",
+    accent: "#4f46e5",
+    accentGlow: "rgba(79, 70, 229, 0.35)",
   },
   {
     id: "mobile-engineering",
@@ -43,8 +43,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/02-mobile-engineering.mp4",
     posterSrc: "/videos/showreel/02-mobile-engineering.jpg",
     duration: 6,
-    accent: "#38bdf8",
-    accentGlow: "rgba(56, 189, 248, 0.35)",
+    accent: "#0284c7",
+    accentGlow: "rgba(2, 132, 199, 0.35)",
   },
   {
     id: "crm-platforms",
@@ -56,8 +56,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/03-crm-platforms.mp4",
     posterSrc: "/videos/showreel/03-crm-platforms.jpg",
     duration: 6,
-    accent: "#f43f5e",
-    accentGlow: "rgba(244, 63, 94, 0.35)",
+    accent: "#e11d48",
+    accentGlow: "rgba(225, 29, 72, 0.35)",
   },
   {
     id: "enterprise-saas",
@@ -69,8 +69,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/04-enterprise-saas.mp4",
     posterSrc: "/videos/showreel/04-enterprise-saas.jpg",
     duration: 6,
-    accent: "#a78bfa",
-    accentGlow: "rgba(167, 139, 250, 0.35)",
+    accent: "#7c3aed",
+    accentGlow: "rgba(124, 58, 237, 0.35)",
   },
   {
     id: "agentic-ai",
@@ -82,8 +82,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/05-agentic-ai.mp4",
     posterSrc: "/videos/showreel/05-agentic-ai.jpg",
     duration: 6,
-    accent: "#22d3ee",
-    accentGlow: "rgba(34, 211, 238, 0.35)",
+    accent: "#0891b2",
+    accentGlow: "rgba(8, 145, 178, 0.35)",
   },
   {
     id: "data-intelligence",
@@ -95,8 +95,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/06-data-intelligence.mp4",
     posterSrc: "/videos/showreel/06-data-intelligence.jpg",
     duration: 7,
-    accent: "#34d399",
-    accentGlow: "rgba(52, 211, 153, 0.35)",
+    accent: "#059669",
+    accentGlow: "rgba(5, 150, 105, 0.35)",
   },
   {
     id: "technology-ecosystem",
@@ -108,8 +108,8 @@ export const SHOWREEL_CLIPS: ShowreelClip[] = [
     videoSrc: "/videos/showreel/07-technology-ecosystem.mp4",
     posterSrc: "/videos/showreel/07-technology-ecosystem.jpg",
     duration: 5,
-    accent: "#fbbf24",
-    accentGlow: "rgba(251, 191, 36, 0.35)",
+    accent: "#d97706",
+    accentGlow: "rgba(217, 119, 6, 0.35)",
   },
 ];
 

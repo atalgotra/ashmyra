@@ -28,8 +28,8 @@ const LEADERS = [
       "Multi-Agent Systems",
       "Technical Architecture",
     ],
-    accent: "#818cf8",
-    accentRgb: "129, 140, 248",
+    accent: "#4f46e5",
+    accentRgb: "79, 70, 229",
     photo: "/team/ashish-talgotra.jpg",
     monogram: null,
     photoPosition: "object-[center_20%]",
@@ -50,8 +50,8 @@ const LEADERS = [
       "Technical Execution",
       "System Resilience",
     ],
-    accent: "#a78bfa",
-    accentRgb: "168, 85, 247",
+    accent: "#7c3aed",
+    accentRgb: "124, 58, 237",
     photo: "/team/prince-rehan.jpg",
     monogram: null,
     photoPosition: "object-top",
@@ -72,8 +72,8 @@ const LEADERS = [
       "Team Well-being",
       "Happy Workplace",
     ],
-    accent: "#fb7185",
-    accentRgb: "251, 113, 133",
+    accent: "#e11d48",
+    accentRgb: "225, 29, 72",
     photo: "/team/bella.png",
     monogram: null,
     photoPosition: "object-top",
@@ -210,10 +210,10 @@ export function PeopleSection() {
                   {/* Top Right: High-Contrast Role Badge */}
                   <div className="absolute top-4 right-4 z-10">
                     <div
-                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-md"
+                      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-md transition-colors"
                       style={{
-                        background: "rgba(0, 0, 0, 0.75)",
-                        border: `1px solid rgba(${leader.accentRgb}, 0.5)`,
+                        backgroundColor: "var(--bg-card)",
+                        border: `1px solid rgba(${leader.accentRgb}, 0.45)`,
                         backdropFilter: "blur(12px)",
                       }}
                     >
@@ -221,7 +221,10 @@ export function PeopleSection() {
                         className="w-1.5 h-1.5 rounded-full shrink-0 shadow-[0_0_8px_currentColor]"
                         style={{ background: leader.accent, color: leader.accent }}
                       />
-                      <span className="text-[11px] font-mono font-bold tracking-wider text-white uppercase">
+                      <span
+                        className="text-[11px] font-mono font-bold tracking-wider uppercase"
+                        style={{ color: "var(--text)" }}
+                      >
                         {leader.roleBadge}
                       </span>
                     </div>
@@ -287,10 +290,15 @@ export function PeopleSection() {
                         href={leader.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold text-neutral-200 hover:text-white bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.12] transition-all shrink-0 hover:scale-105"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold transition-all shrink-0 hover:scale-105"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--theme-pill-border)",
+                          color: "var(--text)",
+                        }}
                       >
                         <span>LinkedIn</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-indigo-400" />
+                        <ArrowUpRight className="w-3.5 h-3.5" style={{ color: leader.accent }} />
                       </Link>
                     ) : (
                       <span

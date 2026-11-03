@@ -226,8 +226,8 @@ export function Footer() {
             </div>
             <ul className="space-y-2.5 text-sm font-sans">
               <li>
-                <Link href="/our-work" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Our Work (Case Studies)</span>
+                <Link href="/demos" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Interactive Demos</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
               </li>
@@ -238,7 +238,7 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/team" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                <Link href="/team#team" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Our Team</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
                 </Link>
@@ -278,8 +278,8 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/our-work#engineering-principles" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
-                  <span>Engineering Principles</span>
+                <Link href="/team#philosophy" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
+                  <span>Engineering Philosophy</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-emerald-400" />
                 </Link>
               </li>

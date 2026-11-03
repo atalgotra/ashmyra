@@ -85,7 +85,7 @@ export function SelectedWorkPhase7() {
           </div>
 
           <Link
-            href="/our-work"
+            href="/demos"
             className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-neutral-300 hover:text-white transition-colors uppercase tracking-wider"
           >
             <span>View All Implementations</span>

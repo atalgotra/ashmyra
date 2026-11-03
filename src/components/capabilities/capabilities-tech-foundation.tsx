@@ -97,14 +97,14 @@ export function CapabilitiesTechFoundation() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-cyan-500/30 bg-cyan-500/[0.05] text-[11px] font-mono tracking-wider text-cyan-400 uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase mb-4 font-semibold" style={{ backgroundColor: "rgba(2, 132, 199, 0.1)", border: "1px solid var(--border)", color: "#0284c7" }}>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ backgroundColor: "#0284c7" }} />
             ENGINEERING STACK & FOUNDATION
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
             Structured for Production Reliability.
           </h2>
-          <p className="mt-5 text-base sm:text-lg text-slate-400 leading-relaxed font-light">
+          <p className="mt-5 text-base sm:text-lg leading-relaxed font-light" style={{ color: "var(--text-muted)" }}>
             Every tool in our engineering ecosystem is chosen for enterprise stability, strict concurrency, and maintainability. We don't chase transient trends—we build with proven, verified technologies.
           </p>
         </div>
@@ -120,36 +120,37 @@ export function CapabilitiesTechFoundation() {
               <div
                 key={item.discipline}
                 id={cardId}
-                className="group relative rounded-2xl border border-white/[0.08] bg-[#0A0D18]/90 hover:bg-[#0C1020] p-6 sm:p-8 transition-all duration-300 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/[0.03] scroll-mt-28"
+                className="group relative rounded-2xl p-6 sm:p-8 transition-all duration-300 hover:scale-[1.01] scroll-mt-28"
+                style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
               >
                 {/* Header of Card */}
-                <div className="flex items-start justify-between gap-4 mb-6 pb-5 border-b border-white/[0.06]">
+                <div className="flex items-start justify-between gap-4 mb-6 pb-5" style={{ borderBottom: "1px solid var(--border)" }}>
                   <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-xl bg-white/[0.04] border border-white/[0.08] flex items-center justify-center text-cyan-400 group-hover:scale-105 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all duration-300">
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-300" style={{ backgroundColor: "rgba(2, 132, 199, 0.1)", border: "1px solid var(--border)", color: "#0284c7" }}>
                       <Icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-mono tracking-wider text-cyan-400 uppercase font-medium">
+                      <span className="text-[10px] font-mono tracking-wider uppercase font-semibold" style={{ color: "#0284c7" }}>
                         {item.discipline}
                       </span>
-                      <h3 className="text-lg font-semibold text-white tracking-tight mt-0.5">
+                      <h3 className="text-lg font-bold tracking-tight mt-0.5" style={{ color: "var(--text)" }}>
                         {item.category}
                       </h3>
                     </div>
                   </div>
-                  <span className="text-[10px] font-mono text-slate-400 bg-white/[0.04] px-2.5 py-1 rounded-md border border-white/[0.06]">
+                  <span className="text-[10px] font-mono font-medium px-2.5 py-1 rounded-md" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text-muted)" }}>
                     {item.badge}
                   </span>
                 </div>
 
                 {/* Architecture Role Description */}
-                <p className="text-sm text-slate-400 leading-relaxed mb-6 font-light">
+                <p className="text-sm leading-relaxed mb-6 font-normal" style={{ color: "var(--text-muted)" }}>
                   {item.description}
                 </p>
 
                 {/* Technology List (Restrained Editorial Rows) */}
                 <div className="space-y-3">
-                  <div className="text-[10px] font-mono text-slate-300 uppercase tracking-wider mb-2">
+                  <div className="text-[10px] font-mono uppercase tracking-wider mb-2 font-semibold" style={{ color: "var(--text-muted)" }}>
                     Verified Capabilities
                   </div>
                   {item.technologies.map((tech) => {
@@ -163,15 +164,16 @@ export function CapabilitiesTechFoundation() {
                       <div
                         key={tech.name}
                         id={anchorId}
-                        className={`flex items-start justify-between gap-3 p-2.5 rounded-lg bg-white/[0.02] border border-white/[0.04] group-hover:border-white/[0.08] transition-colors ${anchorId ? "scroll-mt-28" : ""}`}
+                        className={`flex items-start justify-between gap-3 p-2.5 rounded-lg transition-colors ${anchorId ? "scroll-mt-28" : ""}`}
+                        style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}
                       >
                         <div className="flex items-start gap-2.5 min-w-0">
-                          <CheckCircle2 className="w-4 h-4 text-cyan-400/80 shrink-0 mt-0.5" />
+                          <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" style={{ color: "#0284c7" }} />
                           <div className="min-w-0">
-                            <span className="text-xs font-medium text-slate-200 block truncate">
+                            <span className="text-xs font-semibold block truncate" style={{ color: "var(--text)" }}>
                               {tech.name}
                             </span>
-                            <span className="text-[11px] text-slate-300 block truncate font-light">
+                            <span className="text-[11px] block truncate font-normal" style={{ color: "var(--text-muted)" }}>
                               {tech.description}
                             </span>
                           </div>

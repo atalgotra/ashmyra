@@ -77,22 +77,23 @@ export function CapabilitiesProcess() {
     <section 
       id="engineering-process"
       ref={containerRef}
-      className="relative py-16 sm:py-20 bg-[#04060B] border-t border-white/[0.06] overflow-hidden scroll-mt-36"
+      className="relative py-16 sm:py-20 overflow-hidden scroll-mt-36"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)", borderTop: "1px solid var(--border)" }}
     >
       {/* Background Accent */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(99,102,241,0.06),transparent_60%)] pointer-events-none" />
+      <div className="absolute inset-0 opacity-10 pointer-events-none" style={{ background: "radial-gradient(circle at bottom left, var(--accent, #4f46e5), transparent 60%)" }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-indigo-500/30 bg-indigo-500/[0.05] text-[11px] font-mono tracking-wider text-indigo-400 uppercase mb-4">
-            <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-mono tracking-wider uppercase mb-4 font-semibold" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
+            <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent, #4f46e5)" }} />
             ENGINEERING LIFECYCLE
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-white leading-[1.15]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-[1.15]" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
             How We Take Systems From Idea to Production.
           </h2>
-          <p className="mt-5 text-base sm:text-lg text-slate-400 leading-relaxed font-light">
+          <p className="mt-5 text-base sm:text-lg leading-relaxed font-light" style={{ color: "var(--text-muted)" }}>
             A disciplined, six-stage engineering methodology designed to mitigate technical debt, validate assumptions early, and deliver durable software systems.
           </p>
         </div>
@@ -104,42 +105,43 @@ export function CapabilitiesProcess() {
             return (
               <div
                 key={stage.step}
-                className="group relative rounded-2xl border border-white/[0.07] bg-[#0A0D18]/80 hover:bg-[#0D1222] p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:border-indigo-500/30 hover:shadow-xl hover:shadow-indigo-500/[0.02]"
+                className="group relative rounded-2xl p-6 sm:p-7 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01]"
+                style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
               >
                 <div>
                   {/* Step Number & Icon */}
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-3xl sm:text-4xl font-mono font-bold text-white/10 group-hover:text-indigo-400/30 transition-colors">
+                    <span className="text-3xl sm:text-4xl font-mono font-extrabold opacity-40 transition-colors" style={{ color: "var(--text-muted)" }}>
                       {stage.step}
                     </span>
-                    <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-slate-300 group-hover:text-indigo-400 group-hover:bg-indigo-500/10 group-hover:border-indigo-500/30 transition-all">
+                    <div className="w-10 h-10 rounded-xl flex items-center justify-center transition-all" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
                       <Icon className="w-5 h-5" />
                     </div>
                   </div>
 
                   {/* Title & Tagline */}
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-400 font-medium">
+                  <span className="text-[10px] font-mono uppercase tracking-wider font-semibold" style={{ color: "var(--accent, #4f46e5)" }}>
                     {stage.tagline}
                   </span>
-                  <h3 className="text-lg font-semibold text-white tracking-tight mt-1 mb-3">
+                  <h3 className="text-lg font-bold tracking-tight mt-1 mb-3" style={{ color: "var(--text)" }}>
                     {stage.name}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-sm text-slate-400 leading-relaxed font-light mb-6">
+                  <p className="text-sm leading-relaxed font-normal mb-6" style={{ color: "var(--text-muted)" }}>
                     {stage.description}
                   </p>
                 </div>
 
                 {/* Deliverables Checklist */}
-                <div className="pt-4 border-t border-white/[0.05]">
-                  <span className="text-[10px] font-mono text-slate-300 uppercase tracking-wider block mb-2">
+                <div className="pt-4" style={{ borderTop: "1px solid var(--border)" }}>
+                  <span className="text-[10px] font-mono uppercase tracking-wider block mb-2 font-semibold" style={{ color: "var(--text-muted)" }}>
                     Key Outputs
                   </span>
                   <ul className="space-y-1.5">
                     {stage.deliverables.map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-xs text-slate-400">
-                        <span className="w-1 h-1 rounded-full bg-indigo-400/80" />
+                      <li key={item} className="flex items-center gap-2 text-xs" style={{ color: "var(--text-muted)" }}>
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent, #4f46e5)" }} />
                         <span>{item}</span>
                       </li>
                     ))}

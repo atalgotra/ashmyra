@@ -96,9 +96,9 @@ export default async function ArticleDetailPage({
         </div>
 
         {/* Article Header */}
-        <header className="mb-12 border-b border-white/[0.08] pb-10">
-          <div className="flex items-center gap-3 text-xs font-mono text-neutral-400 mb-4">
-            <span className="px-2.5 py-0.5 rounded-full bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">
+        <header className="mb-12 pb-10" style={{ borderBottom: "1px solid var(--border)" }}>
+          <div className="flex items-center gap-3 text-xs font-mono mb-4" style={{ color: "var(--text-muted)" }}>
+            <span className="px-2.5 py-0.5 rounded-full font-semibold" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
               {article.category}
             </span>
             <span>&bull;</span>
@@ -110,29 +110,29 @@ export default async function ArticleDetailPage({
             <span>{article.date}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight leading-tight" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
             {article.title}
           </h1>
 
-          <p className="mt-6 text-base sm:text-lg text-neutral-300 leading-relaxed font-normal">
+          <p className="mt-6 text-base sm:text-lg leading-relaxed font-normal" style={{ color: "var(--text-muted)" }}>
             {article.summary}
           </p>
 
-          <div className="mt-6 flex items-center justify-between pt-6 border-t border-white/[0.05] text-xs text-neutral-500 font-mono">
+          <div className="mt-6 flex items-center justify-between pt-6 text-xs font-mono" style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}>
             <span>Published by Ashmyra Engineering Research</span>
-            <span>Domain: ashmyra.com</span>
+            <span className="font-semibold" style={{ color: "var(--accent, #4f46e5)" }}>ashmyra.com</span>
           </div>
         </header>
 
         {/* Article Body */}
-        <div className="space-y-10 text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+        <div className="space-y-10 text-sm sm:text-base leading-relaxed font-sans" style={{ color: "var(--text-muted)" }}>
           {article.sections.map((section, index) => (
             <section key={index} className="space-y-4">
-              <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight" style={{ color: "var(--text)" }}>
                 {section.heading}
               </h2>
               {section.paragraphs.map((p, pIdx) => (
-                <p key={pIdx} className="leading-relaxed text-neutral-300">
+                <p key={pIdx} className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
                   {p}
                 </p>
               ))}
@@ -141,16 +141,17 @@ export default async function ArticleDetailPage({
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-16 p-8 rounded-3xl bg-indigo-950/20 border border-indigo-500/30 text-center">
-          <h3 className="text-xl font-bold text-white mb-2">
+        <div className="mt-16 p-8 rounded-3xl text-center" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
+          <h3 className="text-xl font-bold mb-2" style={{ color: "var(--text)" }}>
             Explore how Ashmyra can help implement these principles in your stack
           </h3>
-          <p className="text-xs sm:text-sm text-neutral-400 max-w-lg mx-auto mb-6">
+          <p className="text-xs sm:text-sm max-w-lg mx-auto mb-6" style={{ color: "var(--text-muted)" }}>
             Our systems engineers design and deploy tailored architectures for modern teams.
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold text-xs shadow-lg transition-all hover:scale-105"
+            style={{ backgroundColor: "var(--accent, #4f46e5)" }}
           >
             <span>Talk to an Architect</span>
             <ArrowRight className="w-4 h-4" />

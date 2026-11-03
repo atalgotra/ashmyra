@@ -144,22 +144,6 @@ export const MAIN_NAV: NavSection[] = [
     })),
   },
   {
-    title: "Our Work",
-    href: "/our-work",
-    items: [
-      {
-        title: "Case Studies",
-        href: "/our-work#case-studies",
-        description: "Technical breakdowns of complex enterprise systems and production architectures.",
-      },
-      {
-        title: "Engineering Approach",
-        href: "/our-work#engineering-principles",
-        description: "Our architectural standards for workflow reliability, data integrity, and security.",
-      },
-    ],
-  },
-  {
     title: "Blog",
     href: "/blog",
     items: [
@@ -191,7 +175,7 @@ export const MAIN_NAV: NavSection[] = [
     items: [
       {
         title: "Our Team & Leadership",
-        href: "/team",
+        href: "/team#team",
         description: "Founding architects, engineering leadership, and the people behind Ashmyra.",
         category: "company",
       },

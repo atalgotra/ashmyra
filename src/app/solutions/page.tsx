@@ -35,7 +35,9 @@ export default function SolutionsPage() {
       {/* ── 1. CINEMATIC FULL-WIDTH HERO WITH 3D HOLOGRAPHIC ARCHITECTURE BLUEPRINT ── */}
       <section
         aria-label="Solutions Hero"
-        className="relative w-full min-h-[640px] sm:min-h-[720px] lg:min-h-[760px] flex flex-col justify-center items-center pt-32 pb-24 sm:pt-40 sm:pb-32 text-center overflow-hidden transition-colors duration-300"
+        data-dark-chassis="true"
+        className="relative w-full min-h-[720px] sm:min-h-[800px] lg:min-h-[860px] flex flex-col justify-center items-center pt-32 pb-44 sm:pt-40 sm:pb-56 text-center overflow-hidden transition-colors duration-300"
+        style={{ background: "#05070e" }}
       >
         {/* Full-bleed 3D Holographic Architecture Backdrop Image */}
         <div className="absolute inset-0 pointer-events-none z-0">
@@ -46,21 +48,22 @@ export default function SolutionsPage() {
             priority
             quality={95}
             sizes="100vw"
-            className="object-cover object-center scale-105 opacity-15 dark:opacity-90 transition-opacity duration-500"
+            className="object-cover object-center scale-105 opacity-85 transition-opacity duration-500"
           />
-          {/* Theme-aware smooth scrims for seamless edge blend & crystal-clear text readability */}
+          {/* Subtle radial center vignette to ensure text readability while keeping full holographic visibility */}
           <div
-            className="absolute inset-0 transition-opacity duration-300"
+            className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom, var(--bg) 0%, transparent 25%, transparent 75%, var(--bg) 100%)",
+                "radial-gradient(ellipse 75% 70% at 50% 48%, rgba(5, 7, 14, 0.6) 0%, rgba(5, 7, 14, 0.85) 100%)",
             }}
           />
+          {/* Smooth non-linear bottom edge blend into the page canvas */}
           <div
-            className="absolute inset-0 transition-opacity duration-300"
+            className="absolute inset-x-0 bottom-0 h-72 sm:h-96 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to right, var(--bg) 0%, transparent 25%, transparent 75%, var(--bg) 100%)",
+                "linear-gradient(to bottom in oklab, transparent 0%, color-mix(in oklab, var(--bg) 4%, transparent) 20%, color-mix(in oklab, var(--bg) 16%, transparent) 40%, color-mix(in oklab, var(--bg) 42%, transparent) 65%, color-mix(in oklab, var(--bg) 75%, transparent) 85%, var(--bg) 100%)",
             }}
           />
         </div>
@@ -79,19 +82,19 @@ export default function SolutionsPage() {
           <div
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-6 shadow-sm backdrop-blur-md transition-colors"
             style={{
-              backgroundColor: "var(--theme-pill-bg)",
-              border: "1px solid var(--theme-pill-border)",
-              color: "var(--accent)",
+              backgroundColor: "rgba(212, 175, 55, 0.12)",
+              border: "1px solid rgba(212, 175, 55, 0.3)",
+              color: "#E6C665",
             }}
           >
-            <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
+            <Sparkles className="w-3.5 h-3.5 text-[#E6C665]" />
             <span>BUSINESS SOLUTIONS</span>
           </div>
 
           {/* Main Title */}
           <h1
-            className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.15]"
-            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight max-w-4xl mx-auto leading-[1.15] text-white"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "#FFFFFF" }}
           >
             Intelligent Solutions. Built for Your Business.
           </h1>
@@ -101,7 +104,7 @@ export default function SolutionsPage() {
             className="mt-3 text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight"
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
-              background: "var(--hero-headline-gradient)",
+              background: "linear-gradient(135deg, #FAF7F2 0%, #D4AF37 50%, #C5A059 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               backgroundClip: "text",
@@ -112,8 +115,8 @@ export default function SolutionsPage() {
 
           {/* Body Paragraph */}
           <p
-            className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto font-normal"
-            style={{ color: "var(--text-muted)" }}
+            className="mt-6 text-sm sm:text-base lg:text-lg leading-relaxed max-w-3xl mx-auto font-normal text-slate-200"
+            style={{ color: "rgba(226, 232, 240, 0.9)" }}
           >
             Whether you&apos;re launching a SaaS product, streamlining growing business operations, or modernising enterprise systems, Ashmyra engineers intelligent solutions aligned with your business goals.
           </p>
@@ -121,48 +124,40 @@ export default function SolutionsPage() {
           {/* 3 Metric Cards */}
           <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3.5 sm:gap-4 max-w-3xl mx-auto">
             <div
-              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-lg transition-colors"
+              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-xl transition-all duration-300 hover:border-cyan-500/40"
               style={{
-                backgroundColor: "var(--bg-card)",
-                borderColor: "var(--border)",
-                color: "var(--text)",
+                backgroundColor: "rgba(10, 15, 29, 0.75)",
+                borderColor: "rgba(255, 255, 255, 0.12)",
+                color: "#FFFFFF",
               }}
             >
-              <Layers className="w-5 h-5" style={{ color: "var(--accent-cyan)" }} />
-              <span className="font-semibold text-xs sm:text-sm tracking-tight">7 Solution Areas</span>
+              <Layers className="w-5 h-5 text-cyan-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight text-white">7 Solution Areas</span>
             </div>
             <div
-              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-lg transition-colors"
+              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-xl transition-all duration-300 hover:border-emerald-500/40"
               style={{
-                backgroundColor: "var(--bg-card)",
-                borderColor: "var(--border)",
-                color: "var(--text)",
+                backgroundColor: "rgba(10, 15, 29, 0.75)",
+                borderColor: "rgba(255, 255, 255, 0.12)",
+                color: "#FFFFFF",
               }}
             >
-              <ShieldCheck className="w-5 h-5" style={{ color: "var(--accent-emerald)" }} />
-              <span className="font-semibold text-xs sm:text-sm tracking-tight">Security by Design</span>
+              <ShieldCheck className="w-5 h-5 text-emerald-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight text-white">Security by Design</span>
             </div>
             <div
-              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-lg transition-colors"
+              className="flex items-center justify-center gap-3 px-5 py-3.5 rounded-2xl border backdrop-blur-md shadow-xl transition-all duration-300 hover:border-amber-500/40"
               style={{
-                backgroundColor: "var(--bg-card)",
-                borderColor: "var(--border)",
-                color: "var(--text)",
+                backgroundColor: "rgba(10, 15, 29, 0.75)",
+                borderColor: "rgba(255, 255, 255, 0.12)",
+                color: "#FFFFFF",
               }}
             >
-              <Cloud className="w-5 h-5" style={{ color: "var(--accent)" }} />
-              <span className="font-semibold text-xs sm:text-sm tracking-tight">Flexible Deployment</span>
+              <Cloud className="w-5 h-5 text-amber-400" />
+              <span className="font-semibold text-xs sm:text-sm tracking-tight text-white">Flexible Deployment</span>
             </div>
           </div>
         </div>
-
-        {/* Soft bottom edge transition to next section */}
-        <div
-          className="absolute inset-x-0 bottom-0 h-32 pointer-events-none z-10 transition-colors"
-          style={{
-            background: "linear-gradient(to top, var(--bg), transparent)",
-          }}
-        />
       </section>
 
       {/* ── 2. DUAL-COLUMN GSAP VIDEO SHOWCASE (OPTION B) ─────────── */}

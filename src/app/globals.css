@@ -26,6 +26,10 @@
   --accent-emerald:#2E7D32;
   --accent-rose:   #C2410C;
 
+  --nav-col-ai:      #4338CA;
+  --nav-col-software:#0369A1;
+  --nav-col-data:    #047857;
+
   --text:          #1A1510;
   --text-muted:    #5A4F42;
   --text-subtle:   #8C7E6C;
@@ -65,6 +69,10 @@
   --accent-emerald:#10b981;
   --accent-rose:   #f43f5e;
 
+  --nav-col-ai:      #A78BFA;
+  --nav-col-software:#38BDF8;
+  --nav-col-data:    #34D399;
+
   --text:          #f1f5f9;
   --text-muted:    #94a3b8;
   --text-subtle:   #475569;
@@ -100,6 +108,10 @@
   --accent-emerald:#059669;
   --accent-rose:   #BE123C;
 
+  --nav-col-ai:      #5B21B6;
+  --nav-col-software:#9A3412;
+  --nav-col-data:    #065F46;
+
   --text:          #241C18;
   --text-muted:    #5A4941;
   --text-subtle:   #87746B;
@@ -134,6 +146,10 @@
   --accent-violet: #6366F1;
   --accent-emerald:#10B981;
   --accent-rose:   #E11D48;
+
+  --nav-col-ai:      #4338CA;
+  --nav-col-software:#0284C7;
+  --nav-col-data:    #047857;
 
   --text:          #0F172A;
   --text-muted:    #475569;
@@ -209,15 +225,15 @@ body {
 [data-theme="copper"],
 [data-theme="platinum"] {
   /* 1. Main Canvas & Section Backgrounds (Case-insensitive match for all dark bg hex classes 02-07) */
-  section:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  main:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  div[class*="min-h-screen"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#02" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#03" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#04" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#05" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#06" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#07" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  section:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  main:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  div[class*="min-h-screen"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#02" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#03" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#04" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#05" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#06" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#07" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
   .bg-black\/60,
   .bg-black\/50,
   .bg-black\/40 {
@@ -226,14 +242,14 @@ body {
   }
 
   /* 2. Elevated Cards, Modals, Panels & Surfaces (Case-insensitive match for dark bg hex classes 08-11) */
-  [class*="bg-[#08" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#09" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#0a" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#0b" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#0c" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#0d" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#10" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="bg-[#11" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="bg-[#08" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#09" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#0a" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#0b" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#0c" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#0d" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#10" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="bg-[#11" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
   .bg-neutral-900\/40,
   .bg-neutral-900\/50,
   .bg-neutral-900\/30,
@@ -245,21 +261,21 @@ body {
   }
 
   /* 2b. Strip Dark Linear Gradients from Cards on Light Themes */
-  [class*="from-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="via-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="to-[#0" i]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-indigo-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-indigo-900"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-cyan-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-red-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-rose-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-amber-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-emerald-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-purple-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-orange-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="from-sky-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="to-neutral-950"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
-  [class*="to-neutral-900"]:not(.dark-media-chassis):not([data-dark-chassis="true"]),
+  [class*="from-[#0" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="via-[#0" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="to-[#0" i]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-indigo-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-indigo-900"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-cyan-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-red-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-rose-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-amber-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-emerald-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-purple-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-orange-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="from-sky-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="to-neutral-950"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
+  [class*="to-neutral-900"]:not(:is(.dark-media-chassis, [data-dark-chassis="true"], .dark-media-chassis *, [data-dark-chassis="true"] *)),
   .solution-cinematic-card {
     background-image: none !important;
     background-color: var(--bg-card) !important;
@@ -312,6 +328,37 @@ body {
   [data-dark-chassis="true"] {
     background: #06080e !important;
     color: #FFFFFF !important;
+  }
+
+  .dark-media-chassis [class*="bg-[#0a" i],
+  [data-dark-chassis="true"] [class*="bg-[#0a" i] {
+    background-color: #0a0f1d !important;
+  }
+
+  .dark-media-chassis [class*="bg-[#07" i],
+  [data-dark-chassis="true"] [class*="bg-[#07" i] {
+    background-color: #070a14 !important;
+  }
+
+  .dark-media-chassis .bg-black,
+  [data-dark-chassis="true"] .bg-black {
+    background-color: #000000 !important;
+  }
+
+  .dark-media-chassis video,
+  [data-dark-chassis="true"] video {
+    display: block !important;
+    opacity: 0.9 !important;
+  }
+
+  /* Protect video gradient overlays from ever being filled with solid opaque card color */
+  .dark-media-chassis [class*="from-[#0" i],
+  [data-dark-chassis="true"] [class*="from-[#0" i],
+  .dark-media-chassis [class*="via-[#0" i],
+  [data-dark-chassis="true"] [class*="via-[#0" i],
+  .dark-media-chassis [class*="to-[#0" i],
+  [data-dark-chassis="true"] [class*="to-[#0" i] {
+    background-color: transparent !important;
   }
 
   .dark-media-chassis .text-white,

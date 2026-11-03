@@ -235,16 +235,29 @@ export function SolutionsCinematicShowcase() {
       {/* ── STICKY QUICK-NAVIGATION & CATEGORY FILTER BAR ── */}
       <div className="sticky top-20 z-30 mb-14 px-4">
         <div className="max-w-7xl mx-auto">
-          <div className="p-2 sm:p-2.5 rounded-2xl bg-[#090d16]/90 backdrop-blur-xl border border-white/[0.1] shadow-2xl flex flex-wrap items-center justify-between gap-3">
+          <div
+            className="p-2 sm:p-2.5 rounded-2xl backdrop-blur-xl border shadow-xl flex flex-wrap items-center justify-between gap-3 transition-colors duration-300"
+            style={{
+              backgroundColor: "var(--bg-card)",
+              borderColor: "var(--border)",
+            }}
+          >
             {/* Left: Category Scope Switcher */}
-            <div className="flex items-center gap-1.5 p-1 rounded-xl bg-white/[0.04] border border-white/[0.06]">
+            <div
+              className="flex items-center gap-1.5 p-1 rounded-xl transition-colors"
+              style={{
+                backgroundColor: "var(--bg)",
+                border: "1px solid var(--border)",
+              }}
+            >
               <button
                 onClick={() => setActiveCategory("all")}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeCategory === "all"
                     ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "text-neutral-400 hover:text-white"
+                    : "hover:opacity-100"
                 }`}
+                style={activeCategory !== "all" ? { color: "var(--text-muted)" } : undefined}
               >
                 All 7 Solutions
               </button>
@@ -253,8 +266,9 @@ export function SolutionsCinematicShowcase() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeCategory === "company-stage"
                     ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "text-neutral-400 hover:text-white"
+                    : "hover:opacity-100"
                 }`}
+                style={activeCategory !== "company-stage" ? { color: "var(--text-muted)" } : undefined}
               >
                 By Company Scale
               </button>
@@ -263,8 +277,9 @@ export function SolutionsCinematicShowcase() {
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
                   activeCategory === "role"
                     ? "bg-indigo-600 text-white shadow-md shadow-indigo-600/30"
-                    : "text-neutral-400 hover:text-white"
+                    : "hover:opacity-100"
                 }`}
+                style={activeCategory !== "role" ? { color: "var(--text-muted)" } : undefined}
               >
                 By Functional Team
               </button>
@@ -272,14 +287,18 @@ export function SolutionsCinematicShowcase() {
 
             {/* Right: Quick Jump Solutions Strip */}
             <div className="hidden xl:flex items-center gap-1.5 overflow-x-auto py-0.5">
-              <span className="text-[11px] font-mono text-neutral-500 uppercase tracking-wider mr-1">
+              <span
+                className="text-[11px] font-mono uppercase tracking-wider mr-1"
+                style={{ color: "var(--text-muted)" }}
+              >
                 Jump To:
               </span>
               {filteredSolutions.map((sol) => (
                 <button
                   key={sol.id}
                   onClick={() => scrollToSolution(sol.id)}
-                  className="px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium text-neutral-400 hover:text-cyan-300 hover:bg-white/[0.05] transition-all shrink-0"
+                  className="px-2.5 py-1 rounded-lg text-[11px] font-mono font-medium transition-all shrink-0 hover:text-indigo-400"
+                  style={{ color: "var(--text-muted)" }}
                 >
                   #{getShortName(sol.id)}
                 </button>
@@ -461,37 +480,6 @@ export function SolutionsCinematicShowcase() {
                     data-dark-chassis="true"
                     className="dark-media-chassis video-chassis group relative rounded-2xl p-2 sm:p-2.5 bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-black/60 border border-white/[0.15] shadow-2xl overflow-hidden backdrop-blur-md"
                   >
-                    {/* Simulated OS / Terminal Window Header */}
-                    <div className="flex items-center justify-between px-3 py-2 bg-[#090c14]/90 rounded-t-xl border-b border-white/[0.08] mb-1">
-                      <div className="flex items-center gap-1.5">
-                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-                        <span className="text-[10px] font-mono text-neutral-400 ml-2 truncate max-w-[140px] sm:max-w-[200px]">
-                          ashmyra://{sol.id}.engine
-                        </span>
-                      </div>
-
-                      <div className="flex items-center gap-2">
-                        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-[9px] font-mono text-emerald-300">
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          <span>60 FPS</span>
-                        </div>
-
-                        <button
-                          onClick={() => togglePlay(sol.id)}
-                          className="p-1 rounded hover:bg-white/[0.1] text-neutral-400 hover:text-white transition-colors"
-                          aria-label={playingStates[sol.id] ? "Pause Video" : "Play Video"}
-                        >
-                          {playingStates[sol.id] ? (
-                            <Pause className="w-3 h-3" />
-                          ) : (
-                            <Play className="w-3 h-3 fill-current" />
-                          )}
-                        </button>
-                      </div>
-                    </div>
-
                     {/* 16:9 Video Container with Rounded Mask */}
                     <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden bg-black">
                       <video
@@ -510,40 +498,32 @@ export function SolutionsCinematicShowcase() {
                       {/* Glass Glare Overlay */}
                       <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none" />
 
-                      {/* Bottom Live Telemetry Overlay Pill */}
-                      <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between gap-2 p-2 rounded-xl bg-[#070a12]/85 backdrop-blur-md border border-white/[0.12] text-white">
-                        <div className="flex items-center gap-2 min-w-0">
-                          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-ping shrink-0" />
-                          <div className="min-w-0">
-                            <span className="text-[10px] font-mono text-cyan-300 font-semibold block truncate">
-                              {sol.hudMetrics[0]?.label}: {sol.hudMetrics[0]?.value}
-                            </span>
-                            <span className="text-[9px] font-mono text-neutral-400 block truncate">
-                              {sol.hudMetrics[0]?.sublabel}
-                            </span>
-                          </div>
-                        </div>
-
-                        <div className="shrink-0 text-right">
-                          <span className="text-[9px] font-mono text-emerald-400 font-bold block">
-                            VERIFIED
-                          </span>
-                          <span className="text-[8px] font-mono text-neutral-400 block">
-                            99.9% Uptime
-                          </span>
-                        </div>
-                      </div>
+                      {/* Subtle Play/Pause Overlay Indicator on Hover */}
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          togglePlay(sol.id);
+                        }}
+                        className="absolute bottom-3 right-3 p-2 rounded-full bg-black/60 hover:bg-black/80 text-white/80 hover:text-white backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 transition-all duration-200 z-10"
+                        aria-label={playingStates[sol.id] ? "Pause Video" : "Play Video"}
+                      >
+                        {playingStates[sol.id] ? (
+                          <Pause className="w-3.5 h-3.5" />
+                        ) : (
+                          <Play className="w-3.5 h-3.5 fill-current" />
+                        )}
+                      </button>
                     </div>
 
                     {/* Secondary Metrics Bar Below Video */}
-                    <div className="grid grid-cols-2 gap-2 mt-2 pt-1 px-1">
-                      {sol.hudMetrics.slice(1, 3).map((metric, mi) => (
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-2 pt-1 px-1">
+                      {sol.hudMetrics.map((metric, mi) => (
                         <div
                           key={mi}
                           className="p-2 rounded-lg bg-white/[0.02] border border-white/[0.06] flex items-center justify-between"
                         >
-                          <div>
-                            <span className="text-[9px] font-mono text-neutral-400 block">
+                          <div className="min-w-0 pr-1">
+                            <span className="text-[9px] font-mono text-neutral-400 block truncate">
                               {metric.label}
                             </span>
                             <span className="text-[10px] font-mono text-white font-semibold block truncate">

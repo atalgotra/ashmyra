@@ -4,7 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import gsap from "gsap";
 import { Breadcrumb } from "@/components/breadcrumb";
-import { DEMO_PRODUCTS, DemoProduct } from "@/data/demos";
+import { DEMO_PRODUCTS, DemoProduct, getDemoUrlWithTheme } from "@/data/demos";
+import { useTheme } from "@/components/theme-provider";
 import {
   Mail,
   Target,
@@ -29,6 +30,7 @@ import {
 } from "lucide-react";
 
 export function ProductsCinematicHero() {
+  const { theme } = useTheme();
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
@@ -553,7 +555,7 @@ export function ProductsCinematicHero() {
               </a>
 
               <a
-                href={activeProduct.url}
+                href={getDemoUrlWithTheme(activeProduct.url, theme)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white border border-white/[0.12] hover:border-white/[0.25] font-semibold text-xs sm:text-[13px] transition-all"
@@ -684,7 +686,7 @@ export function ProductsCinematicHero() {
                   </span>
 
                   <a
-                    href={activeProduct.url}
+                    href={getDemoUrlWithTheme(activeProduct.url, theme)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-semibold text-white transition-all shadow-md hover:scale-[1.02]"
@@ -727,7 +729,7 @@ export function ProductsCinematicHero() {
                 {/* Mobile Sandbox Button */}
                 <div className="mt-2.5 pt-2 border-t border-white/[0.06] sm:hidden">
                   <a
-                    href={activeProduct.url}
+                    href={getDemoUrlWithTheme(activeProduct.url, theme)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full flex items-center justify-center gap-1.5 py-2 rounded-lg text-xs font-semibold text-white"

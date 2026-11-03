@@ -208,6 +208,67 @@ export function Navbar() {
     };
   };
 
+  // Rich metadata for solutions (icons, squircle styling)
+  const getSolutionMeta = (title: string) => {
+    const cls = "w-4 h-4";
+    const t = title.toLowerCase();
+
+    if (t.includes("workforce")) {
+      return {
+        icon: <Users className={cls} style={{ color: "#a78bfa" }} />,
+        bgColor: "rgba(167, 139, 250, 0.12)",
+        borderColor: "rgba(167, 139, 250, 0.28)",
+      };
+    }
+    if (t.includes("business operations") || t.includes("automation")) {
+      return {
+        icon: <Zap className={cls} style={{ color: "#fbbf24" }} />,
+        bgColor: "rgba(251, 191, 36, 0.12)",
+        borderColor: "rgba(251, 191, 36, 0.28)",
+      };
+    }
+    if (t.includes("revenue") || t.includes("sales")) {
+      return {
+        icon: <TrendingUp className={cls} style={{ color: "#06b6d4" }} />,
+        bgColor: "rgba(6, 182, 212, 0.12)",
+        borderColor: "rgba(6, 182, 212, 0.28)",
+      };
+    }
+    if (t.includes("generative search") || t.includes("growth")) {
+      return {
+        icon: <Search className={cls} style={{ color: "#38bdf8" }} />,
+        bgColor: "rgba(56, 189, 248, 0.12)",
+        borderColor: "rgba(56, 189, 248, 0.28)",
+      };
+    }
+    if (t.includes("logistics")) {
+      return {
+        icon: <Workflow className={cls} style={{ color: "#10b981" }} />,
+        bgColor: "rgba(16, 185, 129, 0.12)",
+        borderColor: "rgba(16, 185, 129, 0.28)",
+      };
+    }
+    if (t.includes("enterprise architecture & security") || t.includes("security")) {
+      return {
+        icon: <ShieldCheck className={cls} style={{ color: "#60a5fa" }} />,
+        bgColor: "rgba(96, 165, 250, 0.12)",
+        borderColor: "rgba(96, 165, 250, 0.28)",
+      };
+    }
+    if (t.includes("modernisation") || t.includes("startups")) {
+      return {
+        icon: <Layers className={cls} style={{ color: "#818cf8" }} />,
+        bgColor: "rgba(129, 140, 248, 0.12)",
+        borderColor: "rgba(129, 140, 248, 0.28)",
+      };
+    }
+    return {
+      icon: <ShieldCheck className={cls} style={{ color: "#c084fc" }} />,
+      bgColor: "rgba(192, 132, 252, 0.12)",
+      borderColor: "rgba(192, 132, 252, 0.28)",
+    };
+  };
+
   // Consistent icon resolver across all navigation categories
   const getIcon = (title: string) => {
     const cls = "w-4 h-4";
@@ -283,15 +344,13 @@ export function Navbar() {
       case "Capabilities":
         return "1160px";
       case "Products":
-        return "1020px";
+        return "760px";
       case "Solutions":
-        return "880px";
-      case "Our Work":
-        return "640px";
+        return "800px";
       case "Blog":
-        return "700px";
+        return "720px";
       case "Company":
-        return "580px";
+        return "600px";
       default:
         return "720px";
     }
@@ -480,359 +539,152 @@ export function Navbar() {
             role="menu"
             aria-label={`${activeDD} Mega Menu`}
           >
-            {/* 1. PRODUCTS MEGA-MENU */}
+            {/* 1. PRODUCTS DROPDOWN */}
             {activeDD === "Products" && (
               <div>
                 {/* Header */}
                 <div
-                  className="flex items-center justify-between pb-3.5 mb-4"
+                  className="flex items-center justify-between pb-2.5 mb-3"
                   style={{ borderBottom: "1px solid var(--border)" }}
                 >
-                  <div className="flex items-center gap-2.5">
+                  <div className="flex items-center gap-2">
                     <span className="flex h-2 w-2 relative">
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
                       <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
                     </span>
                     <span
-                      className="text-[11px] font-mono uppercase tracking-wider font-semibold"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      Verified Production Platforms <span className="opacity-40">•</span> 5 Live AI Systems
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <Link
-                      href="/products"
-                      onClick={() => setActiveDD(null)}
-                      className="text-[11px] font-mono flex items-center gap-1.5 transition-colors font-semibold group/sub"
+                      className="text-[11px] font-mono uppercase tracking-wider font-bold"
                       style={{ color: "var(--text)" }}
                     >
-                      <span>Explore All Products</span>
-                      <ArrowRight className="w-3.5 h-3.5 group-hover/sub:translate-x-0.5 transition-transform" />
-                    </Link>
-                    <span style={{ color: "var(--border-strong)" }}>|</span>
-                    <Link
-                      href="/demos"
-                      onClick={() => setActiveDD(null)}
-                      className="text-[11px] font-mono flex items-center gap-1.5 transition-colors font-semibold group/all"
-                      style={{ color: "var(--accent)" }}
-                    >
-                      <span>Interactive Sandboxes</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
-                    </Link>
+                      Production AI Platforms
+                    </span>
                   </div>
-                </div>
-
-                {/* Main Split Grid: 7 Cols Left (Products Grid) + 5 Cols Right (Interactive Sandboxes Showcase) */}
-                <div className="grid grid-cols-12 gap-4">
-                  {/* Left Column: 5 Products in 2-col arrangement + Custom Enterprise Deployment Card */}
-                  <div className="col-span-7 grid grid-cols-2 gap-2.5">
-                    {activeNavSection.items?.map((item) => {
-                      const meta = getProductMeta(item.title);
-                      return (
-                        <Link
-                          key={item.title}
-                          href={item.href}
-                          onClick={() => setActiveDD(null)}
-                          className="group/item flex flex-col justify-between p-3 rounded-xl transition-all duration-200"
-                          style={{
-                            backgroundColor: "var(--bg-card)",
-                            border: "1px solid var(--border)",
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border-strong)";
-                            e.currentTarget.style.backgroundColor = "var(--bg-card-hover)";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border)";
-                            e.currentTarget.style.backgroundColor = "var(--bg-card)";
-                          }}
-                        >
-                          <div>
-                            <div className="flex items-center justify-between mb-2">
-                              <div
-                                className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-105"
-                                style={{
-                                  backgroundColor: meta.bgColor,
-                                  border: `1px solid ${meta.borderColor}`,
-                                }}
-                              >
-                                {meta.icon}
-                              </div>
-                              <span
-                                className="text-[10px] font-mono px-2 py-0.5 rounded-full font-medium"
-                                style={{
-                                  backgroundColor: meta.badgeBg,
-                                  color: meta.badgeColor,
-                                  border: `1px solid ${meta.badgeBorder}`,
-                                }}
-                              >
-                                {item.badge || meta.pillText}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                              <span
-                                className="text-[13px] font-semibold transition-colors"
-                                style={{ color: "var(--text)" }}
-                              >
-                                {item.title}
-                              </span>
-                              <ExternalLink
-                                className="w-3 h-3 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-0.5 transition-all"
-                                style={{ color: "var(--accent)" }}
-                              />
-                            </div>
-                            <p
-                              className="text-[11.5px] mt-1 leading-snug line-clamp-2"
-                              style={{ color: "var(--text-muted)" }}
-                            >
-                              {item.description}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
-
-                    {/* 6th Slot: Enterprise VPC & Deployment Card */}
-                    <Link
-                      href="/contact"
-                      onClick={() => setActiveDD(null)}
-                      className="group/custom flex flex-col justify-between p-3 rounded-xl transition-all duration-200"
-                      style={{
-                        backgroundColor: "var(--theme-pill-bg)",
-                        border: "1px dashed var(--border-strong)",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.borderColor = "var(--accent)";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.borderColor = "var(--border-strong)";
-                      }}
-                    >
-                      <div>
-                        <div className="flex items-center justify-between mb-2">
-                          <div
-                            className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
-                            style={{
-                              backgroundColor: "var(--theme-pill-bg)",
-                              border: "1px solid var(--border)",
-                            }}
-                          >
-                            <Terminal className="w-4 h-4" style={{ color: "var(--accent)" }} />
-                          </div>
-                          <span
-                            className="text-[10px] font-mono px-2 py-0.5 rounded-full font-medium"
-                            style={{
-                              backgroundColor: "var(--bg-card)",
-                              color: "var(--text-muted)",
-                              border: "1px solid var(--border)",
-                            }}
-                          >
-                            Custom Build
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1.5">
-                          <span className="text-[13px] font-semibold" style={{ color: "var(--text)" }}>
-                            Custom AI Engine
-                          </span>
-                          <ArrowRight className="w-3 h-3 group-hover/custom:translate-x-0.5 transition-transform" style={{ color: "var(--accent)" }} />
-                        </div>
-                        <p className="text-[11.5px] mt-1 leading-snug" style={{ color: "var(--text-muted)" }}>
-                          Proprietary models and private agents engineered specifically for your enterprise stack.
-                        </p>
-                      </div>
-                    </Link>
-                  </div>
-
-                  {/* Right Column: Featured Interactive Live Sandboxes Showcase */}
-                  <div
-                    className="col-span-5 rounded-2xl p-4 flex flex-col justify-between relative overflow-hidden"
-                    style={{
-                      background: "linear-gradient(145deg, var(--bg-card) 0%, var(--theme-pill-bg) 100%)",
-                      border: "1px solid var(--border-strong)",
-                    }}
+                  <span
+                    className="text-[11px] font-mono font-medium"
+                    style={{ color: "var(--text-muted)" }}
                   >
-                    {/* Ambient Glow */}
-                    <div
-                      className="absolute -top-12 -right-12 w-32 h-32 rounded-full pointer-events-none blur-2xl opacity-20"
-                      style={{ background: "var(--accent)" }}
-                    />
-
-                    <div>
-                      {/* Top Pill */}
-                      <div className="flex items-center justify-between mb-2.5">
-                        <span
-                          className="inline-flex items-center gap-1.5 text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full font-semibold"
-                          style={{
-                            backgroundColor: "var(--theme-pill-bg)",
-                            color: "var(--accent)",
-                            border: "1px solid var(--border-glow)",
-                          }}
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                          Zero-Setup Runtime
-                        </span>
-                        <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>
-                          Real-time
-                        </span>
-                      </div>
-
-                      <h4 className="text-[14px] font-bold" style={{ color: "var(--text)" }}>
-                        Interactive Live Sandboxes
-                      </h4>
-                      <p className="text-[11.5px] mt-1 leading-snug" style={{ color: "var(--text-muted)" }}>
-                        Test and interact with all 5 platforms live with real workloads in your browser before committing.
-                      </p>
-
-                      {/* Quick Interactive Launch Row Items */}
-                      <div className="mt-3.5 space-y-2">
-                        <a
-                          href="https://mailflow.ashmyra.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/demo flex items-center justify-between p-2 rounded-lg transition-all"
-                          style={{
-                            backgroundColor: "var(--bg-card)",
-                            border: "1px solid var(--border)",
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border-strong)";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border)";
-                          }}
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <div
-                              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-                              style={{ backgroundColor: "rgba(129, 140, 248, 0.15)" }}
-                            >
-                              <Mail className="w-3.5 h-3.5" style={{ color: "#818cf8" }} />
-                            </div>
-                            <div className="truncate">
-                              <span className="text-[12px] font-semibold block leading-tight truncate" style={{ color: "var(--text)" }}>
-                                MailFlow Simulation
-                              </span>
-                              <span className="text-[10px] block font-mono" style={{ color: "var(--text-muted)" }}>
-                                Warmup & DNS health checks
-                              </span>
-                            </div>
-                          </div>
-                          <span
-                            className="text-[10px] font-mono px-2 py-0.5 rounded font-medium flex items-center gap-1 shrink-0 ml-2 group-hover/demo:scale-105 transition-transform"
-                            style={{
-                              backgroundColor: "var(--theme-pill-bg)",
-                              color: "var(--accent)",
-                              border: "1px solid var(--border)",
-                            }}
-                          >
-                            Launch <ExternalLink className="w-2.5 h-2.5" />
-                          </span>
-                        </a>
-
-                        <a
-                          href="https://prospectiq.ashmyra.com/"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="group/demo flex items-center justify-between p-2 rounded-lg transition-all"
-                          style={{
-                            backgroundColor: "var(--bg-card)",
-                            border: "1px solid var(--border)",
-                          }}
-                          onMouseEnter={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border-strong)";
-                          }}
-                          onMouseLeave={(e) => {
-                            e.currentTarget.style.borderColor = "var(--border)";
-                          }}
-                        >
-                          <div className="flex items-center gap-2.5 min-w-0">
-                            <div
-                              className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0"
-                              style={{ backgroundColor: "rgba(6, 182, 212, 0.15)" }}
-                            >
-                              <Target className="w-3.5 h-3.5" style={{ color: "#06b6d4" }} />
-                            </div>
-                            <div className="truncate">
-                              <span className="text-[12px] font-semibold block leading-tight truncate" style={{ color: "var(--text)" }}>
-                                Prospect IQ Waterfall
-                              </span>
-                              <span className="text-[10px] block font-mono" style={{ color: "var(--text-muted)" }}>
-                                Live ICP scraping pipeline
-                              </span>
-                            </div>
-                          </div>
-                          <span
-                            className="text-[10px] font-mono px-2 py-0.5 rounded font-medium flex items-center gap-1 shrink-0 ml-2 group-hover/demo:scale-105 transition-transform"
-                            style={{
-                              backgroundColor: "var(--theme-pill-bg)",
-                              color: "var(--accent)",
-                              border: "1px solid var(--border)",
-                            }}
-                          >
-                            Launch <ExternalLink className="w-2.5 h-2.5" />
-                          </span>
-                        </a>
-                      </div>
-                    </div>
-
-                    {/* Bottom CTA Button */}
-                    <div className="mt-4 pt-3" style={{ borderTop: "1px solid var(--border)" }}>
-                      <Link
-                        href="/demos"
-                        onClick={() => setActiveDD(null)}
-                        className="w-full py-2 px-3 rounded-xl text-center text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm group/btn"
-                        style={{
-                          backgroundColor: "var(--accent)",
-                          color: "var(--accent-foreground, #000)",
-                        }}
-                      >
-                        <span>Explore All 5 Demos</span>
-                        <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
-                      </Link>
-                    </div>
-                  </div>
+                    5 Verified Engines
+                  </span>
                 </div>
 
-                {/* Footer Command Bar */}
-                <div
-                  className="mt-4 pt-3.5 flex items-center justify-between text-[11px] px-1"
-                  style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
-                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>SOC2 Type II Ready</span>
-                    </span>
-                    <span className="opacity-30">•</span>
-                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
-                      <Server className="w-3.5 h-3.5 text-cyan-400" />
-                      <span>Dedicated VPC / GovCloud</span>
-                    </span>
-                    <span className="opacity-30">•</span>
-                    <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
-                      <Cpu className="w-3.5 h-3.5 text-indigo-400" />
-                      <span>Air-Gapped Bare Metal</span>
-                    </span>
-                  </div>
+                {/* Grid: 2 columns of clean, refined product tiles */}
+                <div className="grid grid-cols-2 gap-2.5">
+                  {activeNavSection.items?.map((item) => {
+                    const meta = getProductMeta(item.title);
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        onClick={() => setActiveDD(null)}
+                        className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
+                      >
+                        <div
+                          className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
+                          style={{
+                            backgroundColor: meta.bgColor,
+                            border: `1px solid ${meta.borderColor}`,
+                          }}
+                        >
+                          {meta.icon}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <div className="flex items-center justify-between gap-1.5">
+                            <span
+                              className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)] truncate"
+                              style={{ color: "var(--text)" }}
+                            >
+                              {item.title}
+                            </span>
+                            <span
+                              className="text-[9.5px] font-mono px-1.5 py-0.5 rounded-md font-medium shrink-0"
+                              style={{
+                                backgroundColor: meta.badgeBg,
+                                color: meta.badgeColor,
+                                border: `1px solid ${meta.badgeBorder}`,
+                              }}
+                            >
+                              {item.badge || meta.pillText}
+                            </span>
+                          </div>
+                          <p
+                            className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                            style={{ color: "var(--text-muted)" }}
+                          >
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+
+                  {/* 6th Slot: Custom AI Engine */}
                   <Link
                     href="/contact"
                     onClick={() => setActiveDD(null)}
-                    className="group/scoping flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium transition-all"
-                    style={{
-                      backgroundColor: "var(--theme-pill-bg)",
-                      color: "var(--text)",
-                      border: "1px solid var(--border-strong)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.borderColor = "var(--accent)";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.borderColor = "var(--border-strong)";
-                    }}
+                    className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
                   >
-                    <span>Schedule Technical Scoping</span>
-                    <ArrowRight className="w-3 h-3 group-hover/scoping:translate-x-0.5 transition-transform" style={{ color: "var(--accent)" }} />
+                    <div
+                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
+                      style={{
+                        backgroundColor: "rgba(168, 85, 247, 0.12)",
+                        border: "1px solid rgba(168, 85, 247, 0.28)",
+                      }}
+                    >
+                      <Terminal className="w-4 h-4" style={{ color: "#c084fc" }} />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-1.5">
+                        <span
+                          className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)] truncate"
+                          style={{ color: "var(--text)" }}
+                        >
+                          Custom AI Engine
+                        </span>
+                        <span
+                          className="text-[9.5px] font-mono px-1.5 py-0.5 rounded-md font-medium shrink-0"
+                          style={{
+                            backgroundColor: "rgba(168, 85, 247, 0.10)",
+                            color: "#c084fc",
+                            border: "1px solid rgba(168, 85, 247, 0.25)",
+                          }}
+                        >
+                          Enterprise
+                        </span>
+                      </div>
+                      <p
+                        className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                        style={{ color: "var(--text-muted)" }}
+                      >
+                        Bespoke models, autonomous agents & dedicated private VPC deployments.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* Clean, Refined Footer Strip */}
+                <div
+                  className="mt-3 pt-2.5 flex items-center justify-between text-xs"
+                  style={{ borderTop: "1px solid var(--border)" }}
+                >
+                  <Link
+                    href="/demos"
+                    onClick={() => setActiveDD(null)}
+                    className="group flex items-center gap-1.5 text-[11.5px] font-medium transition-colors"
+                    style={{ color: "var(--text-muted)" }}
+                  >
+                    <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
+                    <span className="group-hover:underline">Interactive live sandboxes available for all 5 platforms</span>
+                    <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" style={{ color: "var(--accent)" }} />
+                  </Link>
+
+                  <Link
+                    href="/products"
+                    onClick={() => setActiveDD(null)}
+                    className="flex items-center gap-1 text-[11.5px] font-semibold transition-opacity hover:opacity-80"
+                    style={{ color: "var(--accent)" }}
+                  >
+                    <span>All Products</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
@@ -842,90 +694,132 @@ export function Navbar() {
             {activeDD === "Solutions" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Enterprise Business Solutions <span className="text-neutral-500">•</span> Targeted Problem Outcomes
+                <div
+                  className="flex items-center justify-between pb-2.5 mb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
+                    </span>
+                    <span
+                      className="text-[11px] font-mono uppercase tracking-wider font-bold"
+                      style={{ color: "var(--text)" }}
+                    >
+                      Enterprise Business Solutions <span className="opacity-40">•</span> Targeted Outcomes
                     </span>
                   </div>
                   <Link
                     href="/solutions"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    className="text-[11px] font-mono flex items-center gap-1 font-semibold transition-opacity hover:opacity-80"
+                    style={{ color: "var(--accent)" }}
                   >
                     <span>All Solutions Overview</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
-                {/* Grid: 5 Solutions Categories + 1 Discovery Card */}
+                {/* Grid: 7 Solutions Categories + 1 Architecture Scoping Card */}
                 <div className="grid grid-cols-2 gap-2.5">
-                  {activeNavSection.items?.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={() => setActiveDD(null)}
-                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
-                    >
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
-                        style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                        }}
+                  {activeNavSection.items?.map((item) => {
+                    const meta = getSolutionMeta(item.title);
+                    return (
+                      <Link
+                        key={item.title}
+                        href={item.href}
+                        onClick={() => setActiveDD(null)}
+                        className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
                       >
-                        {getIcon(item.title)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
-                          {item.title}
-                        </span>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
+                        <div
+                          className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
+                          style={{
+                            backgroundColor: meta.bgColor,
+                            border: `1px solid ${meta.borderColor}`,
+                          }}
+                        >
+                          {meta.icon}
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <span
+                            className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)] block"
+                            style={{ color: "var(--text)" }}
+                          >
+                            {item.title}
+                          </span>
+                          <p
+                            className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                            style={{ color: "var(--text-muted)" }}
+                          >
+                            {item.description}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  })}
 
-                  {/* 6th Card: Bespoke Enterprise Architecture */}
+                  {/* 8th Slot: Architecture Scoping */}
                   <Link
                     href="/contact?intent=solutions"
                     onClick={() => setActiveDD(null)}
-                    className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl bg-indigo-950/30 border border-indigo-500/20 hover:border-indigo-500/40 transition-all group/custom"
+                    className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
                   >
                     <div
-                      className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5"
+                      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
                       style={{
-                        background: "rgba(99, 102, 241, 0.15)",
-                        border: "1px solid rgba(99, 102, 241, 0.35)",
+                        backgroundColor: "rgba(168, 85, 247, 0.12)",
+                        border: "1px solid rgba(168, 85, 247, 0.28)",
                       }}
                     >
-                      <ShieldCheck className="w-4 h-4 text-indigo-400" />
+                      <ShieldCheck className="w-4 h-4" style={{ color: "#c084fc" }} />
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <span className="text-[13px] font-semibold text-white group-hover/custom:text-indigo-200 transition-colors block">
-                        Enterprise Architecture Scoping
-                      </span>
-                      <p className="text-[11.5px] text-neutral-300 mt-1 leading-snug">
-                        Have a complex operational constraint? Discuss targeted system blueprints with our lead architects.
+                    <div className="min-w-0 flex-1">
+                      <div className="flex items-center justify-between gap-1.5">
+                        <span
+                          className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)]"
+                          style={{ color: "var(--text)" }}
+                        >
+                          Enterprise Architecture Scoping
+                        </span>
+                        <span
+                          className="text-[9.5px] font-mono px-1.5 py-0.5 rounded-md font-medium shrink-0"
+                          style={{
+                            backgroundColor: "rgba(168, 85, 247, 0.10)",
+                            color: "#c084fc",
+                            border: "1px solid rgba(168, 85, 247, 0.25)",
+                          }}
+                        >
+                          Lead Architect
+                        </span>
+                      </div>
+                      <p
+                        className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                        style={{ color: "var(--text-muted)" }}
+                      >
+                        Discuss targeted system blueprints and operational constraints with our lead architects.
                       </p>
                     </div>
                   </Link>
                 </div>
 
                 {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span className="flex items-center gap-1.5">
-                    <Workflow className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>Engineered for 99.99% uptime, strict SOC2/GDPR compliance, and zero data leakage.</span>
+                <div
+                  className="mt-3 pt-2.5 flex items-center justify-between text-xs px-1"
+                  style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
+                >
+                  <span className="flex items-center gap-1.5 font-mono text-[10.5px]">
+                    <Workflow className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
+                    <span>99.99% SLA • Strict SOC2 & GDPR Compliance • Zero Data Leakage</span>
                   </span>
                   <Link
                     href="/solutions"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-indigo-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                    className="flex items-center gap-1 text-[11.5px] font-semibold transition-opacity hover:opacity-80 shrink-0 ml-3"
+                    style={{ color: "var(--accent)" }}
                   >
-                    Explore Solutions Architecture →
+                    <span>Explore Solutions Architecture</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
@@ -935,78 +829,104 @@ export function Navbar() {
             {activeDD === "Capabilities" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Engineering Disciplines <span className="text-neutral-500">•</span> Systems Ashmyra Engineers
+                <div
+                  className="flex items-center justify-between pb-2.5 mb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
+                    </span>
+                    <span
+                      className="text-[11px] font-mono uppercase tracking-wider font-bold"
+                      style={{ color: "var(--text)" }}
+                    >
+                      Engineering Disciplines <span className="opacity-40">•</span> Core Technical Capabilities
                     </span>
                   </div>
                   <Link
                     href="/capabilities"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    className="text-[11px] font-mono flex items-center gap-1 font-semibold transition-opacity hover:opacity-80"
+                    style={{ color: "var(--accent)" }}
                   >
                     <span>Capabilities Overview</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
                 {/* 3-Column Visual Groups */}
-                <div className="grid grid-cols-3 gap-6 lg:gap-8">
+                <div className="grid grid-cols-3 gap-6">
                   {activeNavSection.groups?.map((group) => {
                     const isAi = group.groupTitle.includes("AI");
                     const isSoftware = group.groupTitle.includes("Software");
-                    const accentColor = isAi ? "text-indigo-400" : isSoftware ? "text-cyan-400" : "text-emerald-400";
-                    const hoverTitleColor = isAi ? "group-hover/item:text-indigo-200" : isSoftware ? "group-hover/item:text-cyan-200" : "group-hover/item:text-emerald-200";
+                    const accentColor = isAi
+                      ? "var(--nav-col-ai)"
+                      : isSoftware
+                      ? "var(--nav-col-software)"
+                      : "var(--nav-col-data)";
 
                     return (
                       <div key={group.groupTitle} className="flex flex-col justify-between">
                         <div>
                           {/* Column Header */}
-                          <div className="pb-2.5 mb-2.5 border-b border-white/[0.06]">
+                          <div
+                            className="pb-2.5 mb-2.5"
+                            style={{ borderBottom: "1px solid var(--border-strong)" }}
+                          >
                             <div className="flex items-center gap-2 mb-1">
                               {isAi ? (
-                                <Bot className={`w-3.5 h-3.5 ${accentColor}`} />
+                                <Bot className="w-4 h-4 shrink-0" style={{ color: accentColor }} />
                               ) : isSoftware ? (
-                                <Code2 className={`w-3.5 h-3.5 ${accentColor}`} />
+                                <Code2 className="w-4 h-4 shrink-0" style={{ color: accentColor }} />
                               ) : (
-                                <Database className={`w-3.5 h-3.5 ${accentColor}`} />
+                                <Database className="w-4 h-4 shrink-0" style={{ color: accentColor }} />
                               )}
-                              <span className={`text-[11px] font-mono uppercase tracking-wider font-semibold ${accentColor}`}>
+                              <span
+                                className="text-[12px] font-mono uppercase tracking-wider font-bold"
+                                style={{ color: accentColor }}
+                              >
                                 {group.groupTitle}
                               </span>
                             </div>
                             {group.explanation && (
-                              <p className="text-[11px] text-slate-400 font-light leading-relaxed">
+                              <p
+                                className="text-[11.5px] font-normal leading-relaxed mt-1"
+                                style={{ color: "var(--text-muted)" }}
+                              >
                                 {group.explanation}
                               </p>
                             )}
                           </div>
 
-                          {/* 6 Capability Items */}
+                          {/* Capability Items */}
                           <div className="space-y-1">
                             {group.items.map((item) => (
                               <Link
                                 key={item.title}
                                 href={item.href}
                                 onClick={() => setActiveDD(null)}
-                                className="mega-menu-item flex items-center justify-between px-2.5 py-2 rounded-lg hover:bg-white/[0.04] transition-all group/item focus:outline-none focus:ring-1 focus:ring-cyan-400/40"
+                                className="group/item flex items-center justify-between px-2.5 py-1.5 rounded-lg transition-all border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)] focus:outline-none"
                               >
                                 <div className="flex items-center gap-2.5 min-w-0">
                                   <div
                                     className="w-6 h-6 rounded flex items-center justify-center shrink-0 transition-transform group-hover/item:scale-105"
                                     style={{
-                                      background: "rgba(255,255,255,0.03)",
+                                      backgroundColor: "var(--theme-pill-bg)",
+                                      border: "1px solid var(--border)",
                                     }}
                                   >
                                     {getIcon(item.title)}
                                   </div>
-                                  <span className={`text-[12.5px] font-medium text-slate-200 ${hoverTitleColor} transition-colors block truncate`}>
+                                  <span
+                                    className="text-[12.5px] font-medium transition-colors block truncate group-hover/item:text-[var(--accent)]"
+                                    style={{ color: "var(--text)" }}
+                                  >
                                     {item.title}
                                   </span>
                                 </div>
-                                <ArrowRight className="w-3 h-3 text-white/0 -translate-x-1 group-hover/item:text-white/40 group-hover/item:translate-x-0 transition-all shrink-0 ml-1.5" />
+                                <ArrowRight className="w-3 h-3 opacity-0 -translate-x-1 group-hover/item:opacity-70 group-hover/item:translate-x-0 transition-all shrink-0 ml-1.5" style={{ color: "var(--accent)" }} />
                               </Link>
                             ))}
                           </div>
@@ -1014,11 +934,15 @@ export function Navbar() {
 
                         {/* Category Overview Link */}
                         {group.overviewHref && (
-                          <div className="pt-2 mt-2 border-t border-white/[0.06]">
+                          <div
+                            className="pt-2 mt-2"
+                            style={{ borderTop: "1px solid var(--border)" }}
+                          >
                             <Link
                               href={group.overviewHref}
                               onClick={() => setActiveDD(null)}
-                              className={`text-[11px] font-mono ${accentColor} hover:underline inline-flex items-center gap-1 font-medium transition-colors`}
+                              className="text-[11px] font-mono inline-flex items-center gap-1 font-medium transition-opacity hover:opacity-80"
+                              style={{ color: accentColor }}
                             >
                               <span>{group.overviewLabel || "Explore Category →"}</span>
                             </Link>
@@ -1030,82 +954,22 @@ export function Navbar() {
                 </div>
 
                 {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-slate-400 px-1">
-                  <span className="flex items-center gap-1.5 font-light">
-                    <Cpu className="w-3.5 h-3.5 text-cyan-400" />
+                <div
+                  className="mt-4 pt-3 flex items-center justify-between text-[11px] px-1"
+                  style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
+                >
+                  <span className="flex items-center gap-1.5 font-light font-mono text-[10.5px]">
+                    <Cpu className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                     <span>Disciplined architecture, type-safe codebases, and observable production execution.</span>
                   </span>
                   <Link
                     href="/contact"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3 font-mono text-[11px]"
+                    className="flex items-center gap-1 text-[11.5px] font-semibold transition-opacity hover:opacity-80 shrink-0 ml-3"
+                    style={{ color: "var(--accent)" }}
                   >
-                    Start an Engineering Conversation →
-                  </Link>
-                </div>
-              </div>
-            )}
-
-            {/* 4. OUR WORK MENU */}
-            {activeDD === "Our Work" && (
-              <div>
-                {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Engineering Case Studies &amp; Architecture
-                    </span>
-                  </div>
-                  <Link
-                    href="/our-work"
-                    onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
-                  >
-                    <span>Explore Our Work</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
-                  </Link>
-                </div>
-
-                {/* Items */}
-                <div className="space-y-2">
-                  {activeNavSection.items?.map((item) => (
-                    <Link
-                      key={item.title}
-                      href={item.href}
-                      onClick={() => setActiveDD(null)}
-                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
-                    >
-                      <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
-                        style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: "1px solid rgba(255,255,255,0.08)",
-                        }}
-                      >
-                        {getIcon(item.title)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
-                          {item.title}
-                        </span>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
-                          {item.description}
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-
-                {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span>Architectural case studies and core engineering principles.</span>
-                  <Link
-                    href="/contact"
-                    onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
-                  >
-                    Start an Engineering Conversation →
+                    <span>Start an Engineering Conversation</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
@@ -1115,20 +979,30 @@ export function Navbar() {
             {activeDD === "Blog" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-white/[0.08]">
-                  <div className="flex items-center gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-cyan-400" />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
+                <div
+                  className="flex items-center justify-between pb-2.5 mb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
+                    </span>
+                    <span
+                      className="text-[11px] font-mono uppercase tracking-wider font-bold"
+                      style={{ color: "var(--text)" }}
+                    >
                       Engineering Blog &amp; Systems Radar
                     </span>
                   </div>
                   <Link
                     href="/blog"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 transition-colors font-semibold group/all"
+                    className="text-[11px] font-mono flex items-center gap-1 font-semibold transition-opacity hover:opacity-80"
+                    style={{ color: "var(--accent)" }}
                   >
                     <span>All Articles &amp; Radar</span>
-                    <ArrowRight className="w-3.5 h-3.5 group-hover/all:translate-x-0.5 transition-transform" />
+                    <ArrowRight className="w-3.5 h-3.5" />
                   </Link>
                 </div>
 
@@ -1139,22 +1013,28 @@ export function Navbar() {
                       key={item.title}
                       href={item.href}
                       onClick={() => setActiveDD(null)}
-                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                      className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
                     >
                       <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
                         style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: "1px solid rgba(255,255,255,0.08)",
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
                         }}
                       >
                         {getIcon(item.title)}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <span className="text-[13px] font-semibold text-white group-hover/item:text-cyan-200 transition-colors block">
+                        <span
+                          className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)] block"
+                          style={{ color: "var(--text)" }}
+                        >
                           {item.title}
                         </span>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors">
+                        <p
+                          className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                          style={{ color: "var(--text-muted)" }}
+                        >
                           {item.description}
                         </p>
                       </div>
@@ -1163,14 +1043,19 @@ export function Navbar() {
                 </div>
 
                 {/* Footer Banner */}
-                <div className="mt-4 pt-3.5 border-t border-white/[0.08] flex items-center justify-between text-[11px] text-neutral-400 px-1">
-                  <span>Regular technical analyses on Agentic AI, GEO search, and enterprise engineering.</span>
+                <div
+                  className="mt-3 pt-2.5 flex items-center justify-between text-xs px-1"
+                  style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
+                >
+                  <span className="font-mono text-[10.5px]">Regular technical analyses on Agentic AI, GEO search, and enterprise engineering.</span>
                   <Link
                     href="/blog"
                     onClick={() => setActiveDD(null)}
-                    className="text-white hover:text-cyan-300 font-medium underline underline-offset-4 transition-colors shrink-0 ml-3"
+                    className="flex items-center gap-1 text-[11.5px] font-semibold transition-opacity hover:opacity-80 shrink-0 ml-3"
+                    style={{ color: "var(--accent)" }}
                   >
-                    Explore Ashmyra Blog →
+                    <span>Explore Ashmyra Blog</span>
+                    <ArrowRight className="w-3 h-3" />
                   </Link>
                 </div>
               </div>
@@ -1180,17 +1065,27 @@ export function Navbar() {
             {activeDD === "Company" && (
               <div>
                 {/* Header */}
-                <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-white/[0.08]">
+                <div
+                  className="flex items-center justify-between pb-2.5 mb-3"
+                  style={{ borderBottom: "1px solid var(--border)" }}
+                >
                   <div className="flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-300 font-semibold">
-                      Ashmyra Technologies <span className="text-neutral-500">•</span> Leadership &amp; Engineering Culture
+                    <span className="flex h-2 w-2 relative">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ backgroundColor: "var(--accent)" }}></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2" style={{ backgroundColor: "var(--accent)" }}></span>
+                    </span>
+                    <span
+                      className="text-[11px] font-mono uppercase tracking-wider font-bold"
+                      style={{ color: "var(--text)" }}
+                    >
+                      Ashmyra Technologies <span className="opacity-40">•</span> Leadership &amp; Engineering Culture
                     </span>
                   </div>
                   <Link
-                    href="/team"
+                    href="/team#team"
                     onClick={() => setActiveDD(null)}
-                    className="text-[11px] font-mono text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors font-semibold"
+                    className="text-[11px] font-mono flex items-center gap-1 font-semibold transition-opacity hover:opacity-80"
+                    style={{ color: "var(--accent)" }}
                   >
                     <span>View All Team</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -1204,29 +1099,42 @@ export function Navbar() {
                       key={item.title}
                       href={item.href}
                       onClick={() => setActiveDD(null)}
-                      className="mega-menu-item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.04] border border-transparent hover:border-white/[0.08] transition-all group/item"
+                      className="group flex items-start gap-3 p-2.5 rounded-xl transition-all duration-200 border border-transparent hover:border-[var(--border)] hover:bg-[var(--theme-pill-bg)]"
                     >
                       <div
-                        className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0 mt-0.5 transition-all group-hover/item:scale-105"
+                        className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 mt-0.5 transition-transform duration-200 group-hover:scale-105"
                         style={{
-                          background: "rgba(255,255,255,0.03)",
-                          border: "1px solid rgba(255,255,255,0.08)",
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
                         }}
                       >
                         {getIcon(item.title)}
                       </div>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-1.5">
-                          <span className="text-[13px] font-semibold text-white group-hover/item:text-indigo-200 transition-colors truncate">
+                          <span
+                            className="text-[13px] font-semibold transition-colors group-hover:text-[var(--accent)] truncate"
+                            style={{ color: "var(--text)" }}
+                          >
                             {item.title}
                           </span>
                           {item.badge && (
-                            <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium shrink-0">
+                            <span
+                              className="text-[9.5px] font-mono px-1.5 py-0.5 rounded-md font-medium shrink-0"
+                              style={{
+                                backgroundColor: "var(--theme-pill-bg)",
+                                color: "var(--accent)",
+                                border: "1px solid var(--border)",
+                              }}
+                            >
                               {item.badge}
                             </span>
                           )}
                         </div>
-                        <p className="text-[11.5px] text-neutral-400 mt-1 leading-snug group-hover/item:text-neutral-300 transition-colors line-clamp-2">
+                        <p
+                          className="text-[11.5px] mt-1 leading-snug line-clamp-2 transition-colors group-hover:text-[var(--text)]"
+                          style={{ color: "var(--text-muted)" }}
+                        >
                           {item.description}
                         </p>
                       </div>

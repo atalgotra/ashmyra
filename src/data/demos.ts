@@ -13,6 +13,19 @@ export interface DemoProduct {
   highlight: string;
 }
 
+export function getDemoUrlWithTheme(rawUrl: string, theme?: string): string {
+  if (!rawUrl) return "";
+  if (!theme) return rawUrl;
+  try {
+    const url = new URL(rawUrl);
+    url.searchParams.set("theme", theme);
+    return url.toString();
+  } catch {
+    const sep = rawUrl.includes("?") ? "&" : "?";
+    return `${rawUrl}${sep}theme=${encodeURIComponent(theme)}`;
+  }
+}
+
 export const DEMO_PRODUCTS: DemoProduct[] = [
   {
     id: "mailflow",
@@ -23,8 +36,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "AI-driven cold email outreach, automated warmup sequences, mailbox rotation, and conversion-optimized copywriting with real-time inbox health monitoring.",
     category: "Cold Email & Outreach",
     badge: "Email AI",
-    accent: "#818cf8",
-    accentRgb: "129, 140, 248",
+    accent: "#4f46e5",
+    accentRgb: "79, 70, 229",
     features: [
       "Dynamic Multi-Inbox Warmup & Smart Rotation",
       "Conversion-Trained AI Copywriting Engine",
@@ -47,8 +60,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Deep lead discovery, automated enrichment, verified contact scraping, ICP scoring, and multichannel prospect routing designed for high-velocity outbound teams.",
     category: "Lead Intelligence",
     badge: "Lead Intel",
-    accent: "#06b6d4",
-    accentRgb: "6, 182, 212",
+    accent: "#0284c7",
+    accentRgb: "2, 132, 199",
     features: [
       "Precision B2B Prospect Search & ICP Filter",
       "Multi-Source Waterfall Email Verification",
@@ -71,8 +84,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Autonomous social media manager for YouTube, LinkedIn, Facebook, and Instagram. Deeply audits channel performance, tracks real-time market news and competitor playbooks, and generates detailed, platform-native content with researched hashtag clusters.",
     category: "Social Media AI Agent",
     badge: "Social AI Agent",
-    accent: "#10b981",
-    accentRgb: "16, 185, 129",
+    accent: "#059669",
+    accentRgb: "5, 150, 105",
     features: [
       "Cross-Platform Agents (YouTube, LinkedIn, FB & IG)",
       "Deep Channel Performance & Profile Auditing",
@@ -95,8 +108,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Remove watermarks, background noise, and unwanted objects from images and videos. Supports multi-file batch processing and moving video watermarks.",
     category: "AI Media & Video Editing",
     badge: "Media AI",
-    accent: "#f59e0b",
-    accentRgb: "245, 158, 11",
+    accent: "#d97706",
+    accentRgb: "217, 119, 6",
     features: [
       "AI Watermark & Object Eraser (Images & Videos)",
       "Moving Watermark Removal Across Video Frames",
@@ -119,8 +132,8 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
       "Autonomous deep website crawler, multi-agent technical SEO auditing, GSC/GA4 live telemetry, and AI engine citation radar across Perplexity, ChatGPT, and Gemini.",
     category: "Search Intel & SEO",
     badge: "Search Intel",
-    accent: "#38bdf8",
-    accentRgb: "56, 189, 248",
+    accent: "#2563eb",
+    accentRgb: "37, 99, 235",
     features: [
       "Autonomous Deep Spider Crawler & Forensic Audits",
       "GEO AI Citation Radar (ChatGPT, Perplexity, Gemini)",

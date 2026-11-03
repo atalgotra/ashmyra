@@ -45,8 +45,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Ultra-fast React digital surfaces with custom WebGL shaders, Three.js kinetic scenes, and GSAP ScrollTrigger timelines. Engineered for sub-second LCP, Generative Engine Optimization (GEO), and unquestioned visual distinction.",
     videoSrc: "/videos/capabilities/01-digital-experiences.mp4",
     posterSrc: "/videos/capabilities/01-digital-experiences.jpg",
-    accent: "#818cf8",
-    accentGlow: "rgba(129, 140, 248, 0.25)",
+    accent: "#4f46e5",
+    accentGlow: "rgba(79, 70, 229, 0.28)",
     href: "/capabilities/web-apps",
     tags: ["WebGL / Three.js", "GSAP Motion", "Next.js App Router", "GEO Optimization", "Sub-second LCP"],
   },
@@ -59,8 +59,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Production-ready mobile architectures designed for fluid 120Hz gesture interaction, biometric authentication, offline-first cloud sync, and low-latency push infrastructure.",
     videoSrc: "/videos/capabilities/02-mobile-applications.mp4",
     posterSrc: "/videos/capabilities/02-mobile-applications.jpg",
-    accent: "#38bdf8",
-    accentGlow: "rgba(56, 189, 248, 0.25)",
+    accent: "#0284c7",
+    accentGlow: "rgba(2, 132, 199, 0.28)",
     href: "/capabilities/software-development",
     tags: ["iOS / Swift", "Android / Kotlin", "Flutter", "120Hz Haptics", "Offline Sync"],
   },
@@ -73,8 +73,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Unified customer intelligence systems with automated lead scoring, multi-channel attribution, predictive forecasting, and deterministic event-driven workflow orchestration without sales friction.",
     videoSrc: "/videos/capabilities/03-crm-platforms.mp4",
     posterSrc: "/videos/capabilities/03-crm-platforms.jpg",
-    accent: "#f43f5e",
-    accentGlow: "rgba(244, 63, 94, 0.25)",
+    accent: "#e11d48",
+    accentGlow: "rgba(225, 29, 72, 0.28)",
     href: "/capabilities/software-development",
     tags: ["Pipeline Telemetry", "Predictive Scoring", "Multi-Channel Attribution", "Event Automation"],
   },
@@ -87,8 +87,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Enterprise-grade SaaS architectures engineered for 99.99% uptime, multi-tenant isolation, statutory HRMS, talent parsing, automated payroll, and SOC2 compliance.",
     videoSrc: "/videos/capabilities/04-enterprise-saas.mp4",
     posterSrc: "/videos/capabilities/04-enterprise-saas.jpg",
-    accent: "#a78bfa",
-    accentGlow: "rgba(167, 139, 250, 0.25)",
+    accent: "#7c3aed",
+    accentGlow: "rgba(124, 58, 237, 0.28)",
     href: "/capabilities/software-development",
     tags: ["Multi-Tenant SaaS", "Statutory Payroll", "Automated HRMS", "99.99% Uptime", "SOC2 Compliance"],
   },
@@ -101,8 +101,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Self-healing multi-agent swarms engineered for reasoning, tool execution, and task consensus. Custom fine-tuned LLM runtimes, vector indexing, and low-latency inference pipelines with deterministic guardrails.",
     videoSrc: "/videos/capabilities/05-agentic-ai.mp4",
     posterSrc: "/videos/capabilities/05-agentic-ai.jpg",
-    accent: "#22d3ee",
-    accentGlow: "rgba(34, 211, 238, 0.25)",
+    accent: "#0891b2",
+    accentGlow: "rgba(8, 145, 178, 0.28)",
     href: "/capabilities/ai-development",
     tags: ["Multi-Agent Consensus", "Fine-Tuned LLMs", "Autonomous Tool Calling", "RAG Pipelines", "Audit Guardrails"],
   },
@@ -115,8 +115,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Statistical machine learning, anomaly detection, predictive forecasting, and unified enterprise golden-record lakes with sub-second analytical querying across massive operational datasets.",
     videoSrc: "/videos/capabilities/06-data-intelligence.mp4",
     posterSrc: "/videos/capabilities/06-data-intelligence.jpg",
-    accent: "#34d399",
-    accentGlow: "rgba(52, 211, 153, 0.25)",
+    accent: "#059669",
+    accentGlow: "rgba(5, 150, 105, 0.28)",
     href: "/capabilities/software-development",
     tags: ["Streaming Ingestion", "Golden Record Synthesis", "Vector Lakehouse", "Predictive ML", "Sub-second Queries"],
   },
@@ -129,8 +129,8 @@ export const CAPABILITIES: EngineerCapability[] = [
       "Kubernetes orchestration, serverless edge networks, secure gRPC/REST APIs, and continuous delivery pipelines connecting web, mobile, desktop, and edge into one unified operational surface.",
     videoSrc: "/videos/capabilities/07-software-ecosystems.mp4",
     posterSrc: "/videos/capabilities/07-software-ecosystems.jpg",
-    accent: "#fbbf24",
-    accentGlow: "rgba(251, 191, 36, 0.25)",
+    accent: "#d97706",
+    accentGlow: "rgba(217, 119, 6, 0.28)",
     href: "/capabilities/software-development",
     tags: ["Distributed Systems", "Kubernetes / Cloud", "gRPC / REST Mesh", "Zero-Downtime CI/CD", "High Concurrency"],
   },
@@ -274,11 +274,21 @@ export function WhatWeEngineerShowcase() {
 
             {/* Quick interactive navigation controls */}
             <div className="flex items-center gap-3">
-              <div className="flex items-center gap-2 font-mono text-xs text-neutral-400 bg-white/[0.03] border border-white/[0.08] px-3.5 py-1.5 rounded-xl">
-                <span className="text-white font-bold">{current.num}</span>
-                <span>/</span>
-                <span>07</span>
-                <span className="ml-1 text-[10px] uppercase text-neutral-300 hidden sm:inline truncate max-w-[200px]">
+              <div
+                className="flex items-center gap-2 font-mono text-xs px-3.5 py-1.5 rounded-xl transition-colors"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                }}
+              >
+                <span className="font-bold" style={{ color: current.accent }}>{current.num}</span>
+                <span style={{ color: "var(--text-subtle)" }}>/</span>
+                <span style={{ color: "var(--text-subtle)" }}>07</span>
+                <span
+                  className="ml-1 text-[10px] uppercase font-semibold hidden sm:inline truncate max-w-[200px]"
+                  style={{ color: "var(--text)" }}
+                >
                   {current.title}
                 </span>
               </div>
@@ -286,7 +296,12 @@ export function WhatWeEngineerShowcase() {
               <div className="flex items-center gap-1.5">
                 <button
                   onClick={handlePrev}
-                  className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-neutral-300 hover:text-white transition-all active:scale-95"
+                  className="p-2 rounded-xl transition-all active:scale-95"
+                  style={{
+                    backgroundColor: "var(--theme-pill-bg)",
+                    border: "1px solid var(--border)",
+                    color: "var(--text)",
+                  }}
                   aria-label="Previous capability"
                   title="Previous capability"
                 >
@@ -294,7 +309,12 @@ export function WhatWeEngineerShowcase() {
                 </button>
                 <button
                   onClick={handleNext}
-                  className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-neutral-300 hover:text-white transition-all active:scale-95"
+                  className="p-2 rounded-xl transition-all active:scale-95"
+                  style={{
+                    backgroundColor: "var(--theme-pill-bg)",
+                    border: "1px solid var(--border)",
+                    color: "var(--text)",
+                  }}
                   aria-label="Next capability"
                   title="Next capability"
                 >
@@ -321,12 +341,16 @@ export function WhatWeEngineerShowcase() {
                   onClick={() => scrollToCard(idx)}
                   className={`p-6 sm:p-7 rounded-2xl cursor-pointer transition-all duration-500 relative select-none ${
                     isActive
-                      ? "bg-white/[0.05] border shadow-2xl opacity-100 scale-[1.01]"
-                      : "bg-white/[0.015] border border-white/[0.05] opacity-40 hover:opacity-75 hover:bg-white/[0.03] scale-100"
+                      ? "shadow-2xl scale-[1.01]"
+                      : "hover:scale-[1.005]"
                   }`}
                   style={{
-                    borderColor: isActive ? `${cap.accent}66` : "rgba(255, 255, 255, 0.06)",
-                    boxShadow: isActive ? `0 20px 50px -15px ${cap.accentGlow}` : "none",
+                    backgroundColor: isActive ? "var(--bg-card)" : "var(--theme-pill-bg)",
+                    border: isActive ? `1.5px solid ${cap.accent}` : "1px solid var(--border)",
+                    boxShadow: isActive
+                      ? `0 20px 45px -15px ${cap.accentGlow}, 0 4px 16px -2px rgba(0,0,0,0.06)`
+                      : "none",
+                    opacity: isActive ? 1 : 0.72,
                   }}
                 >
                   {/* Active Card Top Accent Highlight */}
@@ -343,18 +367,17 @@ export function WhatWeEngineerShowcase() {
                   <div className="flex items-center justify-between gap-3 mb-2">
                     <div className="flex items-center gap-3">
                       <span
-                        className={`text-xs font-mono font-bold transition-colors ${
-                          isActive ? "text-white" : "text-neutral-500"
-                        }`}
-                        style={{ color: isActive ? cap.accent : undefined }}
+                        className="text-xs font-mono font-bold transition-colors"
+                        style={{ color: cap.accent }}
                       >
                         {cap.num}
                       </span>
                       <h3
-                        className={`text-lg font-bold tracking-tight transition-colors ${
-                          isActive ? "text-white" : "text-neutral-400"
-                        }`}
-                        style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                        className="text-lg font-bold tracking-tight transition-colors"
+                        style={{
+                          fontFamily: "'Space Grotesk', sans-serif",
+                          color: "var(--text)",
+                        }}
                       >
                         {cap.title}
                       </h3>
@@ -368,11 +391,17 @@ export function WhatWeEngineerShowcase() {
                     )}
                   </div>
 
-                  <p className="text-xs font-mono text-indigo-300 mb-3">
+                  <p
+                    className="text-xs font-mono font-bold tracking-wide mb-3"
+                    style={{ color: cap.accent }}
+                  >
                     {cap.subtitle}
                   </p>
 
-                  <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-sans mb-4">
+                  <p
+                    className="text-xs sm:text-sm leading-relaxed font-sans mb-4"
+                    style={{ color: "var(--text-muted)" }}
+                  >
                     {cap.description}
                   </p>
 
@@ -380,7 +409,12 @@ export function WhatWeEngineerShowcase() {
                     {cap.tags.map((t) => (
                       <span
                         key={t}
-                        className="text-[10px] font-mono px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] text-neutral-300"
+                        className="text-[10px] font-mono font-medium px-2.5 py-1 rounded-lg"
+                        style={{
+                          backgroundColor: "var(--theme-pill-bg)",
+                          border: "1px solid var(--border)",
+                          color: "var(--text)",
+                        }}
                       >
                         {t}
                       </span>
@@ -390,7 +424,7 @@ export function WhatWeEngineerShowcase() {
                   <Link
                     href={cap.href}
                     onClick={(e) => e.stopPropagation()}
-                    className="inline-flex items-center gap-1.5 text-xs font-mono font-semibold transition-colors hover:text-white"
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold transition-opacity hover:opacity-80"
                     style={{ color: cap.accent }}
                   >
                     <span>Explore Architecture</span>
@@ -564,7 +598,12 @@ export function WhatWeEngineerShowcase() {
           {CAPABILITIES.map((cap) => (
             <div
               key={cap.id}
-              className="rounded-2xl overflow-hidden border border-white/[0.08] bg-white/[0.02]"
+              className="rounded-2xl overflow-hidden transition-all"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                border: "1px solid var(--border)",
+                boxShadow: "0 8px 30px -10px rgba(0,0,0,0.06)",
+              }}
             >
               {/* Video Viewport */}
               <div className="relative aspect-[16/9] w-full bg-[#04060a]">
@@ -579,10 +618,10 @@ export function WhatWeEngineerShowcase() {
                 />
                 <div className="absolute top-3 left-3 z-20">
                   <span
-                    className="text-[9.5px] font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-black/70 border backdrop-blur-md"
+                    className="text-[9.5px] font-mono font-bold tracking-wider px-2 py-0.5 rounded bg-black/75 border backdrop-blur-md"
                     style={{
                       color: cap.accent,
-                      borderColor: `${cap.accent}44`,
+                      borderColor: `${cap.accent}66`,
                     }}
                   >
                     {cap.num} / 07
@@ -593,15 +632,24 @@ export function WhatWeEngineerShowcase() {
               {/* Info panel */}
               <div className="p-5">
                 <h3
-                  className="text-lg font-bold text-white mb-1"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-lg font-bold mb-1"
+                  style={{
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    color: "var(--text)",
+                  }}
                 >
                   {cap.title}
                 </h3>
-                <p className="text-xs text-indigo-300 font-mono mb-2">
+                <p
+                  className="text-xs font-mono font-bold tracking-wide mb-2"
+                  style={{ color: cap.accent }}
+                >
                   {cap.subtitle}
                 </p>
-                <p className="text-xs text-neutral-300 leading-relaxed mb-4">
+                <p
+                  className="text-xs leading-relaxed mb-4 font-sans"
+                  style={{ color: "var(--text-muted)" }}
+                >
                   {cap.description}
                 </p>
 
@@ -609,7 +657,12 @@ export function WhatWeEngineerShowcase() {
                   {cap.tags.map((t) => (
                     <span
                       key={t}
-                      className="text-[9px] font-mono px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-neutral-300"
+                      className="text-[9px] font-mono font-medium px-2 py-0.5 rounded"
+                      style={{
+                        backgroundColor: "var(--theme-pill-bg)",
+                        border: "1px solid var(--border)",
+                        color: "var(--text)",
+                      }}
                     >
                       {t}
                     </span>
@@ -618,10 +671,11 @@ export function WhatWeEngineerShowcase() {
 
                 <Link
                   href={cap.href}
-                  className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-white"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-bold transition-opacity hover:opacity-80"
+                  style={{ color: cap.accent }}
                 >
                   <span>Explore Architecture</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-indigo-400" />
+                  <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
             </div>

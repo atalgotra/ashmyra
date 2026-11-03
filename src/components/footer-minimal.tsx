@@ -35,9 +35,9 @@ const NAV = [
   {
     label: "Company",
     links: [
-      { text: "Our Work",  href: "/our-work" },
-      { text: "People",   href: "#people" },
-      { text: "Contact",  href: "/contact" },
+      { text: "Demos",     href: "/demos" },
+      { text: "People",    href: "/team#team" },
+      { text: "Contact",   href: "/contact" },
     ],
   },
   {

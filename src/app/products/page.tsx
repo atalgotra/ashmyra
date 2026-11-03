@@ -82,12 +82,15 @@ export default function ProductsPage() {
       case "veyrix":
         return <Search className={cls} style={{ color: "#38bdf8" }} />;
       default:
-        return <Sparkles className={cls} style={{ color: "#818cf8" }} />;
+        return <Sparkles className={cls} style={{ color: "var(--accent, #4f46e5)" }} />;
     }
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[#050608] text-white selection:bg-indigo-500/30 selection:text-indigo-200">
+    <div
+      className="flex flex-col min-h-screen selection:bg-indigo-500/30 selection:text-indigo-200"
+      style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
+    >
       {/* ── 1. CINEMATIC SPLIT HERO (45% Left / 55% Right) ──────────────── */}
       <ProductsCinematicHero />
 
@@ -98,19 +101,19 @@ export default function ProductsPage() {
       <section id="explore-products" className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs text-cyan-300 font-mono mb-4">
-            <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 font-semibold" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
+            <Sparkles className="w-3.5 h-3.5" style={{ color: "var(--accent, #4f46e5)" }} />
             <span>Verified Production Portfolio</span>
           </div>
 
           <h2
-            className="text-3xl sm:text-5xl font-bold tracking-tight text-white mb-4 leading-tight"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-3xl sm:text-5xl font-bold tracking-tight mb-4 leading-tight"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
           >
             Explore Our Products
           </h2>
 
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
+          <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Purpose-built software for connected, intelligent business operations.
           </p>
         </div>
@@ -259,7 +262,7 @@ export default function ProductsPage() {
                             className="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06]"
                           >
                             <div
-                              className="text-sm sm:text-base font-bold font-mono"
+                              className="text-xs sm:text-sm font-bold font-mono whitespace-nowrap"
                               style={{ color: prod.accent }}
                             >
                               {m.value}
@@ -278,14 +281,16 @@ export default function ProductsPage() {
                         href={prod.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-semibold text-white hover:text-cyan-300 flex items-center gap-1.5 transition-colors underline underline-offset-4"
+                        className="text-xs font-semibold flex items-center gap-1.5 transition-colors underline underline-offset-4"
+                        style={{ color: "var(--accent, #4f46e5)" }}
                       >
                         <span>Test {prod.name} Sandbox ↗</span>
                       </a>
-                      <span className="text-neutral-600">·</span>
+                      <span style={{ color: "var(--border)" }}>·</span>
                       <Link
                         href={`/contact?product=${prod.id}`}
-                        className="text-xs text-neutral-400 hover:text-white transition-colors"
+                        className="text-xs transition-colors hover:underline"
+                        style={{ color: "var(--text-muted)" }}
                       >
                         Request Private VPC Deployment →
                       </Link>
@@ -303,31 +308,33 @@ export default function ProductsPage() {
 
       {/* ── 5. FINAL ENTERPRISE CALL-TO-ACTION ─────────────────────────── */}
       <section className="pb-24 pt-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="rounded-3xl p-10 sm:p-14 text-center bg-gradient-to-r from-indigo-950/40 via-cyan-950/30 to-indigo-950/40 border border-indigo-500/30 shadow-2xl relative overflow-hidden">
+        <div className="rounded-3xl p-10 sm:p-14 text-center shadow-2xl relative overflow-hidden" style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}>
           <div className="max-w-2xl mx-auto space-y-4">
-            <span className="text-xs font-mono uppercase tracking-wider text-cyan-300 font-semibold block">
+            <span className="text-xs font-mono uppercase tracking-wider font-semibold block" style={{ color: "var(--accent, #4f46e5)" }}>
               Enterprise Software Discovery
             </span>
             <h3
-              className="text-2xl sm:text-4xl font-bold text-white tracking-tight leading-tight"
-              style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+              className="text-2xl sm:text-4xl font-bold tracking-tight leading-tight"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
             >
               Need a Custom Platform Engineered for Your Stack?
             </h3>
-            <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
+            <p className="text-xs sm:text-sm leading-relaxed" style={{ color: "var(--text-muted)" }}>
               Beyond our 5 live platforms, Ashmyra engineers bespoke agentic AI swarms, high-concurrency SaaS architectures, and internal enterprise operating systems.
             </p>
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-cyan-600 hover:from-indigo-500 hover:to-cyan-500 text-white font-semibold text-sm shadow-xl shadow-indigo-600/30 transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-white shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
+                style={{ backgroundColor: "var(--accent, #4f46e5)" }}
               >
                 <span>Schedule Architecture Discovery</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/demos"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/[0.04] hover:bg-white/[0.08] text-white border border-white/[0.12] text-sm font-semibold transition-all"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
+                style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)", color: "var(--text)" }}
               >
                 <span>Explore All Live Sandboxes</span>
                 <ExternalLink className="w-3.5 h-3.5" />

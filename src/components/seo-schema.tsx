@@ -70,7 +70,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & AI Engineer / Data Scientist",
+        "jobTitle": "Founder | AI Architect & Data Scientist",
         "sameAs": [
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"

@@ -54,16 +54,26 @@ export default async function BlogIndexPage() {
             <Breadcrumb items={[{ name: "Blog" }]} />
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-xs text-cyan-300 font-mono mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-cyan-400" />
-            <span>Ashmyra Publication &amp; Technical Insights</span>
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 shadow-sm"
+            style={{
+              backgroundColor: "var(--theme-pill-bg)",
+              border: "1px solid var(--theme-pill-border)",
+              color: "var(--accent-cyan)",
+            }}
+          >
+            <BookOpen className="w-3.5 h-3.5" style={{ color: "var(--accent-cyan)" }} />
+            <span className="font-semibold uppercase tracking-wider">Ashmyra Publication &amp; Technical Insights</span>
           </div>
 
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white mb-6">
+          <h1
+            className="text-4xl sm:text-6xl font-bold tracking-tight mb-6"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+          >
             Engineering Blog &amp; Systems Radar
           </h1>
 
-          <p className="text-base sm:text-lg text-neutral-400 leading-relaxed">
+          <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Practical analyses on Agentic AI architectures, Generative Engine Optimization (GEO), enterprise data integrity, and mission-critical software engineering.
           </p>
         </div>
@@ -73,54 +83,71 @@ export default async function BlogIndexPage() {
           <div className="mb-16">
             <Link
               href={`/blog/${featuredPost.slug}`}
-              className="group relative block rounded-3xl overflow-hidden border border-white/[0.08] bg-neutral-900/40 hover:border-cyan-500/40 transition-all duration-300 glass-panel"
+              className="group relative block rounded-3xl overflow-hidden transition-all duration-300 shadow-md hover:scale-[1.01]"
+              style={{
+                backgroundColor: "var(--bg-card)",
+                border: "1px solid var(--border)",
+              }}
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 sm:p-10">
                 <div className="lg:col-span-7 space-y-5">
                   <div className="flex flex-wrap items-center gap-3 text-xs font-mono">
-                    <span className="px-2.5 py-1 rounded-md bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 font-medium">
+                    <span
+                      className="px-2.5 py-1 rounded-md font-bold uppercase tracking-wider text-[11px]"
+                      style={{
+                        backgroundColor: "var(--theme-pill-bg)",
+                        border: "1px solid var(--theme-pill-border)",
+                        color: "var(--accent-cyan)",
+                      }}
+                    >
                       Featured Analysis
                     </span>
-                    <span className="text-neutral-400">{featuredPost.category}</span>
-                    <span className="text-neutral-600">•</span>
-                    <span className="text-neutral-400 flex items-center gap-1.5">
-                      <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                    <span style={{ color: "var(--text-muted)" }}>{featuredPost.category}</span>
+                    <span style={{ color: "var(--border-strong)" }}>•</span>
+                    <span className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
+                      <Clock className="w-3.5 h-3.5" style={{ color: "var(--accent-cyan)" }} />
                       {featuredPost.readTime}
                     </span>
-                    <span className="text-neutral-600">•</span>
-                    <span className="text-neutral-400 flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-neutral-500" />
+                    <span style={{ color: "var(--border-strong)" }}>•</span>
+                    <span className="flex items-center gap-1.5" style={{ color: "var(--text-muted)" }}>
+                      <Calendar className="w-3.5 h-3.5" style={{ color: "var(--text-subtle)" }} />
                       {featuredPost.date}
                     </span>
                   </div>
 
-                  <h2 className="text-2xl sm:text-4xl font-bold text-white group-hover:text-cyan-300 transition-colors leading-tight">
+                  <h2
+                    className="text-2xl sm:text-4xl font-bold leading-tight transition-colors"
+                    style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+                  >
                     {featuredPost.title}
                   </h2>
 
-                  <p className="text-neutral-300 text-sm sm:text-base leading-relaxed line-clamp-3">
+                  <p className="text-sm sm:text-base leading-relaxed line-clamp-3" style={{ color: "var(--text-muted)" }}>
                     {featuredPost.summary}
                   </p>
 
-                  <div className="flex items-center justify-between pt-4 border-t border-white/[0.08]">
+                  <div className="flex items-center justify-between pt-4" style={{ borderTop: "1px solid var(--border)" }}>
                     <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-md">
+                      <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-md">
                         AT
                       </div>
                       <div>
-                        <div className="text-sm font-medium text-white">{featuredPost.author.name}</div>
-                        <div className="text-xs text-neutral-400 font-mono">{featuredPost.author.role}</div>
+                        <div className="text-sm font-semibold" style={{ color: "var(--text)" }}>{featuredPost.author.name}</div>
+                        <div className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{featuredPost.author.role}</div>
                       </div>
                     </div>
 
-                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-cyan-400 group-hover:translate-x-1 transition-transform">
+                    <span className="inline-flex items-center gap-1.5 text-sm font-bold group-hover:translate-x-1 transition-transform" style={{ color: "var(--accent)" }}>
                       Read Article <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
                 </div>
 
                 <div className="lg:col-span-5">
-                  <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden border border-white/[0.08] shadow-2xl">
+                  <div
+                    className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden shadow-xl"
+                    style={{ border: "1px solid var(--border)" }}
+                  >
                     <Image
                       src={featuredPost.bannerImage}
                       alt={featuredPost.bannerAlt}
@@ -128,7 +155,7 @@ export default async function BlogIndexPage() {
                       priority
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                   </div>
                 </div>
               </div>
@@ -138,9 +165,11 @@ export default async function BlogIndexPage() {
 
         {/* Regular Posts Grid */}
         <div className="space-y-8">
-          <div className="flex items-center justify-between border-b border-white/[0.08] pb-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-white">Latest Technical Publications</h2>
-            <span className="text-xs font-mono text-neutral-500">Updated weekly</span>
+          <div className="flex items-center justify-between pb-4" style={{ borderBottom: "1px solid var(--border)" }}>
+            <h2 className="text-xl sm:text-2xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
+              Latest Technical Publications
+            </h2>
+            <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>Updated weekly</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -148,50 +177,64 @@ export default async function BlogIndexPage() {
               <Link
                 key={post.slug}
                 href={`/blog/${post.slug}`}
-                className="group flex flex-col justify-between rounded-3xl overflow-hidden border border-white/[0.08] bg-neutral-900/30 hover:border-cyan-500/40 transition-all duration-300 glass-panel"
+                className="group flex flex-col justify-between rounded-3xl overflow-hidden transition-all duration-300 shadow-md hover:scale-[1.01]"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                }}
               >
                 <div>
-                  <div className="relative aspect-[16/9] w-full overflow-hidden border-b border-white/[0.08]">
+                  <div className="relative aspect-[16/9] w-full overflow-hidden" style={{ borderBottom: "1px solid var(--border)" }}>
                     <Image
                       src={post.bannerImage}
                       alt={post.bannerAlt}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4 px-2.5 py-1 rounded-md bg-black/60 backdrop-blur-md border border-white/10 text-xs text-cyan-300 font-mono">
+                    <div
+                      className="absolute top-4 left-4 px-2.5 py-1 rounded-md text-xs font-mono font-bold backdrop-blur-md"
+                      style={{
+                        backgroundColor: "rgba(0, 0, 0, 0.75)",
+                        border: "1px solid rgba(255, 255, 255, 0.2)",
+                        color: "#FFFFFF",
+                      }}
+                    >
                       {post.category}
                     </div>
                   </div>
 
                   <div className="p-6 sm:p-7 space-y-4">
-                    <div className="flex items-center gap-3 text-xs text-neutral-400 font-mono">
+                    <div className="flex items-center gap-3 text-xs font-mono" style={{ color: "var(--text-muted)" }}>
                       <span className="flex items-center gap-1.5">
-                        <Clock className="w-3.5 h-3.5 text-cyan-400" />
+                        <Clock className="w-3.5 h-3.5" style={{ color: "var(--accent-cyan)" }} />
                         {post.readTime}
                       </span>
                       <span>•</span>
                       <span>{post.date}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                    <h3
+                      className="text-xl font-bold transition-colors leading-snug"
+                      style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+                    >
                       {post.title}
                     </h3>
 
-                    <p className="text-neutral-300 text-sm leading-relaxed line-clamp-3">
+                    <p className="text-sm leading-relaxed line-clamp-3" style={{ color: "var(--text-muted)" }}>
                       {post.summary}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 sm:p-7 pt-0 flex items-center justify-between border-t border-white/[0.06] mt-4">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-[10px] font-bold text-white">
+                <div className="p-6 sm:p-7 pt-0 flex items-center justify-between mt-4" style={{ borderTop: "1px solid var(--border)" }}>
+                  <div className="flex items-center gap-2.5 pt-3">
+                    <div className="w-7 h-7 rounded-full bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-[10px] font-bold text-white shadow-sm">
                       AT
                     </div>
-                    <span className="text-xs text-neutral-300 font-medium">{post.author.name}</span>
+                    <span className="text-xs font-semibold" style={{ color: "var(--text)" }}>{post.author.name}</span>
                   </div>
 
-                  <span className="inline-flex items-center gap-1 text-xs font-semibold text-cyan-400 group-hover:translate-x-1 transition-transform">
+                  <span className="inline-flex items-center gap-1 text-xs font-bold group-hover:translate-x-1 transition-transform pt-3" style={{ color: "var(--accent)" }}>
                     Read Post <ArrowRight className="w-3.5 h-3.5" />
                   </span>
                 </div>
@@ -201,29 +244,46 @@ export default async function BlogIndexPage() {
         </div>
 
         {/* Newsletter / RSS Callout */}
-        <div className="mt-20 p-8 sm:p-10 rounded-3xl border border-cyan-500/20 bg-gradient-to-b from-cyan-950/20 to-neutral-900/40 glass-panel">
+        <div
+          className="mt-20 p-8 sm:p-10 rounded-3xl shadow-md"
+          style={{
+            backgroundColor: "var(--theme-pill-bg)",
+            border: "1px solid var(--theme-pill-border)",
+          }}
+        >
           <div className="max-w-2xl">
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">
+            <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider mb-2 font-bold" style={{ color: "var(--accent)" }}>
               <Sparkles className="w-3.5 h-3.5" /> Engineering Intel
             </div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3">
+            <h3
+              className="text-2xl sm:text-3xl font-bold mb-3"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+            >
               Deploying intelligent systems to production?
             </h3>
-            <p className="text-sm text-neutral-300 leading-relaxed mb-6">
+            <p className="text-sm leading-relaxed mb-6" style={{ color: "var(--text-muted)" }}>
               Discuss enterprise AI architectures, generative engine search audits, and automated workforce pipelines with our engineering team.
             </p>
             <div className="flex flex-wrap items-center gap-4">
               <Link
                 href="/contact"
-                className="px-5 py-2.5 rounded-full bg-cyan-500 hover:bg-cyan-400 text-neutral-950 text-xs font-semibold tracking-wide transition-all shadow-lg shadow-cyan-500/20 inline-flex items-center gap-2"
+                className="px-5 py-2.5 rounded-full font-semibold text-xs tracking-wide transition-all shadow-md inline-flex items-center gap-2 text-white"
+                style={{
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+                }}
               >
                 Schedule Technical Scoping <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
-                href="/our-work"
-                className="px-5 py-2.5 rounded-full border border-white/10 hover:border-white/20 text-white text-xs font-medium transition-all"
+                href="/demos"
+                className="px-5 py-2.5 rounded-full text-xs font-semibold transition-all"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                }}
               >
-                View Case Studies
+                Explore Live Demos
               </Link>
             </div>
           </div>

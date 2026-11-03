@@ -155,7 +155,7 @@ export function HeroPhase7() {
               className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-6 sm:mb-7 w-full sm:w-auto"
             >
               <Link
-                href="/our-work"
+                href="/demos"
                 className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 style={{
                   background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
@@ -163,7 +163,7 @@ export function HeroPhase7() {
                     "0 0 0 1px var(--border-glow), 0 8px 24px -6px var(--border-glow)",
                 }}
               >
-                <span>Explore Our Work</span>
+                <span>Experience Live Demos</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
 

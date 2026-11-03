@@ -43,34 +43,35 @@ export default function ResourcesPage() {
             <Breadcrumb items={[{ name: "Resources & Insights" }]} />
           </div>
 
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-xs text-indigo-300 font-mono mb-4">
-            <BookOpen className="w-3.5 h-3.5 text-indigo-400" />
-            <span>Knowledge Base &amp; Technical Perspectives</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono mb-4" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--accent, #4f46e5)" }}>
+            <BookOpen className="w-3.5 h-3.5" style={{ color: "var(--accent, #4f46e5)" }} />
+            <span className="font-semibold">Knowledge Base &amp; Technical Perspectives</span>
           </div>
-          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight text-white">
+          <h1 className="text-4xl sm:text-6xl font-bold tracking-tight" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
             Engineering Insights &amp; Blueprints
           </h1>
-          <p className="mt-6 text-base sm:text-lg text-neutral-400 leading-relaxed">
+          <p className="mt-6 text-base sm:text-lg leading-relaxed" style={{ color: "var(--text-muted)" }}>
             Practical analyses on Agentic AI orchestration, Generative Engine Optimization (GEO), modern workforce architectures, and scalable cloud engineering.
           </p>
         </div>
 
         {/* Featured Articles Grid */}
         <div className="mb-24">
-          <div className="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
-            <h2 className="text-xl font-bold text-white">Featured Technical Articles</h2>
-            <span className="text-xs text-neutral-500 font-mono">Continuous updates</span>
+          <div className="flex items-center justify-between mb-8 pb-4" style={{ borderBottom: "1px solid var(--border)" }}>
+            <h2 className="text-xl font-bold" style={{ color: "var(--text)" }}>Featured Technical Articles</h2>
+            <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>Continuous updates</span>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {ARTICLES.map((article) => (
               <div
                 key={article.slug}
-                className="glass-panel rounded-3xl p-7 flex flex-col justify-between space-y-4 hover:border-indigo-500/40 transition-all"
+                className="rounded-3xl p-7 flex flex-col justify-between space-y-4 transition-all hover:scale-[1.01]"
+                style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
               >
                 <div>
-                  <div className="flex items-center justify-between text-xs text-neutral-400 font-mono mb-3">
-                    <span className="px-2 py-0.5 rounded bg-indigo-500/10 text-indigo-300">
+                  <div className="flex items-center justify-between text-xs font-mono mb-3" style={{ color: "var(--text-muted)" }}>
+                    <span className="px-2 py-0.5 rounded font-semibold" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", color: "var(--accent, #4f46e5)" }}>
                       {article.category}
                     </span>
                     <span className="flex items-center gap-1">
@@ -79,20 +80,21 @@ export default function ResourcesPage() {
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white mb-2 leading-snug">
+                  <h3 className="text-lg font-bold mb-2 leading-snug" style={{ color: "var(--text)" }}>
                     {article.title}
                   </h3>
 
-                  <p className="text-xs text-neutral-400 leading-relaxed mb-4">
+                  <p className="text-xs leading-relaxed mb-4" style={{ color: "var(--text-muted)" }}>
                     {article.summary}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/[0.05] flex items-center justify-between">
-                  <span className="text-[10px] text-neutral-500 font-mono">{article.date}</span>
+                <div className="pt-4 flex items-center justify-between" style={{ borderTop: "1px solid var(--border)" }}>
+                  <span className="text-[10px] font-mono" style={{ color: "var(--text-muted)" }}>{article.date}</span>
                   <Link
                     href={`/resources/${article.slug}`}
-                    className="inline-flex items-center gap-1 text-xs text-indigo-400 hover:text-indigo-300 font-semibold"
+                    className="inline-flex items-center gap-1 text-xs font-semibold hover:underline"
+                    style={{ color: "var(--accent, #4f46e5)" }}
                   >
                     <span>Read Guide</span>
                     <ArrowRight className="w-3 h-3" />
@@ -105,14 +107,14 @@ export default function ResourcesPage() {
 
         {/* Architectural Case Studies & Blueprints (Grounded, non-fabricated) */}
         <div className="mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4 border-b border-white/[0.08]">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 pb-4" style={{ borderBottom: "1px solid var(--border)" }}>
             <div>
-              <span className="text-xs font-mono uppercase tracking-wider text-indigo-400 block mb-1">
+              <span className="text-xs font-mono uppercase tracking-wider block mb-1 font-bold" style={{ color: "var(--accent, #4f46e5)" }}>
                 Verified Architectural Blueprints
               </span>
-              <h2 className="text-2xl font-bold text-white">System Deployments &amp; Case Studies</h2>
+              <h2 className="text-2xl font-bold" style={{ color: "var(--text)" }}>System Deployments &amp; Case Studies</h2>
             </div>
-            <span className="text-xs text-neutral-500 font-mono">
+            <span className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>
               Transparent Problem &bull; Approach &bull; Outcome
             </span>
           </div>
@@ -121,47 +123,48 @@ export default function ResourcesPage() {
             {CASE_STUDY_PREVIEWS.map((cs) => (
               <div
                 key={cs.id}
-                className="glass-panel rounded-3xl p-8 sm:p-10 relative overflow-hidden space-y-6"
+                className="rounded-3xl p-8 sm:p-10 relative overflow-hidden space-y-6"
+                style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
               >
-                <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/[0.08] pb-4">
+                <div className="flex flex-wrap items-center justify-between gap-3 pb-4" style={{ borderBottom: "1px solid var(--border)" }}>
                   <div>
-                    <span className="text-[10px] px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 font-mono border border-emerald-500/20">
+                    <span className="text-[10px] px-2.5 py-0.5 rounded-full font-mono font-semibold" style={{ backgroundColor: "rgba(5, 150, 105, 0.1)", border: "1px solid rgba(5, 150, 105, 0.3)", color: "#059669" }}>
                       {cs.badge}
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-bold text-white mt-2">
+                    <h3 className="text-xl sm:text-2xl font-bold mt-2" style={{ color: "var(--text)" }}>
                       {cs.title}
                     </h3>
                   </div>
                   <div className="text-right">
-                    <span className="text-xs text-neutral-400 font-mono block">{cs.industry}</span>
-                    <span className="text-[11px] text-emerald-400 font-mono">{cs.status}</span>
+                    <span className="text-xs font-mono block" style={{ color: "var(--text-muted)" }}>{cs.industry}</span>
+                    <span className="text-[11px] font-mono font-semibold" style={{ color: "#059669" }}>{cs.status}</span>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                  <div className="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.05]">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-rose-400 font-bold block mb-1.5">
+                  <div className="p-4 rounded-2xl" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}>
+                    <span className="text-[10px] font-mono uppercase tracking-wider font-bold block mb-1.5" style={{ color: "#e11d48" }}>
                       The Operational Challenge
                     </span>
-                    <p className="text-xs text-neutral-300 leading-relaxed">
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       {cs.challenge}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-indigo-500/[0.03] border border-indigo-500/20">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-indigo-300 font-bold block mb-1.5">
+                  <div className="p-4 rounded-2xl" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}>
+                    <span className="text-[10px] font-mono uppercase tracking-wider font-bold block mb-1.5" style={{ color: "var(--accent, #4f46e5)" }}>
                       Engineering Approach
                     </span>
-                    <p className="text-xs text-neutral-300 leading-relaxed">
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       {cs.approach}
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-2xl bg-emerald-500/[0.03] border border-emerald-500/20">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-emerald-400 font-bold block mb-1.5">
+                  <div className="p-4 rounded-2xl" style={{ backgroundColor: "var(--bg)", border: "1px solid var(--border)" }}>
+                    <span className="text-[10px] font-mono uppercase tracking-wider font-bold block mb-1.5" style={{ color: "#059669" }}>
                       Deployed Solution
                     </span>
-                    <p className="text-xs text-neutral-300 leading-relaxed">
+                    <p className="text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
                       {cs.solution}
                     </p>
                   </div>
@@ -170,7 +173,7 @@ export default function ResourcesPage() {
                 <div className="pt-2 flex flex-wrap items-center justify-between gap-3">
                   <div className="flex flex-wrap gap-1.5">
                     {cs.technologies.map((t, idx) => (
-                      <span key={idx} className="text-[10px] px-2 py-0.5 rounded bg-white/[0.04] text-neutral-300 font-mono">
+                      <span key={idx} className="text-[10px] px-2 py-0.5 rounded font-mono font-medium" style={{ backgroundColor: "var(--theme-pill-bg, rgba(79,70,229,0.1))", border: "1px solid var(--border)", color: "var(--text)" }}>
                         {t}
                       </span>
                     ))}
@@ -178,7 +181,8 @@ export default function ResourcesPage() {
 
                   <Link
                     href={`/contact?blueprint=${cs.id}`}
-                    className="inline-flex items-center gap-1.5 text-xs text-indigo-400 hover:text-indigo-300 font-medium"
+                    className="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline"
+                    style={{ color: "var(--accent, #4f46e5)" }}
                   >
                     <span>Request Architectural Discussion</span>
                     <ArrowRight className="w-3.5 h-3.5" />

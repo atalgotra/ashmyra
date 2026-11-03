@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { DEMO_PRODUCTS, DemoProduct } from "@/data/demos";
+import { DEMO_PRODUCTS, DemoProduct, getDemoUrlWithTheme } from "@/data/demos";
+import { useTheme } from "@/components/theme-provider";
 import {
   Mail,
   Target,
@@ -20,6 +21,7 @@ import {
 } from "lucide-react";
 
 export function TryDemoSection() {
+  const { theme } = useTheme();
   const getDemoIcon = (id: string, accent: string) => {
     const cls = "w-6 h-6";
     switch (id) {
@@ -77,16 +79,25 @@ export function TryDemoSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-xs font-mono text-emerald-300 mb-4 shadow-[0_0_20px_rgba(16,185,129,0.15)]">
+          <div
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 shadow-sm"
+            style={{
+              backgroundColor: "var(--theme-pill-bg)",
+              border: "1px solid var(--theme-pill-border)",
+            }}
+          >
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600 dark:bg-emerald-400" />
             </span>
-            <span className="font-semibold tracking-wider uppercase text-[11px]">
+            <span
+              className="font-bold tracking-wider uppercase text-[11px]"
+              style={{ color: "var(--accent-emerald)" }}
+            >
               Live Production Deployments
             </span>
-            <span className="text-neutral-500">·</span>
-            <span className="text-neutral-300">Instant Access</span>
+            <span style={{ color: "var(--text-subtle)" }}>·</span>
+            <span className="font-medium" style={{ color: "var(--text)" }}>Instant Access</span>
           </div>
 
           <h2
@@ -149,128 +160,131 @@ export function TryDemoSection() {
                   style={{ background: demo.accent }}
                 />
 
-                {/* Card Top Content Container */}
-                <div>
-                  {/* Top Row: Icon + Title + Live Badge */}
-                  <div className="flex items-start justify-between gap-3 mb-5">
-                    <div className="flex items-start gap-3.5 min-w-0">
-                      <div
-                        className="w-12 h-12 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-md shrink-0 mt-0.5"
-                        style={{
-                          background: `rgba(${demo.accentRgb}, 0.12)`,
-                          border: `1px solid rgba(${demo.accentRgb}, 0.35)`,
-                          boxShadow: `0 0 25px rgba(${demo.accentRgb}, 0.15)`,
-                        }}
+                {/* Card Content Container */}
+                <div className="flex-1 flex flex-col justify-between">
+                  <div>
+                    {/* Top Row: Icon + Title + Live Badge */}
+                    <div className="flex items-start justify-between gap-3 mb-5">
+                      <div className="flex items-start gap-3.5 min-w-0">
+                        <div
+                          className="w-12 h-12 rounded-2xl flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-md shrink-0 mt-0.5"
+                          style={{
+                            background: `rgba(${demo.accentRgb}, 0.12)`,
+                            border: `1px solid rgba(${demo.accentRgb}, 0.35)`,
+                            boxShadow: `0 0 25px rgba(${demo.accentRgb}, 0.15)`,
+                          }}
+                        >
+                          {getDemoIcon(demo.id, demo.accent)}
+                        </div>
+                        <div className="min-w-0">
+                          <h3
+                            className="text-xl sm:text-2xl font-bold tracking-tight leading-snug line-clamp-1 transition-colors"
+                            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+                            title={demo.name}
+                          >
+                            {demo.name}
+                          </h3>
+                          <p
+                            className="text-[11px] font-mono mt-1 tracking-wider uppercase truncate"
+                            style={{ color: demo.accent }}
+                            title={demo.category}
+                          >
+                            {demo.category}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Live status badge */}
+                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-500 shrink-0">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+                        </span>
+                        <span className="font-semibold uppercase tracking-wider text-[9px]">Live App</span>
+                      </div>
+                    </div>
+
+                    {/* Tagline (Fixed min-height for mathematical alignment) */}
+                    <div className="min-h-[44px] flex items-center mb-3">
+                      <h4
+                        className="text-sm font-semibold leading-snug line-clamp-2"
+                        style={{ color: "var(--text)" }}
                       >
-                        {getDemoIcon(demo.id, demo.accent)}
-                      </div>
-                      <div className="min-w-0">
-                        <h3
-                          className="text-xl sm:text-2xl font-bold tracking-tight leading-snug line-clamp-1 transition-colors"
-                          style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
-                          title={demo.name}
-                        >
-                          {demo.name}
-                        </h3>
-                        <p
-                          className="text-[11px] font-mono mt-1 tracking-wider uppercase truncate"
-                          style={{ color: demo.accent }}
-                          title={demo.category}
-                        >
-                          {demo.category}
-                        </p>
-                      </div>
+                        {demo.tagline}
+                      </h4>
                     </div>
 
-                    {/* Live status badge */}
-                    <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-500 shrink-0">
-                      <span className="relative flex h-1.5 w-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-                      </span>
-                      <span className="font-semibold uppercase tracking-wider text-[9px]">Live App</span>
-                    </div>
-                  </div>
-
-                  {/* Tagline (Fixed min-height for mathematical alignment) */}
-                  <div className="min-h-[44px] flex items-center mb-3">
-                    <h4
-                      className="text-sm font-semibold leading-snug line-clamp-2"
-                      style={{ color: "var(--text)" }}
-                    >
-                      {demo.tagline}
-                    </h4>
-                  </div>
-
-                  {/* Description (Fixed min-height for uniform horizontal divider baseline) */}
-                  <div className="min-h-[72px] sm:min-h-[76px] mb-5">
-                    <p
-                      className="text-xs sm:text-[13px] leading-relaxed line-clamp-3"
-                      style={{ color: "var(--text-muted)" }}
-                    >
-                      {demo.description}
-                    </p>
-                  </div>
-
-                  {/* Key Features / Superpowers (Full width, zero ugly truncation) */}
-                  <div className="pt-4 mb-6" style={{ borderTop: "1px solid var(--border)" }}>
-                    <div className="flex items-center justify-between mb-3">
-                      <span
-                        className="text-[10px] font-mono uppercase tracking-widest font-semibold"
+                    {/* Description (Fixed min-height for uniform horizontal divider baseline) */}
+                    <div className="min-h-[72px] sm:min-h-[76px] mb-5">
+                      <p
+                        className="text-xs sm:text-[13px] leading-relaxed line-clamp-3"
                         style={{ color: "var(--text-muted)" }}
                       >
-                        Platform Capabilities
-                      </span>
-                      <span
-                        className="text-[9px] font-mono px-2 py-0.5 rounded"
-                        style={{
-                          background: "rgba(16, 185, 129, 0.12)",
-                          color: "var(--accent-emerald)",
-                          border: "1px solid rgba(16, 185, 129, 0.25)",
-                        }}
-                      >
-                        Production Ready
-                      </span>
+                        {demo.description}
+                      </p>
                     </div>
-                    <div className="space-y-2.5">
-                      {demo.features.map((feat, i) => (
-                        <div
-                          key={i}
-                          className="flex items-start gap-2.5 text-xs group/feat"
+
+                    {/* Key Features / Superpowers (Full width, zero ugly truncation) */}
+                    <div className="pt-4 mb-5" style={{ borderTop: "1px solid var(--border)" }}>
+                      <div className="flex items-center justify-between mb-3">
+                        <span
+                          className="text-[10px] font-mono uppercase tracking-widest font-semibold"
+                          style={{ color: "var(--text-muted)" }}
                         >
-                          <CheckCircle2
-                            className="w-3.5 h-3.5 mt-0.5 shrink-0 transition-colors"
-                            style={{ color: demo.accent }}
-                          />
-                          <span
-                            className="leading-snug transition-colors"
-                            style={{ color: "var(--text-muted)" }}
+                          Platform Capabilities
+                        </span>
+                        <span
+                          className="text-[9px] font-mono px-2 py-0.5 rounded"
+                          style={{
+                            background: "rgba(16, 185, 129, 0.12)",
+                            color: "var(--accent-emerald)",
+                            border: "1px solid rgba(16, 185, 129, 0.25)",
+                          }}
+                        >
+                          Production Ready
+                        </span>
+                      </div>
+                      <div className="space-y-2.5">
+                        {demo.features.map((feat, i) => (
+                          <div
+                            key={i}
+                            className="flex items-start gap-2.5 text-xs group/feat"
                           >
-                            {feat}
-                          </span>
-                        </div>
-                      ))}
+                            <CheckCircle2
+                              className="w-3.5 h-3.5 mt-0.5 shrink-0 transition-colors"
+                              style={{ color: demo.accent }}
+                            />
+                            <span
+                              className="leading-snug transition-colors line-clamp-1"
+                              style={{ color: "var(--text-muted)" }}
+                              title={feat}
+                            >
+                              {feat}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Telemetry Metrics strip (Hardware module style) */}
+                  {/* Telemetry Metrics strip (Hardware module style - pinned above footer) */}
                   <div
-                    className="grid grid-cols-3 gap-2 mb-6 p-3 rounded-2xl border transition-all duration-300"
+                    className="grid grid-cols-3 gap-2 mt-auto mb-5 p-3 rounded-2xl border transition-all duration-300"
                     style={{
                       background: "var(--theme-pill-bg)",
                       borderColor: `rgba(${demo.accentRgb}, 0.22)`,
                     }}
                   >
                     {demo.metrics.map((m, idx) => (
-                      <div key={idx} className="text-center px-1">
+                      <div key={idx} className="text-center px-0.5 min-w-0 flex flex-col justify-center">
                         <div
-                          className="text-sm sm:text-base font-bold font-mono tracking-tight"
+                          className="text-[11.5px] sm:text-xs md:text-[13px] font-bold font-sans tracking-tight whitespace-nowrap"
                           style={{ color: idx === 0 ? demo.accent : "var(--text)" }}
                         >
                           {m.value}
                         </div>
                         <div
-                          className="text-[9.5px] font-mono mt-0.5 truncate tracking-tight uppercase"
+                          className="text-[9px] font-mono mt-0.5 tracking-tight uppercase"
                           style={{ color: "var(--text-muted)" }}
                         >
                           {m.label}
@@ -282,7 +296,7 @@ export function TryDemoSection() {
 
                 {/* Bottom Action Footer */}
                 <div
-                  className="pt-4 flex items-center justify-between gap-3 mt-auto"
+                  className="pt-4 flex items-center justify-between gap-3"
                   style={{ borderTop: "1px solid var(--border)" }}
                 >
                   <div className="flex items-center gap-2 text-xs font-mono min-w-0">
@@ -296,7 +310,7 @@ export function TryDemoSection() {
                   </div>
 
                   <a
-                    href={demo.url}
+                    href={getDemoUrlWithTheme(demo.url, theme)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.04] active:scale-[0.98] shadow-md shrink-0 group/btn"

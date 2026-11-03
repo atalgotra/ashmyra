@@ -181,13 +181,25 @@ export default function RootLayout({
             __html: `
               (function() {
                 try {
-                  var saved = localStorage.getItem('ashmyra-theme');
-                  var validThemes = ['gold', 'obsidian', 'copper', 'platinum'];
-                  if (saved && validThemes.indexOf(saved) !== -1) {
-                    document.documentElement.setAttribute('data-theme', saved);
-                  } else {
-                    document.documentElement.setAttribute('data-theme', 'gold');
+                  var valid = ['gold', 'obsidian', 'copper', 'platinum'];
+                  var theme = null;
+                  var params = new URLSearchParams(window.location.search);
+                  var qTheme = params.get('theme');
+                  if (qTheme && valid.indexOf(qTheme) !== -1) {
+                    theme = qTheme;
                   }
+                  if (!theme) {
+                    var saved = localStorage.getItem('ashmyra-theme');
+                    if (saved && valid.indexOf(saved) !== -1) theme = saved;
+                  }
+                  if (!theme) {
+                    var m = document.cookie.match(/(?:^|;\\s*)ashmyra-theme=([^;]+)/);
+                    if (m && m[1]) {
+                      var cVal = decodeURIComponent(m[1]);
+                      if (valid.indexOf(cVal) !== -1) theme = cVal;
+                    }
+                  }
+                  document.documentElement.setAttribute('data-theme', theme || 'gold');
                 } catch (e) {}
               })();
             `,

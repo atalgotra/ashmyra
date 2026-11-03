@@ -163,24 +163,30 @@ export default async function BlogPostPage({
             </span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-white leading-[1.15]">
+          <h1
+            className="text-3xl sm:text-5xl font-bold tracking-tight leading-[1.15]"
+            style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+          >
             {post.title}
           </h1>
 
           {/* Author info strip */}
           <div className="flex items-center gap-3 pt-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-md">
+            <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-xs font-bold text-white shadow-md">
               AT
             </div>
             <div>
-              <div className="text-sm font-semibold text-white">{post.author.name}</div>
-              <div className="text-xs text-neutral-400 font-mono">{post.author.role}</div>
+              <div className="text-sm font-semibold" style={{ color: "var(--text)" }}>{post.author.name}</div>
+              <div className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{post.author.role}</div>
             </div>
           </div>
         </div>
 
         {/* Full-width Banner Image */}
-        <div className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden border border-white/[0.1] shadow-2xl mb-12 glass-panel">
+        <div
+          className="relative aspect-[16/9] w-full rounded-3xl overflow-hidden shadow-2xl mb-12"
+          style={{ border: "1px solid var(--border)" }}
+        >
           <Image
             src={post.bannerImage}
             alt={post.bannerAlt}
@@ -192,40 +198,52 @@ export default async function BlogPostPage({
         </div>
 
         {/* Executive Summary Card / TL;DR */}
-        <div className="p-6 sm:p-7 rounded-2xl border border-cyan-500/20 bg-cyan-950/10 mb-12 glass-panel">
-          <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider mb-2">
+        <div
+          className="p-6 sm:p-7 rounded-2xl mb-12 shadow-sm"
+          style={{
+            backgroundColor: "var(--theme-pill-bg)",
+            border: "1px solid var(--theme-pill-border)",
+          }}
+        >
+          <div className="flex items-center gap-2 text-xs font-mono uppercase tracking-wider mb-2 font-bold" style={{ color: "var(--accent)" }}>
             <Sparkles className="w-3.5 h-3.5" /> Executive Summary &amp; Key Finding
           </div>
-          <p className="text-sm sm:text-base text-neutral-200 leading-relaxed font-sans">
+          <p className="text-sm sm:text-base leading-relaxed font-sans font-medium" style={{ color: "var(--text)" }}>
             {post.summary}
           </p>
         </div>
 
         {/* Article Body Sections */}
-        <div className="space-y-12 text-base text-neutral-300 leading-relaxed font-sans">
+        <div className="space-y-12 text-base leading-relaxed font-sans" style={{ color: "var(--text)" }}>
           {post.sections.map((section, idx) => (
             <section key={idx} className="space-y-4">
-              <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight pt-4">
+              <h2
+                className="text-2xl sm:text-3xl font-bold tracking-tight pt-4"
+                style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+              >
                 {section.heading}
               </h2>
 
               <div className="space-y-4">
                 {section.paragraphs.map((p, pIdx) => (
-                  <p key={pIdx} className="leading-relaxed text-neutral-300">
+                  <p key={pIdx} className="leading-relaxed" style={{ color: "var(--text-muted)" }}>
                     {p}
                   </p>
                 ))}
               </div>
 
               {section.keyTakeaways && section.keyTakeaways.length > 0 && (
-                <div className="mt-6 p-5 rounded-xl border border-white/[0.08] bg-white/[0.02] space-y-2.5">
-                  <div className="text-xs font-mono text-cyan-400 uppercase tracking-wider flex items-center gap-1.5">
+                <div
+                  className="mt-6 p-5 rounded-xl space-y-2.5 shadow-sm"
+                  style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
+                >
+                  <div className="text-xs font-mono uppercase tracking-wider flex items-center gap-1.5 font-bold" style={{ color: "var(--accent)" }}>
                     <CheckCircle2 className="w-3.5 h-3.5" /> Architecture Takeaways
                   </div>
-                  <ul className="space-y-1.5 text-sm text-neutral-300 pl-1">
+                  <ul className="space-y-1.5 text-sm pl-1" style={{ color: "var(--text-muted)" }}>
                     {section.keyTakeaways.map((item, tIdx) => (
                       <li key={tIdx} className="flex items-start gap-2">
-                        <span className="text-cyan-400 mt-1">•</span>
+                        <span className="mt-1 font-bold" style={{ color: "var(--accent)" }}>•</span>
                         <span>{item}</span>
                       </li>
                     ))}
@@ -237,12 +255,17 @@ export default async function BlogPostPage({
         </div>
 
         {/* Tags */}
-        <div className="mt-14 pt-8 border-t border-white/[0.08] flex flex-wrap items-center gap-2">
-          <span className="text-xs font-mono text-neutral-500 mr-2">Topic Tags:</span>
+        <div className="mt-14 pt-8 flex flex-wrap items-center gap-2" style={{ borderTop: "1px solid var(--border)" }}>
+          <span className="text-xs font-mono mr-2 font-medium" style={{ color: "var(--text-muted)" }}>Topic Tags:</span>
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="px-3 py-1 rounded-full bg-white/[0.04] border border-white/[0.08] text-xs font-mono text-neutral-300"
+              className="px-3 py-1 rounded-full text-xs font-mono font-medium"
+              style={{
+                backgroundColor: "var(--theme-pill-bg)",
+                border: "1px solid var(--border)",
+                color: "var(--text)",
+              }}
             >
               #{tag}
             </span>
@@ -250,32 +273,47 @@ export default async function BlogPostPage({
         </div>
 
         {/* Author Bio Box */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl border border-white/[0.08] bg-neutral-900/40 glass-panel flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-500 to-indigo-600 flex items-center justify-center text-lg font-bold text-white shadow-lg shrink-0">
+        <div
+          className="mt-12 p-6 sm:p-8 rounded-3xl shadow-sm flex flex-col sm:flex-row items-start sm:items-center gap-5"
+          style={{ backgroundColor: "var(--bg-card)", border: "1px solid var(--border)" }}
+        >
+          <div className="w-14 h-14 rounded-2xl bg-gradient-to-tr from-cyan-600 to-indigo-600 flex items-center justify-center text-lg font-bold text-white shadow-lg shrink-0">
             AT
           </div>
           <div className="space-y-1">
-            <h3 className="text-base font-bold text-white">Written by {post.author.name}</h3>
-            <p className="text-xs text-neutral-400 font-mono">{post.author.role} • Ashmyra Technologies</p>
-            <p className="text-xs text-neutral-300 leading-relaxed pt-1">
+            <h3 className="text-base font-bold" style={{ color: "var(--text)" }}>Written by {post.author.name}</h3>
+            <p className="text-xs font-mono" style={{ color: "var(--text-muted)" }}>{post.author.role} • Ashmyra Technologies</p>
+            <p className="text-xs leading-relaxed pt-1" style={{ color: "var(--text-muted)" }}>
               Building autonomous multi-agent AI systems, high-throughput search telemetry, and enterprise software. Based in Delhi NCR, engineering solutions globally.
             </p>
           </div>
         </div>
 
         {/* Technical Scoping CTA */}
-        <div className="mt-12 p-8 rounded-3xl border border-cyan-500/25 bg-gradient-to-br from-cyan-950/25 to-neutral-900/60 glass-panel text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div
+          className="mt-12 p-8 rounded-3xl shadow-md text-center sm:text-left flex flex-col sm:flex-row items-center justify-between gap-6"
+          style={{
+            backgroundColor: "var(--theme-pill-bg)",
+            border: "1px solid var(--theme-pill-border)",
+          }}
+        >
           <div>
-            <h3 className="text-xl font-bold text-white mb-1">
+            <h3
+              className="text-xl font-bold mb-1"
+              style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
+            >
               Have questions about this architecture?
             </h3>
-            <p className="text-xs text-neutral-300">
+            <p className="text-xs" style={{ color: "var(--text-muted)" }}>
               Schedule a technical scoping session with our engineering team.
             </p>
           </div>
           <Link
             href="/contact"
-            className="px-6 py-3 rounded-full bg-cyan-500 hover:bg-cyan-400 text-neutral-950 text-xs font-semibold tracking-wide transition-all shadow-lg shadow-cyan-500/20 shrink-0"
+            className="px-6 py-3 rounded-full text-white text-xs font-semibold tracking-wide transition-all shadow-md shrink-0"
+            style={{
+              background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+            }}
           >
             Contact Engineering
           </Link>
@@ -283,10 +321,12 @@ export default async function BlogPostPage({
 
         {/* Related Articles */}
         {otherPosts.length > 0 && (
-          <div className="mt-20 pt-12 border-t border-white/[0.08] space-y-6">
+          <div className="mt-20 pt-12 space-y-6" style={{ borderTop: "1px solid var(--border)" }}>
             <div className="flex items-center justify-between">
-              <h3 className="text-xl font-bold text-white">Recommended Reading</h3>
-              <Link href="/blog" className="text-xs text-cyan-400 hover:text-cyan-300 font-mono">
+              <h3 className="text-xl font-bold" style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}>
+                Recommended Reading
+              </h3>
+              <Link href="/blog" className="text-xs font-mono font-semibold" style={{ color: "var(--accent)" }}>
                 View all articles &rarr;
               </Link>
             </div>
@@ -296,9 +336,16 @@ export default async function BlogPostPage({
                 <Link
                   key={related.slug}
                   href={`/blog/${related.slug}`}
-                  className="group block p-5 rounded-2xl border border-white/[0.08] bg-neutral-900/30 hover:border-cyan-500/40 transition-all glass-panel"
+                  className="group block p-5 rounded-2xl transition-all shadow-sm hover:scale-[1.01]"
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                  }}
                 >
-                  <div className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-4 border border-white/[0.06]">
+                  <div
+                    className="relative aspect-[16/9] w-full rounded-xl overflow-hidden mb-4"
+                    style={{ border: "1px solid var(--border)" }}
+                  >
                     <Image
                       src={related.bannerImage}
                       alt={related.bannerAlt}
@@ -306,13 +353,21 @@ export default async function BlogPostPage({
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                   </div>
-                  <div className="text-[11px] font-mono text-cyan-400 mb-2">{related.category}</div>
-                  <h4 className="text-sm font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 mb-2">
+                  <div className="text-[11px] font-mono font-bold mb-2 uppercase" style={{ color: "var(--accent)" }}>
+                    {related.category}
+                  </div>
+                  <h4
+                    className="text-sm font-bold transition-colors line-clamp-2 mb-2"
+                    style={{ color: "var(--text)" }}
+                  >
                     {related.title}
                   </h4>
-                  <div className="flex items-center justify-between text-xs text-neutral-500 font-mono pt-2 border-t border-white/[0.06]">
+                  <div
+                    className="flex items-center justify-between text-xs font-mono pt-2"
+                    style={{ borderTop: "1px solid var(--border)", color: "var(--text-muted)" }}
+                  >
                     <span>{related.readTime}</span>
-                    <span className="text-cyan-400 group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                    <span className="font-semibold group-hover:translate-x-1 transition-transform flex items-center gap-1" style={{ color: "var(--accent)" }}>
                       Read &rarr;
                     </span>
                   </div>

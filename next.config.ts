@@ -20,7 +20,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/work",
-        destination: "/our-work",
+        destination: "/capabilities",
+        permanent: true,
+      },
+      {
+        source: "/our-work",
+        destination: "/capabilities",
         permanent: true,
       },
       {

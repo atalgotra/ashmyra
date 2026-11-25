@@ -27,7 +27,7 @@ export const metadata: Metadata = {
 
 export default function CapabilitiesPage() {
   return (
-    <main
+    <div
       className="min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200"
       style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
     >
@@ -51,6 +51,6 @@ export default function CapabilitiesPage() {
 
       {/* Phase 11: Final Conversion CTA */}
       <CapabilitiesCTA />
-    </main>
+    </div>
   );
 }

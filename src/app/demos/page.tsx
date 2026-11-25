@@ -161,7 +161,7 @@ export default function DemosPage() {
       </div>
 
       {/* Main Working Demos Grid */}
-      <TryDemoSection />
+      <TryDemoSection hideHeader />
 
       {/* Enterprise Sandbox Specifications */}
       <section

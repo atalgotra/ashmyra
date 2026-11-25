@@ -20,7 +20,7 @@ import {
   Zap,
 } from "lucide-react";
 
-export function TryDemoSection() {
+export function TryDemoSection({ hideHeader = false }: { hideHeader?: boolean } = {}) {
   const { theme } = useTheme();
   const getDemoIcon = (id: string, accent: string) => {
     const cls = "w-6 h-6";
@@ -78,6 +78,7 @@ export function TryDemoSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
+        {!hideHeader && (
         <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <div
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono mb-4 shadow-sm"
@@ -124,6 +125,7 @@ export function TryDemoSection() {
             and real-time data engines.
           </p>
         </div>
+        )}
 
         {/* Demo Cards Grid (6-column responsive layout: 3 top + 2 centered bottom) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 sm:gap-8">
@@ -185,9 +187,8 @@ export function TryDemoSection() {
                             {demo.name}
                           </h3>
                           <p
-                            className="text-[11px] font-mono mt-1 tracking-wider uppercase truncate"
+                            className="text-[11px] font-mono mt-1 tracking-wider uppercase leading-snug"
                             style={{ color: demo.accent }}
-                            title={demo.category}
                           >
                             {demo.category}
                           </p>
@@ -195,7 +196,7 @@ export function TryDemoSection() {
                       </div>
 
                       {/* Live status badge */}
-                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-500 shrink-0">
+                      <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-[10px] font-mono text-emerald-600 dark:text-emerald-400 shrink-0">
                         <span className="relative flex h-1.5 w-1.5">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
                           <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
@@ -204,20 +205,20 @@ export function TryDemoSection() {
                       </div>
                     </div>
 
-                    {/* Tagline (Fixed min-height for mathematical alignment) */}
-                    <div className="min-h-[44px] flex items-center mb-3">
+                    {/* Tagline (Top-aligned for uniform baseline across rows) */}
+                    <div className="min-h-[44px] flex items-start mb-3">
                       <h4
-                        className="text-sm font-semibold leading-snug line-clamp-2"
+                        className="text-sm font-semibold leading-snug"
                         style={{ color: "var(--text)" }}
                       >
                         {demo.tagline}
                       </h4>
                     </div>
 
-                    {/* Description (Fixed min-height for uniform horizontal divider baseline) */}
-                    <div className="min-h-[72px] sm:min-h-[76px] mb-5">
+                    {/* Description */}
+                    <div className="min-h-[84px] mb-5">
                       <p
-                        className="text-xs sm:text-[13px] leading-relaxed line-clamp-3"
+                        className="text-xs sm:text-[13px] leading-relaxed"
                         style={{ color: "var(--text-muted)" }}
                       >
                         {demo.description}
@@ -255,9 +256,8 @@ export function TryDemoSection() {
                               style={{ color: demo.accent }}
                             />
                             <span
-                              className="leading-snug transition-colors line-clamp-1"
+                              className="leading-snug transition-colors"
                               style={{ color: "var(--text-muted)" }}
-                              title={feat}
                             >
                               {feat}
                             </span>
@@ -304,7 +304,7 @@ export function TryDemoSection() {
                       className="w-1.5 h-1.5 rounded-full shrink-0"
                       style={{ background: demo.accent }}
                     />
-                    <span className="truncate text-[11px]" style={{ color: "var(--text-muted)" }}>
+                    <span className="text-[11px] leading-tight" style={{ color: "var(--text-muted)" }}>
                       {demo.highlight}
                     </span>
                   </div>
@@ -313,9 +313,10 @@ export function TryDemoSection() {
                     href={getDemoUrlWithTheme(demo.url, theme)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.04] active:scale-[0.98] shadow-md shrink-0 group/btn"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white btn-always-white transition-all duration-200 hover:scale-[1.04] active:scale-[0.98] shadow-md shrink-0 group/btn whitespace-nowrap"
                     style={{
-                      background: `linear-gradient(135deg, ${demo.accent}, rgba(${demo.accentRgb}, 0.85))`,
+                      background: `linear-gradient(135deg, ${demo.accent}, rgba(${demo.accentRgb}, 0.88))`,
+                      color: "#FFFFFF",
                       boxShadow: `0 8px 24px -6px rgba(${demo.accentRgb}, 0.4)`,
                     }}
                   >
@@ -363,9 +364,10 @@ export function TryDemoSection() {
 
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs sm:text-sm text-white transition-all hover:scale-105 shrink-0"
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs sm:text-sm transition-all hover:scale-105 shrink-0 whitespace-nowrap"
             style={{
               background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+              color: "var(--on-accent)",
               boxShadow: "0 0 0 1px var(--border-glow), 0 4px 16px -2px var(--border-glow)",
             }}
           >

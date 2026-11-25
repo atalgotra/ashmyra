@@ -228,7 +228,7 @@ export function WhatWeEngineerShowcase() {
     <section
       ref={sectionRef}
       id="what-we-engineer"
-      className="relative w-full py-16 sm:py-20 lg:py-24 border-t transition-colors duration-300"
+      className="relative w-full py-12 sm:py-16 lg:py-20 border-t transition-colors duration-300"
       style={{
         backgroundColor: "var(--bg)",
         borderColor: "var(--border)",
@@ -248,7 +248,7 @@ export function WhatWeEngineerShowcase() {
       <div className="relative z-10 max-w-[1480px] 2xl:max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-10 w-full">
 
         {/* Section Header */}
-        <div className="mb-12 sm:mb-16">
+        <div className="mb-8 sm:mb-12">
           <div className="flex items-center gap-2 mb-3">
             <span
               className="w-1.5 h-1.5 rounded-full transition-colors duration-500"
@@ -346,9 +346,11 @@ export function WhatWeEngineerShowcase() {
                   }`}
                   style={{
                     backgroundColor: isActive ? "var(--bg-card)" : "var(--theme-pill-bg)",
-                    border: isActive ? `1.5px solid ${cap.accent}` : "1px solid var(--border)",
+                    border: isActive
+                      ? `1.5px solid color-mix(in oklab, var(--accent) 55%, ${cap.accent})`
+                      : "1px solid var(--border)",
                     boxShadow: isActive
-                      ? `0 20px 45px -15px ${cap.accentGlow}, 0 4px 16px -2px rgba(0,0,0,0.06)`
+                      ? `0 20px 45px -15px var(--border-glow), 0 4px 16px -2px rgba(0,0,0,0.06)`
                       : "none",
                     opacity: isActive ? 1 : 0.72,
                   }}

@@ -36,6 +36,7 @@ const NAV = [
     label: "Company",
     links: [
       { text: "Demos",     href: "/demos" },
+      { text: "Griha Interiors", href: "https://griha.ashmyra.com" },
       { text: "People",    href: "/team#team" },
       { text: "Contact",   href: "/contact" },
     ],

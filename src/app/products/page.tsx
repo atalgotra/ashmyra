@@ -187,9 +187,10 @@ export default function ProductsPage() {
                       href={prod.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white shadow-lg transition-all hover:scale-[1.02]"
+                      className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white btn-always-white shadow-lg transition-all hover:scale-[1.02] whitespace-nowrap"
                       style={{
                         background: `linear-gradient(135deg, ${prod.accent}, #4f46e5)`,
+                        color: "#FFFFFF",
                       }}
                     >
                       <span>Launch Live Demo</span>
@@ -325,8 +326,11 @@ export default function ProductsPage() {
             <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm text-white shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98]"
-                style={{ backgroundColor: "var(--accent, #4f46e5)" }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm shadow-xl transition-all hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
+                style={{
+                  backgroundColor: "var(--accent, #4f46e5)",
+                  color: "var(--on-accent)",
+                }}
               >
                 <span>Schedule Architecture Discovery</span>
                 <ArrowRight className="w-4 h-4" />

@@ -65,6 +65,15 @@ export function SeoSchema() {
     "sameAs": [
       "https://www.linkedin.com/company/ashmyra"
     ],
+    "subOrganization": [
+      {
+        "@type": "Organization",
+        "name": "Griha Interiors",
+        "alternateName": "Griha",
+        "url": "https://griha.ashmyra.com",
+        "description": "Bespoke luxury interior architecture and turnkey residences across Delhi NCR by Ashmyra Technologies."
+      }
+    ],
     "founder": [
       {
         "@type": "Person",
@@ -75,20 +84,6 @@ export function SeoSchema() {
           "https://www.linkedin.com/in/atalgotra/",
           "https://github.com/atalgotra"
         ]
-      }
-    ],
-    "employee": [
-      {
-        "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#prince-rehan",
-        "name": "Prince Rehan",
-        "jobTitle": "Head - IT & Software Development"
-      },
-      {
-        "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#bella",
-        "name": "Bella",
-        "jobTitle": "Chief Happiness Officer"
       }
     ],
     "knowsAbout": [
@@ -338,7 +333,7 @@ export function SeoSchema() {
         "name": "Who leads Ashmyra Technologies?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The engineering team at Ashmyra Technologies is driven by Ashish Talgotra (AI Engineer / Data Scientist) and Prince Rehan (Head - IT & Software Development). The technical team brings hands-on expertise building autonomous AI systems, distributed data platforms, and enterprise software at scale."
+          "text": "The engineering team at Ashmyra Technologies is led by Ashish Talgotra (Founder | AI Architect & Data Scientist). The technical team brings hands-on expertise building autonomous AI systems, distributed data platforms, and enterprise software at scale."
         }
       },
       {
@@ -375,7 +370,7 @@ export function SeoSchema() {
         "@type": "Person",
         "@id": "https://www.ashmyra.com/team#ashish-talgotra",
         "name": "Ashish Talgotra",
-        "jobTitle": "Founder & AI Engineer / Data Scientist",
+        "jobTitle": "Founder | AI Architect & Data Scientist",
         "worksFor": {
           "@id": "https://www.ashmyra.com/#organization"
         },
@@ -391,39 +386,6 @@ export function SeoSchema() {
           "Enterprise LLMs & AI Systems",
           "Real-Time Data Pipelines",
           "Distributed Architecture"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#prince-rehan",
-        "name": "Prince Rehan",
-        "jobTitle": "Head - IT & Software Development",
-        "worksFor": {
-          "@id": "https://www.ashmyra.com/#organization"
-        },
-        "url": "https://www.ashmyra.com/team",
-        "image": "https://www.ashmyra.com/team/prince-rehan.jpg",
-        "knowsAbout": [
-          "Enterprise IT Infrastructure",
-          "Software Engineering Lifecycle",
-          "Cloud Systems & DevOps",
-          "Technical Systems Delivery",
-          "Mission-Critical Architectures"
-        ]
-      },
-      {
-        "@type": "Person",
-        "@id": "https://www.ashmyra.com/team#bella",
-        "name": "Bella",
-        "jobTitle": "Chief Happiness Officer",
-        "worksFor": {
-          "@id": "https://www.ashmyra.com/#organization"
-        },
-        "url": "https://www.ashmyra.com/team",
-        "image": "https://www.ashmyra.com/team/bella.png",
-        "knowsAbout": [
-          "Studio Morale",
-          "Team Happiness & Well-being"
         ]
       }
     ]

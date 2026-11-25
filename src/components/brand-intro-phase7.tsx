@@ -34,7 +34,7 @@ export function BrandIntroPhase7() {
       icon: Zap,
       title: "Execution Velocity",
       desc: "Direct engineering leadership moves systems from blueprint to live production with speed and precision.",
-      telemetryLabel: "Partner Direct",
+      telemetryLabel: "Direct",
       telemetryVal: "Zero Agency Lag",
       accent: "#7c3aed",
       accentGlow: "rgba(124, 58, 237, 0.25)",
@@ -183,17 +183,17 @@ export function BrandIntroPhase7() {
 
                   {/* Technical Proof Telemetry Tag */}
                   <div
-                    className="mt-5 pt-3.5 flex items-center justify-between text-[10px] font-mono"
+                    className="mt-5 pt-3.5 flex items-center justify-between gap-2 text-[10px] font-mono"
                     style={{ borderTop: "1px solid var(--border)" }}
                   >
-                    <span className="flex items-center gap-1.5 font-bold tracking-wide" style={{ color: item.accent }}>
+                    <span className="flex items-center gap-1.5 font-bold tracking-wide shrink-0" style={{ color: item.accent }}>
                       <span
                         className="w-1.5 h-1.5 rounded-full animate-pulse shrink-0"
                         style={{ background: item.accent }}
                       />
                       {item.telemetryLabel}
                     </span>
-                    <span className="font-semibold" style={{ color: "var(--text)" }}>
+                    <span className="font-semibold text-right truncate" style={{ color: "var(--text)" }}>
                       {item.telemetryVal}
                     </span>
                   </div>

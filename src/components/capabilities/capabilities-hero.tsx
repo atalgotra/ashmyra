@@ -57,7 +57,7 @@ export function CapabilitiesHero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden"
+      className="relative w-full pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-28 lg:pb-16 overflow-hidden"
       style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
     >
       {/* Ambient background lighting */}
@@ -106,8 +106,8 @@ export function CapabilitiesHero() {
               <a
                 href="#capabilities-overview"
                 onClick={handleScrollToOverview}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm text-white shadow-xl transition-all hover:scale-105 group"
-                style={{ backgroundColor: "var(--accent, #4f46e5)" }}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm shadow-xl transition-all hover:scale-105 group whitespace-nowrap"
+                style={{ backgroundColor: "var(--accent, #4f46e5)", color: "var(--on-accent)" }}
               >
                 <span>Explore Capabilities</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />

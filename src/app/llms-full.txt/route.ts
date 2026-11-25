@@ -37,6 +37,11 @@ export async function GET() {
 - Deep Spider Crawler: Multi-threaded headless engine executing deep architectural audits, internal link graphs, and HTTP forensic telemetry.
 - Telemetry Integration: Bi-directional OAuth sync with Google Search Console & GA4 streaming live click trends, cannibalization detection, and query rankings.
 - GEO Citation Radar: Real-time brand entity tracking across AI answer engines (ChatGPT, Perplexity, Google Gemini).
+
+### 6. Griha Interiors — Architecture & Turnkey Design
+- Live Endpoint: https://griha.ashmyra.com/
+- Brand Pedigree: Founded by Ashish Talgotra (Cornell MBA '12) as a luxury interior architecture sub-brand of Ashmyra Technologies, honoring a 70-year construction heritage dating to Late Sh. Khem Raj (1954).
+- Focus: Bespoke architectural design, high-end residences, duplexes, and turnkey residential construction across Delhi, Gurgaon, Noida, and Indirapuram.
 `;
 
     return new NextResponse(fullContent, {

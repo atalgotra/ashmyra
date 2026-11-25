@@ -527,7 +527,7 @@ export function ProductsCinematicHero() {
                     backgroundClip: "text",
                   }}
                 >
-                  {activeProduct.name}: {activeProduct.tagline.split("&")[0].trim()}.
+                  {activeProduct.name}: {activeProduct.tagline}
                 </span>
               </h1>
 
@@ -544,9 +544,10 @@ export function ProductsCinematicHero() {
             <div className="flex flex-wrap items-center gap-3 pt-0.5">
               <a
                 href={`#${activeProduct.id}`}
-                className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl text-white font-semibold text-xs sm:text-[13px] shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 px-4.5 py-2.5 rounded-xl text-white btn-always-white font-semibold text-xs sm:text-[13px] shadow-lg transition-all hover:scale-[1.02] active:scale-[0.98] whitespace-nowrap"
                 style={{
                   background: `linear-gradient(135deg, ${activeProduct.accent}, #4f46e5)`,
+                  color: "#FFFFFF",
                   boxShadow: `0 8px 20px -5px rgba(${activeProduct.accentRgb}, 0.35)`,
                 }}
               >

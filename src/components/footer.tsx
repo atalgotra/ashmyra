@@ -46,23 +46,33 @@ export function Footer() {
           {/* Left: Brand Identity & Vision (lg:col-span-6) */}
           <div className="lg:col-span-6 space-y-5">
             <Link href="/" className="inline-flex items-center gap-4 group">
-              <div className="relative w-14 h-14 rounded-2xl overflow-hidden bg-[#070912] border border-indigo-500/40 p-1.5 shadow-2xl shadow-indigo-500/25 group-hover:border-indigo-400 group-hover:scale-105 transition-all">
+              <div
+                className="relative w-14 h-14 rounded-2xl overflow-hidden p-1.5 shadow-xl group-hover:scale-105 transition-all"
+                style={{
+                  backgroundColor: "var(--bg-card)",
+                  border: "1px solid var(--border-strong)",
+                  boxShadow: "0 8px 24px -6px var(--border-glow)",
+                }}
+              >
                 <Image
                   src="/brand/ashmyra-icon.png"
                   alt="Ashmyra Logo"
                   width={56}
                   height={56}
-                  className="w-full h-full object-contain filter drop-shadow-[0_0_12px_rgba(99,102,241,0.6)]"
+                  className="w-full h-full object-contain"
                 />
               </div>
               <div className="flex flex-col">
                 <span
-                  className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white group-hover:text-indigo-200 transition-colors"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-2xl sm:text-3xl font-extrabold tracking-tight transition-colors font-display"
+                  style={{ color: "var(--text)" }}
                 >
                   ASHMYRA
                 </span>
-                <span className="text-[11px] tracking-[0.25em] text-indigo-400 uppercase font-mono font-bold">
+                <span
+                  className="text-[11px] tracking-[0.25em] uppercase font-mono font-bold"
+                  style={{ color: "var(--accent)" }}
+                >
                   Technologies
                 </span>
               </div>
@@ -74,13 +84,27 @@ export function Footer() {
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-1">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-indigo-300 bg-indigo-500/10 border border-indigo-500/25">
-                <Terminal className="w-3.5 h-3.5 text-indigo-400" />
-                AI Agents &bull; Enterprise SaaS &bull; Data
+              <span
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-medium"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  border: "1px solid var(--theme-pill-border)",
+                  color: "var(--text)",
+                }}
+              >
+                <Terminal className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
+                <span>AI Agents &bull; Enterprise SaaS &bull; Data</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/25">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                Open for Engagements
+              <span
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono font-semibold"
+                style={{
+                  backgroundColor: "rgba(16, 185, 129, 0.12)",
+                  border: "1px solid rgba(16, 185, 129, 0.3)",
+                  color: "var(--accent-emerald)",
+                }}
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                <span>Open for Engagements</span>
               </span>
             </div>
           </div>
@@ -232,6 +256,22 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <a
+                  href="https://griha.ashmyra.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group"
+                >
+                  <span className="flex items-center gap-2">
+                    <span>Griha Interiors</span>
+                    <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 border border-amber-500/20">
+                      Venture
+                    </span>
+                  </span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-amber-400" />
+                </a>
+              </li>
+              <li>
                 <Link href="/blog" className="text-neutral-400 hover:text-white transition-colors flex items-center justify-between group">
                   <span>Engineering Blog</span>
                   <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity text-purple-400" />
@@ -294,12 +334,19 @@ export function Footer() {
           </div>
 
           <div className="flex items-center gap-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-300 text-[11px]">
-              <span className="w-1.5 h-1.5 rounded-full bg-indigo-400" />
+            <div
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-[11px] font-medium"
+              style={{
+                backgroundColor: "var(--theme-pill-bg)",
+                border: "1px solid var(--theme-pill-border)",
+                color: "var(--text)",
+              }}
+            >
+              <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
               <span>Intelligent Systems That Act</span>
             </div>
-            <span className="hidden md:inline text-neutral-600">&bull;</span>
-            <span className="hidden md:inline text-neutral-500">Engineered with Precision</span>
+            <span className="hidden md:inline" style={{ color: "var(--text-subtle)" }}>&bull;</span>
+            <span className="hidden md:inline" style={{ color: "var(--text-muted)" }}>Engineered with Precision</span>
           </div>
         </div>
 

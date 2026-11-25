@@ -21,12 +21,6 @@
 - LinkedIn: https://www.linkedin.com/in/atalgotra/
 - GitHub: https://github.com/atalgotra
 
-**Head - IT & Software Development**: Prince Rehan
-- Directs cloud systems architecture, enterprise infrastructure, and software delivery
-
-**Chief Happiness Officer**: Bella 🐾
-- Head of studio morale and team happiness
-
 
 ## Mission & Architectural Philosophy
 
@@ -60,6 +54,11 @@ Ashmyra maintains live, working production applications accessible in the browse
 - Live Demo: https://veyrix.ashmyra.com/
 - Capabilities: Autonomous deep website crawler, multi-agent technical SEO auditing, GSC/GA4 bi-directional telemetry, and real-time GEO citation radar.
 - Ideal For: Enterprise technical SEO teams, agency auditors, and digital growth leaders.
+
+### 6. Griha Interiors — Luxury Interior Architecture & Design
+- Live Platform: https://griha.ashmyra.com/
+- Description: Founded by Ashish Talgotra (Cornell MBA '12) as a luxury interior architecture sub-brand of Ashmyra Technologies, carrying forward a 70-year building legacy. Delivers turnkey bespoke architectural residences across Delhi NCR.
+- Ideal For: Luxury residential clients, penthouses, duplexes, and turnkey architectural spaces.
 
 ## Core Enterprise Product Suites
 

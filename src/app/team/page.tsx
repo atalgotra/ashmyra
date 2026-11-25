@@ -19,7 +19,6 @@ import {
   Users,
   Database,
   Bot,
-  Heart,
 } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -105,53 +104,9 @@ const TEAM_MEMBERS = [
     monogram: null,
     photoPosition: "object-[center_20%]",
     linkedin: "https://www.linkedin.com/in/atalgotra/",
-    roleBadge: "Founder | AI Architect & Data Scientist",
+    roleBadge: "Founder & Lead Architect",
     FooterIcon: Terminal,
     footerLabel: "AI & Systems Engineering",
-  },
-  {
-    num: "02",
-    name: "Prince Rehan",
-    title: "Head — IT & Software Development",
-    roleSubtitle: "Infrastructure & Engineering Execution",
-    bio: "Directs enterprise software engineering, technology development and technical execution. Oversees resilient cloud systems, deployment pipelines and high-concurrency architectures that power operations at scale.",
-    skills: [
-      "Software Engineering",
-      "Cloud Architecture",
-      "Technical Execution",
-      "System Resilience",
-    ],
-    accent: "#7c3aed",
-    accentRgb: "124, 58, 237",
-    photo: "/team/prince-rehan.jpg",
-    monogram: null,
-    photoPosition: "object-top",
-    linkedin: null,
-    roleBadge: "Head of IT & Software",
-    FooterIcon: Code2,
-    footerLabel: "IT & Software Development",
-  },
-  {
-    num: "03",
-    name: "Bella",
-    title: "Chief Happiness Officer",
-    roleSubtitle: "Studio Morale & Well-being",
-    bio: "Keeping spirits high, bringing a little joy to the everyday, and reminding us that great work deserves a happy workplace.",
-    skills: [
-      "Morale Optimization",
-      "Stress De-escalation",
-      "Team Well-being",
-      "Happy Workplace",
-    ],
-    accent: "#e11d48",
-    accentRgb: "225, 29, 72",
-    photo: "/team/bella.png",
-    monogram: null,
-    photoPosition: "object-top",
-    linkedin: null,
-    roleBadge: "Chief Happiness Officer",
-    FooterIcon: Heart,
-    footerLabel: "Chief Happiness Officer",
   },
 ] as const;
 
@@ -471,22 +426,18 @@ export default function TeamPage() {
             </p>
           </div>
 
-          {/* Balanced 3-Column Team Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {/* Leadership Spotlight Card */}
+          <div className="max-w-5xl mx-auto">
             {TEAM_MEMBERS.map((leader) => {
               const FooterIcon = leader.FooterIcon;
-              const isBella = leader.num === "03";
 
               return (
                 <div
                   key={leader.num}
-                  className="group relative rounded-3xl overflow-hidden flex flex-col justify-between transition-all duration-300 hover:-translate-y-1.5"
+                  className="group relative rounded-3xl overflow-hidden grid grid-cols-1 md:grid-cols-12 transition-all duration-300 hover:-translate-y-1"
                   style={{
-                    minHeight: "560px",
                     backgroundColor: "var(--bg-card)",
-                    border: isBella
-                      ? "1px solid rgba(225, 29, 72, 0.35)"
-                      : `1px solid rgba(${leader.accentRgb}, 0.28)`,
+                    border: `1px solid rgba(${leader.accentRgb}, 0.28)`,
                     boxShadow: "0 20px 50px -15px rgba(0, 0, 0, 0.08), 0 0 0 1px var(--border)",
                   }}
                 >
@@ -500,32 +451,32 @@ export default function TeamPage() {
 
                   {/* Ambient Backlight Glow */}
                   <div
-                    className="absolute -top-12 -right-12 w-48 h-48 rounded-full blur-3xl opacity-15 pointer-events-none group-hover:opacity-35 transition-opacity"
+                    className="absolute -top-12 -right-12 w-56 h-56 rounded-full blur-3xl opacity-15 pointer-events-none group-hover:opacity-35 transition-opacity"
                     style={{ background: leader.accent }}
                   />
 
                   {/* Portrait Area */}
-                  <div className="relative overflow-hidden shrink-0" style={{ height: "310px" }}>
+                  <div className="relative overflow-hidden md:col-span-5 min-h-[320px] sm:min-h-[380px] md:min-h-[420px]">
                     <Image
                       src={leader.photo}
                       alt={leader.name}
                       fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      priority={leader.num === "01" || leader.num === "02"}
+                      sizes="(max-width: 768px) 100vw, 420px"
+                      priority
                       className={`object-cover ${leader.photoPosition} transition-transform duration-700 group-hover:scale-105`}
                     />
 
-                    {/* Cinematic Bottom Gradient Fade to Active Card Background */}
+                    {/* Subtle Edge Gradient Blend */}
                     <div
                       className="absolute inset-0 pointer-events-none"
                       style={{
                         background:
-                          "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 45%, var(--bg-card) 100%)",
+                          "linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, transparent 55%, var(--bg-card) 100%)",
                       }}
                     />
 
-                    {/* Top Right: High-Contrast Role Badge */}
-                    <div className="absolute top-4 right-4 z-10">
+                    {/* Top Left: High-Contrast Role Badge */}
+                    <div className="absolute top-4 left-4 z-10">
                       <div
                         className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full shadow-md transition-colors"
                         style={{
@@ -549,54 +500,56 @@ export default function TeamPage() {
                   </div>
 
                   {/* Info Panel */}
-                  <div className="flex flex-col flex-1 px-6 pb-6 pt-3">
-                    <div className="mb-3">
-                      <h3
-                        className="text-xl sm:text-2xl font-bold tracking-tight leading-snug transition-colors"
-                        style={{ fontFamily: "'Space Grotesk', sans-serif", color: "var(--text)" }}
-                      >
-                        {leader.name}
-                      </h3>
-                      <div
-                        className="text-xs sm:text-[13px] font-mono font-semibold mt-1"
-                        style={{ color: leader.accent }}
-                      >
-                        {leader.title}
-                      </div>
-                      <div className="text-[11px] font-mono mt-0.5" style={{ color: "var(--text-muted)" }}>
-                        {leader.roleSubtitle}
-                      </div>
-                    </div>
-
-                    <p className="text-xs sm:text-[13px] leading-relaxed font-sans mb-5 flex-1" style={{ color: "var(--text-muted)" }}>
-                      {leader.bio}
-                    </p>
-
-                    {/* Competencies / Skills */}
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {leader.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-2.5 py-1 rounded-md text-[10.5px] font-mono border transition-colors"
-                          style={{
-                            backgroundColor: "var(--theme-pill-bg)",
-                            borderColor: "var(--border)",
-                            color: "var(--text)",
-                          }}
+                  <div className="md:col-span-7 flex flex-col justify-between p-6 sm:p-8 lg:p-10">
+                    <div>
+                      <div className="mb-4">
+                        <h3
+                          className="text-2xl sm:text-3xl font-bold tracking-tight leading-snug transition-colors font-display"
+                          style={{ color: "var(--text)" }}
                         >
-                          {skill}
-                        </span>
-                      ))}
+                          {leader.name}
+                        </h3>
+                        <div
+                          className="text-xs sm:text-sm font-mono font-semibold mt-1"
+                          style={{ color: leader.accent }}
+                        >
+                          {leader.title}
+                        </div>
+                        <div className="text-xs font-mono mt-0.5" style={{ color: "var(--text-muted)" }}>
+                          {leader.roleSubtitle}
+                        </div>
+                      </div>
+
+                      <p className="text-sm sm:text-[15px] leading-relaxed font-sans mb-6" style={{ color: "var(--text-muted)" }}>
+                        {leader.bio}
+                      </p>
+
+                      {/* Competencies / Skills */}
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {leader.skills.map((skill) => (
+                          <span
+                            key={skill}
+                            className="px-3 py-1 rounded-md text-[11px] font-mono border transition-colors"
+                            style={{
+                              backgroundColor: "var(--theme-pill-bg)",
+                              borderColor: "var(--border)",
+                              color: "var(--text)",
+                            }}
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
                     </div>
 
                     {/* Footer */}
                     <div
-                      className="pt-4 flex items-center justify-between gap-2 mt-auto"
+                      className="pt-5 flex items-center justify-between gap-3 mt-auto"
                       style={{ borderTop: "1px solid var(--border)" }}
                     >
-                      <div className="flex items-center gap-1.5 text-xs font-mono truncate min-w-0" style={{ color: "var(--text-muted)" }}>
+                      <div className="flex items-center gap-2 text-xs font-mono truncate min-w-0" style={{ color: "var(--text-muted)" }}>
                         <FooterIcon
-                          className="w-3.5 h-3.5 shrink-0"
+                          className="w-4 h-4 shrink-0"
                           style={{ color: leader.accent }}
                         />
                         <span className="truncate">{leader.footerLabel}</span>
@@ -607,7 +560,7 @@ export default function TeamPage() {
                           href={leader.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-mono font-semibold transition-all shrink-0 hover:scale-105"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-mono font-semibold transition-all shrink-0 hover:scale-105"
                           style={{
                             backgroundColor: "var(--theme-pill-bg)",
                             border: "1px solid var(--theme-pill-border)",
@@ -695,11 +648,11 @@ export default function TeamPage() {
                   className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-xs transition-all shadow-md hover:scale-[1.02] group"
                   style={{
                     backgroundColor: "var(--accent)",
-                    color: "#FFFFFF",
+                    color: "var(--on-accent)",
                   }}
                 >
-                  <span className="text-white font-bold">Connect With Ashmyra</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform" />
+                  <span className="font-bold">Connect With Ashmyra</span>
+                  <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
                 <Link
                   href="/contact"

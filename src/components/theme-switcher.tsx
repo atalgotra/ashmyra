@@ -112,17 +112,20 @@ export function ThemeSwitcher({ className = "" }: { className?: string }) {
                   </div>
 
                   <div className="min-w-0">
-                    <div className="text-xs font-semibold text-white group-hover:text-cyan-200 transition-colors flex items-center gap-1.5">
+                    <div
+                      className="text-xs font-semibold transition-colors flex items-center gap-1.5 group-hover:text-[var(--accent)]"
+                      style={{ color: isSelected ? "var(--accent)" : "var(--text)" }}
+                    >
                       <span className="truncate">{t.name}</span>
                     </div>
-                    <span className="text-[10px] font-mono text-neutral-400 block">
+                    <span className="text-[10px] font-mono block" style={{ color: "var(--text-muted)" }}>
                       {t.badge}
                     </span>
                   </div>
                 </div>
 
                 {isSelected && (
-                  <Check className="w-4 h-4 text-cyan-400 shrink-0 ml-2" />
+                  <Check className="w-4 h-4 shrink-0 ml-2" style={{ color: "var(--accent)" }} />
                 )}
               </button>
             );
@@ -138,9 +141,12 @@ export function MobileThemeSelector() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="space-y-2 pt-2 border-t border-white/[0.08]">
-      <div className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 flex items-center gap-1.5 px-1">
-        <Sparkles className="w-3 h-3 text-cyan-400" />
+    <div className="space-y-2.5 pt-3" style={{ borderTop: "1px solid var(--border)" }}>
+      <div
+        className="text-[11px] font-mono uppercase tracking-wider flex items-center gap-1.5 px-1 font-semibold"
+        style={{ color: "var(--text-muted)" }}
+      >
+        <Sparkles className="w-3 h-3" style={{ color: "var(--accent)" }} />
         <span>Palette Theme</span>
       </div>
       <div className="grid grid-cols-2 gap-2">
@@ -150,16 +156,17 @@ export function MobileThemeSelector() {
             <button
               key={t.id}
               onClick={() => setTheme(t.id)}
-              className={`flex items-center gap-2.5 p-2 rounded-xl text-xs font-medium transition-all ${
-                isSelected
-                  ? "bg-white/[0.12] border border-white/20 text-white shadow-sm"
-                  : "bg-white/[0.03] border border-white/[0.06] text-neutral-300 hover:text-white hover:bg-white/[0.06]"
-              }`}
+              className="flex items-center gap-2.5 p-2.5 rounded-xl text-xs font-medium transition-all border"
+              style={{
+                backgroundColor: isSelected ? "var(--theme-pill-bg)" : "var(--bg-card)",
+                borderColor: isSelected ? "var(--accent)" : "var(--border)",
+                color: isSelected ? "var(--accent)" : "var(--text)",
+              }}
             >
-              <span className="text-sm leading-none">{t.icon}</span>
+              <span className="text-sm leading-none shrink-0">{t.icon}</span>
               <div className="text-left min-w-0">
                 <div className="text-[11px] font-semibold truncate leading-tight">{t.name}</div>
-                <div className="text-[9px] font-mono opacity-60 leading-none mt-0.5">{t.badge}</div>
+                <div className="text-[9px] font-mono opacity-75 leading-none mt-0.5">{t.badge}</div>
               </div>
             </button>
           );

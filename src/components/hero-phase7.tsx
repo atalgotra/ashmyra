@@ -68,7 +68,7 @@ export function HeroPhase7() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 pb-6 lg:pb-8 overflow-hidden transition-colors duration-300"
+      className="relative w-full min-h-[calc(100vh-4rem)] flex flex-col justify-center pt-20 sm:pt-24 lg:pt-24 pb-8 lg:pb-10 overflow-x-hidden transition-colors duration-300"
       style={{ backgroundColor: "var(--bg)", color: "var(--text)" }}
     >
       {/* ── Editorial Background Atmosphere ─────────────────────────────────── */}
@@ -152,24 +152,25 @@ export function HeroPhase7() {
             {/* CTAs */}
             <div
               ref={ctaRef}
-              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 mb-6 sm:mb-7 w-full sm:w-auto"
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 mb-6 sm:mb-7 w-full sm:w-auto"
             >
               <Link
                 href="/demos"
-                className="group inline-flex items-center justify-center gap-2.5 px-6 py-3 rounded-xl font-semibold text-sm text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
+                className="group inline-flex items-center justify-center gap-2 px-5 xl:px-6 py-3 rounded-xl font-semibold text-sm whitespace-nowrap transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] text-center"
                 style={{
                   background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+                  color: "var(--on-accent)",
                   boxShadow:
                     "0 0 0 1px var(--border-glow), 0 8px 24px -6px var(--border-glow)",
                 }}
               >
                 <span>Experience Live Demos</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                <ArrowRight className="w-4 h-4 shrink-0 transition-transform group-hover:translate-x-0.5" />
               </Link>
 
               <Link
                 href="/contact?intent=discovery"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm transition-all duration-300 text-center group hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center justify-center gap-2 px-5 xl:px-6 py-3 rounded-xl font-semibold text-sm whitespace-nowrap transition-all duration-300 text-center group hover:scale-[1.02] active:scale-[0.98]"
                 style={{
                   background: "var(--theme-pill-bg)",
                   border: "1px solid var(--theme-pill-border)",
@@ -177,7 +178,7 @@ export function HeroPhase7() {
                 }}
               >
                 <span>Book Technical Discovery</span>
-                <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-inherit group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-4 h-4 shrink-0 text-neutral-400 group-hover:text-inherit group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </Link>
             </div>
 
@@ -188,23 +189,23 @@ export function HeroPhase7() {
               style={{ borderTop: "1px solid var(--border)" }}
             >
               <div
-                className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2.5 sm:gap-3.5 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-2xl backdrop-blur-md shadow-sm transition-colors duration-300"
+                className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2.5 xl:gap-3.5 px-3 xl:px-4 py-2 sm:py-2.5 rounded-2xl backdrop-blur-md shadow-sm transition-colors duration-300"
                 style={{
                   background: "var(--bg-card)",
                   border: "1px solid var(--border)",
                 }}
               >
-                <div className="flex items-center gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-[11px] xl:text-xs font-mono whitespace-nowrap">
                   <Cpu className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent)" }} />
                   <span className="font-medium" style={{ color: "var(--text)" }}>Agentic AI</span>
                 </div>
                 <span className="w-1 h-1 rounded-full hidden sm:inline shrink-0" style={{ backgroundColor: "var(--border-strong)" }} />
-                <div className="flex items-center gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-[11px] xl:text-xs font-mono whitespace-nowrap">
                   <Database className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-cyan)" }} />
                   <span className="font-medium" style={{ color: "var(--text)" }}>Data Intelligence</span>
                 </div>
                 <span className="w-1 h-1 rounded-full hidden sm:inline shrink-0" style={{ backgroundColor: "var(--border-strong)" }} />
-                <div className="flex items-center gap-2 text-xs font-mono">
+                <div className="flex items-center gap-1.5 text-[11px] xl:text-xs font-mono whitespace-nowrap">
                   <Layers className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent-violet)" }} />
                   <span className="font-medium" style={{ color: "var(--text)" }}>Enterprise Software</span>
                 </div>

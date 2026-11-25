@@ -82,10 +82,11 @@ export function Navbar() {
     };
   }, [mobileOpen]);
 
-  // Handle escape key to close dropdowns
+  // Handle escape key to close dropdowns (always clear hover timeout too)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        if (timeoutRef.current) clearTimeout(timeoutRef.current);
         setActiveDD(null);
         setMobileOpen(false);
       }
@@ -478,13 +479,20 @@ export function Navbar() {
             </nav>
 
             {/* Right Action: Theme Switcher & Primary CTA */}
-            <div className="flex items-center gap-2.5">
+            <div
+              className="flex items-center gap-2.5"
+              onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+                setActiveDD(null);
+              }}
+            >
               <ThemeSwitcher />
               <Link
                 href="/contact"
-                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg"
+                className="hidden lg:inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-lg whitespace-nowrap"
                 style={{
                   background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+                  color: "var(--on-accent)",
                   boxShadow: "0 0 0 1px var(--border-glow), 0 4px 16px -2px var(--border-glow)",
                 }}
               >
@@ -495,8 +503,12 @@ export function Navbar() {
               {/* Mobile Drawer Toggle */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500/50"
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)" }}
+                className="lg:hidden p-2 rounded-xl transition-colors focus:outline-none"
+                style={{
+                  backgroundColor: "var(--theme-pill-bg)",
+                  border: "1px solid var(--border)",
+                  color: "var(--text)",
+                }}
                 aria-label="Toggle navigation menu"
                 aria-expanded={mobileOpen}
               >
@@ -1150,11 +1162,11 @@ export function Navbar() {
       {/* ── Mobile Navigation Drawer ────────────────────────────────────────────── */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 top-16 z-40 lg:hidden overflow-y-auto"
+          className="fixed inset-x-0 bottom-0 top-16 z-40 lg:hidden overflow-y-auto transition-colors duration-200"
           style={{
-            backgroundColor: "#07090E",
-            backdropFilter: "blur(20px)",
-            WebkitBackdropFilter: "blur(20px)",
+            backgroundColor: "var(--bg)",
+            color: "var(--text)",
+            borderTop: "1px solid var(--border)",
           }}
           role="dialog"
           aria-modal="true"
@@ -1169,46 +1181,76 @@ export function Navbar() {
                 return (
                   <div
                     key={nav.title}
-                    className="rounded-xl border border-white/[0.08] overflow-hidden bg-white/[0.02]"
+                    className="rounded-xl overflow-hidden transition-colors"
+                    style={{
+                      backgroundColor: "var(--bg-card)",
+                      border: "1px solid var(--border)",
+                    }}
                   >
                     <button
                       onClick={() => toggleMobileSection(nav.title)}
-                      className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold text-white hover:text-cyan-300 transition-colors min-h-[44px]"
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-sm font-semibold transition-colors min-h-[44px]"
+                      style={{ color: "var(--text)" }}
                       aria-expanded={isOpen}
                     >
                       <span>{nav.title}</span>
                       <ChevronDown
-                        className={`w-4 h-4 text-neutral-400 transition-transform duration-200 ${
-                          isOpen ? "rotate-180 text-cyan-400" : ""
+                        className={`w-4 h-4 transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
                         }`}
+                        style={{ color: isOpen ? "var(--accent)" : "var(--text-muted)" }}
                       />
                     </button>
 
                     {isOpen && (
-                      <div className="px-3 pb-3 space-y-1 border-t border-white/[0.05] pt-2">
+                      <div
+                        className="px-3 pb-3 space-y-1 pt-2"
+                        style={{ borderTop: "1px solid var(--border)" }}
+                      >
                         {/* Section overview link */}
                         <Link
                           href={nav.href}
                           onClick={() => setMobileOpen(false)}
-                          className="flex items-center justify-between p-2.5 rounded-lg bg-white/[0.04] text-xs font-semibold text-cyan-300 hover:text-white border border-white/[0.06] mb-2 min-h-[44px]"
+                          className="flex items-center justify-between p-2.5 rounded-lg text-xs font-semibold mb-2 min-h-[44px]"
+                          style={{
+                            backgroundColor: "var(--theme-pill-bg)",
+                            border: "1px solid var(--theme-pill-border)",
+                            color: "var(--accent)",
+                          }}
                         >
                           <span>Explore All {nav.title}</span>
-                          <ArrowRight className="w-3.5 h-3.5 text-cyan-400" />
+                          <ArrowRight className="w-3.5 h-3.5" style={{ color: "var(--accent)" }} />
                         </Link>
                         {/* Capabilities visual groups */}
                         {nav.groups ? (
                           nav.groups.map((group) => {
                             const isAi = group.groupTitle.includes("AI");
                             const isSoftware = group.groupTitle.includes("Software");
-                            const accentColor = isAi ? "text-indigo-400" : isSoftware ? "text-cyan-400" : "text-emerald-400";
+                            const accentStyle = {
+                              color: isAi
+                                ? "var(--nav-col-ai)"
+                                : isSoftware
+                                ? "var(--nav-col-software)"
+                                : "var(--nav-col-data)",
+                            };
                             return (
-                              <div key={group.groupTitle} className="mb-4 last:mb-0 pb-3 border-b border-white/[0.04] last:border-b-0">
+                              <div
+                                key={group.groupTitle}
+                                className="mb-4 last:mb-0 pb-3 last:pb-0 last:border-b-0"
+                                style={{ borderBottom: "1px solid var(--border)" }}
+                              >
                                 <div className="px-2.5 py-1 mb-1">
-                                  <span className={`text-[10px] font-mono uppercase tracking-wider font-semibold block ${accentColor}`}>
+                                  <span
+                                    className="text-[10px] font-mono uppercase tracking-wider font-semibold block"
+                                    style={accentStyle}
+                                  >
                                     {group.groupTitle}
                                   </span>
                                   {group.explanation && (
-                                    <p className="text-[10.5px] text-slate-400 font-light mt-0.5">
+                                    <p
+                                      className="text-[10.5px] font-normal mt-0.5"
+                                      style={{ color: "var(--text-muted)" }}
+                                    >
                                       {group.explanation}
                                     </p>
                                   )}
@@ -1219,18 +1261,27 @@ export function Navbar() {
                                       key={item.title}
                                       href={item.href}
                                       onClick={() => setMobileOpen(false)}
-                                      className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
+                                      className="flex items-center justify-between p-2.5 rounded-lg text-xs min-h-[44px] transition-colors hover:bg-[var(--theme-pill-bg)]"
+                                      style={{ color: "var(--text)" }}
                                     >
                                       <div className="flex items-center gap-2.5 min-w-0">
                                         {getIcon(item.title)}
                                         <div className="min-w-0">
                                           <span className="font-medium truncate block">{item.title}</span>
                                           {item.description && (
-                                            <span className="text-[10px] text-slate-400 font-light block truncate">{item.description}</span>
+                                            <span
+                                              className="text-[10px] font-normal block truncate"
+                                              style={{ color: "var(--text-muted)" }}
+                                            >
+                                              {item.description}
+                                            </span>
                                           )}
                                         </div>
                                       </div>
-                                      <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0 ml-2" />
+                                      <ArrowRight
+                                        className="w-3.5 h-3.5 shrink-0 ml-2"
+                                        style={{ color: "var(--text-subtle)" }}
+                                      />
                                     </Link>
                                   ))}
                                 </div>
@@ -1238,7 +1289,8 @@ export function Navbar() {
                                   <Link
                                     href={group.overviewHref}
                                     onClick={() => setMobileOpen(false)}
-                                    className={`inline-flex items-center gap-1 text-[11px] font-mono ${accentColor} px-2.5 pt-1.5 font-medium`}
+                                    className="inline-flex items-center gap-1 text-[11px] font-mono px-2.5 pt-1.5 font-medium"
+                                    style={accentStyle}
                                   >
                                     <span>{group.overviewLabel || "Explore Category →"}</span>
                                   </Link>
@@ -1252,18 +1304,29 @@ export function Navbar() {
                               key={item.title}
                               href={item.href}
                               onClick={() => setMobileOpen(false)}
-                              className="flex items-center justify-between p-2.5 rounded-lg hover:bg-white/[0.05] text-xs text-neutral-300 hover:text-white min-h-[44px]"
+                              className="flex items-center justify-between p-2.5 rounded-lg text-xs min-h-[44px] transition-colors hover:bg-[var(--theme-pill-bg)]"
+                              style={{ color: "var(--text)" }}
                             >
                               <div className="flex items-center gap-2.5 min-w-0">
                                 {getIcon(item.title)}
                                 <span className="font-medium truncate">{item.title}</span>
                               </div>
                               {item.badge ? (
-                                <span className="text-[9px] font-mono text-emerald-300 bg-emerald-500/15 border border-emerald-500/30 px-1.5 py-0.5 rounded font-medium">
+                                <span
+                                  className="text-[9.5px] font-mono px-1.5 py-0.5 rounded font-semibold shrink-0"
+                                  style={{
+                                    backgroundColor: "var(--theme-pill-bg)",
+                                    border: "1px solid var(--theme-pill-border)",
+                                    color: "var(--accent)",
+                                  }}
+                                >
                                   {item.badge} ↗
                                 </span>
                               ) : (
-                                <ArrowRight className="w-3.5 h-3.5 text-neutral-500 shrink-0" />
+                                <ArrowRight
+                                  className="w-3.5 h-3.5 shrink-0"
+                                  style={{ color: "var(--text-subtle)" }}
+                                />
                               )}
                             </Link>
                           ))
@@ -1279,10 +1342,15 @@ export function Navbar() {
                   key={nav.title}
                   href={nav.href}
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold text-neutral-200 hover:text-white bg-white/[0.02] border border-white/[0.08] min-h-[44px]"
+                  className="flex items-center justify-between px-4 py-3.5 rounded-xl text-sm font-semibold min-h-[44px] transition-colors"
+                  style={{
+                    backgroundColor: "var(--bg-card)",
+                    border: "1px solid var(--border)",
+                    color: "var(--text)",
+                  }}
                 >
                   <span>{nav.title}</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-neutral-500" />
+                  <ArrowRight className="w-3.5 h-3.5" style={{ color: "var(--text-subtle)" }} />
                 </Link>
               );
             })}
@@ -1297,9 +1365,11 @@ export function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white shadow-lg shadow-indigo-600/30 min-h-[48px]"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm shadow-lg min-h-[48px]"
                 style={{
-                  background: "linear-gradient(135deg, #6366f1, #818cf8)",
+                  background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
+                  color: "var(--on-accent)",
+                  boxShadow: "0 8px 24px -6px var(--border-glow)",
                 }}
               >
                 <span>Let&apos;s Talk</span>

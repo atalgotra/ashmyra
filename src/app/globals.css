@@ -21,6 +21,7 @@
 
   --accent:        #B8860B;
   --accent-light:  #D4AF37;
+  --on-accent:     #1A1510;
   --accent-cyan:   #C5A059;
   --accent-violet: #8C6D3B;
   --accent-emerald:#2E7D32;
@@ -64,6 +65,7 @@
 
   --accent:        #6366f1;
   --accent-light:  #818cf8;
+  --on-accent:     #FFFFFF;
   --accent-cyan:   #22d3ee;
   --accent-violet: #a78bfa;
   --accent-emerald:#10b981;
@@ -103,6 +105,7 @@
 
   --accent:        #C86D51;
   --accent-light:  #D98268;
+  --on-accent:     #FFFFFF;
   --accent-cyan:   #8D5B4C;
   --accent-violet: #B45309;
   --accent-emerald:#059669;
@@ -142,6 +145,7 @@
 
   --accent:        #2563EB;
   --accent-light:  #3B82F6;
+  --on-accent:     #FFFFFF;
   --accent-cyan:   #06B6D4;
   --accent-violet: #6366F1;
   --accent-emerald:#10B981;
@@ -292,6 +296,7 @@ body {
   /* 4. Translucent Pills & Badges */
   .bg-white\/\[0\.015\],
   .bg-white\/\[0\.02\],
+  .bg-white\/\[0\.025\],
   .bg-white\/\[0\.03\],
   .bg-white\/\[0\.04\],
   .bg-white\/\[0\.05\] {
@@ -306,9 +311,35 @@ body {
     border-color: var(--border) !important;
   }
 
-  /* 5. High-Contrast Typography */
-  .text-white {
+  /* 5. High-Contrast Typography (protect solid/gradient CTAs and dark chassis using exact class tokens) */
+  .text-white:not(:is(
+    .btn-always-white,
+    .btn-always-white *,
+    [class~="bg-indigo-600"],
+    [class~="bg-indigo-600"] *,
+    [class~="bg-indigo-500"],
+    [class~="bg-indigo-500"] *,
+    [class~="bg-teal-600"],
+    [class~="bg-teal-600"] *,
+    [class~="bg-rose-600"],
+    [class~="bg-rose-600"] *,
+    [class~="bg-emerald-600"],
+    [class~="bg-emerald-600"] *,
+    [class~="bg-blue-600"],
+    [class~="bg-blue-600"] *,
+    [class~="bg-amber-600"],
+    [class~="bg-amber-600"] *,
+    [class~="from-indigo-600"],
+    [class~="from-indigo-600"] *,
+    [class~="from-rose-600"],
+    [class~="from-rose-600"] *
+  )) {
     color: var(--text) !important;
+  }
+
+  .btn-always-white,
+  .btn-always-white * {
+    color: #FFFFFF !important;
   }
 
   .text-neutral-200,
@@ -321,6 +352,18 @@ body {
   .text-neutral-500 {
     color: var(--text-muted) !important;
   }
+
+  /* High-contrast light-theme remapping for pastel dark-mode badge text */
+  .text-indigo-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *)) { color: #4338CA !important; }
+  .text-cyan-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))   { color: #0E7490 !important; }
+  .text-sky-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))    { color: #0369A1 !important; }
+  .text-emerald-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *)){ color: #047857 !important; }
+  .text-amber-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))  { color: #B45309 !important; }
+  .text-rose-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))   { color: #BE123C !important; }
+  .text-violet-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *)) { color: #6D28D9 !important; }
+  .text-purple-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *)) { color: #7E22CE !important; }
+  .text-blue-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))   { color: #1D4ED8 !important; }
+  .text-teal-300:not(:is(.dark-media-chassis *, [data-dark-chassis="true"] *))   { color: #0F766E !important; }
 
   /* 5b. Cinema & Video Hardware Viewports Protection */
   /* Ensures media players, video showcases, and dark device frames retain crisp white text & dark chassis */

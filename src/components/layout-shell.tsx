@@ -24,7 +24,7 @@ export function LayoutShell({ children }: { children: React.ReactNode }) {
       {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white text-xs font-semibold rounded-lg shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 px-4 py-2 bg-indigo-600 text-white btn-always-white text-xs font-semibold rounded-lg shadow-lg"
       >
         Skip to main content
       </a>

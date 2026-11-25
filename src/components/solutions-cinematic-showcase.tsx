@@ -429,25 +429,25 @@ export function SolutionsCinematicShowcase() {
 
                   {/* Expected Quantified Benefit & CTA */}
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-2">
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-start sm:items-center gap-3 min-w-0">
                       <div
                         className={`px-3.5 py-1.5 rounded-xl border font-mono font-bold text-sm sm:text-base shrink-0 ${styles.statBg}`}
                       >
                         {sol.statHighlight.value}
                       </div>
-                      <div className="text-xs text-neutral-300 font-medium">
+                      <div className="text-xs text-neutral-300 font-medium min-w-0">
                         <span className="block text-white font-semibold">
                           {sol.statHighlight.label}
                         </span>
-                        <span className="text-neutral-400 text-[11px]">
-                          {sol.operationalBenefit.slice(0, 75)}...
+                        <span className="text-neutral-400 text-[11px] leading-snug block mt-0.5">
+                          {sol.operationalBenefit}
                         </span>
                       </div>
                     </div>
 
                     <Link
                       href={`/contact?solution=${sol.id}`}
-                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all shrink-0 hover:translate-x-0.5"
+                      className="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white btn-always-white font-semibold text-xs shadow-lg shadow-indigo-600/30 transition-all shrink-0 hover:translate-x-0.5 whitespace-nowrap"
                     >
                       <span>Architect {sol.title.split(" ")[0]} Stack</span>
                       <ArrowRight className="w-4 h-4" />

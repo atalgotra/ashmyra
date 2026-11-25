@@ -22,6 +22,18 @@ export function ThemeDiscoveryToast() {
       // Storage access may be restricted in private/iframe browsing
     }
 
+    // On shorter laptop viewports (< 780px), wait for slight scroll so Hero CTAs stay unobstructed
+    if (typeof window !== "undefined" && window.innerHeight < 780) {
+      const onScroll = () => {
+        if (window.scrollY > 80) {
+          setIsVisible(true);
+          window.removeEventListener("scroll", onScroll);
+        }
+      };
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }
+
     // Delay appearance by 1.4s so the main hero canvas settles first
     const timer = setTimeout(() => {
       setIsVisible(true);
@@ -91,80 +103,35 @@ export function ThemeDiscoveryToast() {
 
   return (
     <aside
-      ref={toastRef}
       role="dialog"
       aria-label="Theme Customization Feature Discovery"
       aria-live="polite"
-      className="fixed bottom-5 right-4 sm:right-6 z-50 w-[calc(100vw-32px)] sm:w-[410px] select-none"
+      className="fixed bottom-3 inset-x-3 md:inset-x-auto md:bottom-3.5 md:left-1/2 md:-translate-x-1/2 z-40 flex justify-center pointer-events-none select-none"
     >
       <div
-        className="relative rounded-3xl p-5 sm:p-6 shadow-2xl backdrop-blur-2xl transition-all duration-300"
+        ref={toastRef}
+        className="pointer-events-auto relative max-w-full rounded-full px-3 py-1.5 sm:px-4 sm:py-2 shadow-2xl backdrop-blur-2xl transition-colors duration-300 flex items-center justify-center gap-2 sm:gap-3"
         style={{
           backgroundColor: "var(--bg-card)",
           color: "var(--text)",
           border: "1px solid var(--border-strong)",
           boxShadow:
-            "0 24px 65px -15px rgba(0, 0, 0, 0.28), 0 0 40px -10px var(--border-glow)",
+            "0 16px 40px -12px rgba(0, 0, 0, 0.25), 0 0 24px -8px var(--border-glow)",
         }}
       >
-        {/* Top Glowing Laser Hairline */}
-        <div
-          className="absolute top-0 inset-x-8 h-[2px] rounded-full opacity-80 pointer-events-none"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, var(--accent), var(--accent-light), transparent)",
-          }}
-        />
-
-        {/* Ambient Corner Glow */}
-        <div
-          className="absolute -top-12 -right-12 w-40 h-40 rounded-full blur-3xl opacity-25 pointer-events-none"
-          style={{ background: "var(--accent)" }}
-        />
-
-        {/* Header Row: Badge & Dismiss Icon */}
-        <div className="flex items-center justify-between gap-3 mb-3">
-          <div
-            className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold"
-            style={{
-              backgroundColor: "var(--theme-pill-bg)",
-              border: "1px solid var(--theme-pill-border)",
-              color: "var(--accent)",
-            }}
+        {/* Label */}
+        <div className="flex items-center gap-1.5 shrink-0 pl-1">
+          <Sparkles className="w-3.5 h-3.5 shrink-0" style={{ color: "var(--accent)" }} />
+          <span
+            className="text-[10.5px] font-mono font-bold uppercase tracking-wider whitespace-nowrap"
+            style={{ color: "var(--text)" }}
           >
-            <Sparkles className="w-3 h-3 animate-pulse" />
-            <span>Interactive Experience</span>
-          </div>
-
-          <button
-            onClick={handleDismiss}
-            aria-label="Close feature discovery notification"
-            className="p-1 rounded-lg text-neutral-400 hover:text-white transition-colors focus:outline-none focus:ring-1 focus:ring-indigo-500/50"
-            style={{ color: "var(--text-muted)" }}
-          >
-            <X className="w-4 h-4" />
-          </button>
+            Theme
+          </span>
         </div>
 
-        {/* Headline & Body Text */}
-        <h3
-          className="text-base sm:text-lg font-bold tracking-tight mb-1"
-          style={{
-            fontFamily: "'Space Grotesk', sans-serif",
-            color: "var(--text)",
-          }}
-        >
-          Tailor Your Visual Atmosphere
-        </h3>
-        <p
-          className="text-xs sm:text-[13px] leading-relaxed mb-4"
-          style={{ color: "var(--text-muted)" }}
-        >
-          Ashmyra is engineered with a live aesthetic engine. Tap any palette below to transform the entire website instantly:
-        </p>
-
-        {/* 4 Live Theme Swatches (2x2 Grid) */}
-        <div className="grid grid-cols-2 gap-2 mb-4">
+        {/* 4 Live Theme Chips (Single ultra-compact row) */}
+        <div className="flex items-center gap-1.5 overflow-x-auto">
           {THEMES.map((t) => {
             const isSelected = t.id === theme;
 
@@ -173,7 +140,8 @@ export function ThemeDiscoveryToast() {
                 key={t.id}
                 type="button"
                 onClick={() => handleSelectTheme(t.id)}
-                className="group relative flex items-center gap-2.5 p-2.5 rounded-xl border text-left transition-all duration-200 hover:scale-[1.02] active:scale-[0.98]"
+                title={`${t.name} (${t.badge})`}
+                className="group relative flex items-center gap-1.5 px-2 py-1 sm:px-2.5 sm:py-1 rounded-full border text-left transition-all duration-200 hover:scale-[1.03] active:scale-[0.97] shrink-0"
                 style={{
                   backgroundColor: isSelected
                     ? "var(--theme-pill-bg)"
@@ -181,42 +149,20 @@ export function ThemeDiscoveryToast() {
                   borderColor: isSelected
                     ? "var(--accent)"
                     : "var(--border)",
-                  boxShadow: isSelected
-                    ? "0 0 16px -2px var(--border-glow)"
-                    : "none",
                 }}
               >
-                {/* Theme Color Indicator Swatch */}
-                <div
-                  className="w-6 h-6 rounded-lg flex items-center justify-center shrink-0 text-xs shadow-sm"
+                <span className="text-xs leading-none shrink-0">{t.icon}</span>
+                <span
+                  className="hidden md:inline text-[11px] font-semibold whitespace-nowrap leading-none"
                   style={{
-                    backgroundColor: t.bgColor,
-                    border: `1px solid ${t.accentColor}55`,
+                    color: isSelected ? "var(--accent)" : "var(--text)",
                   }}
                 >
-                  <span>{t.icon}</span>
-                </div>
-
-                <div className="min-w-0 flex-1">
-                  <div
-                    className="text-[12px] font-semibold truncate leading-tight"
-                    style={{
-                      color: isSelected ? "var(--accent)" : "var(--text)",
-                    }}
-                  >
-                    {t.name}
-                  </div>
-                  <div
-                    className="text-[9.5px] font-mono truncate"
-                    style={{ color: "var(--text-muted)" }}
-                  >
-                    {t.badge}
-                  </div>
-                </div>
-
+                  {t.name}
+                </span>
                 {isSelected && (
                   <Check
-                    className="w-3.5 h-3.5 shrink-0"
+                    className="hidden sm:inline w-3 h-3 shrink-0"
                     style={{ color: "var(--accent)" }}
                   />
                 )}
@@ -225,32 +171,14 @@ export function ThemeDiscoveryToast() {
           })}
         </div>
 
-        {/* Micro-hint & Footer Actions */}
-        <div
-          className="pt-3 flex items-center justify-between gap-3 border-t text-[11px]"
-          style={{ borderColor: "var(--border)" }}
+        <button
+          onClick={handleDismiss}
+          aria-label="Close theme switcher bar"
+          className="p-1 rounded-full transition-colors hover:opacity-80 shrink-0"
+          style={{ color: "var(--text-muted)" }}
         >
-          <span
-            className="flex items-center gap-1.5 font-mono text-[10.5px] truncate"
-            style={{ color: "var(--text-muted)" }}
-          >
-            <Palette className="w-3 h-3 shrink-0" style={{ color: "var(--accent)" }} />
-            <span>Switch anytime in navbar</span>
-          </span>
-
-          <button
-            type="button"
-            onClick={handleDismiss}
-            className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all hover:scale-[1.03] active:scale-[0.97] shrink-0 shadow-sm"
-            style={{
-              background: "linear-gradient(135deg, var(--accent), var(--accent-light))",
-              color: "#FFFFFF",
-            }}
-          >
-            <span>{hasInteracted ? "Apply & Continue" : "Got It"}</span>
-            <ArrowRight className="w-3 h-3" />
-          </button>
-        </div>
+          <X className="w-3.5 h-3.5" />
+        </button>
       </div>
     </aside>
   );

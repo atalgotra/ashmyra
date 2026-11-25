@@ -334,8 +334,10 @@ export function FinalCtaPhase7() {
                 <form onSubmit={handleSubmit} className="space-y-5">
                   {/* Anti-bot honeypot */}
                   <input
+                    id="cta-honeypot"
                     type="text"
                     name="honeypot"
+                    aria-hidden="true"
                     value={formData.honeypot}
                     onChange={(e) =>
                       setFormData({ ...formData, honeypot: e.target.value })
@@ -353,19 +355,22 @@ export function FinalCtaPhase7() {
 
                   {/* Interactive Architecture Scope Selection */}
                   <div>
-                    <label
+                    <span
+                      id="cta-scope-label"
                       className="block text-[11px] font-mono uppercase tracking-wider mb-2.5 font-semibold"
                       style={{ color: "var(--text)" }}
                     >
                       System Architecture Scope *
-                    </label>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    </span>
+                    <div role="radiogroup" aria-labelledby="cta-scope-label" className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                       {PROJECT_TYPES.map((pt) => {
                         const active = formData.requirement === pt.id;
                         return (
                           <button
                             key={pt.id}
                             type="button"
+                            role="radio"
+                            aria-checked={active}
                             onClick={() =>
                               setFormData({ ...formData, requirement: pt.id })
                             }
@@ -389,14 +394,18 @@ export function FinalCtaPhase7() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label
+                        htmlFor="cta-name"
                         className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
                         style={{ color: "var(--text)" }}
                       >
                         Your Name *
                       </label>
                       <input
+                        id="cta-name"
+                        name="name"
                         type="text"
                         required
+                        autoComplete="name"
                         value={formData.name}
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
@@ -413,14 +422,18 @@ export function FinalCtaPhase7() {
 
                     <div>
                       <label
+                        htmlFor="cta-email"
                         className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
                         style={{ color: "var(--text)" }}
                       >
                         Business Email *
                       </label>
                       <input
+                        id="cta-email"
+                        name="email"
                         type="email"
                         required
+                        autoComplete="email"
                         value={formData.email}
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
@@ -439,13 +452,17 @@ export function FinalCtaPhase7() {
                   {/* Row 2: Company */}
                   <div>
                     <label
+                      htmlFor="cta-company"
                       className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
                       style={{ color: "var(--text)" }}
                     >
                       Company / Organization Name
                     </label>
                     <input
+                      id="cta-company"
+                      name="company"
                       type="text"
+                      autoComplete="organization"
                       value={formData.company}
                       onChange={(e) =>
                         setFormData({ ...formData, company: e.target.value })
@@ -463,12 +480,15 @@ export function FinalCtaPhase7() {
                   {/* Row 3: Project Description / Technical Brief */}
                   <div>
                     <label
+                      htmlFor="cta-message"
                       className="block text-[11px] font-mono uppercase tracking-wider mb-1.5 font-semibold"
                       style={{ color: "var(--text)" }}
                     >
                       Technical Problem / System Requirements *
                     </label>
                     <textarea
+                      id="cta-message"
+                      name="message"
                       required
                       rows={4}
                       value={formData.message}
@@ -489,10 +509,11 @@ export function FinalCtaPhase7() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 rounded-xl font-semibold text-sm sm:text-base text-white flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] disabled:opacity-60 shadow-xl group/cta"
+                    className="w-full py-4 rounded-xl font-semibold text-sm sm:text-base flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-[1.015] active:scale-[0.985] disabled:opacity-60 shadow-xl group/cta"
                     style={{
                       background:
                         "linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%)",
+                      color: "var(--on-accent)",
                       boxShadow:
                         "0 0 0 1px var(--border-glow), 0 12px 30px -6px var(--border-glow)",
                     }}

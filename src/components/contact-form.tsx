@@ -156,13 +156,16 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Name */}
           <div>
-            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-name" className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
               <User className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Full Name <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
             </label>
             <input
+              id="contact-name"
+              name="name"
               type="text"
               required
+              autoComplete="name"
               placeholder="e.g. Alex Mercer"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -173,12 +176,15 @@ export function ContactForm() {
 
           {/* Company */}
           <div>
-            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-company" className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
               <Building2 className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Company Name
             </label>
             <input
+              id="contact-company"
+              name="company"
               type="text"
+              autoComplete="organization"
               placeholder="e.g. Acme Technologies"
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -191,13 +197,16 @@ export function ContactForm() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Work Email */}
           <div>
-            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-email" className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
               <Mail className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Work Email <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
             </label>
             <input
+              id="contact-email"
+              name="email"
               type="email"
               required
+              autoComplete="email"
               placeholder="alex@company.com"
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -208,12 +217,15 @@ export function ContactForm() {
 
           {/* Phone */}
           <div>
-            <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-phone" className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
               <Phone className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
               Phone / WhatsApp
             </label>
             <input
+              id="contact-phone"
+              name="phone"
               type="tel"
+              autoComplete="tel"
               placeholder="+1 (555) 000-0000"
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -226,10 +238,12 @@ export function ContactForm() {
         {/* Company Size & Requirement Dropdown */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-company-size" className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Company Size
             </label>
             <select
+              id="contact-company-size"
+              name="companySize"
               value={formData.companySize}
               onChange={(e) => setFormData({ ...formData, companySize: e.target.value })}
               className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
@@ -244,10 +258,12 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-requirement" className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Primary Focus Area
             </label>
             <select
+              id="contact-requirement"
+              name="requirement"
               value={formData.requirement}
               onChange={(e) => setFormData({ ...formData, requirement: e.target.value })}
               className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
@@ -268,10 +284,12 @@ export function ContactForm() {
         {/* Budget & Timeline */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-budget" className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Anticipated Investment Range
             </label>
             <select
+              id="contact-budget"
+              name="budgetRange"
               value={formData.budgetRange}
               onChange={(e) => setFormData({ ...formData, budgetRange: e.target.value })}
               className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
@@ -286,10 +304,12 @@ export function ContactForm() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
+            <label htmlFor="contact-timeline" className="block text-xs font-semibold mb-1.5" style={{ color: "var(--text)" }}>
               Desired Timeline
             </label>
             <select
+              id="contact-timeline"
+              name="timeline"
               value={formData.timeline}
               onChange={(e) => setFormData({ ...formData, timeline: e.target.value })}
               className="w-full rounded-xl px-3.5 py-2.5 text-sm focus:outline-none transition-colors"
@@ -305,11 +325,13 @@ export function ContactForm() {
 
         {/* Message */}
         <div>
-          <label className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
+          <label htmlFor="contact-message" className="block text-xs font-semibold mb-1.5 flex items-center gap-1.5" style={{ color: "var(--text)" }}>
             <MessageSquare className="w-3.5 h-3.5" style={{ color: "var(--text-muted)" }} />
             Project Objectives &amp; Requirements <span style={{ color: "var(--accent, #4f46e5)" }}>*</span>
           </label>
           <textarea
+            id="contact-message"
+            name="message"
             required
             rows={4}
             placeholder="Tell us what you are looking to build or automate, current bottlenecks, or specific systems to connect..."
@@ -325,8 +347,8 @@ export function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold text-white px-8 py-3.5 rounded-xl shadow-xl transition-all hover:scale-[1.01]"
-            style={{ backgroundColor: "var(--accent, #4f46e5)" }}
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 text-sm font-semibold px-8 py-3.5 rounded-xl shadow-xl transition-all hover:scale-[1.01]"
+            style={{ backgroundColor: "var(--accent, #4f46e5)", color: "var(--on-accent)" }}
           >
             <span>{isSubmitting ? "Transmitting Requirements..." : "Start a Conversation"}</span>
             <ArrowRight className="w-4 h-4" />

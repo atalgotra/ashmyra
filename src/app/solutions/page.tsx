@@ -36,7 +36,7 @@ export default function SolutionsPage() {
       <section
         aria-label="Solutions Hero"
         data-dark-chassis="true"
-        className="relative w-full min-h-[720px] sm:min-h-[800px] lg:min-h-[860px] flex flex-col justify-center items-center pt-32 pb-44 sm:pt-40 sm:pb-56 text-center overflow-hidden transition-colors duration-300"
+        className="relative w-full min-h-[680px] sm:min-h-[760px] lg:min-h-[820px] flex flex-col justify-center items-center pt-28 sm:pt-36 lg:pt-40 pb-36 sm:pb-48 text-center overflow-hidden transition-colors duration-300"
         style={{ background: "#05070e" }}
       >
         {/* Full-bleed 3D Holographic Architecture Backdrop Image */}
@@ -55,15 +55,15 @@ export default function SolutionsPage() {
             className="absolute inset-0 pointer-events-none"
             style={{
               background:
-                "radial-gradient(ellipse 75% 70% at 50% 48%, rgba(5, 7, 14, 0.6) 0%, rgba(5, 7, 14, 0.85) 100%)",
+                "radial-gradient(ellipse 75% 70% at 50% 48%, rgba(5, 7, 14, 0.55) 0%, rgba(5, 7, 14, 0.85) 100%)",
             }}
           />
-          {/* Smooth non-linear bottom edge blend into the page canvas */}
+          {/* Clean bottom edge fade into the active page canvas */}
           <div
-            className="absolute inset-x-0 bottom-0 h-72 sm:h-96 pointer-events-none"
+            className="absolute inset-x-0 bottom-0 h-44 sm:h-56 pointer-events-none"
             style={{
               background:
-                "linear-gradient(to bottom in oklab, transparent 0%, color-mix(in oklab, var(--bg) 4%, transparent) 20%, color-mix(in oklab, var(--bg) 16%, transparent) 40%, color-mix(in oklab, var(--bg) 42%, transparent) 65%, color-mix(in oklab, var(--bg) 75%, transparent) 85%, var(--bg) 100%)",
+                "linear-gradient(to bottom, transparent 0%, var(--bg) 100%)",
             }}
           />
         </div>
